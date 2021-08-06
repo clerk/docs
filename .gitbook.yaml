@@ -1,2 +1,15 @@
 redirects:
+  backend/backend-api-reference: reference/backend-api-reference/README.md
+  backend/backend-api-reference/users: ./reference/backend-api-reference/users.md
+  backend/introduction: ./reference/backend-api-reference/README.md
+  backend/node/authentication: ./reference/backend-api-reference/sdks/node/getting-started.md
+  backend/ruby/getting-started: ./reference/backend-api-reference/sdks/ruby/getting-started.md
+  frontend/frontend-api-reference: ./reference/frontend-api-reference/README.md
+  frontend/integrations/firebase: ./integrations/firebase.md
+  frontend/integrations/hasura: ./integrations/hasura.md
+  frontend/react/making-backend-requests: ./reference/clerk-react/making-backend-requests.md
+  frontend/react/signedin-and-signedout: ./reference/clerk-react/signedin-and-signedout.md
   frontend/react/useuser-hook: ./reference/clerk-react/useuser-hook.md
+  get-started/quickstarts: ./README.md
+  get-started/quickstarts/create-react-app: ./get-started/create-react-app.md
+  get-started/quickstarts/nextjs: ./get-started/nextjs.md
