@@ -153,7 +153,7 @@ The following example shows you how to compose our flexible Control Components t
 {% code title="pages/\_app.tsx" %}
 ```jsx
 import '../styles/globals.css';
-import { ClerkProvider } from '@clerk/clerk-react';
+import { ClerkProvider, SignedIn, SignedUp, RedirectToSignIn } from '@clerk/clerk-react';
 import { useRouter } from 'next/router';
 
 const frontendApi = process.env.NEXT_PUBLIC_CLERK_FRONTEND_API;
