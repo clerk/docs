@@ -13,7 +13,7 @@ To make the development flow as smooth as possible, Clerk uses preconfigured sha
 For production instances, you will need to generate your own Client ID and Client secret using your Github account.
 
 {% hint style="info" %}
-The purpose of this guide is to help you setup a Google developer account and a Google OAuth2.0 project - if you're looking for step-by-step instructions using Clerk to add social login \(OAuth\) to your application, follow the [Social login \(OAuth\)](../../popular-guides/social-login-oauth.md) guide.
+The purpose of this guide is to help you create a Github account and a Github OAuth app - if you're looking for step-by-step instructions using Clerk to add social login \(OAuth\) to your application, follow the [Social login \(OAuth\)](../../popular-guides/social-login-oauth.md) guide.
 {% endhint %}
 
 ## Before you start
