@@ -125,7 +125,7 @@
   * [Facebook](reference/social-login-reference/social-login-facebook.md)
   * [Github](reference/social-login-reference/github.md)
   * [Hubspot](reference/social-login-reference/hubspot.md)
-  * [Tiktok](reference/social-login-reference/tiktok.md)
+  * [TikTok](reference/social-login-reference/tiktok.md)
 
 ## Learning Center
 
