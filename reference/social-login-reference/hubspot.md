@@ -2,7 +2,7 @@
 description: How to setup social login with HubSpot
 ---
 
-# Hubspot
+# HubSpot
 
 ## Overview
 

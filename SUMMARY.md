@@ -121,10 +121,10 @@
 * [Errors](reference/errors.md)
 * [Webhooks](reference/webhooks.md)
 * [Social login](reference/social-login-reference/README.md)
-  * [Google](reference/social-login-reference/social-login-google.md)
   * [Facebook](reference/social-login-reference/social-login-facebook.md)
+  * [Google](reference/social-login-reference/social-login-google.md)
   * [Github](reference/social-login-reference/github.md)
-  * [Hubspot](reference/social-login-reference/hubspot.md)
+  * [HubSpot](reference/social-login-reference/hubspot.md)
   * [TikTok](reference/social-login-reference/tiktok.md)
 
 ## Learning Center
