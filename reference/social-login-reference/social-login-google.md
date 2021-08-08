@@ -23,11 +23,11 @@ The purpose of this guide is to help you setup a Google developer account and a 
 
 ## Configuring Google social login
 
-![Creating an OAuth client ID in Google Cloud console.](../../.gitbook/assets/screely-1628371792291.png)
-
 First, you need to create a new Google project and enable OAuth2.0 support. Follow the official Google instructions on [how to setup up an OAuth 2.0 application](https://support.google.com/cloud/answer/6158849?hl=en).
 
-Once you have a OAuth client ID ****created, click on the newly created ID under **OAuth 2.0 Client IDs** and copy the Client Id and Client Secret. 
+![Creating an OAuth client ID in Google Cloud console.](../../.gitbook/assets/screely-1628371792291.png)
+
+Once you have a OAuth client ID ****created, click on the newly created ID under **OAuth 2.0 Client IDs**. Copy the Client Id and Client Secret. 
 
 ![Copying the Client ID and Client Secret](../../.gitbook/assets/screely-1628372330828.png)
 
