@@ -4,13 +4,13 @@ User requests are responsible for handling any actions on the current user, and 
 
 ## Requests summary
 
-### Current user
+### [Current user requests](user.md)
 
 * **`GET`**  `/v1/me`
 * **`PATCH`**`/v1/me`
 * **`DEL`**  `/v1/me`
 
-### Email addresses
+### [Email addresses requests](email-addresses.md)
 
 * **`GET`** `/v1/me/email_addresses`
 * **`POST`**`/v1/me/email_addresses`
@@ -19,7 +19,7 @@ User requests are responsible for handling any actions on the current user, and 
 * **`POST`**`/v1/me/email_addresses/:id/verify`
 * **`DEL`** `/v1/me/email_addresses/:id`
 
-### Phone numbers
+### [Phone numbers requests](phone-numbers.md)
 
 * **`GET`**  `/v1/me/phone_numbers`
 * **`POST`** `/v1/me/phone_numbers`
@@ -29,17 +29,17 @@ User requests are responsible for handling any actions on the current user, and 
 * **`POST`** `/v1/me/phone_numbers/:id/verify`
 * **`DEL`**  `/v1/me/sessions/:id`
 
-### Profile image
+### [Profile image requests](profile-image.md)
 
 * **`POST`**`/v1/me/profile_image`
 
-### Sessions
+### [Sessions requests](sessions.md)
 
 * **`GET`** `/v1/me/sessions`
 * **`GET`** `/v1/me/sessions/active`
 * **`POST`**`/v1/me/sessions/:id/revoke`
 
-### Tokens
+### [Tokens requests](tokens.md)
 
 * **`POST`**`/v1/me/tokens`
 

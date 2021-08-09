@@ -26,7 +26,7 @@ Create a short-lived JSON Web Token \(JWT\) structured to be compatible for the 
 {% api-method-request %}
 {% api-method-form-data-parameters %}
 {% api-method-parameter name="service" type="string" required=false %}
-\`clerk\`, \`firebase\`, \`hasura\`, \`upvoty\`
+\`clerk\`, \`firebase\`, \`hasura\`
 {% endapi-method-parameter %}
 {% endapi-method-form-data-parameters %}
 {% endapi-method-request %}
