@@ -135,6 +135,24 @@ This method returns a `Promise` which resolves with an `EmailAddress` object.
 {% endtab %}
 {% endtabs %}
 
+### toString\(\)
+
+`toString() => string | null`
+
+Returns the value for this email address. Can also be accessed via the [EmailAddress.emailAddress](emailaddress.md#attributes) attribute.
+
+{% tabs %}
+{% tab title="Parameters" %}
+This method accepts no parameters.
+{% endtab %}
+
+{% tab title="Returns" %}
+_string \| null_
+
+This method returns the email address attribute.
+{% endtab %}
+{% endtabs %}
+
 ## Interfaces
 
 ### IdentificationLinkResource
