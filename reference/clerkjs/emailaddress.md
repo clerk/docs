@@ -6,6 +6,12 @@ description: The EmailAddress object describes a User's email address
 
 ## Overview
 
+The `EmailAddress` object is a model around an email address. Email addresses are used to provide identification for users. 
+
+Email addresses can be verified, as an extra security check. The `EmailAddress` object holds all necessary state around the verification process.
+
+Finally, email addresses can be linked to other identifications.
+
 ## Attributes
 
 <table>
@@ -43,7 +49,8 @@ description: The EmailAddress object describes a User's email address
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">linkedTo</td>
+      <td style="text-align:left"><b>linkedTo</b>
+      </td>
       <td style="text-align:left">
         <p>&lt;em&gt;&lt;/em&gt;<a href="emailaddress.md#identificationlinkresource"><em>IndentificationLinkResource</em></a>&lt;em&gt;&lt;/em&gt;</p>
         <p>An object containing information about any identifications that might
