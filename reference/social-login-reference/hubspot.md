@@ -37,5 +37,5 @@ Don't forget to click **Apply** in the Clerk dashboard. Social login with TikTok
 
 ## Next Steps
 
-* Learn how to add social login with HubSpot to your Clerk application by following the [Social login \(OAuth\)](../../popular-guides/social-login-oauth.md) guide.
+Learn how to add social login with HubSpot to your Clerk application by following the [Social login \(OAuth\)](../../popular-guides/social-login-oauth.md) guide.
 

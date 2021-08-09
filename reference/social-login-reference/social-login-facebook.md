@@ -45,5 +45,5 @@ Don't forget to click **Apply** in the Clerk dashboard. Social login with Facebo
 
 ## Next Steps
 
-* Learn how to add social login with Facebook to your Clerk application by following the [Social login \(OAuth\)](../../popular-guides/social-login-oauth.md) guide.
+Learn how to add social login with Facebook to your Clerk application by following the [Social login \(OAuth\)](../../popular-guides/social-login-oauth.md) guide.
 
