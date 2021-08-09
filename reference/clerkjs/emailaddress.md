@@ -1,5 +1,5 @@
 ---
-description: The EmailAddress object describes a User's email address
+description: The EmailAddress object describes a User's email address.
 ---
 
 # EmailAddress
@@ -8,7 +8,9 @@ description: The EmailAddress object describes a User's email address
 
 The `EmailAddress` object is a model around an email address. Email addresses are used to provide identification for users. 
 
-Email addresses can be verified, as an extra security check. The `EmailAddress` object holds all necessary state around the verification process.
+Email addresses must be verified, so that we can make sure they can be assigned to their rightful owners. The `EmailAddress` object holds all necessary state around the verification process. 
+
+The verification process always starts with the [EmailAddress.prepareVerification\(\)](emailaddress.md#prepareverification) method, which will send a one-time verification code via an email message. The second and final step involves an attempt to complete the verification by calling the [EmailAddress.attemptVerification\(\)](emailaddress.md#attemptverification-code) method, passing the one-time code as a parameter.
 
 Finally, email addresses can be linked to other identifications.
 

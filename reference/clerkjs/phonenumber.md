@@ -1,5 +1,5 @@
 ---
-description: The PhoneNumber object describes a User's phone number
+description: The PhoneNumber object describes a User's phone number.
 ---
 
 # PhoneNumber
@@ -8,7 +8,9 @@ description: The PhoneNumber object describes a User's phone number
 
 The `PhoneNumber` object describes a phone number. Phone numbers can be used as a proof of identification for users, or simply as a means of contacting users.
 
-Phone numbers can be verified, as an extra security check. The `PhoneNumber` object holds all the necessary state around the verification process.
+Phone numbers must be verified, so that we can make sure they can be assigned to their rightful owners. The `PhoneNumber` object holds all the necessary state around the verification process.
+
+The verification process always starts with the [PhoneNumber.prepareVerification\(\)](phonenumber.md#prepareverification) method, which will send a one-time verification code via an SMS message. The second and final step involves an attempt to complete the verification by calling the [PhoneNumber.attemptVerification\(\)](phonenumber.md#attemptverification-code) method, passing the one-time code as a parameter.
 
 Finally, phone numbers are used as part of [multi-factor authentication](../../popular-guides/multi-factor-authentication.md). Users receive an SMS message with a one-time code that they need to provide as an extra verification step.
 
