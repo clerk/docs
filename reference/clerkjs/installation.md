@@ -69,7 +69,7 @@ Add the following script in your site's `<body>` element.
   script.src = `https://${frontendApi}/npm/@clerk/clerk-js@${clerkJSVersion}/dist/clerk.browser.js`
   // Add a listener so you can initialize ClerkJS
   // once it's loaded.
-  script.addEventListener('load', function(){
+  script.addEventListener('load', async function(){
     await window.Clerk.load({
       // Set load options here...
     });
