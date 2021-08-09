@@ -169,6 +169,36 @@ Initializes the `Clerk` object and loads all necessary environment configuration
 
 It is absolutely necessary to call this method before using the `Clerk` object in your code. Refer to the [ClerkJS installation](installation.md#setting-up-clerkjs) guide for more details.
 
+{% tabs %}
+{% tab title="Parameters" %}
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><b>options</b>
+      </td>
+      <td style="text-align:left">
+        <p>&lt;em&gt;&lt;/em&gt;<a href="clerk.md#componentoptions"><em>ComponentOptions</em></a>&lt;em&gt;&lt;/em&gt;</p>
+        <p>Configuration and options for initializing the <code>Clerk</code> object
+          and <a href="../../main-concepts/clerk-components.md">Clerk Components</a>.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{% endtab %}
+
+{% tab title="Returns" %}
+_Promise&lt;void&gt;_
+
+This method returns a `Promise` which doesn't resolve to any value.
+{% endtab %}
+{% endtabs %}
+
 ### mountSignIn\(node, nodeProps?\)
 
 `mountSignIn(node: HTMLDivElement, nodeProps?: SignInProps) => void`
@@ -762,6 +792,40 @@ This method has no return value.
 {% endtabs %}
 
 ## Interfaces
+
+### ComponentOptions
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Property</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><b>selectInitialSession?</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>(client: </em><a href="client.md"><em>ClientResource</em></a><em>) =&gt; </em>
+          <a
+          href="session.md"><em>SessionResource</em>
+            </a><em> | undefined</em>
+        </p>
+        <p>This function can be used to set the initial session in <a href="../../popular-guides/popular-guides-multi-session-applications.md">multi-session applications</a>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>navigate?</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>(to: string) =&gt; Promise&lt;unknown&gt; | unknown</em>
+        </p>
+        <p>Provide an implementation for the <a href="clerk.md#navigate-to">Clerk.navigate</a> method.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ### SignInProps
 

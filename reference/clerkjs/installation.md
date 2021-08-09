@@ -39,7 +39,7 @@ import Clerk from "@clerk/clerk-js";
 
 const clerkFrontendApi = "clerk.[your-domain].com";
 const clerk = new Clerk(clerkFrontendApi);
-clerk.load({
+await clerk.load({
   // Set load options here...
 });
 ```
@@ -70,7 +70,7 @@ Add the following script in your site's `<body>` element.
   // Add a listener so you can initialize ClerkJS
   // once it's loaded.
   script.addEventListener('load', function(){
-    window.Clerk.load({
+    await window.Clerk.load({
       // Set load options here...
     });
   });
