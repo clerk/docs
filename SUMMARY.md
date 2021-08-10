@@ -118,7 +118,6 @@
     * [Allowlist Identifiers](reference/backend-api-reference/beta-features/allowlist-identifiers.md)
     * [Instance Settings](reference/backend-api-reference/beta-features/instance-settings.md)
     * [OAuth Token Wallet](reference/backend-api-reference/beta-features/oauth-token-wallet.md)
-* [Errors](reference/errors.md)
 * [Webhooks](reference/webhooks.md)
 * [Social login](reference/social-login-reference/README.md)
   * [Facebook](reference/social-login-reference/social-login-facebook.md)

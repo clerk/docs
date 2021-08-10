@@ -615,7 +615,7 @@ This method returns a `Promise` which doesn't resolve to any value.
       <td style="text-align:left"><b>error</b>
       </td>
       <td style="text-align:left">
-        <p><a href="../errors.md#clerkapierror"><em>ClerkAPIError</em></a><em> | null</em>
+        <p><a href><em>ClerkAPIError</em></a><em> | null</em>
         </p>
         <p>Any error that occurred during the verification process from the <a href="../frontend-api-reference/">Clerk API</a>.</p>
       </td>
