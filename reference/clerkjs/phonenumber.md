@@ -145,15 +145,34 @@ This method returns a `Promise` which resolves with a `PhoneNumber` object.
 {% endtab %}
 {% endtabs %}
 
-### setReservedForSecondFactor\(\)
+### setReservedForSecondFactor\(reserved\)
 
-`setReservedForSecondFactor() => Promise<PhoneNumberResource>`
+`setReservedForSecondFactor(reserved: boolean) => Promise<PhoneNumberResource>`
 
-Marks this phone number as reserved for [mutli-factor authentication](../../popular-guides/multi-factor-authentication.md) \(2FA\).
+Marks this phone number as reserved for [mutli-factor authentication](../../popular-guides/multi-factor-authentication.md) \(2FA\) or not.
 
 {% tabs %}
 {% tab title="Parameters" %}
-This method accepts no parameters.
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><b>reserved</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>boolean</em>
+        </p>
+        <p>Pass <b>true</b> to mark this phone number as reserved for 2FA, or <b>false</b> to
+          disable 2FA for this phone number.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 {% endtab %}
 
 {% tab title="Returns" %}
