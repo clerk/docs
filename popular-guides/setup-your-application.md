@@ -122,5 +122,9 @@ At the moment, we support the following personal information:
 
 ## Theme
 
+_Coming  soon..._
+
 ## URL & redirects
+
+_Coming soon..._
 
