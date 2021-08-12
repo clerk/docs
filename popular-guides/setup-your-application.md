@@ -17,10 +17,14 @@ An application is comprised of different instances. In particular, once the appl
 
 * **Development**: This is the instance you can use to develop your application. Please note that, for security reasons, you must not use your development instance in production.
 * **Staging** \(_only for Vercel setup_\): _coming soon..._
-* **Production**: This is the instance used in production. For more information on how to set up production instances, please follow our [Deploy to production](production-setup.md) guide.
+* **Production**: This is the instance that will be used by your application and will accept live traffic. For more information on how to set up production instances, please follow our [Deploy to production](production-setup.md) guide.
 
 {% hint style="info" %}
 The application instances are completely independent of each other. If you make changes in your development instance, these changes do **not** automatically propagate to the rest of the application instances.
+{% endhint %}
+
+{% hint style="danger" %}
+For security reasons, **only production instances** **should be used for live traffic**. Development and staging instances should only be used for development purposes.
 {% endhint %}
 
 Now that we have an application, let's continue by configuring our development instance. In the rest of this guide we'll talk about:
@@ -112,7 +116,7 @@ In addition to enabling 2-factor authentication in your instance, each user will
 
 In this section you can define what personal information must be collected from a user. 
 
-Whatever you select here will affect the resulted [sign up flow](../main-concepts/sign-up-flow.md) since the user will need to supply this additional information. It will also affect the [user's profile](../components/user-profile.md), as there will be fields through which the user will be able to modify this information.
+Whatever you select here will affect the resulted [sign up flow](../main-concepts/sign-up-flow.md) since the user will need to supply this additional information. Every field you select here will be editable through the [user's profile](../components/user-profile.md).
 
 For each of the selected personal information you can choose whether it's required or optional. If something is required, then the user must supply it during the sign up flow, and cannot be emptied afterwards.
 
