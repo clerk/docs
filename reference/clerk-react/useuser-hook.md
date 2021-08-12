@@ -21,10 +21,16 @@ Make sure you've followed the installation guide for [Clerk React](installation.
 A basic example that showcases the `useUser` hook in action is a greeting component that greets the signed in user by their first name. Note that your component must be a descendant of the [&lt;SignedIn/&gt;](../../components/control-components/signed-in.md) component, which in turn needs to be wrapped inside the [&lt;ClerkProvider/&gt;](clerkprovider.md).
 
 ```jsx
-import { useUser } from "@clerk/clerk-react";
+import { SignedIn, useUser } from "@clerk/clerk-react";
 
-// Your component must be a descendant
-// of the <SignedIn /> component.
+function App() {
+  return (
+    <SignedIn>
+      <Greeting />
+    </SignedIn>
+  );
+}
+
 function Greeting() {
   const user = useUser();
   

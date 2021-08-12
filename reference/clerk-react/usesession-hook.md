@@ -21,10 +21,16 @@ Make sure you've followed the installation guide for [Clerk React](installation.
 The following example accesses the [Session](../clerkjs/session.md) object in order to display how long a user has been active in this client session. Note that you can also get to the [User](../clerkjs/user.md) object through the `useSession` hook. 
 
 ```jsx
-import { useSession } from "@clerk/clerk-react";
+import { SignedIn, useSession } from "@clerk/clerk-react";
 
-// Your component must be a descendant 
-// of the <SignedIn /> component.
+function App() {
+  return (
+    <SignedIn>
+      <Analytics />
+    </SignedIn>
+  );
+}
+
 function Analytics() {
   const session = useSession();
   const { user } = session;
