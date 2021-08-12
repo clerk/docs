@@ -8,8 +8,8 @@ description: Learn how to setup and configure your Clerk application
 
 The first thing you need to do is head over to the [Clerk Dashboard](https://dashboard.clerk.dev) and click on the **Create Application** button. At the moment, there are two ways to create an application:
 
-* quick start with [Vercel](https://vercel.com/), or
-* follow the standard setup process
+* Get up and running in a matter of minutes via our [Vercel](https://vercel.com/) integration. Use our Next.js starter app and deploy your application to Vercel.
+* Follow our standard setup and have complete freedom on where you host your application and which framework you use.
 
 ![Creating an application](../.gitbook/assets/screely-1628582214290.png)
 
