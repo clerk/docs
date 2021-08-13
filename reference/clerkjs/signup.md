@@ -12,7 +12,7 @@ The SignUp object holds the state of the current sign up and provides helper met
 
 There are two important steps that need to be done in order for a sign up to be completed:
 
-* Supply all the required fields. The required fields depend on your [instance settings](../../main-concepts/choose-your-settings.md).
+* Supply all the required fields. The required fields depend on your [instance settings]().
 * Verify contact information. Some of the supplied fields need extra verification. These are the email address and phone number.
 
 The above steps can be split into smaller actions \(e.g. you don't have to supply all the required fields at once\) and can done in any order. This provides great flexibility and supports even the most complicated sign up flows. The SignUp object provides a number of helper methods to achieve the above.
@@ -120,8 +120,7 @@ Also, the attributes of the SignUp object can basically be grouped into three ca
         </p>
         <p>The username supplied to the current sign-up.
           <br />This attribute is available only <em>if usernames are enabled</em>. Check
-          the available <a href="../../main-concepts/choose-your-settings.md">instance settings</a> for
-          more information.</p>
+          the available <a href>instance settings</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -132,8 +131,7 @@ Also, the attributes of the SignUp object can basically be grouped into three ca
         </p>
         <p>The email address supplied to the current sign-up.</p>
         <p>This attribute is available only <em>if the selected contact information includes email address</em>.
-          Check the available <a href="../../main-concepts/choose-your-settings.md">instance settings</a> for
-          more information.</p>
+          Check the available <a href>instance settings</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -144,8 +142,7 @@ Also, the attributes of the SignUp object can basically be grouped into three ca
         </p>
         <p>The phone number supplied to the current sign-up.
           <br />This attribute is available only <em>if the selected contact information includes phone number</em>.
-          Check the available <a href="../../main-concepts/choose-your-settings.md">instance settings</a> for
-          more information.</p>
+          Check the available <a href>instance settings</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -157,8 +154,7 @@ Also, the attributes of the SignUp object can basically be grouped into three ca
         <p>The value of this attribute is true if a password was supplied to the
           current sign-up.</p>
         <p>This attribute is available only <em>if password-based authentication is enabled</em>.
-          Check the available <a href="../../main-concepts/choose-your-settings.md">instance settings</a> for
-          more information.</p>
+          Check the available <a href>instance settings</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -169,8 +165,7 @@ Also, the attributes of the SignUp object can basically be grouped into three ca
         </p>
         <p>The first name supplied to the current sign-up.
           <br />This attribute is available only <em>if  name is enabled in personal information</em>.
-          Check the available <a href="../../main-concepts/choose-your-settings.md">instance settings</a> for
-          more information.</p>
+          Check the available <a href>instance settings</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -181,8 +176,7 @@ Also, the attributes of the SignUp object can basically be grouped into three ca
         </p>
         <p>The last name supplied to the current sign-up.
           <br />This attribute is available only <em>if  name is enabled in personal information</em>.
-          Check the available <a href="../../main-concepts/choose-your-settings.md">instance settings</a> for
-          more information.</p>
+          Check the available <a href>instance settings</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -216,7 +210,7 @@ Also, the attributes of the SignUp object can basically be grouped into three ca
 
 This method initiates a new [sign up flow](../../main-concepts/sign-up-flow.md). It creates a new SignUp object and de-activates any existing SignUp that the client might already had in progress.
 
-The form of the given `params` depends on the [configuration of the instance](../../main-concepts/choose-your-settings.md). Choices on the instance settings affect which options are available to use.
+The form of the given `params` depends on the [configuration of the instance](). Choices on the instance settings affect which options are available to use.
 
 The `create` method will return a promise of the new SignUp object. This sign up might be complete if you supply the required fields in one go. However, this is not mandatory. Our sign up process provides great flexibility and allows users to easily create multi-step sign up flows.
 
@@ -240,7 +234,7 @@ This method returns a `Promise` which resolves with a `SignUp` object. Check the
 
 This method is used to update the current sign up.
 
-As with `create`, the form of the given `params` depends on the [configuration of the instance](../../main-concepts/choose-your-settings.md).
+As with `create`, the form of the given `params` depends on the [configuration of the instance]().
 
 {% tabs %}
 {% tab title="Parameters" %}
@@ -461,8 +455,7 @@ This method returns a `Promise` which doesn't resolve to any value.
         </p>
         <p>The user&apos;s first name.</p>
         <p>This option is available only if name is selected in personal information.</p>
-        <p>Please check the <a href="../../main-concepts/choose-your-settings.md">instance settings</a> for
-          more information.</p>
+        <p>Please check the <a href>instance settings</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -473,8 +466,7 @@ This method returns a `Promise` which doesn't resolve to any value.
         </p>
         <p>The user&apos;s last name.</p>
         <p>This option is available only if name is selected in personal information.</p>
-        <p>Please check the <a href="../../main-concepts/choose-your-settings.md">instance settings</a> for
-          more information.</p>
+        <p>Please check the <a href>instance settings</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -485,8 +477,7 @@ This method returns a `Promise` which doesn't resolve to any value.
         </p>
         <p>The user&apos;s password.</p>
         <p>This option is available only if password-based authentication is selected.</p>
-        <p>Please check the <a href="../../main-concepts/choose-your-settings.md">instance settings</a> for
-          more information.</p>
+        <p>Please check the <a href>instance settings</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -499,8 +490,7 @@ This method returns a `Promise` which doesn't resolve to any value.
         <p>This option is available only if email address is selected in contact
           information.
           <br />Keep in mind that the email address requires an extra verification process.</p>
-        <p>Please check the <a href="../../main-concepts/choose-your-settings.md">instance settings</a> for
-          more information.</p>
+        <p>Please check the <a href>instance settings</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -513,8 +503,7 @@ This method returns a `Promise` which doesn't resolve to any value.
         <p>This option is available only if phone number is selected in contact information.
           <br
           />Keep in mind that the phone number requires an extra verification process.</p>
-        <p>Please check the <a href="../../main-concepts/choose-your-settings.md">instance settings</a> for
-          more information.</p>
+        <p>Please check the <a href>instance settings</a> for more information.</p>
       </td>
     </tr>
     <tr>
@@ -525,8 +514,7 @@ This method returns a `Promise` which doesn't resolve to any value.
         </p>
         <p>The user&apos;s username.</p>
         <p>This option is available only if usernames are enabled.</p>
-        <p>Please check the <a href="../../main-concepts/choose-your-settings.md">instance settings</a> for
-          more information.</p>
+        <p>Please check the <a href>instance settings</a> for more information.</p>
       </td>
     </tr>
   </tbody>

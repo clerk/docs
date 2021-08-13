@@ -22,7 +22,6 @@
 
 ## main concepts
 
-* [Instance settings](main-concepts/choose-your-settings.md)
 * [The User object](main-concepts/user-object.md)
 * [Sign in flow](main-concepts/sign-in-flow.md)
 * [Sign up flow](main-concepts/sign-up-flow.md)

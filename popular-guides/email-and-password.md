@@ -29,7 +29,7 @@ The first thing you need to do is enable email address and password-based authen
 
 From the [Clerk Dashboard](https://dashboard.clerk.dev/), select your instance and head over to **Settings** &gt; **User Management**. 
 
-Select **Email address** for your contact information and **Password-based** as your authentication strategy. For more information on the available settings, check out our [Instance settings guide](../main-concepts/choose-your-settings.md).
+Select **Email address** for your contact information and **Password-based** as your authentication strategy. For more information on the available settings, check out our [Instance settings guide]().
 
 {% hint style="warning" %}
 Don't forget to click on **Apply changes** at the bottom of the page!

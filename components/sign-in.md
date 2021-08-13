@@ -106,7 +106,7 @@ export default App;
 
 {% tab title="Clerk Next" %}
 ```jsx
-// In _app.js:
+// In _app.jsx:
 // Your usual NextJS root component, wrapped by ClerkProvider
 import { ClerkProvider } from '@clerk/clerk-react';
 import { useRouter } from 'next/router';
@@ -130,7 +130,7 @@ function MyApp({ Component, pageProps }) {
 export default MyApp;
 
 
-// In pages/sign-in/[[..index]].tsx
+// In pages/sign-in/[[..index]].jsx:
 // This is your catch all route that renders the SignIn 
 // component
 import { SignIn } from '@clerk/clerk-react';

@@ -252,7 +252,7 @@ From the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Applicati
 
 Finally, in your app define a `/sign-up` route that renders the &lt;SignUp /&gt; component. Similarly, define a `/sign-in`route that renders the &lt;SignIn /&gt; component as shown in the following example. Refer to the [&lt;SignIn/&gt;](../components/sign-in.md) and [&lt;SignUp/&gt;](../components/sign-up.md) docs to learn more about the `routing` and `path` props.
 
-The React example below uses `react-router-dom`to define the routes. For more info, take a look at [the example repo](https://codesandbox.io/embed/github/nikosdouvlis/clerk-custom-social-login/tree/mount-sign-in-sign-up/?fontsize=12&hidenavigation=1&theme=dark&view=editor) or consult the [URLs & redirects docs](../main-concepts/choose-your-settings.md#contact-information).
+The React example below uses `react-router-dom`to define the routes. For more info, take a look at [the example repo](https://codesandbox.io/embed/github/nikosdouvlis/clerk-custom-social-login/tree/mount-sign-in-sign-up/?fontsize=12&hidenavigation=1&theme=dark&view=editor) or consult the [URLs & redirects docs]().
 
 {% tabs %}
 {% tab title="Clerk React" %}
@@ -265,14 +265,14 @@ function App() {
 
   return (
     <ClerkProvider frontendApi={"[your-frontend-api]"} navigate={to => push(to)}>
-        <Switch>
-          <Route path='/sign-in'>
-            <SignIn routing='path' path='/sign-in' />
-          </Route>
-          <Route path='/sign-up'>
-            <SignUp routing='path' path='/sign-up' />
-          </Route>
-        </Switch>
+      <Switch>
+        <Route path='/sign-in'>
+          <SignIn routing='path' path='/sign-in' />
+        </Route>
+        <Route path='/sign-up'>
+          <SignUp routing='path' path='/sign-up' />
+        </Route>
+      </Switch>
     </ClerkProvider>
   );
 }
