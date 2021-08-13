@@ -4,5 +4,5 @@ description: How to setup social login with TikTok
 
 # TikTok
 
-## Coming soon
+_Coming soon..._
 
