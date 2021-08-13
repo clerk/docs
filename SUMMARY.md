@@ -40,7 +40,7 @@
   * [&lt;SignedIn&gt;](components/control-components/signed-in.md)
   * [&lt;SignedOut&gt;](components/control-components/signed-out.md)
   * [&lt;ClerkLoaded&gt;](components/control-components/clerk-loaded.md)
-  * [&lt;ClerkLoading&gt;](components/control-components/less-than-clerkloading-greater-than.md)
+  * [&lt;ClerkLoading&gt;](components/control-components/clerk-loading.md)
   * [&lt;RedirectToSignIn /&gt;](components/control-components/redirect-to-sign-in.md)
   * [&lt;RedirectToSignUp /&gt;](components/control-components/redirect-to-sign-up.md)
   * [&lt;RedirectToUserProfile /&gt;](components/control-components/redirect-to-user-profile.md)
