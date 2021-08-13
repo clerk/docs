@@ -2,7 +2,7 @@
 description: Conditionally render content only when a user is signed in.
 ---
 
-# &lt;SignedIn /&gt;
+# &lt;SignedIn&gt;
 
 ## Overview
 

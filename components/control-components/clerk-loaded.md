@@ -2,11 +2,11 @@
 description: Guarantee that the Clerk object exists.
 ---
 
-# &lt;ClerkLoaded /&gt;
+# &lt;ClerkLoaded&gt;
 
 ## Overview
 
-The `<ClerkLoaded/>` component guarantees that the [Clerk](../../reference/clerkjs/clerk.md) object has loaded and will be available under `window.Clerk`.
+The `<ClerkLoaded>` component guarantees that the [Clerk](../../reference/clerkjs/clerk.md) object has loaded and will be available under `window.Clerk`.
 
 It essentially provides a wrapper, enabling child components to access the [Clerk](../../reference/clerkjs/clerk.md) object without the need to check if it exists. 
 
@@ -73,4 +73,6 @@ This component accepts no props, apart from any child components that will be ab
     </tr>
   </tbody>
 </table>
+
+
 

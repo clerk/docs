@@ -2,7 +2,7 @@
 description: Conditionally render content only when there's no signed in user.
 ---
 
-# &lt;SignedOut /&gt;
+# &lt;SignedOut&gt;
 
 ## Overview
 
