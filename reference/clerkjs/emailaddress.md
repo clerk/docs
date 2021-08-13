@@ -269,7 +269,7 @@ This method returns the email address attribute.
       <td style="text-align:left"><b>error</b>
       </td>
       <td style="text-align:left">
-        <p>&lt;em&gt;&lt;/em&gt;<a href><em>ClerkAPIError</em></a><em> | null</em>
+        <p><em>ClerkAPIError | null</em>
         </p>
         <p>Any error that occurred during the verification process from the <a href="../frontend-api-reference/">Clerk API</a>.</p>
       </td>

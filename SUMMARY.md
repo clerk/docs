@@ -112,6 +112,7 @@
     * [Instance Settings](reference/backend-api-reference/beta-features/instance-settings.md)
     * [OAuth Token Wallet](reference/backend-api-reference/beta-features/oauth-token-wallet.md)
 * [Webhooks](reference/webhooks.md)
+* [Errors](reference/errors.md)
 * [Social login](reference/social-login-reference/README.md)
   * [Facebook](reference/social-login-reference/social-login-facebook.md)
   * [Google](reference/social-login-reference/social-login-google.md)
