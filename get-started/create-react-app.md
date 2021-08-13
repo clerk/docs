@@ -206,7 +206,7 @@ export default App;
 
 ### Configure backend requests
 
-Use our [guide for making backend requests](../reference/clerk-react/making-backend-requests.md) to ensure your backend can determine the signed in user.
+Use our [guide for making backend requests]() to ensure your backend can determine the signed in user.
 
 ## 5. Mount components \(optional\)
 
