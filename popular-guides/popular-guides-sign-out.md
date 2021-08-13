@@ -24,7 +24,7 @@ Make sure you've followed the installation guide for [Clerk React](../reference/
 
 {% tabs %}
 {% tab title="Clerk React" %}
-```javascript
+```jsx
 import { UserButton } from "@clerk/clerk-react";
 
 const Header = () => {
@@ -71,7 +71,7 @@ Make sure you've followed the installation guide for [Clerk React](../reference/
 
 {% tabs %}
 {% tab title="Clerk React" %}
-```javascript
+```jsx
 import { useClerk } from "@clerk/clerk-react";
 
 const SignOutButton = () => {

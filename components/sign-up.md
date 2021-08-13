@@ -14,7 +14,7 @@ The `<SignUp/>` component is used to render a beautiful, high-conversion sign-up
 
 The `<SignUp/>` component is extremely flexible. Simply configure the [User Management]() settings of your instance according to your business requirements and the `<SignUp/>` .
 
-Control the look and feel of the `<SignUp/>` component and match it to your using the [Theme Settings](), [theming props](sign-up.md#customization) or [plain CSS](sign-up.md#customization).
+Control the look and feel of the `<SignUp/>` component and match it to your using the [Theme Settings](../popular-guides/setup-your-application.md#theme), [theming props](sign-up.md#customization) or [plain CSS](sign-up.md#customization).
 
 ## Usage
 
