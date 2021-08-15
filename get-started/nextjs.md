@@ -112,12 +112,14 @@ Pass the `navigate` prop a function which takes the destination URL as an argume
 ```jsx
 import '../styles/globals.css';
 import { ClerkProvider } from '@clerk/clerk-react';
+// Import the userRouter hook
 import { useRouter } from 'next/router';
 
 // Get the Frontend API from the environment
 const frontendApi = process.env.NEXT_PUBLIC_CLERK_FRONTEND_API;
 
 function MyApp({ Component, pageProps }) {
+  // Get the push method
   const { push } = useRouter();
 
   return (
@@ -219,7 +221,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <header>
-        // Mount the UserButton component
+        {/* Mount the UserButton component */}
         <UserButton />
       </header>
       <main>Hello, {firstName}!</main>
