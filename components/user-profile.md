@@ -85,13 +85,13 @@ export default App;
 ```markup
 <html>
 <body>
-    <div id="sign-up"></div>
+    <div id="user-profile"></div>
     
     <script>
-        const el = document.getElementById("sign-up");
-        // Mount the pre-built Clerk SignUp component
+        const el = document.getElementById("user-profile");
+        // Mount the pre-built Clerk UserProfile component
         // in an HTMLElement on your page. 
-        window.Clerk.mountSignUp(el);
+        window.Clerk.mountUserProfile(el);
     </script>
 </body>
 </html>
@@ -178,7 +178,7 @@ export default App;
 
 {% tab title="Clerk Next" %}
 ```jsx
-// In _app.js:
+// In _app.jsx:
 // Your usual NextJS root component, wrapped by ClerkProvider
 import '../styles/globals.css';
 import { ClerkProvider } from '@clerk/clerk-react';
@@ -192,7 +192,7 @@ function MyApp({ Component, pageProps }) {
   return (
     // Pass the push method to ClerkProvider
     <ClerkProvider 
-        frontendApi={clerkFrontendApi} 
+        frontendApi={"[your-frontend-api]"} 
         navigate={to => push(to)}
     >
       <Component {...pageProps} />
@@ -203,14 +203,14 @@ function MyApp({ Component, pageProps }) {
 export default MyApp;
 
 
-// In pages/sign-up/[[..index]].tsx
-// This is your catch all route that renders the SignUp component
-import { SignUp } from '@clerk/clerk-react';
+// In pages/user/[[..index]].tsx
+// This is your catch all route that renders the UserProfile component
+import { UserProfile } from '@clerk/clerk-react';
 
-export default function SignUpPage() {
-  // Finally, mount the SignUp component under "/sign-up" 🎉
+export default function UserProfilePage() {
+  // Finally, mount the UserProfile component under "/user" 🎉
   // Don't forget to set the "routing" and "path" props
-  return <SignUp routing='path' path='/sign-up' />;
+  return <UserProfile routing='path' path='/user' />;
 }
 
 ```
@@ -220,15 +220,15 @@ export default function SignUpPage() {
 ```markup
 <html>
 <body>
-    <div id="sign-up"></div>
+    <div id="user-profile"></div>
     
     <script>
-        const el = document.getElementById("sign-up");
-        // Mount the pre-built Clerk SignUp component
+        const el = document.getElementById("user-profile");
+        // Mount the pre-built Clerk UserProfile component
         // in an HTMLElement on your page. 
-        window.Clerk.mountSignUp(el, {
+        window.Clerk.mountUserProfile(el, {
             routing: 'path',
-            path: '/sign-up',
+            path: '/user',
         });
     </script>
 </body>
