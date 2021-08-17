@@ -20,6 +20,11 @@ By enforcing two different types of verifications, you can drastically improve y
 Interested in single-factor authentication? Check out our guides on [password-based](email-and-password.md) and [passwordless](passwordless-authentication.md) authentication.
 {% endhint %}
 
+## Before you start
+
+* You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev). For more information, check out our [Setup your application](setup-your-application.md) guide.
+* You need to install [Clerk React](../reference/clerk-react/) or [ClerkJS](../reference/clerkjs/) to your application.
+
 ## Configuration
 
 There's two parts to enabling multi-factor authentication for your application. First, you need to apply the appropriate configuration setting in the [Clerk Dashboard](https://dashboard.clerk.dev). Then, registered users need to turn on MFA for their own account through their **User Profile** page.
@@ -69,10 +74,6 @@ For development instances, Clerk will issue you a domain on "lcl.dev".  In produ
 {% endhint %}
 
 Clerk provides SDKs to make navigating to these pages easy.  
-
-{% hint style="warning" %}
-Make sure you've followed the installation guide for [Clerk React](../reference/clerk-react/installation.md) or [ClerkJS](../reference/clerkjs/installation.md) before running the below snippets.
-{% endhint %}
 
 {% tabs %}
 {% tab title="Clerk React" %}
@@ -207,10 +208,6 @@ The first three steps are part of the standard sign in flow. Steps 4 and 5 power
 5. Attempt to complete the second factor verification.
 
 Let's see the above in action. 
-
-{% hint style="warning" %}
-Make sure you've installed [Clerk React](../reference/clerk-react/installation.md) or [ClerkJS](../reference/clerkjs/installation.md) before you run the following snippets.
-{% endhint %}
 
 {% tabs %}
 {% tab title="Clerk React" %}
