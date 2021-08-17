@@ -14,7 +14,7 @@ Originally popularized by Google, users have come to expect that little photo of
 
 ![The default &amp;lt;UserButton/&amp;gt; component](../.gitbook/assets/user-button.png)
 
-Clerk is the only provider with multi-session support, allowing users to sign into multiple accounts at once and switch between them. For multisession apps, the `<UserButton/>` automatically supports instant account switching, without the need of a full page reload.
+Clerk is the only provider with multi-session support, allowing users to sign into multiple accounts at once and switch between them. For multisession apps, the `<UserButton/>` automatically supports instant account switching, without the need of a full page reload. For more information, you can check out the [Multi-session applications](../popular-guides/popular-guides-multi-session-applications.md) guide.
 
 Control the look and feel of the `<UserButton/>` component and match it to your using the [Theme Settings](../popular-guides/setup-your-application.md#theme), [theming props](user-profile.md#customization) or [plain CSS](user-profile.md#customization).
 
