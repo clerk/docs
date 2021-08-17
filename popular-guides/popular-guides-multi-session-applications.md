@@ -26,6 +26,11 @@ There are two main ways to handle all the above: [using Clerk Components](popula
 Looking for more information on session management? Check out our [detailed guide](../main-concepts/session-management.md).
 {% endhint %}
 
+## Before you start
+
+* You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev). For more information, check out our [Setup your application](setup-your-application.md) guide.
+* You need to install [Clerk React](../reference/clerk-react/) or [ClerkJS](../reference/clerkjs/) to your application.
+
 ## Configuration
 
 The first thing you need to do is to enable the multi-session feature in your Clerk instance.
@@ -43,10 +48,6 @@ That's all you have to do! Now you have a multi-session application!
 The easiest way to add multi-session features to your application is by using the [&lt;UserButton /&gt;](../components/user-button.md) component.
 
 This component has buttons add a new account, switch between accounts and sign out from one or all accounts.
-
-{% hint style="warning" %}
-Make sure you've followed the installation guide for [Clerk React](../reference/clerk-react/installation.md) or [ClerkJS](../reference/clerkjs/installation.md) before running the below snippets.
-{% endhint %}
 
 {% tabs %}
 {% tab title="Clerk React" %}
@@ -90,10 +91,6 @@ Note that you don't need to pass any special options to the UserButton component
 ## Custom flow
 
 In case you want more customizability, and you prefer full control over your UI, you can use Clerk's SDKs.
-
-{% hint style="warning" %}
-Make sure you've followed the installation guide for [Clerk React](../reference/clerk-react/installation.md) or [ClerkJS](../reference/clerkjs/installation.md) before running the below snippets.
-{% endhint %}
 
 ### Active session/user
 
