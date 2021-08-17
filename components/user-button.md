@@ -171,5 +171,5 @@ export default App;
 
 ## Customization
 
-The `<UserProfile/>` component can be highly customized through the Instance settings in the [Clerk Dashboard](https://dashboard.clerk.dev/). This document will be updated soon with all necessary details.
+The `<UserButton/>` component can be highly customized through the Instance settings in the [Clerk Dashboard](https://dashboard.clerk.dev/). This document will be updated soon with all necessary details.
 
