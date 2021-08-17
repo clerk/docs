@@ -12,6 +12,11 @@ Please note that the sign out flow only deactivates the current session. Other v
 
 You can either sign out users in Clerk via the [Clerk Components](popular-guides-sign-out.md#using-clerk-components) or build a completely [custom flow](popular-guides-sign-out.md#custom-sign-out) using ClerkJS or Clerk React.
 
+## Before you start
+
+* You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev). For more information, check out our [Setup your application](setup-your-application.md) guide.
+* You need to install [Clerk React](../reference/clerk-react/) or [ClerkJS](../reference/clerkjs/) to your application.
+
 ## Using Clerk Components
 
 The simplest way to sign out users is via the [&lt;UserButton /&gt;](../components/user-button.md) component. The user button is a pre-built UI component that gives a signed in user a way to manage their account. One of the options is a **Sign out** button.
