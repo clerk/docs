@@ -23,10 +23,6 @@ The simplest way to sign out users is via the [&lt;UserButton /&gt;](../componen
 
 ![Clerk&apos;s open User Button.](../.gitbook/assets/screen-shot-2021-07-28-at-11.51.32-pm.png)
 
-{% hint style="warning" %}
-Make sure you've followed the installation guide for [Clerk React](../reference/clerk-react/installation.md) or [ClerkJS](../reference/clerkjs/installation.md) before running the below snippets.
-{% endhint %}
-
 {% tabs %}
 {% tab title="Clerk React" %}
 ```jsx
@@ -69,10 +65,6 @@ Note that you don't need to pass any special options to the &lt;UserButton /&gt;
 ## Custom sign-out
 
 In case the pre-built user button doesn't cover your needs and you prefer a custom sign out flow, you can easily make use of our SDKs.
-
-{% hint style="warning" %}
-Make sure you've followed the installation guide for [Clerk React](../reference/clerk-react/installation.md) or [ClerkJS](../reference/clerkjs/installation.md) before running the below snippets.
-{% endhint %}
 
 {% tabs %}
 {% tab title="Clerk React" %}
