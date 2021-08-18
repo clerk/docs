@@ -128,19 +128,19 @@ At the moment, we support the following personal information:
 
 The settings on this section control the look and feel of your application. From here you can control the colors, fonts, spacing and other properties of your application.
 
-These settings affect all [Clerk components](../main-concepts/clerk-components.md) of your application. For more fine grained control, you can have a look at the customization section of each component.
+These settings affect all [Clerk Components](../main-concepts/clerk-components.md) of your application. For more fine grained control, you can have a look at the customization section of each component.
 
 The theme settings we provide are:
 
 * **Primary color**: This is the default accent of your application. This setting will affect primary and secondary buttons, active borders, links, back buttons, etc.
-* **Background color**: This setting controls the background color of Clerk components.
-* **Font and font color**: Controls the font and the color of all text in Clerk components, except from the button text.
-* **Label font weight**: Controls the font weight of labels in Clerk components.
-* **Rounded corners**: Controls whether the Clerk components will have rounded corners or not. Please note that the border radius of the rounded corners is predefined.
-* **Shadow**: Controls whether the Clerk components will have shadow or not. Please note that the shadow size is predefined.
-* **Spacing**: Controls whether the spacing between the elements of Clerk component will be the standard spacing \(_1 em_\) or compact spacing \(_0.75 em_\)
-* **Button font, font color and font weight**: These settings control how the button text of the Clerk components will look like.
-* **Page background color**: Controls the background color of the [Clerk hosted pages](../main-concepts/clerk-hosted-pages.md).
+* **Background color**: This setting controls the background color of Clerk Components.
+* **Font and font color**: Controls the font and the color of all text in Clerk Components, except from the button text.
+* **Label font weight**: Controls the font weight of labels in Clerk Components.
+* **Rounded corners**: Controls whether the Clerk Components will have rounded corners or not. Please note that the border radius of the rounded corners is predefined \(_0.5 em_\).
+* **Shadow**: Controls whether the Clerk Components will have shadow or not. Please note that the shadow size is predefined \(_0 2px 8px rgba\(0, 0, 0, 0.2\)_\).
+* **Spacing**: Controls whether the spacing between the elements of Clerk Components will be the standard spacing \(_1 em_\) or compact spacing \(_0.75 em_\)
+* **Button font, font color and font weight**: These settings control how the button text of the Clerk Components will look like.
+* **Page background color**: Controls the background color of the [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md).
 
 ## URL & redirects
 
