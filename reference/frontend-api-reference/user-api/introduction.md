@@ -1,6 +1,6 @@
 # Overview
 
-Client requests are responsible for handling the **Sign in**, **Sign up**, and **Session** processes.  More specifically, they operate on the **Client** object.  A reference to a **Client** object needs to be sent with _every **Frontend API** request_, __through a Clerk-issued JWT_._  Usually, a "device", such as a browser, or a mobile app, will store one **Client** object to send up with every request. By default, Clerk handles this process, and is explained in the [Session management]() section. 
+Client requests are responsible for handling the **Sign in**, **Sign up**, and **Session** processes.  More specifically, they operate on the **Client** object.  A reference to a **Client** object needs to be sent with _every **Frontend API** request_, __through a Clerk-issued JWT_._  Usually, a "device", such as a browser, or a mobile app, will store one **Client** object to send up with every request. By default, Clerk handles this process, and is explained in the [Session management](../../../main-concepts/session-management.md) section. 
 
 ## Requests summary
 

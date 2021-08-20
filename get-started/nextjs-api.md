@@ -8,7 +8,7 @@ description: >-
 
 ## 0. Pre-requirements
 
-This guide assumes you have properly configured your frontend to make requests to your backend. If you haven't done so already, please follow the [guide for making backend requests](https://docs.clerk.dev/frontend/react/making-backend-requests).
+This guide assumes you have properly completed your Next.js [frontend setup](nextjs.md).
 
 ## 1. Set CLERK\_API\_KEY
 
@@ -24,14 +24,13 @@ CLERK_API_KEY=test_asdf1234
 ```
 {% endcode %}
 
-## 2. Install clerk-sdk-node
+## 2. Use the @clerk/nextjs/api
 
-Install Clerk's NPM package for node backends \(under the hood, Next.js API routes are serverless Node.js functions\).
+The `@clerk/nextjs` package comes with all the Next.js API methods for using Clerk exported at `@clerk/nextjs/api`.
 
-```bash
-npm install @clerk/clerk-sdk-node
-# or
-yarn add @clerk/clerk-sdk-node
+```typescript
+/** Next.js API imports for Clerk. */
+import { ... } from "@clerk/nextjs/api";
 ```
 
 ## 3. Create an API route
@@ -40,7 +39,7 @@ In Next.js, API routes are created by adding a file to the **pages/api** folder.
 
 {% code title="pages/api/hello.js" %}
 ```jsx
-import { requireSession } from "@clerk/clerk-sdk-node";
+import { requireSession } from "@clerk/nextjs/api";
 
 export default requireSession((req, res) => {
   res.statusCode = 200;
@@ -55,7 +54,7 @@ If a user is signed out, the **requireSession** helper will automatically return
 
 {% code title="pages/api/hello.js" %}
 ```jsx
-import { withSession } from "@clerk/clerk-sdk-node";
+import { withSession } from "@clerk/nextjs/api";
 
 export default withSession((req, res) => {
   res.statusCode = 200;

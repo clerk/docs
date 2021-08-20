@@ -6,7 +6,7 @@ description: Learn to install and initialize Clerk in a new Next.js application.
 
 ## Overview
 
-Clerk is the easiest way to add authentication and user management to your Next.js application. This guide will you walk you through the necessary steps to install and use Clerk in a new Next.js application. For more in-depth guides, check out our **Popular Guides** section.
+Clerk is the easiest way to add authentication and user management to your [Next.js](https://nextjs.org) application. This guide will walk you through the necessary steps to install and use Clerk in a new Next.js application. For more in-depth guides, check out our **Popular Guides** section.
 
 After following this guide, you should have a working Next.js app complete with: 
 
@@ -41,7 +41,7 @@ If you wish to use Typescript, just add `--typescript` to the commands above. Cl
 
 ## Installing Clerk
 
-One you have a Next.js app ready, you need to install the Clerk React SDK. This will give you access to our [prebuilt Clerk Components](../main-concepts/clerk-components.md) and React hooks.
+Once you have a Next.js app ready, you need to install the [Clerk React SDK](../reference/clerk-react/). This will give you access to our [prebuilt Clerk Components](../main-concepts/clerk-components.md) and React hooks.
 
 {% tabs %}
 {% tab title="npm" %}
@@ -49,8 +49,8 @@ One you have a Next.js app ready, you need to install the Clerk React SDK. This 
 # Navigate to your application's root directory
 cd yourapp
 
-# Install the clerk-react package 
-npm install @clerk/clerk-react
+# Install the clerk/nextjs package 
+npm install @clerk/nextjs
 ```
 {% endtab %}
 
@@ -80,7 +80,9 @@ touch .env.local
 echo "NEXT_PUBLIC_CLERK_FRONTEND_API=[your-frontend-api]" > .env.local
 ```
 
-Clerk is now successfully installed   🎉     To run your app, start the development server and navigate to [http://localhost:3000](http://localhost:3000).
+Clerk is now successfully installed   🎉  
+
+To run your app, start the development server and navigate to [https://localhost:3000](http://localhost:3000).
 
 {% tabs %}
 {% tab title="npm" %}
@@ -100,33 +102,18 @@ For more details, consult the [Clerk React installation](../reference/clerk-reac
 
 ## Adding &lt;ClerkProvider /&gt;
 
-Clerk requires your application to be wrapped in the `<ClerkProvider/>` context. In Next.js, we add this in `pages/_app.js`. 
-
-Wrap your app with `<ClerkProvider/>` and pass the `NEXT_PUBLIC_CLERK_FRONTEND_API` env variable you just created to the `frontendApi` prop.
-
-`<ClerkProvider/>` also accepts a `navigate` prop that enables Clerk to navigate inside your application without a full page reload, using the same routing logic your app does.  Our display components use this prop when navigating between subpages, and when navigating to callback URLs.
-
-Pass the `navigate` prop a function which takes the destination URL as an argument and performs a "push" navigation. You should not implement the push yourself, but instead wrap the push function provided by your router. By default, Next.js apps use the `next/router` for navigation - you can use the `useRouter` hook as shown below:
+Clerk requires your application to be wrapped in the [`<ClerkProvider/>`](../reference/clerk-react/clerkprovider.md) component. In Next.js, we add this in `pages/_app.js`. 
 
 {% code title="pages/\_app.jsx" %}
 ```jsx
 import '../styles/globals.css';
-import { ClerkProvider } from '@clerk/clerk-react';
-// Import the userRouter hook
-import { useRouter } from 'next/router';
-
-// Get the Frontend API from the environment
-const frontendApi = process.env.NEXT_PUBLIC_CLERK_FRONTEND_API;
+import { ClerkProvider } from '@clerk/nextjs';
 
 function MyApp({ Component, pageProps }) {
-  // Get the push method
-  const { push } = useRouter();
 
   return (
     // Wrap your entire app with ClerkProvider
-    // Don't forget to pass the frontendApi and 
-    // the "navigate" props
-    <ClerkProvider frontendApi={frontendApi} navigate={to => push(to)}>
+    <ClerkProvider>
       <Component {...pageProps} />
     </ClerkProvider>
   );
@@ -136,11 +123,11 @@ export default MyApp;
 ```
 {% endcode %}
 
-{% hint style="warning" %}
-The `navigate` function must return the result of the `push` function.
-{% endhint %}
+`<ClerkProvider/>` from the `@clerk/nextjs` package is already configured to using the same routing logic with Next.js.  This makes sure that navigating between subpages and when navigating to callback URLs, routing remains consistent.
 
-Your app is now configured  🎉    Next, let's see how you can use Clerk to require authentication before navigating to a protected page.
+Your app is now configured  🎉   
+
+Next, let's see how you can use Clerk to require authentication before navigating to a protected page.
 
 ## Requiring authentication
 
@@ -150,15 +137,13 @@ The easiest way to require authentication before showing a protected page, is to
 * [`<SignedOut/>`](../components/control-components/signed-out.md): Renders its children only when there's no active user.
 * [`<RedirectToSignIn/>`](../components/control-components/redirect-to-sign-in.md): Triggers a redirect to the sign in page.
 
-The following example shows you how to compose our flexible Control Components to build auth flows that match your needs. Please note that you don't need to use any additional APIs, everything shown below is just Javascript.
+The following example shows you how to compose our flexible [Control Components](../components/control-components/) to build authentication flows that match your needs. Please note that you don't need to use any additional APIs, everything shown below is just Javascript.
 
 {% code title="pages/\_app.tsx" %}
 ```jsx
 import '../styles/globals.css';
-import { ClerkProvider, SignedIn, SignedUp, RedirectToSignIn } from '@clerk/clerk-react';
+import { ClerkProvider, SignedIn, SignedUp, RedirectToSignIn } from '@clerk/nextjs';
 import { useRouter } from 'next/router';
-
-const frontendApi = process.env.NEXT_PUBLIC_CLERK_FRONTEND_API;
 
 //  List pages you want to be publicly accessible, or leave empty if
 //  every page requires authentication. Use this naming strategy:
@@ -170,7 +155,7 @@ const publicPages = [];
 
 function MyApp({ Component, pageProps }) {
   // Get the pathname
-  const { push, pathname } = useRouter();
+  const { pathname } = useRouter();
 
   // Check if the current route matches a public page
   const isPublicPage = publicPages.includes(pathname);
@@ -178,7 +163,7 @@ function MyApp({ Component, pageProps }) {
   // If the current route is listed as public, render it directly
   // Otherwise, use Clerk to require authentication
   return (
-    <ClerkProvider frontendApi={frontendApi} navigate={to => push(to)}>
+    <ClerkProvider>
       {isPublicPage ? (
         <Component {...pageProps} />
       ) : (
@@ -212,7 +197,7 @@ Edit the `pages/index.js` page. We're going to use the `useUser` hook and the `U
 {% code title="pages/index.js" %}
 ```jsx
 import styles from "../styles/Home.module.css";
-import { useUser, UserButton } from "@clerk/clerk-react";
+import { useUser, UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   // Get the current user's firstName
