@@ -24,11 +24,12 @@ function App() {
   return (
     <ClerkProvider frontendApi="clerk.[your-domain].com">
       <ClerkLoading>
-        Loading
+        <div>Clerk is loading...</div>
       </ClerkLoading>
       <ClerkLoaded>
-        <Page />
+        <Page/>
       </ClerkLoaded>
+      <div>This div is always visible</div>
     </ClerkProvider>
   );
 }
