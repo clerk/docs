@@ -251,7 +251,7 @@ window.Clerk.openSignIn({
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><b>afterSignIn?</b>
+      <td style="text-align:left"><b>afterSignInUrl?</b>
       </td>
       <td style="text-align:left">
         <p><em>string</em>
@@ -260,7 +260,7 @@ window.Clerk.openSignIn({
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><b>signUpURL?</b>
+      <td style="text-align:left"><b>signUpUrl?</b>
       </td>
       <td style="text-align:left">
         <p><em>string</em>
