@@ -43,7 +43,7 @@ function App() {
       <SignedIn>
         {/* Components using useUser() must be rendered
          under the SignedIn component */}
-        <Greetings />
+        <Greeting />
       </SignedIn>
       
       <SignedOut>
@@ -53,7 +53,7 @@ function App() {
   );
 }
 
-function Greetings() {
+function Greeting() {
   // Use the useUser hook to get the Clerk.user object
   // This hook causes a re-render on user changes
   const user = useUser();
@@ -88,7 +88,7 @@ const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 function App() {
   return (
     <ClerkProvider frontendApi={frontendApi}>
-      <Greetings />
+      <Greeting />
 
       <SignedOut>
         <SignIn />
@@ -97,7 +97,7 @@ function App() {
   );
 }
 
-function Greetings() {
+function Greeting() {
   // Use the useUser hook to get the Clerk.user object
   // This hook causes a re-render on user changes
   const { user, isSignedOut, isLoading } = useUser({
