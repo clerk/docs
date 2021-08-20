@@ -6,11 +6,13 @@ description: Access the User object inside your components.
 
 ## Overview
 
-The `useUser` hook accesses the active [User](../clerkjs/user.md) object. It can be used to display information about the user's profile, like their name or email address. The hook provides a shortcut for retrieving the [Clerk.session.user](../clerkjs/clerk.md#attributes) property.
+The `useUser` hook accesses the active [User](../clerkjs/user.md) object. It can be used to update the user or display information about the user's profile, like their name or email address. The hook provides a shortcut for retrieving the [Clerk.session.user](../clerkjs/clerk.md#attributes) property.
 
-The `User` object returned from the hook will hold all state for the currently signed in user. As such, the `useUser` hook must be called from a component that is a descendant of the [&lt;SignedIn/&gt;](../../components/control-components/signed-in.md) component. Otherwise, the hook will throw an error.
+In its simplest form, the `useUser` hook is called without arguments:`useUser()`. The object returned from the hook will hold all state for the currently **signed in** user. As such, the `useUser` hook must be called from a component that is a descendant of the [&lt;SignedIn/&gt;](../../components/control-components/signed-in.md) component - otherwise, the hook will throw an error. For more details, check the [Simple form](useuser-hook.md#simple-form) section.
 
-There are a couple of [alternative methods](useuser-hook.md#alternatives) to retrieve the currently signed in user outside of a `<SignedIn/>` component.
+For more advanced use cases where you want fine-grained control over the state of the `User` object, you can use the second form of the hook: `useUser({ withAssertions: true });`. This form does not have the constraints mentioned above, so it can also be used from components that are not descendants of a `<SignedIn/>`. For more details, check the [Advanced form w/ state helpers](useuser-hook.md#advanced-form-w-state-helpers) section.
+
+If you don't wish to use React hooks, we also offer a couple of [alternative methods](useuser-hook.md#alternatives) to retrieve the currently signed in user outside of a `<SignedIn/>` component.
 
 ## Usage
 
@@ -18,28 +20,112 @@ There are a couple of [alternative methods](useuser-hook.md#alternatives) to ret
 Make sure you've followed the installation guide for [Clerk React](installation.md) before running the snippets below.
 {% endhint %}
 
+### Simple form
+
 A basic example that showcases the `useUser` hook in action is a greeting component that greets the signed in user by their first name. Note that your component must be a descendant of the [&lt;SignedIn/&gt;](../../components/control-components/signed-in.md) component, which in turn needs to be wrapped inside the [&lt;ClerkProvider/&gt;](clerkprovider.md).
 
+{% tabs %}
+{% tab title="React JSX" %}
 ```jsx
-import { SignedIn, useUser } from "@clerk/clerk-react";
+import {
+  ClerkProvider,
+  useUser,
+  SignedIn,
+  SignedOut,
+  SignIn,
+} from "@clerk/clerk-react";
+
+const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 
 function App() {
   return (
-    <SignedIn>
-      <Greeting />
-    </SignedIn>
+    <ClerkProvider frontendApi={frontendApi}>
+      <SignedIn>
+        {/* Components using useUser() must be rendered
+         under the SignedIn component */}
+        <Greetings />
+      </SignedIn>
+      
+      <SignedOut>
+        <SignIn />
+      </SignedOut>
+    </ClerkProvider>
   );
 }
 
-function Greeting() {
+function Greetings() {
+  // Use the useUser hook to get the Clerk.user object
+  // This hook causes a re-render on user changes
   const user = useUser();
-  
-  const greeting = user.firstName || "there";
+  return <div>Hello, {user.firstName}!</div>;
+}
+
+export default App;
+```
+{% endtab %}
+{% endtabs %}
+
+### Advanced form w/ state helpers
+
+A slightly more advanced example follows. It showcases the `useUser` hook used by the `<Greeting/>`component that greets the signed in user by their first name. Note that your component does not need to be a descendant of the [&lt;SignedIn/&gt;](../../components/control-components/signed-in.md) component.
+
+When `useUser` is called with the `withAssertions` option set to true, in addition to the user object it also returns the following helpers: 
+
+* `isSignedIn` : A helper method that accepts the user and returns true if the user is signed in.
+* `isSignedOut` : A helper method that accepts the user and returns true if the user is signed out.
+* `isLoading` : A helper method that accepts the user and returns true if Clerk is still loading.
+
+```jsx
+import {
+  ClerkProvider,
+  useUser,
+  SignedOut,
+  SignIn,
+} from "@clerk/clerk-react";
+
+const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
+
+function App() {
   return (
-    <div>Hello {greeting}!</div>
+    <ClerkProvider frontendApi={frontendApi}>
+      <Greetings />
+
+      <SignedOut>
+        <SignIn />
+      </SignedOut>
+    </ClerkProvider>
   );
 }
+
+function Greetings() {
+  // Use the useUser hook to get the Clerk.user object
+  // This hook causes a re-render on user changes
+  const { user, isSignedOut, isLoading } = useUser({
+    withAssertions: true,
+  });
+
+  if (isLoading(user)) {
+    // Inside this block, the type of `user` is `undefined`
+    return <div>Clerk is loading...</div>;
+  }
+
+  if (isSignedOut(user)) {
+    // Inside this block, the type of `user` is `null`
+    return <div>You are signed out, `user` is null</div>;
+  }
+
+  // Here, the type of `user` is `UserResource`
+  // You can also use the isSignedIn helper
+  return <div>Hello, {user.firstName}!</div>;
+}
+
+export default App;
+
 ```
+
+{% hint style="info" %}
+The above helpers are **methods** that need to be passed the user object. This API is designed in such a way to help Typescript correctly infer the relationship between the different states and the user object when using object restructuring.
+{% endhint %}
 
 ## Alternatives
 
