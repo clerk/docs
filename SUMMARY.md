@@ -74,6 +74,7 @@
   * [useSession](reference/clerk-react/usesession-hook.md)
   * [useSessionList](reference/clerk-react/usesessionlist-hook.md)
 * [Frontend API](reference/frontend-api-reference/README.md)
+  * [Introduction](reference/frontend-api-reference/introduction.md)
   * [Client requests](reference/frontend-api-reference/user-api/README.md)
     * [Overview](reference/frontend-api-reference/user-api/introduction.md)
     * [Client](reference/frontend-api-reference/user-api/client.md)
