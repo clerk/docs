@@ -90,6 +90,7 @@
     * [Sessions](reference/frontend-api-reference/users/sessions.md)
     * [Tokens](reference/frontend-api-reference/users/tokens.md)
 * [Backend API](reference/backend-api-reference/README.md)
+  * [Introduction](reference/backend-api-reference/introduction.md)
   * [SDKs](reference/backend-api-reference/sdks/README.md)
     * [Go](reference/backend-api-reference/sdks/golang/README.md)
       * [Getting started with Go](reference/backend-api-reference/sdks/golang/getting-started.md)
