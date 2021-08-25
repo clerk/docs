@@ -142,7 +142,7 @@ The following example shows you how to compose our flexible [Control Components]
 {% code title="pages/\_app.tsx" %}
 ```jsx
 import '../styles/globals.css';
-import { ClerkProvider, SignedIn, SignedUp, RedirectToSignIn } from '@clerk/nextjs';
+import { ClerkProvider, SignedIn, SignedOut, RedirectToSignIn } from '@clerk/nextjs';
 import { useRouter } from 'next/router';
 
 //  List pages you want to be publicly accessible, or leave empty if
