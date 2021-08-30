@@ -4,8 +4,7 @@ A **Sign In** represents an active sign in.  A **Client** can only have one acti
 
 ## Available requests
 
-* **`PUT`** `/v1/client/sign_in_attempt`
-* **`POST`**`/v1/client/sign_in_attempt/identify`
+* **`POST`**`/v1/client/sign_in_attempt`
 * **`POST`**`/v1/client/sign_in_attempt/prepare_factor_one`
 * **`POST`**`/v1/client/sign_in_attempt/attempt_factor_one`
 * **`POST`**`/v1/client/sign_in_attempt/prepare_factor_two`
@@ -39,7 +38,7 @@ A **Sign In** represents an active sign in.  A **Client** can only have one acti
 }
 ```
 
-{% api-method method="put" host="https://clerk.example.com" path="/v1/client/sign\_in\_attempt" %}
+{% api-method method="post" host="https://clerk.example.com" path="/v1/client/sign\_in\_attempt" %}
 {% api-method-summary %}
 Create or replace
 {% endapi-method-summary %}
@@ -99,51 +98,7 @@ Optional if the strategy is one of the OAuth providers.  If the OAuth verificati
         "object": "session",
         "id": "sess_1q8uCbeJSMgTJnTQMgpAK1Ff0ER",
         ...
-}
-```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
 
-{% api-method method="post" host="https://clerk.example.com" path="/v1/client/sign\_in\_attempt/identify" %}
-{% api-method-summary %}
-Identify
-{% endapi-method-summary %}
-
-{% api-method-description %}
-Identifies the current **Sign in**. This step lets us know _who_ to **Sign in**.
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-form-data-parameters %}
-{% api-method-parameter name="identifier" type="string" required=true %}
-An email address, phone number or username
-{% endapi-method-parameter %}
-{% endapi-method-form-data-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
-```
-// see example schema
-[
-        {
-                "object": "session",
-                "id": "sess_1q8uCbeJSMgTJnTQMgpAK1Ff0ER",
-                ...
-        },
-        {
-                "object": "session",
-                "id": "sess_1q8uCbeJSMgTJnTQMgpAK1Ff0ER",
-                ...
-        }        
-]
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
