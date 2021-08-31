@@ -6,6 +6,7 @@ This object represents a verified user in your instance.
 
 * **`GET`**  `/v1/users/:id`
 * **`GET`**  `/v1/users`
+* **`POST`** `/v1/users`
 * **`PATCH`**`/v1/users/:id`
 * **`POST`** `/v1/users/:id/profile_image`
 * **`DEL`**  `/v1/users/:id`
@@ -161,6 +162,84 @@ Cake successfully retrieved.
         ...
     },
     ]
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="post" host="https://api.clerk.dev" path="/v1/users" %}
+{% api-method-summary %}
+Create a user
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Create a user.  Required data is determined by how you setup your user model.  This method will also create verified email addresses and phone numbers.  
+  
+Note: If you're performing a migration, checkout our guide on zero downtime migrations
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="Authorization" type="string" required=true %}
+Bearer \[YOUR\_API\_KEY\]
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+
+{% api-method-form-data-parameters %}
+{% api-method-parameter name="external\_id" type="string" required=false %}
+The ID of the user you use in in your external systems.  Must be unique across your instance.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="email\_address\[\]" type="string" required=false %}
+Email addresses to add to the user.  Must be unique across your instance.  The first email address will be set as the users primary email address.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="phone\_number\[\]" type="string" required=false %}
+Phone numbers that will be added to the user.  Must be unique across your instance.  The first phone number will be set as the users primary phone number.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="password" type="string" required=false %}
+The plaintext password to give the user.  Must be at least 8 characters long, and can not be found in any list of hacked passwords. 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="username" type="string" required=false %}
+The username to give to the user.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="first\_name" type="string" required=false %}
+The first name to give to the user.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="last\_name" type="string" required=false %}
+The last name to give to the user.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="public\_metadata" type="object" required=false %}
+Metadata saved on the user, that is visible to both your Frontend and Backend APIs.
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="private\_metadata" type="string" required=false %}
+Metadata saved on the user, that is only visible to your Backend API
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="unsafe\_metadata" type="string" required=false %}
+Metadata saved on the user, that can be updated from both the Frontend and Backend APIs.    
+  
+Note: Since this data can be modified from the frontend, it is not guaranteed to be safe.
+{% endapi-method-parameter %}
+{% endapi-method-form-data-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}

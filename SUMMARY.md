@@ -114,14 +114,15 @@
     * [Allowlist Identifiers](reference/backend-api-reference/beta-features/allowlist-identifiers.md)
     * [Instance Settings](reference/backend-api-reference/beta-features/instance-settings.md)
     * [OAuth Token Wallet](reference/backend-api-reference/beta-features/oauth-token-wallet.md)
-* [Webhooks](reference/webhooks.md)
-* [Errors](reference/errors.md)
 * [Social login](reference/social-login-reference/README.md)
   * [Google](reference/social-login-reference/social-login-google.md)
   * [Facebook](reference/social-login-reference/social-login-facebook.md)
   * [Github](reference/social-login-reference/github.md)
   * [HubSpot](reference/social-login-reference/hubspot.md)
   * [TikTok](reference/social-login-reference/tiktok.md)
+* [Import users](reference/import-users.md)
+* [Export users and data](reference/export-users-and-data.md)
+* [Webhooks](reference/webhooks.md)
 
 ## Learning Center
 
