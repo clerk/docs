@@ -174,7 +174,7 @@ Create a user
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Create a user.  Required data is determined by how you setup your user model.  This method will also create verified email addresses and phone numbers.  
+Create a user.  Your user management settings determine how you should setup your user model.  Any email address and phone number created using this method will be created as verified.  
   
 Note: If you're performing a migration, checkout our guide on zero downtime migrations
 {% endapi-method-description %}
@@ -200,12 +200,12 @@ Email addresses to add to the user.  Must be unique across your instance.  The f
 Phone numbers that will be added to the user.  Must be unique across your instance.  The first phone number will be set as the users primary phone number.
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="password" type="string" required=false %}
-The plaintext password to give the user.  Must be at least 8 characters long, and can not be found in any list of hacked passwords. 
+{% api-method-parameter name="username" type="string" required=false %}
+The username to give to the user.  It must be unique across your instance.
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="username" type="string" required=false %}
-The username to give to the user.
+{% api-method-parameter name="password" type="string" required=false %}
+The plaintext password to give the user.  Must be at least 8 characters long, and can not be found in any list of hacked passwords.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="first\_name" type="string" required=false %}
