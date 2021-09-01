@@ -56,17 +56,13 @@ Add the following script in your site's `<body>` element.
 <script> 
   // Get this URL from the Clerk Dashboard.
   const frontendApi = "clerk.[your-domain].com";
-  // Specify the ClerkJS version you want to load.
-  // Follows semver, example 1.28.0. Use "latest" 
-  // to get the latest version.
-  const clerkJSVersion = "latest";
   
   // Create a script that will be loaded asynchronously in 
   // your page. 
   const script = document.createElement('script');
   script.setAttribute('data-clerk-frontend-api', frontendApi);
   script.async = true;
-  script.src = `https://${frontendApi}/npm/@clerk/clerk-js@${clerkJSVersion}/dist/clerk.browser.js`
+  script.src = `https://${frontendApi}/npm/@clerk/clerk-js@1/dist/clerk.browser.js`
   // Add a listener so you can initialize ClerkJS
   // once it's loaded.
   script.addEventListener('load', async function(){
