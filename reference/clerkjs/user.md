@@ -178,6 +178,21 @@ The ClerkJS SDK provides some helper [methods](user.md#methods) on the `User` ob
       </td>
     </tr>
     <tr>
+      <td style="text-align:left"><b>unsafeMetadata</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>{[string]: any} | null</em>
+        </p>
+        <p>Metadata that can be read and set from the frontend. <em><br /></em>One
+          common use case for this attribute is to use it to implement custom fields
+          that will be attached to the User object.
+          <br />Please note that there is also an <code>unsafeMetadata</code> attribute
+          in the <a href="signup.md">SignUp</a> object. The value of that field will
+          be automatically copied to the user&apos;s unsafe metadata once the sign
+          up is complete.</p>
+      </td>
+    </tr>
+    <tr>
       <td style="text-align:left"><b>createdAt</b>
       </td>
       <td style="text-align:left">
@@ -632,6 +647,17 @@ This method returns a `Promise` which resolves to a `User` object.
         <p><em>string</em>
         </p>
         <p>The user&apos;s password.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>unsafeMetadata</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>{[string]: any} | null</em>
+        </p>
+        <p>Metadata that can be read and set from the frontend. <em><br /></em>One
+          common use case for this attribute is to use it to implement custom fields
+          that will be attached to the User object.</p>
       </td>
     </tr>
   </tbody>

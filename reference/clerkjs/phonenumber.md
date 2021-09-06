@@ -46,8 +46,21 @@ Finally, phone numbers are used as part of [multi-factor authentication](../../p
       <td style="text-align:left"><b>reservedForSecondFactor</b>
       </td>
       <td style="text-align:left">
-        <p>boolean</p>
+        <p><em>boolean</em>
+        </p>
         <p>Value will be <code>true</code> if this phone number is reserved for <a href="../../popular-guides/multi-factor-authentication.md">multi-factor authentication</a> (2FA), <code>false</code> otherwise.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>defaultSecondFactor</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>boolean</em>
+        </p>
+        <p>Value will be <code>true</code> if this phone number is the default second
+          factor, <code>false</code> otherwise.</p>
+        <p>A user must have exactly one default second factor, if <a href="../../popular-guides/multi-factor-authentication.md">multi-factor authentication</a> (2FA)
+          is enabled.</p>
       </td>
     </tr>
     <tr>
@@ -173,6 +186,24 @@ Marks this phone number as reserved for [mutli-factor authentication](../../popu
     </tr>
   </tbody>
 </table>
+{% endtab %}
+
+{% tab title="Returns" %}
+_Promise&lt;_[_PhoneNumberResource_](phonenumber.md)_&gt;_
+
+This method returns a `Promise` which resolves with a `PhoneNumber` object.
+{% endtab %}
+{% endtabs %}
+
+### makeDefaultSecondFactor\(\)
+
+`makeDefaultSecondFactor() => Promise<PhoneNumberResource>`
+
+Marks this phone number as the default second factor for [mutli-factor authentication](../../popular-guides/multi-factor-authentication.md) \(2FA\). A user can have exactly one default second factor.
+
+{% tabs %}
+{% tab title="Parameters" %}
+This method accepts no parameters
 {% endtab %}
 
 {% tab title="Returns" %}

@@ -25,7 +25,7 @@ For more details regarding the different session states, see our documentation o
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Property</th>
       <th style="text-align:left">Description</th>
     </tr>
   </thead>
@@ -45,6 +45,15 @@ For more details regarding the different session states, see our documentation o
       <td style="text-align:left">
         <p>&lt;em&gt;&lt;/em&gt;<a href="user.md"><em>User</em></a>&lt;em&gt;&lt;/em&gt;</p>
         <p>The user associated with the session.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>publicUserData</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>PublicUserData</em>
+        </p>
+        <p>Public information about the user that this session belongs to.</p>
       </td>
     </tr>
     <tr>
@@ -149,6 +158,60 @@ _Promise&lt;_[_SessionResource_](session.md)_&gt;_
 This method returns a `Promise` which resolves with a `Session` object.
 {% endtab %}
 {% endtabs %}
+
+## Interfaces
+
+### PublicUserData
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Property</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><b>firstName</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>string | null</em>
+        </p>
+        <p>The user&apos;s first name. This attribute will only be populated if name
+          is enabled in <a href="../../popular-guides/setup-your-application.md#personal-information">instance settings</a>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>lastName</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>string | null</em>
+        </p>
+        <p>The user&apos;s last name. This attribute will only be populated if name
+          is enabled in <a href="../../popular-guides/setup-your-application.md#personal-information">instance settings</a>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>profileImageUrl</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>string</em>
+        </p>
+        <p>The URL of the user&apos;s profile image.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>identifier</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>string</em>
+        </p>
+        <p>The user&apos;s identifier (email address, phone number, username, etc)
+          that was used for authentication when this session was created.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## Types
 
