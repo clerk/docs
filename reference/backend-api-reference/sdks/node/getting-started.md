@@ -2,6 +2,24 @@
 
 ## Before you get started
 
+### **Set CLERK\_API\_KEY**
+
+The Node SDK will pick automatically the `CLERK_API_KEY` vale from your environment ****variables. If your application is using .**env** files, create a file named **.env.local** in your application root if it doesn't exist already and add the above variable.
+
+{% hint style="warning" %}
+Make sure you update ****this variable with the API key found in your dashboard under **Settings** → **API Keys**.
+{% endhint %}
+
+{% code title=".env.local" %}
+```jsx
+CLERK_API_KEY=test_asdf1234
+```
+{% endcode %}
+
+For detailed usage to the [official documentation of the Node SDK](https://www.npmjs.com/package/@clerk/clerk-sdk-node).
+
+**Multi session applications**
+
 If Clerk is running in multi-session mode, it's important to ensure your frontend sends the Session ID that is making the request. 
 
 Our middlewares will look for a query string parameter named **\_clerk\_session\_id.**  If this parameter is not found, the middleware will instead choose the last active session, which may be subject to race conditions and should not be relied on for authenticating actions.
