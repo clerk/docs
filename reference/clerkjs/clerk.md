@@ -581,6 +581,38 @@ This method returns a `Promise` which doesn't resolve to any value. The `Promise
 {% endtab %}
 {% endtabs %}
 
+
+
+### handleRedirectCallback\(params\)
+
+`handleRedirectCallback(params: HandleOAuthCallbackParams) => Promise<void>`
+
+Completes a custom OAuth flow started by calling either [`SignIn.authenticateWithRedirect(params)`](signin.md#signinwithoauth) or [`SignUp.authenticateWithRedirect(params)`](signup.md#signinwithoauth)
+
+{% tabs %}
+{% tab title="Parameters" %}
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><b>params?</b>
+      </td>
+      <td style="text-align:left">
+        <p>&lt;em&gt;&lt;/em&gt;<a href="clerk.md#handleoauthcallbackparams"><em>HandleOAuthCallbackParams</em></a>&lt;em&gt;&lt;/em&gt;</p>
+        <p>Additional props that define where the user will be redirected to at the
+          end of a successful OAuth flow.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{% endtab %}
+{% endtabs %}
+
 ### signOut\(callback?\)
 
 `signOut(callback?: SignOutCallback) => Promise<void>`
@@ -1048,6 +1080,57 @@ This method has no return value.
         <p><em>string</em>
         </p>
         <p>Full URL or relative path to navigate after successful sign out.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### HandleOAuthCallbackParams
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><b>afterSignInUrl?</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>string</em>
+        </p>
+        <p>Full URL or path to navigate after successful sign in.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>afterSignUpUrl?</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>string</em>
+        </p>
+        <p>Full URL or path to navigate after successful sign up.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>redirectUrl?</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>string</em>
+        </p>
+        <p>Full URL or path to navigate after successful sign in or sign up. The
+          same as setting <code>afterSignInUrl</code> and <code>afterSignUpUrl</code> to
+          the same value.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>secondFactorUrl?</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>string</em>
+        </p>
+        <p>Full URL or path to navigate during sign in, if 2FA is enabled.</p>
       </td>
     </tr>
   </tbody>
