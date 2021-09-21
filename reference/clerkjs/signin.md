@@ -359,11 +359,11 @@ This method returns a `Promise` which resolves with a `SignIn` object. Check the
 {% endtab %}
 {% endtabs %}
 
-### signInWithOAuth\(strategy, callbacks\) <a id="signinwithoauth"></a>
+### authenticateWithRedirect\(params\) <a id="signinwithoauth"></a>
 
-`signInWithOAuth(strategy: OAuthStrategy, callbacks: OAuthCallbacks) => Promise<void>`
+`authenticateWithRedirect(params: AuthenticateWithRedirectParams) => Promise<void>`
 
-Signs in users via OAuth. This is commonly known as Single Sign On \(SSO\), where an external account is used for verifying the user's identity.
+Signs in users via OAuth. This is commonly known as Single Sign On \(SSO\), where an external account is used for verifying the user's identity. 
 
 {% tabs %}
 {% tab title="Parameters" %}
@@ -376,21 +376,15 @@ Signs in users via OAuth. This is commonly known as Single Sign On \(SSO\), wher
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left"><b>strategy</b>
+      <td style="text-align:left"><b>params</b>
       </td>
       <td style="text-align:left">
-        <p>&lt;em&gt;&lt;/em&gt;<a href="signin.md#oauthstrategy"><em>OAuthStrategy</em></a>&lt;em&gt;&lt;/em&gt;</p>
-        <p>The verification strategy. Select one of the supported OAuth providers.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>callbacks</b>
-      </td>
-      <td style="text-align:left">
-        <p>&lt;em&gt;&lt;/em&gt;<a href="signin.md#oauthcallbacks"><em>OAuthCallbacks</em></a>&lt;em&gt;&lt;/em&gt;</p>
-        <p>An object that specifies the URL for the OAuth provider redirect to, as
-          well as the URL that the user should be redirected to upon successful sign
-          in.</p>
+        <p><em>AuthenticateWithRedirectParams</em>
+        </p>
+        <p>An object that specifies the verification strategy (one of the supported
+          OAuth providers), the callback URL the OAuth provider should redirect to,
+          as well as the URL that the user should be redirected to upon successful
+          sign in.</p>
       </td>
     </tr>
   </tbody>
@@ -460,7 +454,7 @@ This method returns a `Promise` which doesn't resolve to any value.
   </tbody>
 </table>
 
-### OAuthCallbacks
+### AuthenticateWithRedirectParams
 
 <table>
   <thead>
@@ -470,6 +464,16 @@ This method returns a `Promise` which doesn't resolve to any value.
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td style="text-align:left"><b>strategy</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>string</em>
+        </p>
+        <p>The OAuth provider that will be used for singing in. Must be one of the
+          supported <a href="signin.md#oauthstrategy">OAuthStrategy</a> values.</p>
+      </td>
+    </tr>
     <tr>
       <td style="text-align:left"><b>callbackUrl</b>
       </td>

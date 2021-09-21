@@ -410,9 +410,9 @@ This method returns a `Promise` which resolves with a `SignUp` object. Check the
 {% endtab %}
 {% endtabs %}
 
-### signUpWithOAuth\(strategy, callbacks\)
+### authenticateWithRedirect\(params\) <a id="signinwithoauth"></a>
 
-`signUpWithOAuth(strategy: OAuthStrategy, callbacks: OAuthCallbacks) => Promise<void>`
+`authenticateWithRedirect(params: AuthenticateWithRedirectParams) => Promise<void>`
 
 Signs up users via OAuth,  where an external account provider is used to verify the user's identity and provide certain information about the user.
 
@@ -427,21 +427,14 @@ Signs up users via OAuth,  where an external account provider is used to verify 
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left"><b>strategy</b>
+      <td style="text-align:left"><b>params</b>
       </td>
       <td style="text-align:left">
-        <p><a href="signup.md#oauthstrategy"><em>OAuthStrategy</em></a>&lt;em&gt;&lt;/em&gt;</p>
-        <p>The verification strategy. Select one of the supported OAuth providers.</p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><b>callbacks</b>
-      </td>
-      <td style="text-align:left">
-        <p><a href="signup.md#oauthcallbacks"><em>OAuthCallbacks</em></a>&lt;em&gt;&lt;/em&gt;</p>
-        <p>An object that specifies the URL for the OAuth provider to redirect to,
+        <p>&lt;em&gt;&lt;/em&gt;<a href="signup.md#authenticatewithredirectparams"><em>AuthenticateWithRedirectParams</em></a>&lt;em&gt;&lt;/em&gt;</p>
+        <p>An object that specifies the verification strategy (one of the supported
+          OAuth providers), the callback URL the OAuth provider should redirect to,
           as well as the URL that the user should be redirected to upon successful
-          sign up.</p>
+          sign in.</p>
       </td>
     </tr>
   </tbody>
@@ -704,23 +697,33 @@ This method returns a `Promise` which doesn't resolve to any value.
   </tbody>
 </table>
 
-### OAuthCallbacks
+### AuthenticateWithRedirectParams
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Property</th>
       <th style="text-align:left">Description</th>
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td style="text-align:left"><b>strategy</b>
+      </td>
+      <td style="text-align:left">
+        <p><em>string</em>
+        </p>
+        <p>The OAuth provider that will be used for singing in. Must be one of the
+          supported <a href="signup.md#oauthstrategy">OAuthStrategy</a> values.</p>
+      </td>
+    </tr>
     <tr>
       <td style="text-align:left"><b>callbackUrl</b>
       </td>
       <td style="text-align:left">
         <p><em>string</em>
         </p>
-        <p>The URL that the OAuth provider should redirect to, on successful authorisation
+        <p>The URL that the OAuth provider should redirect to, on successful authorization
           on their part.</p>
       </td>
     </tr>
@@ -730,7 +733,7 @@ This method returns a `Promise` which doesn't resolve to any value.
       <td style="text-align:left">
         <p><em>string</em>
         </p>
-        <p>The URL that the user will be redirected to, after successful authorisation
+        <p>The URL that the user will be redirected to, after successful authorization
           from the OAuth provider and Clerk sign in</p>
       </td>
     </tr>

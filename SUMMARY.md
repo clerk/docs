@@ -41,6 +41,7 @@
   * [&lt;SignedOut&gt;](components/control-components/signed-out.md)
   * [&lt;ClerkLoaded&gt;](components/control-components/clerk-loaded.md)
   * [&lt;ClerkLoading&gt;](components/control-components/clerk-loading.md)
+  * [&lt;AuthenticateWithRedirectCallback /&gt;](components/control-components/authenticate-with-redirect-callback.md)
   * [&lt;RedirectToSignIn /&gt;](components/control-components/redirect-to-sign-in.md)
   * [&lt;RedirectToSignUp /&gt;](components/control-components/redirect-to-sign-up.md)
   * [&lt;RedirectToUserProfile /&gt;](components/control-components/redirect-to-user-profile.md)

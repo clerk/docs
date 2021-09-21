@@ -252,7 +252,7 @@ From the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Applicati
 
 Finally, in your app define a `/sign-up` route that renders the &lt;SignUp /&gt; component. Similarly, define a `/sign-in`route that renders the &lt;SignIn /&gt; component as shown in the following example. Refer to the [&lt;SignIn/&gt;](../components/sign-in.md) and [&lt;SignUp/&gt;](../components/sign-up.md) docs to learn more about the `routing` and `path` props.
 
-The React example below uses `react-router-dom`to define the routes. For more info, take a look at [the example repo](https://codesandbox.io/embed/github/nikosdouvlis/clerk-custom-social-login/tree/mount-sign-in-sign-up/?fontsize=12&hidenavigation=1&theme=dark&view=editor) or consult the [URLs & redirects docs]().
+The React example below uses `react-router-dom`to define the routes. For more info, take a look at [the example repo](https://codesandbox.io/embed/github/nikosdouvlis/clerk-custom-social-login/tree/mount-sign-in-sign-up/?fontsize=12&hidenavigation=1&theme=dark&view=editor) or consult the [URLs & redirects docs](setup-your-application.md#url-and-redirects).
 
 {% tabs %}
 {% tab title="Clerk React" %}
@@ -280,11 +280,95 @@ function App() {
 {% endtab %}
 {% endtabs %}
 
-## Custom social login flow
+## Custom flow
 
-_Coming soon..._
+In case one of the above integration methods doesn't cover your needs, you can leverage the Clerk SDK to build completely custom OAuth flows. 
 
+You still need to configure your instance through the Clerk Dashboard, as described [at the top of this guide](social-login-oauth.md#configuration).
 
+When using OAuth, the sign in and sign up are equivalent. A successful OAuth flow consists of the following steps:
+
+1. Start the OAuth flow using one of the [supported providers](social-login-oauth.md#configuration) by calling [`SignIn.authenticateWithRedirect(params)`](../reference/clerkjs/signin.md#authenticatewithredirectparams) or [`SignUp.authenticateWithRedirect(params)`](../reference/clerkjs/signup.md#signinwithoauth). Both of these methods require a `callbackUrl` param, which is the URL that the browser will be redirected to once the user authenticates with the OAuth provider.
+2. Create a route at the URL `callbackUrl` points, typically `/sso-callback`, that calls the `Clerk.handleRedirectCallback()` or simply renders the prebuilt [`<AuthenticateWithRedirectCallback/>`](../components/control-components/authenticate-with-redirect-callback.md) component.
+
+The React example below uses `react-router-dom`to define the required route. For NextJS apps, you only need to create a `pages/sso-callback` file.
+
+{% tabs %}
+{% tab title="Clerk React" %}
+{% code title="App.tsx" %}
+```jsx
+import React from "react";
+import { OAuthStrategy } from "@clerk/types";
+import {
+  ClerkProvider,
+  ClerkLoaded,
+  AuthenticateWithRedirectCallback,
+  UserButton,
+  useSignIn,
+} from "@clerk/clerk-react";
+
+const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
+
+function App() {
+  return (
+    //  react-router-dom requires your app to be wrapped with a Router
+    <BrowserRouter>
+      <ClerkProvider frontendApi={frontendApi}>
+        <Switch>
+          {/* Define a / route that displays the OAuth buttons */}
+          <Route path="/">
+            <SignedOut>
+              <SignInOAuthButtons />
+            </SignedOut>
+            <SignedIn>
+              <UserButton afterSignOutAllUrl="/" />
+            </SignedIn>
+          </Route>
+         
+           {/* Define a /sss-callback route that handle the OAuth redirect flow */}
+          <Route path="/sso-callback">
+            <SSOCallback />
+          </Route>
+        </Switch>
+      </ClerkProvider>
+    </BrowserRouter>
+  );
+}
+
+function SSOCallback() {
+  // Handle the redirect flow by rendering the
+  // prebuilt AuthenticateWithRedirectCallback component.
+  // This is the final step in the custom OAuth flow
+  return <AuthenticateWithRedirectCallback />;
+}
+
+function SignInOAuthButtons() {
+  const { authenticateWithRedirect } = useSignIn();
+
+  const signInWith = (strategy: OAuthStrategy) => {
+    return authenticateWithRedirect({
+      strategy,
+      callbackUrl: "/sso-callback",
+      callbackUrlComplete: "/",
+    });
+  };
+
+  // Render a button for each supported OAuth provider
+  // you want to add to your app
+  return (
+    <div>
+      <button onClick={() => signInWith("oauth_google")}>
+        Sign in with Google
+      </button>
+    </div>
+  );
+}
+
+export default App;
+```
+{% endcode %}
+{% endtab %}
+{% endtabs %}
 
 
 
