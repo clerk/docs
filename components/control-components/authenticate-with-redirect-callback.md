@@ -8,7 +8,7 @@ description: Complete a custom OAuth flow
 
 The `<AuthenticateWithRedirectCallback/>` is used to complete a custom OAuth flow started by calling either [`SignIn.authenticateWithRedirect(params)`](../../reference/clerkjs/signin.md#signinwithoauth) or [`SignUp.authenticateWithRedirect(params)`](../../reference/clerkjs/signup.md#signinwithoauth). 
 
-Internally, it calls the `Clerk.handleRedirectCallback` method
+Internally, it calls the [`Clerk.handleRedirectCallback()`](../../reference/clerkjs/clerk.md#handleredirectcallback-params) method
 
 ## Usage
 
@@ -16,86 +16,63 @@ Internally, it calls the `Clerk.handleRedirectCallback` method
 Make sure you've followed the installation guide for [Clerk React](../../reference/clerk-react/installation.md) before running the snippets below.
 {% endhint %}
 
-A common scenario for using the `<SignedIn/>` component, is having an application with content that anybody can access and content that can only be accessed by authenticated users. 
+The most common scenario for using the `<AuthenticateWithRedirectCallback/>` component, is to complete a custom OAuth sign in or sign up flow in React and NextJS apps. Simply render the component under the route you passed as `callbackUrl` to the `authenticateWithRedirect` methods.
 
-For example, you might have a page that displays general-knowledge content, but provides additional information to members. The page should be publicly accessible, but part of the content should be visible only to signed in users.
-
-You can use the `<SignedIn/>` to guard the members-only section of your page.
+For a more detailed walkthrough, you can check the [Social Login \(OAuth\) guide](../../popular-guides/social-login-oauth.md).
 
 {% tabs %}
 {% tab title="Clerk React" %}
 ```jsx
-import { SignedIn, ClerkProvider } from "@clerk/clerk-react";
-
-function Page() {
-  return (
-    <ClerkProvider frontendApi="clerk.[your-domain].com">
-      <section>
-        <div>
-          This content is always visible.
-        </div>
-        <SignedIn>
-          <div>
-            This content is visible only to 
-            signed in users.
-          </div>
-        </SignedIn>
-      </section>
-    </ClerkProvider>
-  );
-}
-```
-{% endtab %}
-{% endtabs %}
-
-### Conditional routing
-
-Another common scenario which better resembles a real world use-case, might be to restrict some of your application's pages to signed in users.
-
-For example, a Saas platform website might have a page with information about the company and this page should be publicly accessible. At the same time, there might be a page for signed in users only, where users can edit their preferences.
-
-Let's see how the `<SignedIn/>` component might help with the above scenario. Notice how we also use the [&lt;ClerkProvider/&gt;](../../reference/clerk-react/clerkprovider.md), [&lt;SignedOut/&gt;](signed-out.md) and [&lt;RedirectToSignIn/&gt;](redirect-to-sign-in.md) components to complete the functionality. The example below uses the popular [React Router](https://reactrouter.com/) routing library, but this is just an implementation detail. You can use any routing mechanism to achieve the same result.
-
-{% tabs %}
-{% tab title="Clerk React" %}
-```jsx
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { 
+import React from "react";
+import {
   ClerkProvider,
-  SignedIn, 
-  SignedOut, 
-  RedirectToSignIn 
+  AuthenticateWithRedirectCallback,
+  UserButton,
+  SignedOut,
+  useSignIn,
 } from "@clerk/clerk-react";
+
+const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 
 function App() {
   return (
-    <Router>
-      <ClerkProvider frontendApi="clerk.[your-domain].com">
-        <Route path="/public">
-          <div>This page is publicly accessible.</div>
-        </Route>
-        <Route path="/private">
-          <SignedIn>
-            <div>
-              This content is accessible only to signed
-              in users.
-            </div>
-          </SignedIn>
-          <SignedOut>
-            {/* 
-              Route matches, but no user is signed in. 
-              Redirect to the sign in page.
-            */}
-            <RedirectToSignIn />
-          </SignedOut>
-        </Route>
+    //  react-router-dom requires your app to be wrapped with a Router
+    <BrowserRouter>
+      <ClerkProvider frontendApi={frontendApi}>
+        <Switch>
+          {/* Define a / route that displays the OAuth button */}
+          <Route path="/">
+            <SignedOut>
+              <SignInOAuthButtons />
+            </SignedOut>
+          </Route>
+         
+           {/* Define a /sss-callback route that handle the OAuth redirect flow */}
+          <Route path="/sso-callback">
+            {/* Simply render the component */}
+            <AuthenticateWithRedirectCallback />
+          </Route>
+        </Switch>
       </ClerkProvider>
-    </Router>
+    </BrowserRouter>
   );
+}
+
+function SignInOAuthButtons() {
+  const { authenticateWithRedirect } = useSignIn();
+  const signInWithGoogle = () =>
+    authenticateWithRedirect({
+      strategy: "oauth_google",
+      callbackUrl: "/sso-callback",
+      callbackUrlComplete: "/",
+    });
+  return <button onClick={signInWithGoogle}>Sign in with Google</button>;
 }
 ```
 {% endtab %}
 {% endtabs %}
+
+
 
 ## Props
 
