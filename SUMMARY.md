@@ -51,6 +51,7 @@
 * [Firebase](integrations/firebase.md)
 * [Hasura](integrations/hasura.md)
 * [bubble.io \(beta\)](integrations/bubble.io-beta.md)
+* [Google Analytics](integrations/google-analytics.md)
 
 ## reference
 
