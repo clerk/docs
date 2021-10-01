@@ -1,7 +1,5 @@
 ---
-description: >-
-  Use Clerk to build all sorts of authentication form flows for your
-  application.
+description: Use Clerk to build all sorts of authentication flows for your application.
 ---
 
 # Build your own UI
