@@ -59,12 +59,15 @@ A common mistake when deploying to production is forgetting to change your API k
 * API Key
   * Formatted `test_xxxxx` in development,  and `live_xxxxx` in production.  These values are used to access Clerk's Backend API
 * OAuth credentials
-
   * In development, Clerk provides you with a set of shared OAuth credentials.  These are not secure in production, and you will need to provide your own.
+
+
 
 ## DNS Records
 
 Clerk uses DNS records to provide session management, and emails verified from your domain.  You will need to go to **Settings &gt; DNS** to see the records that you need to set.  Note: It can take up to 24hrs for DNS Records to fully propagate, so be patient.  
+
+![](../.gitbook/assets/screenshot-2021-10-01-at-12.54.06-pm.png)
 
 {% hint style="danger" %}
 Some DNS providers will automatically append the domain for the 'To' field, if this is the case, you will need to omit your domain from the 'To' field.  So, add 'clerk' instead of 'clerk.example.com'.
@@ -81,4 +84,6 @@ If this subdomain is reverse proxied behind a service that points to generic hos
 ## Deploy
 
 That's all! Once you've completed all the above steps, you're ready to go to the home page, and press **Deploy**!  If you run into any trouble feel free to reach out to any of our [support channels](https://clerk.dev/support) and we can help you out.
+
+![](../.gitbook/assets/screenshot-2021-10-01-at-12.49.54-pm.png)
 
