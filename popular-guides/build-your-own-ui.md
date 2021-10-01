@@ -8,7 +8,7 @@ description: >-
 
 ## Create a custom sign-up and sign-in page
 
-Clerk provides [sample code](https://github.com/clerkinc/clerk-nextjs-examples) for different types of authentication form flows you might need for your application. Each example is a fully runnable application which you can use either as a starter or as guidelines on how you can utilize Clerk based on your requirements. In each examples folder, you will find instructions on how to bootstrap the application.
+Clerk provides [sample code](https://github.com/clerkinc/clerk-nextjs-examples) for different types of authentication flows you might need for your application. Each example is a fully runnable application which you can use either as a starter or as guidelines on how you can utilize Clerk based on your requirements. In each examples folder, you will find instructions on how to bootstrap the application.
 
 ### Available repositories
 
