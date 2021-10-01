@@ -1,6 +1,6 @@
 ---
 description: >-
-  Use Clerk to build all shorts of authentication form flows for your
+  Use Clerk to build all sorts of authentication form flows for your
   application.
 ---
 
