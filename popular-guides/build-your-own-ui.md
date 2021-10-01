@@ -8,6 +8,8 @@ description: Use Clerk to build all sorts of authentication flows for your appli
 
 Clerk provides [sample code](https://github.com/clerkinc/clerk-nextjs-examples) for different types of authentication flows you might need for your application. Each example is a fully runnable application which you can use either as a starter or a guideline on how you can utilize Clerk based on your requirements. In each example folder, you will find instructions on how to bootstrap the application.
 
+![&quot;Mirage&quot; and &quot;Transistor&quot; custom UI samples](../.gitbook/assets/screen-shot-2021-10-01-at-1.19.38-pm.png)
+
 ### Available repositories
 
 * Clerk Next.js examples: [https://github.com/clerkinc/clerk-nextjs-examples](https://github.com/clerkinc/clerk-nextjs-examples)
