@@ -180,14 +180,14 @@ Below you can find three different examples showcasing the capabilities of Clerk
 // Supplying a theme prop
 const futuristicThemeOptions = {
   general: {
-    color: "#05f4b7";
-    backgroundColor: "#12151f";
-    fontColor: "#05f4b7";
-    borderRadius: "20px";
-    boxShadow: "2px 4px 12px #05f4b7";
+    color: "#05f4b7",
+    backgroundColor: "#12151f",
+    fontColor: "#05f4b7",
+    borderRadius: "20px",
+    boxShadow: "2px 4px 12px #05f4b7",
   },
   buttons: {
-    fontColor: "#fff";
+    fontColor: "#fff",
   },
 }
 
@@ -212,14 +212,14 @@ const futuristicThemeOptions = {
 // Supplying a theme prop
 const professionalThemeOptions = {
   general: {
-    color: "#fb8122";
-    backgroundColor: "#e1e2e2";
-    fontColor: "#1d2228";
-    labelFontWeight: "300";
-    borderRadius: "0px";
+    color: "#fb8122",
+    backgroundColor: "#e1e2e2",
+    fontColor: "#1d2228",
+    labelFontWeight: "300",
+    borderRadius: "0px",
   },
   buttons: {
-    fontColor: "#fff";
+    fontColor: "#fff",
   },
 }
 
@@ -244,15 +244,15 @@ const professionalThemeOptions = {
 // Supplying a theme prop
 const heartyThemeOptions = {
   general: {
-    color: "#ef0d50";
-    backgroundColor: "#e1f2f7";
-    fontColor: "#ef0d50";
-    labelFontWeight: "bold";
-    borderRadius: "12px";
-    boxShadow: "10px 0px 12px 6px #ef0d50";
+    color: "#ef0d50",
+    backgroundColor: "#e1f2f7",
+    fontColor: "#ef0d50",
+    labelFontWeight: "bold",
+    borderRadius: "12px",
+    boxShadow: "10px 0px 12px 6px #ef0d50",
   },
   buttons: {
-    fontColor: "#fff";
+    fontColor: "#fff",
   },
 }
 
