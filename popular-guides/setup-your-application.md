@@ -128,7 +128,7 @@ At the moment, we support the following personal information:
 
 The settings on this section control the look and feel of your application. From here you can control the colors, fonts, spacing and other properties of your application.
 
-These settings affect all [Clerk Components](../main-concepts/clerk-components.md) of your application. For more fine grained control, you can have a look at the customization section of each component.
+These settings affect all [Clerk Components](../main-concepts/clerk-components.md) of your application.
 
 The theme settings we provide are:
 
@@ -141,6 +141,10 @@ The theme settings we provide are:
 * **Spacing**: Controls whether the spacing between the elements of Clerk Components will be the standard spacing \(_1 em_\) or compact spacing \(_0.75 em_\)
 * **Button font, font color and font weight**: These settings control how the button text of the Clerk Components will look like.
 * **Page background color**: Controls the background color of the [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md).
+
+### Code-side theming
+
+For more control and flexibility over the theming of your Clerk Components, you can specify theming options at the code level following our [customization guide](../components/customization.md#overview) using the `theme` prop and Clerk CSS variables.
 
 ## URL & redirects
 

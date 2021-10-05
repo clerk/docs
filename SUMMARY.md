@@ -37,6 +37,7 @@
 * [&lt;SignUp /&gt;](components/sign-up.md)
 * [&lt;UserButton /&gt;](components/user-button.md)
 * [&lt;UserProfile /&gt;](components/user-profile.md)
+* [Customization](components/customization.md)
 * [Control components](components/control-components/README.md)
   * [&lt;SignedIn&gt;](components/control-components/signed-in.md)
   * [&lt;SignedOut&gt;](components/control-components/signed-out.md)
