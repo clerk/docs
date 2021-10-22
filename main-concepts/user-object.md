@@ -9,7 +9,7 @@ description: The User object models a user's account information.
 The `User` object contains all account information that describes a user of your app in Clerk. Users can authenticate and manage their accounts, updating their personal and contact info, or setting up security features for their account.
 
 {% hint style="info" %}
-For more information on users, see the [User object reference](../reference/clerkjs/user.md#update-params).
+For more information on users, see the[ User object reference](https://docs.clerk.dev/reference/clerkjs/user#attributes).
 {% endhint %}
 
 ## Create users
