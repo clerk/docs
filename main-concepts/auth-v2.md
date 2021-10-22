@@ -82,11 +82,11 @@ Note: Server-side rendering is only supported for Next.js applications at this p
 {% endtab %}
 
 {% tab title="Ruby" %}
-Make sure you use `clerk-sdk-ruby` version 2.0.0 or later.
+Make sure you use `clerk-sdk-ruby` version 2.0.2 or later.
 {% endtab %}
 
 {% tab title="Go" %}
-Make sure you use `clerk-sdk-go` version 1.1.0 or later.
+Make sure you use `clerk-sdk-go` version 1.1.1 or later.
 
 That version provides the `WithSessionV2` and `RequireSessionV2` middlewares.
 {% endtab %}
