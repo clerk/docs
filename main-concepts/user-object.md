@@ -60,7 +60,7 @@ The "unsafe" custom attributes can be set upon sign up, when [creating](../refer
 
 Here's a comparison of the different metadata attributes on the User object and how each can be used.
 
-| Property    | Frontend API | Backend API |
+| Metadata    | Frontend API | Backend API |
 | ----------- | ------------ | ----------- |
 | **private** | -            | Read/Write  |
 | **public**  | Read         | Read/Write  |
