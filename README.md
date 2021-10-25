@@ -6,7 +6,7 @@ description: >-
 
 # Introduction
 
-> Questions?  We're always available [on Discord ](https://discord.gg/38hXdBAQ5U)or [by email](mailto:support@clerk.dev).
+> Questions?  We're always available  on [Discord](https://discord.gg/tF35UMNRuM) or [by email](mailto:support@clerk.dev).
 
 Use Clerk to quickly add authentication and user management features to your application.
 
