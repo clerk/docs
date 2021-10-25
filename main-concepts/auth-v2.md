@@ -76,17 +76,17 @@ If you created your application from the Dashboard _prior_ to 22 Oct 2021 and yo
 
 {% tabs %}
 {% tab title="JavaScript" %}
-Make sure you use `clerk-sdk-node` version 2.0.1 or later.
+Make sure you use `clerk-sdk-node` version 2.0.2 or later.
 
 Note: Server-side rendering is only supported for Next.js applications at this point.
 {% endtab %}
 
 {% tab title="Ruby" %}
-Make sure you use `clerk-sdk-ruby` version 2.0.2 or later.
+Make sure you use `clerk-sdk-ruby` version 2.0.4 or later.
 {% endtab %}
 
 {% tab title="Go" %}
-Make sure you use `clerk-sdk-go` version 1.1.1 or later.
+Make sure you use `clerk-sdk-go` version 1.1.3 or later.
 
 That version provides the `WithSessionV2` and `RequireSessionV2` middlewares.
 {% endtab %}
