@@ -1,6 +1,6 @@
 # Introduction
 
-## Current components
+## All components
 
 Clerk Components are pre-built UIs that are ready to drop into your application in one line of code.  Explore all of our components.
 
