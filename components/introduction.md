@@ -1,6 +1,6 @@
 # Introduction
 
-## All components
+## All Components
 
 Clerk Components are pre-built UIs that are ready to drop into your application in one line of code.  Explore all of our components.
 
@@ -20,7 +20,7 @@ Clerk Components are pre-built UIs that are ready to drop into your application 
 [user-profile.md](user-profile.md)
 {% endcontent-ref %}
 
-## Customization
+## Component Customization
 
 All Clerk Components are customizable to match the look and feel of your application.  Go to the following page to learn more.
 
@@ -28,7 +28,7 @@ All Clerk Components are customizable to match the look and feel of your applica
 [customization.md](customization.md)
 {% endcontent-ref %}
 
-## Control components
+## Control Components
 
 Control Components help you easily build your app.
 
