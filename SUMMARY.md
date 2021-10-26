@@ -34,6 +34,7 @@
 
 ## Clerk Components <a href="components" id="components"></a>
 
+* [Introduction](components/introduction.md)
 * [\<SignIn />](components/sign-in.md)
 * [\<SignUp />](components/sign-up.md)
 * [\<UserButton />](components/user-button.md)
