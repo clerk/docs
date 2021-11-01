@@ -4,11 +4,11 @@ A **Sign In** represents an active sign in.  A **Client **can only have one acti
 
 ## Available requests
 
-* **`POST`**`/v1/client/sign_in_attempt`
-* **`POST`**`/v1/client/sign_in_attempt/prepare_factor_one`
-* **`POST`**`/v1/client/sign_in_attempt/attempt_factor_one`
-* **`POST`**`/v1/client/sign_in_attempt/prepare_factor_two`
-* **`POST`**`/v1/client/sign_in_attempt/attempt_factor_two`
+* **`POST`**`/v1/client/sign_ins`
+* **`POST`**`/v1/client/sign_ins/:id/prepare_first_factor`
+* **`POST`**`/v1/client/sign_ins/:id/attempt_first_factor`
+* **`POST`**`/v1/client/sign_ins/:id/attempt_second_factor`
+* **`POST`**`/v1/client/sign_ins/:id/attempt_second_factor`
 
 ## The Sign in object
 
@@ -38,7 +38,7 @@ A **Sign In** represents an active sign in.  A **Client **can only have one acti
 }
 ```
 
-{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_in_attempt" method="post" summary="Create or replace" %}
+{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_ins" method="post" summary="Create a sign in" %}
 {% swagger-description %}
 **Creates or replaces the current Sign in object.  **
 
@@ -222,7 +222,7 @@ Optional if the strategy is one of the OAuth providers.  If the OAuth verificati
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_in_attempt/prepare_factor_one" method="post" summary="Prepare factor one" %}
+{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_ins/:id/prepare_first_factor" method="post" summary="Prepare first factor" %}
 {% swagger-description %}
 Prepares the verification object for the identified 
 
@@ -370,6 +370,10 @@ Required if the strategy is one of the oauth providers. This is the URL the user
 Optional if the strategy is one of the OAuth providers.  If the OAuth verification results in a completed Sign in, this is the URL the user will be redirected to.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="path" name="id" type="string" required="true" %}
+
+{% endswagger-parameter %}
+
 {% swagger-response status="200" description="" %}
 ```
 ```
@@ -378,7 +382,7 @@ Optional if the strategy is one of the OAuth providers.  If the OAuth verificati
 
 
 
-{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_in_attempt/attempt_factor_one" method="post" summary="Attempt factor one" %}
+{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_ins/:id/attempt_first_factor" method="post" summary="Attempt first factor" %}
 {% swagger-description %}
 Attempt the first verification.  Requires the sign in attempt to be identified, and the first factor verification to be prepared, unless you're using a password.
 
@@ -460,6 +464,10 @@ The code to attempt the verification with.
 The password to attempt the verification with.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="path" name="id" type="string" required="true" %}
+
+{% endswagger-parameter %}
+
 {% swagger-response status="200" description="" %}
 ```
 ```
@@ -468,7 +476,7 @@ The password to attempt the verification with.
 
 
 
-{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_in_attempt/prepare_factor_two" method="post" summary="Prepare factor two" %}
+{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_ins/:id/prepare_second_factor" method="post" summary="Prepare second factor" %}
 {% swagger-description %}
 Prepare the second verification.  Requires the sign in attempt `status` to be equal to `needs_factor_two`.
 
@@ -478,7 +486,11 @@ Prepare the second verification.  Requires the sign in attempt `status` to be eq
 
 {% endswagger-description %}
 
-{% swagger-parameter in="path" name="strategy" type="string" %}
+{% swagger-parameter in="path" name="id" type="string" required="true" %}
+
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="strategy" type="string" %}
 The strategy to prepare.  Allowed options are:
 
 \
@@ -493,12 +505,16 @@ The strategy to prepare.  Allowed options are:
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_in_attempt/attempt_factor_two" method="post" summary="Attempt factor two" %}
+{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_ins/:id/attempt_second_factor" method="post" summary="Attempt factor two" %}
 {% swagger-description %}
 Attempt the second verification.  Requires the sign in attempt `status` to be equal to `needs_factor_two`, and for the preparation step to have been called.
 {% endswagger-description %}
 
-{% swagger-parameter in="path" name="strategy" type="string" %}
+{% swagger-parameter in="path" name="id" type="string" required="true" %}
+
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="strategy" type="string" %}
 The strategy to attempt.  Allowed options are:
 
 \
@@ -507,7 +523,7 @@ The strategy to attempt.  Allowed options are:
 \`phone_code`
 {% endswagger-parameter %}
 
-{% swagger-parameter in="path" name="code" type="string" %}
+{% swagger-parameter in="body" name="code" type="string" %}
 The code to attempt the verification with.
 {% endswagger-parameter %}
 
