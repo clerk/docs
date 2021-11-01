@@ -16,7 +16,7 @@ Client requests are responsible for handling the **Sign in**, **Sign up**, and *
 * **`POST`**`/v1/client/sessions/:id/end`
 * **`POST`**`/v1/client/sessions/:id/remove`
 
-### [Sign in requests](sign-in-attempt.md)
+### [Sign in requests](sign-ins.md)
 
 #### **Create**
 
