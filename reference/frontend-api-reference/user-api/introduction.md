@@ -36,7 +36,7 @@ Client requests are responsible for handling the **Sign in**, **Sign up**, and *
 * **`POST`**`/v1/client/sign_in_attempt/prepare_factor_two`
 * **`POST`**`/v1/client/sign_in_attempt/attempt_factor_two`
 
-### [Sign up requests](sign-up-api.md)
+### [Sign up requests](sign-ups.md)
 
 #### **Create/Update**
 

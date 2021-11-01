@@ -86,7 +86,7 @@
     * [Client](reference/frontend-api-reference/user-api/client.md)
     * [Sessions](reference/frontend-api-reference/user-api/sessions.md)
     * [Sign ins](reference/frontend-api-reference/user-api/sign-ins.md)
-    * [Sign up](reference/frontend-api-reference/user-api/sign-up-api.md)
+    * [Sign ups](reference/frontend-api-reference/user-api/sign-ups.md)
   * [User requests](reference/frontend-api-reference/users/README.md)
     * [Overview](reference/frontend-api-reference/users/introduction.md)
     * [Current user](reference/frontend-api-reference/users/user.md)

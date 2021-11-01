@@ -1,18 +1,19 @@
-# Sign up
+# Sign ups
 
 A **Sign up** represents an active sign up.  A **Client **can only have one active sign up at a time.
 
 ## Available requests
 
-**Create/Update**
+**Create/Read/Update**
 
-* **`POST `**`/v1/client/sign_up`
-* **`PATCH`**`/v1/client/sign_up`
+* **`POST `**`/v1/client/sign_ups`
+* **`GET`**`/v1/client/sign_ups/:id`
+* **`PATCH`**`/v1/client/sign_ups/:id`
 
 **Verification**
 
-* **`POST`**`/v1/client/sign_up/prepare_verification`
-* **`POST`**`/v1/client/sign_up/attempt_verification`
+* **`POST`**`/v1/client/sign_ups/:id/prepare_verification`
+* **`POST`**`/v1/client/sign_ups/:id/attempt_verification`
 
 ## The Sign up object
 
@@ -59,7 +60,7 @@ A **Sign up** represents an active sign up.  A **Client **can only have one acti
 
 ## Create/Update
 
-{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_up" method="post" summary="Create a Sign Up" %}
+{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_ups" method="post" summary="Create a Sign up" %}
 {% swagger-description %}
 Creates a new 
 
@@ -194,7 +195,17 @@ The password of the new
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_up" method="patch" summary="Update" %}
+{% swagger method="get" path="/v1/client/sign_ups/:id" baseUrl="https://clerk.example.com" summary="Get a Sign up" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="id" type="string" required="true" %}
+
+{% endswagger-parameter %}
+{% endswagger %}
+
+{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_ups/:id" method="patch" summary="Update" %}
 {% swagger-description %}
 Updates the current 
 
@@ -264,6 +275,10 @@ The password of the new
 .
 {% endswagger-parameter %}
 
+{% swagger-parameter in="path" name="id" type="string" required="true" %}
+
+{% endswagger-parameter %}
+
 {% swagger-response status="200" description="PATCH /v1/client/sign_up, passing the email_address, first_name and last_name parameters." %}
 ```
 {
@@ -307,7 +322,7 @@ The password of the new
 
 ## Verification
 
-{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_up/prepare_verification" method="post" summary="Prepare a verification" %}
+{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_ups/:id/prepare_verification" method="post" summary="Prepare a verification" %}
 {% swagger-description %}
 In order to kick off the verification process, you need to prepare a verification for the current 
 
@@ -354,6 +369,10 @@ The verification strategy. Can be one of
  in general.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="path" name="id" type="string" required="true" %}
+
+{% endswagger-parameter %}
+
 {% swagger-response status="200" description="POST /v1/client/sign_up/prepare_verification with email_code strategy." %}
 ```
 {
@@ -397,7 +416,7 @@ The verification strategy. Can be one of
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_up/attempt_verification" method="post" summary="Attempt a verification" %}
+{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_ups/:id/attempt_verification" method="post" summary="Attempt a verification" %}
 {% swagger-description %}
 Use this request to check a previously prepared verification. Attempting a verification needs the 
 
@@ -430,6 +449,10 @@ The strategy that was used when preparing the verification.
 
 {% swagger-parameter in="body" name="code" type="string" %}
 A character string that needs to be verified. Usually 6 digits.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="id" type="string" required="true" %}
+
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="POST /v1/client/sign_up/attempt_verification with strategy email_code and a valid code." %}

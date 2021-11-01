@@ -1,10 +1,11 @@
-# Sign in
+# Sign ins
 
 A **Sign In** represents an active sign in.  A **Client **can only have one active sign in at a time.
 
 ## Available requests
 
 * **`POST`**`/v1/client/sign_ins`
+* **`GET `**`/v1/client/sign_ins`
 * **`POST`**`/v1/client/sign_ins/:id/prepare_first_factor`
 * **`POST`**`/v1/client/sign_ins/:id/attempt_first_factor`
 * **`POST`**`/v1/client/sign_ins/:id/attempt_second_factor`
@@ -208,6 +209,32 @@ This is the URL that the user will be redirected to after the OAuth verification
 
 {% swagger-parameter in="body" name="action_complete_redirect_url" type="string" %}
 Optional if the strategy is one of the OAuth providers.  If the OAuth verification results in a completed Sign in, this is the URL that the user will be redirected to.
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="" %}
+```
+// see example schema
+{
+        "object": "session",
+        "id": "sess_1q8uCbeJSMgTJnTQMgpAK1Ff0ER",
+        ...
+
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_ins/:id" method="get" summary="Get a sign in" %}
+{% swagger-description %}
+**Get the Sign in object.**
+
+\
+
+
+
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="id" type="string" %}
+
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
