@@ -166,10 +166,10 @@ Renders a [\<UserButton/>](../../components/user-button.md) component for the ac
 
 {% tabs %}
 {% tab title="Parameters" %}
-| Name         | Description                                                                                                                                                                     |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **node**     | <p><em>HTMLDivElement</em></p><p>An HTML <code>&#x3C;div/></code> element which will render the <a href="../../components/user-button.md">&#x3C;UserButton/></a> component.</p> |
-| **options?** | <p><em>UserButtonProps</em></p><p>Additional props that will be passed to the <a href="../../components/user-button.md">&#x3C;UserButton/></a> component.</p>                   |
+| Name         | Description                                                                                                                                                                                                            |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **node**     | <p><em>HTMLDivElement</em></p><p>An HTML <code>&#x3C;div/></code> element which will render the <a href="../../components/user-button.md">&#x3C;UserButton/></a> component.</p>                                        |
+| **options?** | <p><em></em><a href="clerk.md#userbuttonprops"><em>UserButtonProps</em></a><em></em></p><p>Additional props that will be passed to the <a href="../../components/user-button.md">&#x3C;UserButton/></a> component.</p> |
 {% endtab %}
 
 {% tab title="Returns" %}
@@ -185,10 +185,10 @@ Renders a [\<UserProfile/>](../../components/user-button.md) component for the a
 
 {% tabs %}
 {% tab title="Parameters" %}
-| Name           | Description                                                                                                                                                      |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **node**       | <p><em>HTMLElement</em></p><p>The element that the UserProfile should be mounted in.</p>                                                                         |
-| **nodeProps?** | <p><em>UserProfileProps</em></p><p>Additional props that will be passed to the <a href="../../components/user-profile.md">&#x3C;UserProfile/></a> component.</p> |
+| Name           | Description                                                                                                                                                                                                                |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **node**       | <p><em>HTMLElement</em></p><p>The element that the UserProfile should be mounted in.</p>                                                                                                                                   |
+| **nodeProps?** | <p><em></em><a href="clerk.md#userprofileprops"><em>UserProfileProps</em></a><em></em></p><p>Additional props that will be passed to the <a href="../../components/user-profile.md">&#x3C;UserProfile/></a> component.</p> |
 {% endtab %}
 
 {% tab title="Returns" %}
@@ -502,12 +502,12 @@ This method has no return value.
 
 ### UserProfileProps
 
-| Property             | Description                                                                                                                                                                                                                                                     |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **routing?**         | <p><em>string</em></p><p>The routing strategy for your pages. Supported values are:</p><ul><li><strong>path</strong>: Path based routing.</li><li><strong>hash</strong>: Hash based routing.</li><li><strong>virtual</strong>: Virtual based routing.</li></ul> |
-| **path?**            | <p><em>string</em></p><p>The root URL where the component is mounted on.</p>                                                                                                                                                                                    |
-| **afterSignOutAll?** | <p><em>string</em></p><p>Full URL or relative path to navigate after successful sign out, with no other active accounts on the client.</p>                                                                                                                      |
-| **afterSignOutOne?** | <p><em>string</em></p><p>Full URL or relative path to navigate after successful sign out.</p>                                                                                                                                                                   |
+| Property            | Description                                                                                                                                                                                                                                                     |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **routing?**        | <p><em>string</em></p><p>The routing strategy for your pages. Supported values are:</p><ul><li><strong>path</strong>: Path based routing.</li><li><strong>hash</strong>: Hash based routing.</li><li><strong>virtual</strong>: Virtual based routing.</li></ul> |
+| **path?**           | <p><em>string</em></p><p>The root URL where the component is mounted on.</p>                                                                                                                                                                                    |
+| **hideNavigation?** | <p><em>boolean</em></p><p>Hides the default navigation bar. Can be used when a custom navigation bar is built.</p>                                                                                                                                              |
+| **only?**           | <p><em>string</em></p><p>Renders only a specific page of the UserProfile component. Supported values are:</p><ul><li><strong>account</strong>: User account page.</li><li><strong>security</strong>: User security page.</li></ul>                              |
 
 ### HandleOAuthCallbackParams
 

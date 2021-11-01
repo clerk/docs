@@ -241,10 +241,12 @@ For more information, see [Routing](../main-concepts/routing.md).
 
 ## Props
 
-| Name         | Description                                                                                                                                                                                                                                                                        |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **routing?** | <p><em>RoutingStrategy</em></p><p>The routing strategy for your pages. Supported values are:</p><ul><li><strong>hash: </strong>(default) Hash based routing.</li><li><strong>path</strong>: Path based routing.</li><li><strong>virtual</strong>: Virtual based routing.</li></ul> |
-| **path?**    | <p><em>string</em></p><p>The root URL where the component is mounted on.</p>                                                                                                                                                                                                       |
+| Name                | Description                                                                                                                                                                                                                                                                        |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **routing?**        | <p><em>RoutingStrategy</em></p><p>The routing strategy for your pages. Supported values are:</p><ul><li><strong>hash: </strong>(default) Hash based routing.</li><li><strong>path</strong>: Path based routing.</li><li><strong>virtual</strong>: Virtual based routing.</li></ul> |
+| **path?**           | <p><em>string</em></p><p>The root URL where the component is mounted on.</p>                                                                                                                                                                                                       |
+| **hideNavigation?** | <p><em>boolean</em></p><p>Hides the default navigation bar. Can be used when a custom navigation bar is built.</p>                                                                                                                                                                 |
+| **only?**           | <p><em>string</em></p><p>Renders only a specific page of the UserProfile component. Supported values are: </p><ul><li>account: User account page.</li><li>security: User security page.</li></ul>                                                                                  |
 
 ## Customization
 
