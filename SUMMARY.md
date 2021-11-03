@@ -126,6 +126,7 @@
   * [Github](reference/social-login-reference/github.md)
   * [HubSpot](reference/social-login-reference/hubspot.md)
   * [TikTok](reference/social-login-reference/tiktok.md)
+  * [GitLab](reference/social-login-reference/gitlab.md)
 * [Import users](reference/import-users.md)
 * [Export users and data](reference/export-users-and-data.md)
 * [Webhooks](reference/webhooks.md)
