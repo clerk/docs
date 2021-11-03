@@ -7,7 +7,7 @@ description: Learn how to sync Clerk data to your application's database
 ## Overview
 
 {% hint style="success" %}
-In most cases out there, data syncing is not needed at all and this guide can be skipped.&#x20;
+For most of the use cases, data syncing is not needed at all and this guide can be skipped.
 
 ClerkJS provides all the information you might need when using Clerk, including the user id, session id and any other user data needed for presentation on a website.
 {% endhint %}
