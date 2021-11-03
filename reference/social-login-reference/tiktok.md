@@ -10,7 +10,7 @@ Adding social login with TikTok to your app with Clerk is simple -  you only nee
 
 To make the development flow as smooth as possible, Clerk uses preconfigured shared OAuth credentials and redirect URIs for development instances - no other configuration is needed.&#x20;
 
-For production instances, you will need to create your own developer account with **Google **and generate your own Client ID and Client secret.
+For production instances, you will need to create your own developer account with **TikTok **and generate your own Client ID and Client secret.
 
 {% hint style="info" %}
 The purpose of this guide is to help you setup a TikTok developer account and a TikTok OAuth app - if you're looking for step-by-step instructions using Clerk to add social login (OAuth) to your application, follow the [Social login (OAuth)](../../popular-guides/social-login-oauth.md) guide.
