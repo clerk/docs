@@ -1,5 +1,5 @@
 ---
-description: Use complete user management to your application in minutes.
+description: Add complete user management to your application in minutes.
 ---
 
 # Welcome to Clerk docs
