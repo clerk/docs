@@ -20,6 +20,7 @@
 * [Multi-session applications](popular-guides/popular-guides-multi-session-applications.md)
 * [Deploy to production](popular-guides/production-setup.md)
 * [Build your own UI](popular-guides/build-your-own-ui.md)
+* [Sync data to your back-end](popular-guides/sync-data-to-your-back-end.md)
 
 ## main concepts
 
