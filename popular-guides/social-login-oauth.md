@@ -37,7 +37,7 @@ Social login configuration consists of the following steps:
 
 ![Enabling social login providers](../.gitbook/assets/social-signin-enable-providers.png)
 
-Clerk supports the following providers: **Facebook**, **Google**, **Github**, **Hubspot** and **Tiktok**. For the purposes of this guide we will enable social login with **Google**.
+Clerk supports the following providers: **Facebook**, **Google**, **Github**, **HubSpot,** **TikTok, GitLab **and** Discord.** For the purposes of this guide we will enable social login with **Google**.
 
 {% hint style="info" %}
 We are constantly adding more providers. If you're interested in a provider we don't support yet, [let us know](https://clerk.dev/support)!&#x20;
@@ -60,6 +60,8 @@ Finally, copy the `Authorized redirect URI` field and add it to the provider's a
 * [How to setup social login with **Github**](../reference/social-login-reference/github.md)****
 * [How to setup social login with **HubSpot**](../reference/social-login-reference/hubspot.md)****
 * [How to setup social login with **TikTok** ](../reference/social-login-reference/tiktok.md)
+* How to setup social login with **GitLab **(Coming soon)
+* How to setup social login with **Discord **(Coming soon)
 
 {% hint style="warning" %}
 Don't forget to click **Apply Changes** button at the bottom of the page once you're done.
