@@ -95,15 +95,15 @@ List all users.  Ordered by creation date, with the newest user first.
 Bearer [YOUR_API_KEY]
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="phone_number[]" type="string" %}
+{% swagger-parameter in="query" name="phone_number" type="string[]" %}
 Returns users with the phone numbers specified. Accepts up to 100 phone numbers. Any phone numbers not found are ignored.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="email_address[]" type="string" %}
+{% swagger-parameter in="query" name="email_address" type="string[]" %}
 Returns users with the email addresses specified. Accepts up to 100 email addresses.  Any email addresses not found are ignored.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="user_id[]" type="string" %}
+{% swagger-parameter in="query" name="user_id" type="string[]" %}
 Returns users with the user ids specified.  Accepts up to 100 user ids. Any user ids not found are ignored.
 {% endswagger-parameter %}
 
@@ -113,6 +113,16 @@ Offset allows pagination through all users.  If used, returns users starting aft
 
 {% swagger-parameter in="query" name="limit" type="integer" %}
 Puts a limit on the number of users returned.  You may return anywhere from 1 to 100 users at a time.  Defaults to 10.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="order_by" type="string" %}
+Allows to return users in a particular order. At the moment, you can order the returned users either by their `created_at` or `updated_at` timestamp.
+
+In order to specify the direction, you can use the `+/-` symbols prepended in the order property. For example, if you want users to be returned in descending order according to their `created_at` property, you can use `-created_at`.
+
+If you don't use `+` or `-`, then `+` is implied.
+
+Defaults to `-created_at`.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="Cake successfully retrieved." %}
