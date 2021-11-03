@@ -25,13 +25,13 @@ The purpose of this guide is to help you create a Github account and a Github OA
 
 First, you need to register a new OAuth GitLab app. Follow the official GitLab instructions on [how to create an OAuth app](https://docs.gitlab.com/ee/integration/oauth\_provider.html#user-owned-applications).
 
-![](../../.gitbook/assets/gitlab-create-app.png)
+![Creating an OAuth GitLab app](../../.gitbook/assets/gitlab-create-app.png)
 
-You need to add a name for your new application and the **Redirect URI**. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**,** **and navigate to **Instances ** ➜  **Settings** ** **➜  **User Management **➜ **SSO**.  Click the **Manage credentials **button under the Github provider, select **Custom profile** and copy the **Authorized redirect URI**. Go back to the GitLab panel, paste the value into the **Redirect URI**, select any scopes that would you like your users to provide and save the application.
+You need to add a name for your new application and the **Redirect URI**. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**,** **and navigate to **Instances ** ➜  **Settings** ** **➜  **User Management **➜ **SSO**.  Click the **Manage credentials **button under the GitLab provider, select **Custom profile** and copy the **Authorized redirect URI**. Go back to the GitLab panel, paste the value into the **Redirect URI**, select any scopes that would you like your users to provide and save the application.
 
 Once creation is complete, you'll get redirected to application's panel. Copy the **Application ID** and **Secret.** Go back to the Clerk Dashboard and paste them into the respective fields.
 
-![](../../.gitbook/assets/gitlab-credentials.png)
+![Obtaining the Application ID and Client secret](../../.gitbook/assets/gitlab-credentials.png)
 
 Don't forget to click **Apply **in the Clerk dashboard. Social login with GitLab is now configured 🔥&#x20;
 

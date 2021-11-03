@@ -61,7 +61,7 @@ Finally, copy the `Authorized redirect URI` field and add it to the provider's a
 * [How to setup social login with **HubSpot**](../reference/social-login-reference/hubspot.md)****
 * [How to setup social login with **TikTok** ](../reference/social-login-reference/tiktok.md)
 * [How to setup social login with **GitLab**](../reference/social-login-reference/gitlab.md)****
-* How to setup social login with **Discord **(Coming soon)
+* [How to setup social login with **Discord**](../reference/social-login-reference/discord.md)****
 
 {% hint style="warning" %}
 Don't forget to click **Apply Changes** button at the bottom of the page once you're done.
