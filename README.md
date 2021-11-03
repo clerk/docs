@@ -1,16 +1,18 @@
 ---
-description: >-
-  Whether you're just getting started or looking to extend your integration -
-  you're in the right place.
+description: Use complete user management to your application in minutes.
 ---
 
-# Introduction
+# Welcome to Clerk docs
 
-> Questions?  We're always available  on [Discord](https://discord.gg/tF35UMNRuM) or [by email](mailto:support@clerk.dev).
+Dig into our API reference documentation and quickstarts. You’re covered with everything from SDKs in your favorite languages to sample apps for React, Next.js and Ruby on Rails.
 
-Use Clerk to quickly add authentication and user management features to your application.
+{% hint style="info" %}
+Questions or feature requests? We're always available  on [Discord](https://discord.gg/tF35UMNRuM) or [by email](mailto:support@clerk.dev).
+{% endhint %}
 
-## Popular tutorials
+## Quickstarts
+
+Explore our guides and examples to integrate Clerk.
 
 ### Build your first Clerk app with React
 
@@ -29,3 +31,7 @@ Use Clerk to quickly add authentication and user management features to your app
 {% content-ref url="get-started/nextjs-api.md" %}
 [nextjs-api.md](get-started/nextjs-api.md)
 {% endcontent-ref %}
+
+### Or clone one of our starter repos
+
+{% embed url="https://github.com/clerkinc" %}

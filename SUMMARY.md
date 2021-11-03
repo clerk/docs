@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Welcome to Clerk docs](README.md)
 * [Questions? We're here for you.](https://www.clerk.dev/support)
 
 ## Get Started
