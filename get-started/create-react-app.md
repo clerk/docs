@@ -185,14 +185,14 @@ reportWebVitals();
 ```
 {% endcode %}
 
-The last step is to give ClerkProvider access to your router, by adding the `navigate` prop. In `src/App.jsx` import and use the `useHistory` hook, as shown in the example:
+The last step is to give ClerkProvider access to your router, by adding the `navigate` prop. In `src/App.jsx` import and use the `useNavigate` hook, as shown in the example:
 
 {% code title="src/App.jsx" %}
 ```jsx
 import React from "react";
 import "./App.css";
 import { ClerkProvider } from "@clerk/clerk-react";
-// import the useHistory hook
+// import the useNavigate hook
 import { useNavigate } from "react-router-dom";
 
 const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
