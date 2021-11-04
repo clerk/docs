@@ -40,19 +40,19 @@ import {
   UserProfile,
   RedirectToSignIn,
 } from "@clerk/clerk-react";
-import { useHistory, BrowserRouter } from "react-router-dom";
+import { useNavigate, BrowserRouter } from "react-router-dom";
 
 function AppWithRoutes() {
-  // Get the navigate/push method from
+  // Get the navigate method from
   // the router your app is using. For this
   // example we will use 'react-router-dom'.
-  const { push } = useHistory();
+  const navigate = useNavigate();
 
   return (
     // Pass the push method to ClerkProvider
     <ClerkProvider
       frontendApi={"[your-frontend-api]"}
-      navigate={(to) => push(to)}
+      navigate={(to) => navigate(to)}
     >
     {/* If a user is signed in, they will see
         the user profile, otherwise thet will get
@@ -123,21 +123,21 @@ import {
   UserProfile, RedirectToSignIn,
 } from "@clerk/clerk-react";
 import {
-  useHistory, Switch, Route,
+  useNavigate, Switch, Route,
   BrowserRouter, Link,
 } from "react-router-dom";
 
 function AppWithRoutes() {
-  // Get the navigate/push method from
+  // Get the navigate method from
   // the router your app is using. For this
   // example we will use 'react-router-dom'.
-  const { push } = useHistory();
+  const navigate = useNavigate();
 
   return (
     // Pass the push method to ClerkProvider
     <ClerkProvider
       frontendApi={"[your-frontend-api]"}
-      navigate={(to) => push(to)}
+      navigate={(to) => navigate(to)}
     >
       <Switch>
     {/* Define a /user route. 

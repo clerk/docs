@@ -88,27 +88,27 @@ function App({ Component, pageProps }) {
 
 A common scenario when using React is to navigate through your application without a full page reload. Our display components use this prop when navigating between subpages and when navigating to callback URLs.
 
-The `<ClerkProvider/>` [navigate prop](clerkprovider.md#props) allows you to provide a function which takes the destination URL as an argument and performs a "push" navigation. You should not implement the push yourself, but instead wrap the push function provided by your router.
+The `<ClerkProvider/>` [navigate prop](clerkprovider.md#props) allows you to provide a function which takes the destination URL as an argument and performs a "push" navigation. You should not implement the push yourself, but instead wrap the `navigate` function provided by your router.
 
 You can find examples of setting up path-based routing for [React Router](https://reactrouter.com) and Next.js.
 
 {% tabs %}
 {% tab title="React" %}
 ```jsx
-import { BrowserRouter as Router, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, useNavigate } from "react-router-dom";
 import { ClerkProvider } from "@clerk/clerk-react";
 
 // App is the top-level component. Place the Router 
 // above ClerkProvider and provide the React Router 
-// push function to ClerkProvider.
+// navigate function to ClerkProvider.
 function App() {
-  const { push } = useHistory();
+  const navigate = useNavigate();
 
   return (
     <Router>
       <ClerkProvider
         frontendApi="clerk.[your-domain].com"
-        navigate={(to) => push(to)}
+        navigate={(to) => navigate(to)}
       >
         {/* Your application tree goes here. */}
       </ClerkProvider>
