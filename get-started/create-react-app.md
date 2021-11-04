@@ -193,16 +193,16 @@ import React from "react";
 import "./App.css";
 import { ClerkProvider } from "@clerk/clerk-react";
 // import the useHistory hook
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 
 function App() {
-  const { push } = useHistory();
+  const navigate = useNavigate();
 
   return (
     //  Pass the push method to the navigate prop
-    <ClerkProvider frontendApi={frontendApi} navigate={(to) => push(to)}>
+    <ClerkProvider frontendApi={frontendApi} navigate={(to) => navigate(to)}>
       <Hello />
     </ClerkProvider>
   );
@@ -244,17 +244,17 @@ import {
   useUser,
   RedirectToSignIn,
 } from "@clerk/clerk-react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 
 function App() {
-  const { push } = useHistory();
+  const navigate = useNavigate();
 
   // If the current route is listed as public, render it directly
   // Otherwise, use Clerk to require authentication
   return (
-    <ClerkProvider frontendApi={frontendApi} navigate={(to) => push(to)}>
+    <ClerkProvider frontendApi={frontendApi} navigate={(to) => navigate(to)}>
       <SignedIn>
         <Hello />
       </SignedIn>
@@ -295,15 +295,15 @@ import {
   useUser,
   RedirectToSignIn,
 } from "@clerk/clerk-react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
 
 function App() {
-  const { push } = useHistory();
+  const navigate = useNavigate();
 
   return (
-    <ClerkProvider frontendApi={frontendApi} navigate={(to) => push(to)}>
+    <ClerkProvider frontendApi={frontendApi} navigate={(to) => navigate(to)}>
       <SignedIn>
         <Hello />
       </SignedIn>
