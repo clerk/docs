@@ -30,7 +30,6 @@ Once you set up the desired functionality and look and feel for the `<SignIn/>` 
 {% tab title="Clerk React" %}
 ```jsx
 import { ClerkProvider, SignUp } from '@clerk/clerk-react';
-import { useHistory } from 'react-router-dom';
 
 function MySignUpPage() {
   // Render the SignUp component
@@ -89,19 +88,19 @@ When using path-based routing, the `<SignUp/>` component must render on `path` a
 {% tab title="Clerk React" %}
 ```jsx
 import { ClerkProvider, SignUp } from '@clerk/clerk-react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
-  // Get the navigate/push method from
+  // Get the navigate method from
   // the router your app is using. For this
   // example we will use 'react-router-dom'
-  const { push } = useHistory();
+  const navigate = useNavigate();
 
   return (
     // Pass the push method to ClerkProvider
     <ClerkProvider 
         frontendApi={"[your-frontend-api]"} 
-        navigate={to => push(to)}
+        navigate={to => navigate(to)}
     >
       <Switch>
         // Declare a /sign-up route
