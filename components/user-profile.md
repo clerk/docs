@@ -49,7 +49,7 @@ function AppWithRoutes() {
   const navigate = useNavigate();
 
   return (
-    // Pass the push method to ClerkProvider
+    // Pass the navigate method to ClerkProvider
     <ClerkProvider
       frontendApi={"[your-frontend-api]"}
       navigate={(to) => navigate(to)}
@@ -134,7 +134,7 @@ function AppWithRoutes() {
   const navigate = useNavigate();
 
   return (
-    // Pass the push method to ClerkProvider
+    // Pass the navigate method to ClerkProvider
     <ClerkProvider
       frontendApi={"[your-frontend-api]"}
       navigate={(to) => navigate(to)}
