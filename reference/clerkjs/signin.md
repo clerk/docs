@@ -250,12 +250,14 @@ This method returns a `Promise` which doesn't resolve to any value.
 
 ### OAuthStrategy
 
-`oauth_facebook | oauth_github | oauth_google | oauth_hubspot | oauth_tiktok`
+`oauth_facebook | oauth_github | oauth_google | oauth_hubspot | oauth_tiktok | oauth_gitlab | oauth_discord`
 
 | Value               | Description                                          |
 | ------------------- | ---------------------------------------------------- |
 | **oauth\_facebook** | Specify Facebook as the verification OAuth provider. |
 | **oauth\_github**   | Specify Github as the verification OAuth provider.   |
 | **oauth\_google**   | Specify Google as the verification OAuth provider.   |
-| **oauth\_hubspot**  | Specify Hubspot as the verification OAuth provider.  |
+| **oauth\_hubspot**  | Specify HubSpot as the verification OAuth provider.  |
 | **oauth\_tiktok**   | Specify TikTok as the verification OAuth provider.   |
+| **oauth\_gitlab**   | Specify GitLab as the verification OAuth provider.   |
+| **oauth\_discord**  | Specify Discord as the verification OAuth provider.  |
