@@ -68,7 +68,7 @@ At the moment, Clerk will generate events when there is an action that modifies 
 
 Although webhooks is the preferred way for your backend application to stay up to date with user and session changes, their asynchronous nature might not be ideal for some applications out there. Because of the way they work, your application needs to be designed in a way that handles the [eventual consistency](https://en.wikipedia.org/wiki/Eventual\_consistency) that comes with asynchronous communication.
 
-If your application requires strong consistency, you can utilize the endpoints of our [Backend API](../reference/clerkjs/signin/backend-api-reference/) to get the latest state of users and sessions.
+If your application requires strong consistency, you can utilize the endpoints of our [Backend API](../reference/backend-api-reference/) to get the latest state of users and sessions.
 
 In this case, the application's frontend needs to notify the back-end for changes regarding users and sessions. Once the backend is notified, it needs to communicate with Clerk synchronously using the Backend API endpoints to receive the latest state and update the local state accordingly.
 

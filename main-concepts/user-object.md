@@ -26,7 +26,7 @@ Whenever you have an active session, that means you can access the currently sig
 The current user can be accessed at any time through the [Clerk object](../reference/clerkjs/clerk.md), or the [useUser](../reference/clerk-react/useuser-hook.md) React hook.
 {% endhint %}
 
-Users can also be created through the [Backend API](../reference/clerkjs/signin/backend-api-reference/users.md#create-a-user). Finally, you can [import your existing users](../reference/import-users.md).
+Users can also be created through the [Backend API](../reference/backend-api-reference/users.md#create-a-user). Finally, you can [import your existing users](../reference/import-users.md).
 
 ## Identify users
 
@@ -52,9 +52,9 @@ Clerk takes care of automatically assigning a verified email address or phone nu
 
 `User` objects hold a set of metadata that can be used internally to store arbitrary information.&#x20;
 
-The metadata are split into public and private. Both types are set from the [Backend API](../reference/clerkjs/signin/backend-api-reference/), but public metadata can be accessed from the [Frontend API](../reference/frontend-api-reference/) and [Backend API](../reference/clerkjs/signin/backend-api-reference/). These types of metadata can be used to access non-sensitive information about a user, such as their profile picture or their name. They can be used to build UIs where a user might not be signed in, but you still want to show some of their profile info.
+The metadata are split into public and private. Both types are set from the [Backend API](../reference/backend-api-reference/), but public metadata can be accessed from the [Frontend API](../reference/frontend-api-reference/) and [Backend API](../reference/backend-api-reference/). These types of metadata can be used to access non-sensitive information about a user, such as their profile picture or their name. They can be used to build UIs where a user might not be signed in, but you still want to show some of their profile info.
 
-There's also a third kind of metadata which are called "unsafe", since they can be set and accessed by both the [Frontend API](../reference/frontend-api-reference/) and the [Backend API](../reference/clerkjs/signin/backend-api-reference/). They provide a quick method to add custom attributes to a user. These attributes will be stored on the `User` object and will be available for access at all times.&#x20;
+There's also a third kind of metadata which are called "unsafe", since they can be set and accessed by both the [Frontend API](../reference/frontend-api-reference/) and the [Backend API](../reference/backend-api-reference/). They provide a quick method to add custom attributes to a user. These attributes will be stored on the `User` object and will be available for access at all times.&#x20;
 
 The "unsafe" custom attributes can be set upon sign up, when [creating](../reference/clerkjs/signup.md#create-params) or [updating](../reference/clerkjs/signup.md#update-params) a [`SignUp`](../reference/clerkjs/signup.md) object. After a successful sign up, these attributes will be copied to the `User` object. From that point on they can be accessed as a direct [attribute](../reference/clerkjs/user.md#attributes) of the [`User`](../reference/clerkjs/user.md) object.
 
@@ -100,4 +100,4 @@ Clerk provides ready-made [components](../components/user-profile.md) and [hoste
 
 ## Deleting users
 
-Clerk allows user accounts to be deleted. Currently, this can be done only through the [Backend API](../reference/clerkjs/signin/backend-api-reference/users.md#delete-a-user).
+Clerk allows user accounts to be deleted. Currently, this can be done only through the [Backend API](../reference/backend-api-reference/users.md#delete-a-user).

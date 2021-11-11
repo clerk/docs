@@ -8,4 +8,4 @@ For now, if you'd like to perform a zero down-time migration, [contact us](https
 
 ## Simple import
 
-You can use the [Backend API](clerkjs/signin/backend-api-reference/users.md#create-a-user) to create users manually.
+You can use the [Backend API](backend-api-reference/users.md#create-a-user) to create users manually.

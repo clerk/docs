@@ -6,7 +6,7 @@ description: Complete a custom OAuth flow
 
 ## Overview
 
-The `<AuthenticateWithRedirectCallback/>` is used to complete a custom OAuth flow started by calling either [`SignIn.authenticateWithRedirect(params)`](../../reference/clerkjs/signin/#signinwithoauth) or [`SignUp.authenticateWithRedirect(params)`](../../reference/clerkjs/signup.md#signinwithoauth).&#x20;
+The `<AuthenticateWithRedirectCallback/>` is used to complete a custom OAuth flow started by calling either [`SignIn.authenticateWithRedirect(params)`](../../reference/clerkjs/signin.md#signinwithoauth) or [`SignUp.authenticateWithRedirect(params)`](../../reference/clerkjs/signup.md#signinwithoauth).&#x20;
 
 Internally, it calls the [`Clerk.handleRedirectCallback()`](../../reference/clerkjs/clerk.md#handleredirectcallback-params) method
 

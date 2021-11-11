@@ -365,4 +365,4 @@ await signIn.attemptFirstFactor({
 {% endtab %}
 {% endtabs %}
 
-You can also achieve passwordless sign-ins with phone number. Simply pass the value **phone\_code** as the first factor strategy. Just make sure you've collected the user's phone number first. You can find all available methods on the [SignIn object](../reference/clerkjs/signin/) documentation.
+You can also achieve passwordless sign-ins with phone number. Simply pass the value **phone\_code** as the first factor strategy. Just make sure you've collected the user's phone number first. You can find all available methods on the [SignIn object](../reference/clerkjs/signin.md) documentation.
