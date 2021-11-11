@@ -175,6 +175,24 @@ This method returns a `Promise` which resolves with a `SignUp` object. Check the
 {% endtab %}
 {% endtabs %}
 
+### createMagicLinkFlow()
+
+`createMagicLinkFlow() => CreateMagicLinkFlowParams<StartMagicLinkFlowParams, SignUpResource>`
+
+Sets up a sign up with magic link flow. Calling `createMagicLinkFlow()` will return two functions.&#x20;
+
+The first function is async and starts the magic link flow, preparing a magic link verification. It sends the magic link email and starts polling for verification results. The signature is `startMagicLinkFlow({ redirect_url: string }) => Promise<SignUpResource>`.
+
+The second function can be used to stop polling at any time, allowing for full control of the flow and cleanup. The signature is `cancelMagicLinkFlow() => void`.
+
+{% tabs %}
+{% tab title="Returns" %}
+__[_CreateMagicLinkFlowReturn_](signup.md#createmagiclinkflowreturn-less-than-startmagiclinkparams-signupresource-greater-than)_<_[_StartMagicLinkFlowParams_](signup.md#startmagiclinkflowparams)_, _[_SignUpResource_](signup.md#attributes)_>_
+
+This method returns two functions. One to start the magic link flow and the other to cancel waiting for the results.
+{% endtab %}
+{% endtabs %}
+
 ### preparePhoneNumberVerification()
 
 `preparePhoneNumberVerification() => Promise<SignUpResource>`
@@ -279,6 +297,12 @@ This method returns a `Promise` which doesn't resolve to any value.
 | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **code** | <p><em>string</em></p><p>This property is applicable for strategies <code>email_code</code> and <code>phone_code</code>.</p><p>This represents the one-time code that was sent to either the email address or the phone number during the <a href="signup.md#prepareverification-strategy">SignUp.prepareVerification</a> step.</p> |
 
+### StartMagicLinkFlowParams
+
+| Name              | Description                                                                                              |
+| ----------------- | -------------------------------------------------------------------------------------------------------- |
+| **redirect\_url** | <p><em>string</em></p><p>The URL to be redirected to after the magic link verification is prepared. </p> |
+
 ### AuthenticateWithRedirectParams
 
 | Property                | Description                                                                                                                                                                |
@@ -288,6 +312,14 @@ This method returns a `Promise` which doesn't resolve to any value.
 | **callbackUrlComplete** | <p><em>string</em></p><p>The URL that the user will be redirected to, after successful authorization from the OAuth provider and Clerk sign in</p>                         |
 
 ## Types
+
+### CreateMagicLinkFlowReturn\<StartMagicLinkParams, SignUpResource>
+
+`{ startMagicLinkFlow: (params: StartMagicLinkFlowParams) => Promise<SignUpResource>, cancelMagicLinkFlow: () => void }`
+
+| **startMagicLinkFlow**  | Function that starts the magic link flow. It prepares a magic link verification and polls for the verification result. Accepts [StartMagicLinkFlowParams](signup.md#undefined). Returns a `Promise` which resolves to a [SignUpResource](signup.md#attributes). You can check the [SignUpResource#verifications](signup.md#attributes) for the verification result. |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **cancelMagicLinkFlow** | Function to cleanup the magic link flow. Stops waiting for verification results.                                                                                                                                                                                                                                                                                    |
 
 ### SignUpVerificationStrategy
 

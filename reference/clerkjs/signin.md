@@ -154,6 +154,24 @@ This method returns a `Promise` which resolves with a `SignIn` object. Check the
 {% endtab %}
 {% endtabs %}
 
+### createMagicLinkFlow()
+
+`createMagicLinkFlow() => CreateMagicLinkFlowParams<SignInStartMagicLinkFlowParams, SignInResource>`
+
+Sets up a sign in with magic link flow. Calling `createMagicLinkFlow()` will return two functions.&#x20;
+
+The first function is async and starts the magic link flow, preparing a magic link verification. It sends the magic link email and starts polling for verification results. The signature is `startMagicLinkFlow({ redirect_url: string, email_address_id: string }) => Promise<SignInResource>`.
+
+The second function can be used to stop polling at any time, allowing for full control of the flow and cleanup. The signature is `cancelMagicLinkFlow() => void`.
+
+{% tabs %}
+{% tab title="Returns" %}
+__[_CreateMagicLinkFlowReturn_](signin.md#undefined)_<_[_SignInStartMagicLinkFlowParams_](signin.md#undefined)_, _[_SignInResource_](signin.md#attributes)_>_
+
+This method returns two functions. One to start the magic link flow and the other to cancel waiting for the results.
+{% endtab %}
+{% endtabs %}
+
 ### authenticateWithRedirect(params) <a href="signinwithoauth" id="signinwithoauth"></a>
 
 `authenticateWithRedirect(params: AuthenticateWithRedirectParams) => Promise<void>`
@@ -246,7 +264,19 @@ This method returns a `Promise` which doesn't resolve to any value.
 | **error**                           | <p><em></em><a href="broken-reference"><em>ClerkAPIError</em></a><em> | null</em></p><p>Any error that occurred during the verification process from the <a href="../frontend-api-reference/">Clerk API</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | **externalVerificationRedirectURL** | <p><em>URL | null</em></p><p>If this is a verification that is based on an external account (usually <strong>oauth_*</strong>), this is the URL that the user will be redirected to after the verification is completed.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
+### SignInStartMagicFlowParams
+
+
+
 ## Types
+
+### CreateMagicLinkFlowReturn\<SignInStartMagicLinkFlowParams, SignInResource>
+
+`{ startMagicLinkFlow: (params: SignInStartMagicLinkFlowParams) => Promise<SignInResource>, cancelMagicLinkFlow: () => void }`
+
+| **startMagicLinkFlow**  | Function to start the magic link flow. It prepares a magic link verification and polls for the verification result. Accepts [SignInStartMagicLinkFlowParams](signin.md#signinstartmagicflowparams). Returns a `Promise` which resolves to a [SignInResource](signin.md#attributes). |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **cancelMagicLinkFlow** | Function to cleanup the magic link flow. Stops waiting for verification results.                                                                                                                                                                                                    |
 
 ### OAuthStrategy
 
@@ -262,3 +292,4 @@ This method returns a `Promise` which doesn't resolve to any value.
 | **oauth\_gitlab**   | Specify GitLab as the verification OAuth provider.   |
 | **oauth\_discord**  | Specify Discord as the verification OAuth provider.  |
 | **oauth\_twitter**  | Specify Twitter as the verification OAuth provider.  |
+

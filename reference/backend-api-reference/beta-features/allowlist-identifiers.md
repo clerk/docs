@@ -20,6 +20,20 @@ At the moment, as this is still a beta feature, you can only add allowlist ident
 In order to use the allowlist beta feature, it needs to be enabled for your instance. To enable it, please contact [support@clerk.dev](mailto:support@clerk.dev).
 {% endhint %}
 
+### Overview
+
+The _allowlist_ beta feature allows you to control who can get access to your application. It basically restricts sign ups only to a certain set of email addresses or phone numbers that you define.
+
+You can either select individual email addresses and phone numbers, or whitelist whole email domains.
+
+Whenever you add an email address or phone number to your allowlist identifiers, you can also choose whether you want to notify this person by an invitation to their email address or phone number respectively.
+
+At the moment, as this is still a beta feature, you can only add allowlist identifiers via requests to the Backend API. This feature is not accessible via the Dashboard yet.
+
+{% hint style="warning" %}
+In order to use the allowlist beta feature, it needs to be enabled for your instance. To enable it, please contact [support@clerk.dev](mailto:support@clerk.dev).
+{% endhint %}
+
 ### Available requests
 
 * **`GET `**`/v1/allowlist_identifiers`
@@ -33,8 +47,8 @@ In order to use the allowlist beta feature, it needs to be enabled for your inst
 	"object": "allowlist_identifier", 
 	"id": "alid_1sOWqxBnLKkD7Alxv5EymdOKjue",
 	"identifier": "+1655559004",
-	"created_at": 1620370000,
-	"updated_at": 1620370000
+ 	"created_at": 1620370000,
+ 	"updated_at": 1620370000
 }
 ```
 
@@ -70,18 +84,18 @@ Bearer [YOUR_API_KEY]
 Add a new identifier to the allowlist.
 {% endswagger-description %}
 
+{% swagger-parameter in="body" name="identifier" type="string" required="true" %}
+An email address or a phone number in international format (E.164).
+
+Instead of individual email addresses, you can also whitelist a whole email domain if you include it as `*@example.com`. In this case, everyone with an email address on `example.com` will have access to your application.
+{% endswagger-parameter %}
+
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
 Bearer [YOUR_API_KEY]
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="identifier" type="string" required="true" %}
-An email address or a phone number in international format (E.164).&#x20;
-
-Instead of individual email addresses, you can also whitelist a whole email domain if you include it as \*@example.com. In this case, everyone with an email address on example.com will have access to your application.
-{% endswagger-parameter %}
-
 {% swagger-parameter in="body" name="notify" type="boolean" %}
-Send an invitation via SMS (for phone identifier) or email (for email address identifier).&#x20;
+Send an invitation via SMS (for phone identifier) or email (for email address identifier).
 
 This parameter is mandatory when you add individual email addresses and phone numbers but it's not allowed when you whitelist email domains.
 {% endswagger-parameter %}

@@ -81,6 +81,24 @@ This method returns a `Promise` which resolves with an `EmailAddress` object.
 {% endtab %}
 {% endtabs %}
 
+### createMagicLinkFlow()
+
+`createMagicLinkFlow() => CreateMagicLinkFlowParams<StartMagicLinkFlowParams, EmailAddressResource>`
+
+Sets up an email verification with magic link flow. Calling `createMagicLinkFlow()` will return two functions.&#x20;
+
+The first function is async and starts the magic link flow, preparing a magic link verification. It sends the magic link email and starts polling for verification results. The signature is `startMagicLinkFlow({ redirect_url: string }) => Promise<EmailAddressResource>`.
+
+The second function can be used to stop polling at any time, allowing for full control of the flow and cleanup. The signature is `cancelMagicLinkFlow() => void`.
+
+{% tabs %}
+{% tab title="Returns" %}
+__[_CreateMagicLinkFlowReturn_](emailaddress.md#createmagiclinkflowreturn-less-than-startmagiclinkparams-emailaddressresource-greater-than)_<_[_StartMagicLinkFlowParams_](emailaddress.md#startmagiclinkflowparams)_, _[_EmailAddressResource_](emailaddress.md#attributes)_>_
+
+This method returns two functions. One to start the magic link flow and the other to cancel waiting for the results.
+{% endtab %}
+{% endtabs %}
+
 ### toString()
 
 `toString() => string | null`
@@ -118,3 +136,19 @@ This method returns the email address attribute.
 | **expireAt**                        | <p><em>Date | null</em></p><p>The timestamp when the verification will expire and cease to be valid.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | **error**                           | <p><em>ClerkAPIError | null</em></p><p>Any error that occurred during the verification process from the <a href="../frontend-api-reference/">Clerk API</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | **externalVerificationRedirectURL** | <p><em>URL | null</em></p><p>If this is a verification that is based on an external account (usually <strong>oauth_*</strong>), this is the URL that the user will be redirected to after the verification is completed.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+
+### StartMagicLinkFlowParams
+
+| Name              | Description                                                                                              |
+| ----------------- | -------------------------------------------------------------------------------------------------------- |
+| **redirect\_url** | <p><em>string</em></p><p>The URL to be redirected to after the magic link verification is prepared. </p> |
+
+## Types
+
+### CreateMagicLinkFlowReturn\<StartMagicLinkParams, EmailAddressResource>
+
+`{ startMagicLinkFlow: (params: StartMagicLinkFlowParams) => Promise<EmailAddressResource>, cancelMagicLinkFlow: () => void }`
+
+| **startMagicLinkFlow**  | Function that starts the magic link flow. It prepares a magic link verification and polls for the verification result. Accepts [StartMagicLinkFlowParams](emailaddress.md#undefined). Returns a `Promise` which resolves to an [EmailAddressResource](emailaddress.md#attributes). |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **cancelMagicLinkFlow** | Function to cleanup the magic link flow. Stops waiting for verification results.                                                                                                                                                                                                   |
