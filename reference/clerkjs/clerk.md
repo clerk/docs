@@ -341,7 +341,7 @@ This method returns a `Promise` which doesn't resolve to any value. The `Promise
 
 `handleRedirectCallback(params: HandleOAuthCallbackParams) => Promise<void>`
 
-Completes a custom OAuth flow started by calling either [`SignIn.authenticateWithRedirect(params)`](signin.md#signinwithoauth) or [`SignUp.authenticateWithRedirect(params)`](signup.md#signinwithoauth)
+Completes a custom OAuth flow started by calling either [`SignIn.authenticateWithRedirect(params)`](signin/#signinwithoauth) or [`SignUp.authenticateWithRedirect(params)`](signup.md#signinwithoauth)
 
 {% tabs %}
 {% tab title="Parameters" %}

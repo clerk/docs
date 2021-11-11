@@ -57,7 +57,8 @@ Finally, copy the `Authorized redirect URI` field and add it to the provider's a
 
 * [How to setup social login with **Facebook**](../reference/social-login-reference/social-login-facebook.md)
 * [How to setup social login with **Google**](../reference/social-login-reference/social-login-google.md)****
-* [How to setup social login with **Github**](../reference/social-login-reference/github.md)****
+* [How to setup social login with **Github**](../reference/social-login-reference/github.md)
+* [How to setup social login with **Twitter**](../reference/social-login-reference/twitter.md)****
 * [How to setup social login with **HubSpot**](../reference/social-login-reference/hubspot.md)****
 * [How to setup social login with **TikTok** ](../reference/social-login-reference/tiktok.md)
 * [How to setup social login with **GitLab**](../reference/social-login-reference/gitlab.md)****
@@ -161,7 +162,7 @@ Read our detailed [Clerk Hosted Pages guide](../main-concepts/clerk-hosted-pages
 👉   [Demo](https://2l5yj.csb.app)\
 👩‍💻   [Example repo ](https://codesandbox.io/embed/github/nikosdouvlis/clerk-custom-social-login/tree/mount-sign-in-sign-up/?fontsize=12\&hidenavigation=1\&theme=dark\&view=editor)
 
-To further customize your sign up and sign in pages, you can use [Clerk Components](../main-concepts/clerk-components.md) to easily add authentication anywhere.  Doing so will let you add a custom background, modify CSS, and much more. In fact, Clerk's own sign up and sign in pages follow this approach.
+To further customize your sign up and sign in pages, you can use [Clerk Components](../main-concepts/clerk-components.md) to easily add authentication anywhere. Doing so will let you add a custom background, modify CSS, and much more. In fact, Clerk's own sign up and sign in pages follow this approach.
 
 ![Pre-built Clerk \<SignUp/> component with Google social login, mounted in a NextJS app](../.gitbook/assets/social-signin-mounted-prebuild-signup.png)
 
@@ -290,7 +291,7 @@ You still need to configure your instance through the Clerk Dashboard, as descri
 
 When using OAuth, the sign in and sign up are equivalent. A successful OAuth flow consists of the following steps:
 
-1. Start the OAuth flow by calling [`SignIn.authenticateWithRedirect(params)`](../reference/clerkjs/signin.md#authenticatewithredirectparams) or [`SignUp.authenticateWithRedirect(params)`](../reference/clerkjs/signup.md#signinwithoauth). Note that both of these methods require a `callbackUrl` param, which is the URL that the browser will be redirected to once the user authenticates with the OAuth provider.
+1. Start the OAuth flow by calling [`SignIn.authenticateWithRedirect(params)`](../reference/clerkjs/signin/#authenticatewithredirectparams) or [`SignUp.authenticateWithRedirect(params)`](../reference/clerkjs/signup.md#signinwithoauth). Note that both of these methods require a `callbackUrl` param, which is the URL that the browser will be redirected to once the user authenticates with the OAuth provider.
 2. Create a route at the URL `callbackUrl` points, typically `/sso-callback`, that calls the `Clerk.handleRedirectCallback()` or simply renders the prebuilt [`<AuthenticateWithRedirectCallback/>`](../components/control-components/authenticate-with-redirect-callback.md) component.
 
 The React example below uses `react-router-dom`to define the required route. For NextJS apps, you only need to create a `pages/sso-callback` file.

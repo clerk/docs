@@ -6,7 +6,7 @@ description: Access the SignIn object inside your components.
 
 ## Overview
 
-The `useSignIn` hook gives you access to the [SignIn](../clerkjs/signin.md) object inside your components.&#x20;
+The `useSignIn` hook gives you access to the [SignIn](../clerkjs/signin/) object inside your components.&#x20;
 
 You can use the methods of the `SignIn` object to create your own custom sign in flow, as an alternative to using Clerk's pre-built [\<SignIn/>](../../components/sign-in.md) component.
 
@@ -18,7 +18,7 @@ The `SignIn` object will also contain the state of the sign in attempt that is c
 Make sure you've followed the installation guide for [Clerk React](installation.md) before running the snippets below.
 {% endhint %}
 
-Getting access to the [SignIn](../clerkjs/signin.md) object from inside one of your components is easy. Note that the `useSignIn` hook can only be used inside a [\<ClerkProvider/>](clerkprovider.md) context.
+Getting access to the [SignIn](../clerkjs/signin/) object from inside one of your components is easy. Note that the `useSignIn` hook can only be used inside a [\<ClerkProvider/>](clerkprovider.md) context.
 
 The following example accesses the `SignIn` object to check the current sign in attempt's status.
 

@@ -16,7 +16,7 @@ The `Client` object also holds information about any sign in or sign up attempts
 
 | Name                    | Description                                                                                                                                  |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **signIn**              | <p><em></em><a href="signin.md"><em>SignInResource</em></a><em> | null</em></p><p>The current sign in attempt, or null if there is none.</p> |
+| **signIn**              | <p><em></em><a href="signin/"><em>SignInResource</em></a><em> | null</em></p><p>The current sign in attempt, or null if there is none.</p>   |
 | **signUp**              | <p><em></em><a href="signup.md"><em>SignUpResource</em></a><em> | null</em></p><p>The current sign up attempt, or null if there is none.</p> |
 | **sessions**            | <p><em></em><a href="session.md"><em>Session</em></a><em>[]</em></p><p>A list of sessions that have been created on this client.</p>         |
 | **activeSessions**      | <p><em></em><a href="session.md"><em>Session</em></a><em>[]</em></p><p>A list of active sessions on this client.</p>                         |

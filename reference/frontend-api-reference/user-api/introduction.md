@@ -4,7 +4,7 @@ Client requests are responsible for handling the **Sign in**, **Sign up**, and *
 
 ## Requests summary
 
-### [Client requests](../../backend-api-reference/clients.md)
+### [Client requests](../../clerkjs/signin/backend-api-reference/clients.md)
 
 * **`GET`**`/v1/client`
 * **`PUT`**`/v1/client`
