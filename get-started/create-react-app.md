@@ -349,4 +349,4 @@ You now have a working React + Clerk app. Going forwards, you can:
 * Learn how to [deploy your app to production](https://docs.clerk.dev/popular-guides/production-setup).
 * Check out our in-depth guides for the most usual use cases in the **Popular Guides** section.
 * Learn more about the [Clerk Components](https://docs.clerk.dev/main-concepts/clerk-components) and the [Clerk Hosted Pages](https://docs.clerk.dev/main-concepts/clerk-hosted-pages).
-* Come say hi in our [discord channel](https://discord.com/invite/YRHz4h4whV) 👋
+* Come say hi in our [discord channel](https://discord.com/invite/b5rXHjAg7A) 👋

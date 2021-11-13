@@ -234,4 +234,4 @@ You now have a working Next.js + Clerk app.  Going forwards, you can:
 * Learn how to [deploy your app to production](../popular-guides/production-setup.md).
 * Check out our in-depth guides for the most usual use cases in the **Popular Guides **section.
 * Learn more about the [Clerk Components](../main-concepts/clerk-components.md) and the [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md).
-* Come say hi in our [discord channel](https://discord.com/invite/YRHz4h4whV) 👋
+* Come say hi in our [discord channel](https://discord.com/invite/b5rXHjAg7A) 👋
