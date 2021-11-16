@@ -63,6 +63,7 @@ Finally, copy the `Authorized redirect URI` field and add it to the provider's a
 * [How to setup social login with **TikTok** ](../reference/social-login-reference/tiktok.md)
 * [How to setup social login with **GitLab**](../reference/social-login-reference/gitlab.md)****
 * [How to setup social login with **Discord**](../reference/social-login-reference/discord.md)****
+* [How to setup social login with **Twitter**](../reference/social-login-reference/twitter.md)****
 
 {% hint style="warning" %}
 Don't forget to click **Apply Changes** button at the bottom of the page once you're done.
