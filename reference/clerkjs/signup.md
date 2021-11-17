@@ -332,7 +332,7 @@ This method returns a `Promise` which doesn't resolve to any value.
 
 ### OAuthStrategy
 
-`oauth_facebook | oauth_github | oauth_google | oauth_hubspot | oauth_tiktok | oauth_gitlab | oauth_discord`
+`oauth_facebook | oauth_github | oauth_google | oauth_hubspot | oauth_tiktok | oauth_gitlab | oauth_discord | oauth_twitter | oauth_twitch`
 
 | Value               | Description                                          |
 | ------------------- | ---------------------------------------------------- |
@@ -343,3 +343,5 @@ This method returns a `Promise` which doesn't resolve to any value.
 | **oauth\_tiktok**   | Specify TikTok as the verification OAuth provider.   |
 | **oauth\_gitlab**   | Specify GitLab as the verification OAuth provider.   |
 | **oauth\_discord**  | Specify Discord as the verification OAuth provider.  |
+| **oauth\_twitter**  | Specify Twitter as the verification OAuth provider.  |
+| **oauth\_twitch**   | Specify Twitch as the verification OAuth provider.   |

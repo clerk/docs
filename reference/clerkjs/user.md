@@ -251,7 +251,7 @@ This method returns a `Promise` which resolves to a `User` object.
 
 ### OAuthProvider
 
-`facebook | github | google | hubspot | tiktok | gitlab | discord | twitter`
+`facebook | github | google | hubspot | tiktok | gitlab | discord | twitter | twitch`
 
 | Value        | Description              |
 | ------------ | ------------------------ |
@@ -263,4 +263,5 @@ This method returns a `Promise` which resolves to a `User` object.
 | **gitlab**   | GitLab OAuth provider.   |
 | **discord**  | Discord OAuth provider.  |
 | **twitter**  | Twitter OAuth provider.  |
+| **twitch**   | Twitch OAuth provider.   |
 

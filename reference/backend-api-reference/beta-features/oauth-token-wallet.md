@@ -13,7 +13,7 @@ If an access token has expired, a new one will be issued transparently and retur
 Retrieve a valid (i.e. non-expired) OAuth access token for a user's connected OAuth account
 {% endswagger-description %}
 
-{% swagger-parameter in="path" name="provider" type="string" %}
+{% swagger-parameter in="path" name="provider" type="string" required="true" %}
 The ID of the OAuth provider (e.g. 
 
 `facebook`
@@ -25,7 +25,7 @@ The ID of the OAuth provider (e.g.
 ).
 {% endswagger-parameter %}
 
-{% swagger-parameter in="path" name="id" type="string" %}
+{% swagger-parameter in="path" name="id" type="string" required="true" %}
 The Clerk user ID.
 {% endswagger-parameter %}
 

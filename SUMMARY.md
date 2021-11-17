@@ -130,6 +130,7 @@
   * [GitLab](reference/social-login-reference/gitlab.md)
   * [Discord](reference/social-login-reference/discord.md)
   * [Twitter](reference/social-login-reference/twitter.md)
+  * [Twitch](reference/social-login-reference/twitch.md)
 * [Import users](reference/import-users.md)
 * [Export users and data](reference/export-users-and-data.md)
 * [Webhooks](reference/webhooks.md)
