@@ -80,6 +80,60 @@ This method has no return value.
 {% endtab %}
 {% endtabs %}
 
+### handleMagicLinkVerification(params)
+
+`handleRedirectCallback(params: HandleMagicLinkVerificationParams) => Promise<unknown>`
+
+Completes a magic link verification flow once we've reached the magic link results URL.
+
+When users click on magic links they get redirected to the URL that was provided during magic link verification flow initialization. The URL will contain a couple of important query parameters added by Clerk. These are called `__clerk_status` and `__clerk_created_session`.
+
+The `__clerk_status` query parameter is the outcome of the verification and can take three values: **verified**, **failed** or **expired**.
+
+The `__clerk_created_session` query parameter will hold the ID of the new session, if one was created as a result of the verification. Since the magic link can be opened at any device and not the one that originated the verification, the new session ID might not be available under [Client.sessions](client.md#attributes).
+
+Magic link flows can be completed on the same device that they were initiated or on a completely different browser. For example, a user might start the magic link flow on their desktop browser, but click on the magic link from their mobile phone.
+
+The `handleMagicLinkVerification()` method takes care of finalizing the magic link flow, depending on the verification outcome.&#x20;
+
+Upon successful verification, the method will figure out if the sign in or sign up attempt was completed and redirect the user accordingly. As such, it accepts different parameters for the URL it should redirect when sign in/up is completed and the URL which it should redirect when the sign in/up attempt is still pending. Both parameters are optional, but you can provide them to the method up front. The final redirect will depend on the sign in/up attempt's status.
+
+Additionally, the `handleMagicLinkVerification()` method allows you to execute a callback if the successful verification happened on another device.
+
+In case the magic link verification wasn't successful, the `handleMagicLinkVerification()` method will throw a [`MagicLinkError`](clerk.md#undefined). You can check the error's `code` property to see if the magic link expired, or the verification simply failed.
+
+Take a look at the function parameters description below for more usage details.
+
+{% tabs %}
+{% tab title="Parameters" %}
+| Name       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **params** | <p><em></em><a href="clerk.md#handleoauthcallbackparams"><em>HandleMagicLinkVerificationParams</em></a><em></em></p><p>These props allow you to define the URLs where the user should be redirected to on successful verification and:</p><ul><li>completed sign in or sign up attempt.</li><li>pending sign in or sign up attempt.</li></ul><p>If the magic link is successfully verified on another device, there's a callback function parameter that allows custom code execution.</p> |
+
+
+{% endtab %}
+
+{% tab title="Throws" %}
+__[_MagicLinkError_](clerk.md#undefined)__
+
+This method will throw a `MagicLinkError` if the magic link verification failed or the link expired. Check the error's `code` property for details.
+{% endtab %}
+{% endtabs %}
+
+### handleRedirectCallback(params)
+
+`handleRedirectCallback(params: HandleOAuthCallbackParams) => Promise<void>`
+
+Completes a custom OAuth flow started by calling either [`SignIn.authenticateWithRedirect(params)`](signin.md#signinwithoauth) or [`SignUp.authenticateWithRedirect(params)`](signup.md#signinwithoauth)
+
+{% tabs %}
+{% tab title="Parameters" %}
+| Name        | Description                                                                                                                                                                                                                 |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **params?** | <p><em></em><a href="clerk.md#handleoauthcallbackparams"><em>HandleOAuthCallbackParams</em></a><em></em></p><p>Additional props that define where the user will be redirected to at the end of a successful OAuth flow.</p> |
+{% endtab %}
+{% endtabs %}
+
 ### isReady()
 
 `isReady() => boolean`
@@ -335,22 +389,6 @@ This method returns a `Promise` which doesn't resolve to any value. The `Promise
 {% endtab %}
 {% endtabs %}
 
-
-
-### handleRedirectCallback(params)
-
-`handleRedirectCallback(params: HandleOAuthCallbackParams) => Promise<void>`
-
-Completes a custom OAuth flow started by calling either [`SignIn.authenticateWithRedirect(params)`](signin.md#signinwithoauth) or [`SignUp.authenticateWithRedirect(params)`](signup.md#signinwithoauth)
-
-{% tabs %}
-{% tab title="Parameters" %}
-| Name        | Description                                                                                                                                                                                                                 |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **params?** | <p><em></em><a href="clerk.md#handleoauthcallbackparams"><em>HandleOAuthCallbackParams</em></a><em></em></p><p>Additional props that define where the user will be redirected to at the end of a successful OAuth flow.</p> |
-{% endtab %}
-{% endtabs %}
-
 ### signOut(callback?)
 
 `signOut(callback?: SignOutCallback) => Promise<void>`
@@ -472,6 +510,23 @@ This method has no return value.
 | **selectInitialSession?** | <p><em>(client: </em><a href="client.md"><em>ClientResource</em></a><em>) => </em><a href="session.md"><em>SessionResource</em></a><em> | undefined</em></p><p>This function can be used to set the initial session in <a href="../../popular-guides/popular-guides-multi-session-applications.md">multi-session applications</a>.</p> |
 | **navigate?**             | <p><em>(to: string) => Promise&#x3C;unknown> | unknown</em></p><p>Provide an implementation for the <a href="clerk.md#navigate-to">Clerk.navigate</a> method.</p>                                                                                                                                                                      |
 
+### HandleMagicLinkVerificationParams
+
+| Name                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **redirectUrl?**             | <p><em>string</em></p><p>Full URL or path to navigate after successful magic link verification on the same device, but a sign in or sign up attempt that cannot complete yet. For example, let's say a user has enabled <a href="../../popular-guides/multi-factor-authentication.md">two-factor authentication</a> (2FA). In the sign in flow, the magic link verification may be successfully verified but user needs to complete 2FA before they can log in. Use this parameter to redirect to your 2FA route.</p> |
+| **redirectUrlComplete?**     | <p><em>string</em></p><p>Full URL or path to navigate after successful magic link verification on the same device and the sign in or sign up attempt has completed. As an example, user tries to sign in via a magic link and they're successfully logged in. Use this parameter to decide where the user will be redirected to.</p>                                                                                                                                                                                  |
+| **onVerifiedOnOtherDevice?** | <p><em>Function</em></p><p>Use this callback function to run any custom code on a successful magic link verification on a device different than the one which originated the magic link verification flow. This function provides an opportunity to handle the case where a magic link is opened from another device.</p>                                                                                                                                                                                             |
+
+### HandleOAuthCallbackParams
+
+| Name                 | Description                                                                                                                                                                                        |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **afterSignInUrl?**  | <p><em>string</em></p><p>Full URL or path to navigate after successful sign in.</p>                                                                                                                |
+| **afterSignUpUrl?**  | <p><em>string</em></p><p>Full URL or path to navigate after successful sign up.</p>                                                                                                                |
+| **redirectUrl?**     | <p><em>string</em></p><p>Full URL or path to navigate after successful sign in  or sign up. The same as setting <code>afterSignInUrl</code> and <code>afterSignUpUrl</code> to the same value.</p> |
+| **secondFactorUrl?** | <p><em>string</em></p><p>Full URL or path to navigate during sign in, if 2FA is enabled.</p>                                                                                                       |
+
 ### SignInProps
 
 | Property         | Description                                                                                                                                                                                                                                                     |
@@ -509,16 +564,14 @@ This method has no return value.
 | **hideNavigation?** | <p><em>boolean</em></p><p>Hides the default navigation bar. Can be used when a custom navigation bar is built.</p>                                                                                                                                              |
 | **only?**           | <p><em>string</em></p><p>Renders only a specific page of the UserProfile component. Supported values are:</p><ul><li><strong>account</strong>: User account page.</li><li><strong>security</strong>: User security page.</li></ul>                              |
 
-### HandleOAuthCallbackParams
-
-| Name                 | Description                                                                                                                                                                                        |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **afterSignInUrl?**  | <p><em>string</em></p><p>Full URL or path to navigate after successful sign in.</p>                                                                                                                |
-| **afterSignUpUrl?**  | <p><em>string</em></p><p>Full URL or path to navigate after successful sign up.</p>                                                                                                                |
-| **redirectUrl?**     | <p><em>string</em></p><p>Full URL or path to navigate after successful sign in  or sign up. The same as setting <code>afterSignInUrl</code> and <code>afterSignUpUrl</code> to the same value.</p> |
-| **secondFactorUrl?** | <p><em>string</em></p><p>Full URL or path to navigate during sign in, if 2FA is enabled.</p>                                                                                                       |
-
 ## Types
+
+### MagicLinkError
+
+Custom error for magic links. Raised when the magic link verification doesn't succeed, either because the link has expired or a general failure. The error's `code` property will indicate the outcome, its values being:
+
+* `MagicLinkErrorCode.Expired`
+* `MagicLinkErrorCode.Failed`
 
 ### SignOutCallback
 
