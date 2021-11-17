@@ -1,8 +1,8 @@
 ---
-description: Learn how to setup and configure your Clerk application
+description: Learn how to set up and configure your Clerk application
 ---
 
-# Setup your application
+# Set up your application
 
 ## Create an application
 
@@ -29,9 +29,9 @@ For security reasons, **only production instances** **should be used for live tr
 
 Now that we have an application, let's continue by configuring our development instance. In the rest of this guide we'll talk about:
 
-* [how to setup user authentication and management](setup-your-application.md#user-management)
+* [how to set up user authentication and management](setup-your-application.md#user-management)
 * [how to configure your application theme](setup-your-application.md#theme)
-* [how to setup your application URLs](setup-your-application.md#url-and-redirects)
+* [how to set up your application URLs](setup-your-application.md#url-and-redirects)
 
 ## User management
 
@@ -54,7 +54,7 @@ Clerk offers a list of social providers that can be used during sign up and sign
 
 ![Sign in page with Facebook and Google providers](../.gitbook/assets/screely-1628678108916.png)
 
-The SSO process is smart enough to automatically convert a sign up flow of an already registered user into a sign in flow and vice versa. For more information on how to setup sign up and sign in flows using social providers, check our [detailed guide](social-login-oauth.md).
+The SSO process is smart enough to automatically convert a sign up flow of an already registered user into a sign in flow and vice versa. For more information on how to set up sign up and sign in flows using social providers, check our [detailed guide](social-login-oauth.md).
 
 For each provider, Clerk is offering a shared profile that can be used for development. However, for security reasons, production instances **must** use a custom profile with its own credentials.
 
@@ -83,7 +83,7 @@ Users signing up via an SSO provider, won't have a username. In this case, they 
 This setting controls whether users can sign in using a registered password or their authentication process will rely solely on passwordless means like one-time codes.&#x20;
 
 * **Passwordless**: Send an email or an SMS with a code to the user, so that they can verify they own their account. For more information on how to setup passwordless authentication, check our [detailed guide](passwordless-authentication.md).
-* **Password-based**: Selecting this option will force users to provide a password during their sign up process. Clerk offer out of the box protection against [weak and leaked passwords](../learning-center/security/password-protection.md). Please note that the passwordless option is still available to the users even if password-based is selected. For more information on how to setup password-based authentication, check our [detailed guide](email-and-password.md).
+* **Password-based**: Selecting this option will force users to provide a password during their sign up process. Clerk offer out of the box protection against [weak and leaked passwords](../learning-center/security/password-protection.md). Please note that the passwordless option is still available to the users even if password-based is selected. For more information on how to set up password-based authentication, check our [detailed guide](email-and-password.md).
 
 {% hint style="warning" %}
 Users signing up via an SSO provider, won't have a password even if password-based authentication strategy is selected.\
