@@ -181,7 +181,7 @@ This method returns a `Promise` which resolves with a `SignUp` object. Check the
 
 Sets up a sign up with magic link flow. Calling `createMagicLinkFlow()` will return two functions.&#x20;
 
-The first function is async and starts the magic link flow, preparing a magic link verification. It sends the magic link email and starts polling for verification results. The signature is `startMagicLinkFlow({ redirect_url: string }) => Promise<SignUpResource>`.
+The first function is async and starts the magic link flow, preparing a magic link verification. It sends the magic link email and starts polling for verification results. The signature is `startMagicLinkFlow({ callbackUrl: string }) => Promise<SignUpResource>`.
 
 The second function can be used to stop polling at any time, allowing for full control of the flow and cleanup. The signature is `cancelMagicLinkFlow() => void`.
 
@@ -253,6 +253,14 @@ This method returns a `Promise` which doesn't resolve to any value.
 
 ## Interfaces
 
+### AuthenticateWithRedirectParams
+
+| Property                | Description                                                                                                                                                                |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **strategy**            | <p><em>string</em></p><p>The OAuth provider that will be used for singing in. Must be one of the supported <a href="signup.md#oauthstrategy">OAuthStrategy</a> values.</p> |
+| **callbackUrl**         | <p><em>string</em></p><p>The URL that the OAuth provider should redirect to, on successful authorization on their part.</p>                                                |
+| **callbackUrlComplete** | <p><em>string</em></p><p>The URL that the user will be redirected to, after successful authorization from the OAuth provider and Clerk sign in</p>                         |
+
 ### SignUpParams
 
 | Name               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -291,25 +299,17 @@ This method returns a `Promise` which doesn't resolve to any value.
 | **strategy** | __[_SignUpVerificationStrategy_](signup.md#signupverificationstrategy)__                                                                                                                                                                                                                                                            |
 | **code**     | <p><em>string</em></p><p>This property is applicable for strategies <code>email_code</code> and <code>phone_code</code>.</p><p>This represents the one-time code that was sent to either the email address or the phone number during the <a href="signup.md#prepareverification-strategy">SignUp.prepareVerification</a> step.</p> |
 
-### VerificationAttemptParams
-
-| Name     | Description                                                                                                                                                                                                                                                                                                                         |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **code** | <p><em>string</em></p><p>This property is applicable for strategies <code>email_code</code> and <code>phone_code</code>.</p><p>This represents the one-time code that was sent to either the email address or the phone number during the <a href="signup.md#prepareverification-strategy">SignUp.prepareVerification</a> step.</p> |
-
 ### StartMagicLinkFlowParams
 
 | Name              | Description                                                                                              |
 | ----------------- | -------------------------------------------------------------------------------------------------------- |
 | **redirect\_url** | <p><em>string</em></p><p>The URL to be redirected to after the magic link verification is prepared. </p> |
 
-### AuthenticateWithRedirectParams
+### VerificationAttemptParams
 
-| Property                | Description                                                                                                                                                                |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **strategy**            | <p><em>string</em></p><p>The OAuth provider that will be used for singing in. Must be one of the supported <a href="signup.md#oauthstrategy">OAuthStrategy</a> values.</p> |
-| **callbackUrl**         | <p><em>string</em></p><p>The URL that the OAuth provider should redirect to, on successful authorization on their part.</p>                                                |
-| **callbackUrlComplete** | <p><em>string</em></p><p>The URL that the user will be redirected to, after successful authorization from the OAuth provider and Clerk sign in</p>                         |
+| Name     | Description                                                                                                                                                                                                                                                                                                                         |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **code** | <p><em>string</em></p><p>This property is applicable for strategies <code>email_code</code> and <code>phone_code</code>.</p><p>This represents the one-time code that was sent to either the email address or the phone number during the <a href="signup.md#prepareverification-strategy">SignUp.prepareVerification</a> step.</p> |
 
 ## Types
 
