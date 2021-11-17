@@ -330,7 +330,7 @@ function App() {
             </SignedIn>
           </Route>
          
-           {/* Define a /sss-callback route that handle the OAuth redirect flow */}
+           {/* Define a /sso-callback route that handle the OAuth redirect flow */}
           <Route path="/sso-callback">
             <SSOCallback />
           </Route>

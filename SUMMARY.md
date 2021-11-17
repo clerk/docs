@@ -13,7 +13,8 @@
 
 * [Setup your application](popular-guides/setup-your-application.md)
 * [Email and password](popular-guides/email-and-password.md)
-* [Passwordless authentication](popular-guides/passwordless-authentication.md)
+* [Magic links](popular-guides/magic-links.md)
+* [One-time code authentication](popular-guides/passwordless-authentication.md)
 * [Social login (OAuth)](popular-guides/social-login-oauth.md)
 * [Multi-factor authentication](popular-guides/multi-factor-authentication.md)
 * [Sign out](popular-guides/popular-guides-sign-out.md)

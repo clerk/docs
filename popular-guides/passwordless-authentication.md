@@ -2,7 +2,7 @@
 description: Learn how to send one-time codes to authenticate users.
 ---
 
-# Passwordless authentication
+# One-time code authentication
 
 ## Overview
 
@@ -13,6 +13,10 @@ Arguably, passwordless authentication provides greater security and a better use
 There are a few different ways to set up passwordless authentication in Clerk; [Clerk Hosted Pages](passwordless-authentication.md#using-clerk-hosted-pages), [Clerk Components](passwordless-authentication.md#using-clerk-components) and by creating a [custom flow](passwordless-authentication.md#custom-flow) using Clerk's SDKs.
 
 The rest of this guide will explain how to set up passwordless authentication using any of the above methods. Before you start, you will need to [configure your instance](passwordless-authentication.md#configuration) to allow passwordless sign-ins.
+
+{% hint style="info" %}
+Looking for magic links? Check out our [Magic links authentication](magic-links.md) guide.
+{% endhint %}
 
 {% hint style="info" %}
 Looking for 2FA? Check out our [Multi-factor authentication](multi-factor-authentication.md) guide.
@@ -33,9 +37,9 @@ Don't forget that you also need to make sure you've configured your application 
 
 Go to your instance **Settings** page again, select **User management **>** Contact Information**. Make sure you select one of the following options;  **Email address**, **Phone number** or **Email address OR phone number**.&#x20;
 
-For the rest of this guide, we'll use the **Email address** option.
+For the rest of this guide, we'll use the **Phone number** option.
 
-![Selecting email address as the authentication identifier.](../.gitbook/assets/screely-1627278226541.png)
+![Selecting phone number as the authentication identifier.](../.gitbook/assets/dashboard-v1-contact-info-phone.png)
 
 {% hint style="warning" %}
 Don't forget to click on the **Apply Changes** button at the bottom of the page once you're done configuring your instance.
@@ -45,7 +49,7 @@ That's all you need to do to enable passwordless authentication for your instanc
 
 ## Using Clerk Hosted Pages
 
-If you're looking for the fastest way to implement passwordless based authentication, you can leverage [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) for your sign up, sign in, and user profile pages.  You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
+If you're looking for the fastest way to implement passwordless based authentication, you can leverage [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) for your sign up, sign in, and user profile pages. You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
 
 You can find your instances sign up and sign in links in the **Home** > **Instance configuration** section of your instance in Clerk Dashboard.&#x20;
 
@@ -161,7 +165,7 @@ function SignUpPage() {
 
 ### Sign in <a href="clerk-components-sign-in" id="clerk-components-sign-in"></a>
 
-Signing user in with a one-time token is as simple as mounting the **\<SignIn />** component.
+Signing users in with a one-time token is as simple as mounting the **\<SignIn />** component.
 
 {% tabs %}
 {% tab title="Clerk React" %}
@@ -233,18 +237,18 @@ function SignUpPage() {
     async function onClick(e) {
         e.preventDefault();
         // Kick off the sign-up process, passing the user's
-        // email address.
+        // phone number.
         await signUp.create({
-            emailAddress: "user@example.com",
+            phoneNumber: "+11111111111",
         });
         
-        // Prepare email address verification. An email will 
-        // be sent to the user with a one-time verification 
-        // code.
-        await signUp.prepareEmailAddressVerification();
+        // Prepare phone number verification. An SMS message 
+        // will be sent to the user with a one-time 
+        // verification code.
+        await signUp.preparePhoneNumberVerification();
         
-        // Attempt to verify the user's email address providing
-        // the one-time code they received.
+        // Attempt to verify the user's phone number by 
+        // providing the one-time code they received.
         await signUp.attemptEmailAddressVerification({
             code: "123456",
         });    
@@ -264,26 +268,26 @@ function SignUpPage() {
 const { client } = window.Clerk;
 
 // Kick off the sign-up process, passing the user's
-// email address.
+// phone number.
 const signUp = await client.signUp.create({
-    emailAddress: "user@example.com",
+    phoneNumber: "+11111111111",
 });
 
-// Prepare email address verification. An email will 
+// Prepare phone number verification. An SMS will 
 // be sent to the user with a one-time verification 
 // code.
-await signUp.prepareEmailAddressVerification();
+await signUp.preparePhoneNumberVerification();
 
-// Attempt to verify the user's email address providing
+// Attempt to verify the user's phone number by providing
 // the one-time code they received.
-await signUp.attemptEmailAddressVerification({
+await signUp.attemptPhoneNumberVerification({
     code: "123456",
 });
 ```
 {% endtab %}
 {% endtabs %}
 
-You can also verify your users via their phone number. There's two additional helper methods, `preparePhoneNumberVerification` and `attemptPhoneNumberVerification` that work the same way as their email address counterparts do. You can find more available methods in our ClerkJS API documentation for the [SignUp object](../reference/clerkjs/signup.md).
+You can also verify your users via their email address. There's two additional helper methods, `prepareEmailAddressVerification` and `attemptEmailAddressVerification` that work the same way as their phone number counterparts do. You can find more available methods in our ClerkJS API documentation for the [SignUp object](../reference/clerkjs/signup.md).
 
 ### Sign in <a href="custom-flow-sign-in" id="custom-flow-sign-in"></a>
 
@@ -309,22 +313,22 @@ function SignInPage() {
         e.preventDefault();
         // Kick off the sign-in process, passing the user's 
         // authentication identifier. In this case it's their
-        // email address.
+        // phone number.
         await signIn.create({ 
-            identifier: "user@example.com",
+            identifier: "+11111111111",
         });
 
         // Prepare first factor verification, specifying 
-        // the email code strategy.
+        // the phone code strategy.
         await signIn.prepareFirstFactor({ 
-            strategy: "email_code", 
-            email_address_id: "idn_1vf1vozUmkg2iN6WY0efWDcEC1a",
+            strategy: "phone_code", 
+            phone_number_id: "idn_1vf1vozUmkg2iN6WY0efWDcEC1a",
         });
 
         // Attempt to verify the user providing the
         // one-time code they received.
         await signIn.attemptFirstFactor({
-            strategy: "email_code",
+            strategy: "phone_code",
             code: "123456",
         });
     }
@@ -343,26 +347,26 @@ function SignInPage() {
 const { client } = window.Clerk;
 // Kick off the sign-in process, passing the user's 
 // authentication identifier. In this case it's their
-// email address.
+// phone number.
 const signIn = await client.signIn.create({ 
-    identifier: "user@example.com",
+    identifier: "+11111111111",
 });
 
 // Prepare first factor verification, specifying 
-// the email code strategy.
+// the phone code strategy.
 await signIn.prepareFirstFactor({ 
-    strategy: "email_code", 
-    email_address_id: "idn_1vf1vozUmkg2iN6WY0efWDcEC1a",
+    strategy: "phone_code", 
+    phone_number_id: "idn_1vf1vozUmkg2iN6WY0efWDcEC1a",
 });
 
 // Attempt to verify the user providing the
 // one-time code they received.
 await signIn.attemptFirstFactor({
-    strategy: "email_code",
+    strategy: "phone_code",
     code: "123456",
 });
 ```
 {% endtab %}
 {% endtabs %}
 
-You can also achieve passwordless sign-ins with phone number. Simply pass the value **phone\_code** as the first factor strategy. Just make sure you've collected the user's phone number first. You can find all available methods on the [SignIn object](../reference/clerkjs/signin.md) documentation.
+You can also achieve passwordless sign-ins with email address. Simply pass the value **email\_code** as the first factor strategy. Just make sure you've collected the user's email address first. You can find all available methods on the [SignIn object](../reference/clerkjs/signin.md) documentation.
