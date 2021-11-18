@@ -764,7 +764,7 @@ Clerk provides a highly flexible API that allows you to hook into any of the abo
 {% tab title="ClerkReact" %}
 ```jsx
 import { useEffect, useMemo, useState } from "react";
-import { useMagicLink, useUser } from "@clerk/clerk-react";
+import { useUser } from "@clerk/clerk-react";
 
 // A page where users can add a new email address. 
 function NewEmailPage() {
