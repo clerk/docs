@@ -2,7 +2,7 @@
 
 The OAuth Token Wallet allows developers to easily get an active access token for a user's connected OAuth account, e.g. _Sign In with Google._
 
-If an access token has expired, a new one will be issued transparently and returned in the response. Note that the refresh functionality might not work for every OAuth provider right now, in which case an error will be returned.
+If an access token has expired, a new one will be issued transparently and returned in the response. Note that the refresh functionality is not supported for every OAuth provider, in which case an error will be returned.
 
 ### Available requests
 
@@ -41,6 +41,10 @@ The Clerk user ID.
   ]
 }
 ```
+{% endswagger-response %}
+
+{% swagger-response status="422: Unprocessable Entity" description="The access token has expired but the provider hasn't provided us with a refresh token and so we cannot fetch a new access token." %}
+
 {% endswagger-response %}
 {% endswagger %}
 
