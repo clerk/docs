@@ -31,6 +31,7 @@
 * [Clerk Hosted Pages](main-concepts/clerk-hosted-pages.md)
 * [Clerk Components](main-concepts/clerk-components.md)
 * [Session management](main-concepts/session-management.md)
+* [Configurable Session Lifetime](main-concepts/configurable-session-lifetime.md)
 * [Routing](main-concepts/routing.md)
 * [Auth v2](main-concepts/auth-v2.md)
 
