@@ -212,12 +212,12 @@ Let's see the above in action. If you want to learn more about sign-ups, check o
 {% tabs %}
 {% tab title="Clerk React" %}
 ```javascript
-import { useClerk } from "@clerk/clerk-react";
+import { useSignUp } from "@clerk/clerk-react";
 
-const { client } = useClerk();
+const signUp = useSignUp();
 
 // Create a new sign-up with the supplied email and password.
-const signUp = await client.signUp.create({
+signUp.create({
   emailAddress,
   password
 });
@@ -266,14 +266,15 @@ In email/password authentication, the sign in  is a process which requires users
 {% tabs %}
 {% tab title="Clerk React" %}
 ```javascript
-import { useClerk } from "@clerk/clerk-react";
+import { useSignIn, useClerk } from "@clerk/clerk-react";
 
-const { client, setSession } = useClerk();
+const signIn = useSignIn();
+const { setSession } = useClerk();
 
 // Supply the email address and the password to sign in `create`.
 // If the combination is correct, the response would include the newly-created 
 // session.
-const response = await client.signIn.create({
+const response = await signIn.create({
   identifier: emailAddress,
   password
 });
