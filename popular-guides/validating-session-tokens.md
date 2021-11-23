@@ -23,13 +23,14 @@ For every request, you must validate its token to make sure it hasn't expired an
 By following the steps below, you can validate the session token on your own and make sure that the user session is still active and valid.
 
 1. Retrieve the session token from either  `__session` cookie or from the `Authorization` header&#x20;
-2. Get your instance's Public Key. There are 2 ways to do it:
+2. Get your instance's Public Key. There are 3 ways to do it:
    1.  Via the Backend API in JSON Web Key Set (JWKS) format at the following endpoint `https://api.clerk.dev/v1/jwks`
 
        (If there is more than one JWKS, decode your session token, get the token `kid` from the header part and construct the respective public key)
    2.  Via the Frontend API in JSON Web Key Set (JWKS) format at the following endpoint `https://<YOUR_FRONTEND_API>/.well-known/jwks.json`
 
        (If there is more than one JWKS, decode your session token, get the token `kid` from the header part and construct the respective public key)
+   3. If you are planning to use Clerk on a Serverless/Edge Runtime where JWKs caching is challenging, you can use the instance Public Key as an environment variable. The key can be found in `Dashboard > Settings > API Keys > JWT Verification Key`. Note that the JWT Verification key is not in PEM format, the header and footer are missing, in order to be shorter and single-line for easier setup.
 3. Use the above Public Key to verify the token's signature
 4. Validate that the token is not expired, by checking the `exp` and `nbf` claims
 
