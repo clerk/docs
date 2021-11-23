@@ -48,7 +48,7 @@ They can have more than one registered email addresses, but only one of them wil
 
 Clerk takes care of automatically assigning a verified email address or phone number as the user's primary contact method, but users are allowed to pick one through their account settings as well.
 
-## Custom user attributes
+## Custom user metadata
 
 `User` objects hold a set of metadata that can be used internally to store arbitrary information.&#x20;
 
