@@ -267,7 +267,6 @@ function App() {
 
 function Hello() {
   return <div>Hello from Clerk</div>;
-  );
 }
 
 ```
