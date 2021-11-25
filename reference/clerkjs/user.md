@@ -78,25 +78,7 @@ Adds a phone number for the user. A new [PhoneNumber](phonenumber.md) will be cr
 {% tab title="Returns" %}
 _Promise<_[_PhoneNumberResource_](phonenumber.md)_>_
 
-This method returns a `Promise` which resolves with a `PhoneNumber` object.
-{% endtab %}
-{% endtabs %}
-
-### delete()
-
-`delete() => Promise<void>`
-
-Deletes the user.
-
-{% tabs %}
-{% tab title="Parameters" %}
-This method accepts no parameters.
-{% endtab %}
-
-{% tab title="Returns" %}
-_Promise\<void>_
-
-This method returns a `Promise` which doesn't resolve to any value.
+This method returns a `Promise` which resolves with a `PhoneNumber` object
 {% endtab %}
 {% endtabs %}
 

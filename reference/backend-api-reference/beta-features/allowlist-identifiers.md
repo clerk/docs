@@ -12,26 +12,16 @@ The _allowlist_ beta feature allows you to control who can get access to your ap
 
 You can either select individual email addresses and phone numbers, or whitelist whole email domains.&#x20;
 
-Whenever you add an email address or phone number to your allowlist identifiers, you can also choose whether you want to notify this person by an invitation to their email address or phone number respectively.&#x20;
+Whenever you add a single email address or phone number to your allowlist identifiers, you can also choose whether you want to notify this person by an invitation to their email address or phone number respectively.&#x20;
 
-At the moment, as this is still a beta feature, you can only add allowlist identifiers via requests to the Backend API. This feature is not accessible via the Dashboard yet.
+In order to add a set of email addresses to your allowlist identifiers, simply pass an asterisk as the email inbox. The asterisk will act as a wildcard and add all inboxes for a certain email domain.&#x20;
 
-{% hint style="danger" %}
-In order to use the allowlist beta feature, it needs to be enabled for your instance. To enable it, please contact [support@clerk.dev](mailto:support@clerk.dev).
-{% endhint %}
+Here's an example. If you add `*@clerk.dev` as your allowlist identifier, it means that anybody with a `clerk.dev` email address can sign up for your application. Email addresses from different domains will not be able to sign up.
 
-### Overview
+At the moment, as this is still a beta feature, you can only add allowlist identifiers via requests to the Backend API.&#x20;
 
-The _allowlist_ beta feature allows you to control who can get access to your application. It basically restricts sign ups only to a certain set of email addresses or phone numbers that you define.
-
-You can either select individual email addresses and phone numbers, or whitelist whole email domains.
-
-Whenever you add an email address or phone number to your allowlist identifiers, you can also choose whether you want to notify this person by an invitation to their email address or phone number respectively.
-
-At the moment, as this is still a beta feature, you can only add allowlist identifiers via requests to the Backend API. This feature is not accessible via the Dashboard yet.
-
-{% hint style="warning" %}
-In order to use the allowlist beta feature, it needs to be enabled for your instance. To enable it, please contact [support@clerk.dev](mailto:support@clerk.dev).
+{% hint style="info" %}
+In order to use the allowlist beta feature, it needs to be enabled for your instance. To enable it, use our Backend API to [update your instance settings](instance-settings.md).
 {% endhint %}
 
 ### Available requests

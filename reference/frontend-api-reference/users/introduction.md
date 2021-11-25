@@ -8,7 +8,6 @@ User requests are responsible for handling any actions on the current user, and 
 
 * **`GET  `**`/v1/me`
 * **`PATCH`**`/v1/me`
-* **`DEL  `**`/v1/me`
 
 ### [Email addresses requests](email-addresses.md)
 
