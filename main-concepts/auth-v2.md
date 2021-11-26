@@ -96,11 +96,44 @@ That version provides the `WithSessionV2` and `RequireSessionV2` middlewares.
 
 Depending on the architecture of your application, different steps are needed in order to upgrade to Auth v2.
 
-If you're interested in upgrading, please reach out to us via the communication channels mentioned in the last section.
-
 {% hint style="info" %}
 If you created your application after 22 Oct 2021, it's already using Auth v2.
 {% endhint %}
+
+#### React application with same-origin backend
+
+_Example: A Next.js app leveraging the `/api` folder_
+
+1. Bump `@clerk/clerk-sdk-node` in your backend to v2.1.2 or later
+2. Bump `@clerk/clerk-react` in your frontend to v2.2.1 or later
+3. Verify everything is working in your development instance
+4. Deploy to production
+5. Your application is now running on Auth v2.
+6. Contact us - we'll make one last change to your instance to stop setting a cookie on your application's backend.
+
+#### React application with cross-origin backend
+
+_Example: React frontend at _[_www.example.com_](http://www.example.com)_, Node backend at _[_api.foo.com_](http://api.foo.com)
+
+1. Bump `@clerk/clerk-sdk-node` in your backend to v2.1.2 or later
+2. Verify everything is working in your development instance
+3. Deploy to production
+4. Bump `@clerk/clerk-react` to v2.2.1 or later
+5. Update your frontend-to-backend requests to include the short-lived JWT in the `Authorization` header. The JWT can be retrieved with the `getToken` method on the `useSession` hook: `const { getToken } = useSession();`
+6. Verify everything is working in your development instance, then deploy your frontend to production
+7. Your application is now running on Auth v2.
+8. Contact us - we'll make one last change to your instance to stop setting a cookie on your application's backend.
+
+#### Server-rendered Ruby applications
+
+_Example: a traditional Rails application_
+
+* Bump the Ruby SDK to v2.0.4
+* Bump `@clerk/clerk-react` to v2.2.1 or later
+* Verify everything is working in your development instance, then deploy
+* Contact us - we'll make one last change to your instance to stop setting a cookie on your application's backend.
+
+If you encountered any issues or need assistance, please reach out to us via the communication channels mentioned in the last section.
 
 ### Talk to us
 
