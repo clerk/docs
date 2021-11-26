@@ -6,4 +6,22 @@ The Clerk Backend API is built to be used from your backend code. We make our be
 
 ### Authentication
 
-The Clerk backend API uses API keys to authenticate these requests.  You can find and create your API keys on the Clerk dashboard via an instance's  Settings>API keys. These API keys should never be shared with anyone, as they allow the holder to access all of your Clerk resources.  Be careful not to expose these keys in your Git repository, frontend code, or anywhere else that is public. &#x20;
+The Clerk Backend API uses secret API keys.  You can find and create your instance API keys in Clerk Dashboard **API Keys **page.&#x20;
+
+{% hint style="warning" %}
+These keys should never be shared with anyone, as they allow the holder to access all your Clerk resources.
+{% endhint %}
+
+&#x20;An example, request is the following:
+
+```bash
+curl \
+ -H "Authorization: Bearer test_abc...xyz" \
+ -H "Content-type: application/json" \ 
+ https://api.clerk.dev/v1/users
+```
+
+{% hint style="info" %}
+Be careful not to expose these keys in your Git repository, frontend code, or anywhere else that is public.&#x20;
+{% endhint %}
+
