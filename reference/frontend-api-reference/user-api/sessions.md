@@ -30,6 +30,10 @@ A **Session** object represents an active session for a user.  Sessions are crea
 Retrieve the details of a session.
 {% endswagger-description %}
 
+{% swagger-parameter in="path" name="id" type="String" required="true" %}
+The ID of the session
+{% endswagger-parameter %}
+
 {% swagger-response status="200" description="" %}
 ```
 // see example schema
@@ -42,12 +46,12 @@ Retrieve the details of a session.
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="post" path="/v1/client/sessions/:id/tokens" baseUrl="https://clerk.example.com" summary="Issue a new session JWT" %}
+{% swagger method="post" path="/v1/client/sessions/:id/tokens" baseUrl="https://clerk.example.com" summary="Issue a session JWT" %}
 {% swagger-description %}
-
+Issue a new session JWT for authentication
 {% endswagger-description %}
 
-{% swagger-parameter in="path" required="true" %}
+{% swagger-parameter in="path" required="true" name="id" type="String" %}
 The ID of the session.
 {% endswagger-parameter %}
 
@@ -66,7 +70,7 @@ The ID of the session.
 This endpoint marks the session as the last used session
 {% endswagger-description %}
 
-{% swagger-parameter in="path" required="true" %}
+{% swagger-parameter in="path" required="true" type="String" name="id" %}
 The ID of the session.
 {% endswagger-parameter %}
 
@@ -83,6 +87,10 @@ The ID of the session.
 {% swagger-description %}
 Ends a currently active Session.  Synonymous with "signing out" the user.  The session will still be present on the client object.
 {% endswagger-description %}
+
+{% swagger-parameter in="path" name="id" required="true" %}
+The ID of the session.
+{% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
 ```
@@ -107,6 +115,10 @@ Ends a currently active Session.  Synonymous with "signing out" the user.  The s
 {% swagger-description %}
 Completely removes the session from client.
 {% endswagger-description %}
+
+{% swagger-parameter in="path" name="id" type="String" required="true" %}
+The ID of the session.
+{% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
 ```
