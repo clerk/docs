@@ -5,6 +5,8 @@ A **Session** object represents an active session for a user.  Sessions are crea
 ### Available requests
 
 * **`GET `**`/v1/client/sessions/:id`
+* **`POST`**`/v1/client/sessions/:id/tokens`
+* **`POST`**`/v1/client/sessions/:id/touch`
 * **`POST`**`/v1/client/sessions/:id/end`
 * **`POST`**`/v1/client/sessions/:id/remove`
 
@@ -35,6 +37,43 @@ Retrieve the details of a session.
         "object": "session",
         "id": "sess_1q8uCbeJSMgTJnTQMgpAK1Ff0ER",
         ...
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger method="post" path="/v1/client/sessions/:id/tokens" baseUrl="https://clerk.example.com" summary="Issue a new session JWT" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="path" required="true" %}
+The ID of the session.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="" %}
+```javascript
+{
+  jwt: ""
+  object: "token"
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger method="post" path="/v1/client/sessions/:id/touch" baseUrl="https://clerk.example.com" summary="Touch current session" %}
+{% swagger-description %}
+This endpoint marks the session as the last used session
+{% endswagger-description %}
+
+{% swagger-parameter in="path" required="true" %}
+The ID of the session.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="" %}
+```javascript
+{
+    // Response
 }
 ```
 {% endswagger-response %}
