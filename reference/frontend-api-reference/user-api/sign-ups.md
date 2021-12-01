@@ -1,12 +1,12 @@
 # Sign ups
 
-A **Sign up** represents an active sign up.  A **Client **can only have one active sign up at a time.
+A **Sign up** represents an active sign up.  A **Client** can only have one active sign up at a time.
 
 ## Available requests
 
 **Create/Read/Update**
 
-* **`POST `**`/v1/client/sign_ups`
+* **`POST`**` ``/v1/client/sign_ups`
 * **`GET`**`/v1/client/sign_ups/:id`
 * **`PATCH`**`/v1/client/sign_ups/:id`
 
@@ -209,9 +209,9 @@ The password of the new
 {% swagger-description %}
 Updates the current 
 
-**Sign Up **
+**Sign Up**
 
-object with the supplied parameters. You can trigger this request at any time during the sign up process, but before the 
+ object with the supplied parameters. You can trigger this request at any time during the sign up process, but before the 
 
 **Sign Up**
 

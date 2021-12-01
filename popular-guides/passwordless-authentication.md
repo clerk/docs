@@ -29,13 +29,13 @@ Looking for 2FA? Check out our [Multi-factor authentication](multi-factor-authen
 
 ## Configuration
 
-Passwordless authentication can be configured through the [Clerk Dashboard](https://dashboard.clerk.dev). Go to your instance, then **Settings **>  **User management** > **Authentication strategy.** Simply choose **Passwordless** as the authentication strategy.
+Passwordless authentication can be configured through the [Clerk Dashboard](https://dashboard.clerk.dev). Go to your instance, then **Settings** >  **User management** > **Authentication strategy.** Simply choose **Passwordless** as the authentication strategy.
 
 ![Enabling passwordless authentication in your instance settings.](../.gitbook/assets/screely-1627278145637.png)
 
 Don't forget that you also need to make sure you've configured your application instance to request the user's contact information.  Users can receive one-time codes via either an email address or a phone number.
 
-Go to your instance **Settings** page again, select **User management **>** Contact Information**. Make sure you select one of the following options;  **Email address**, **Phone number** or **Email address OR phone number**.&#x20;
+Go to your instance **Settings** page again, select **User management** > **Contact Information**. Make sure you select one of the following options;  **Email address**, **Phone number** or **Email address OR phone number**.&#x20;
 
 For the rest of this guide, we'll use the **Phone number** option.
 
@@ -120,7 +120,7 @@ Similarly, there's a [\<SignIn />](../components/sign-in.md) pre-built component
 
 Note that you don't need to pass any special options to the pre-built **\<SignUp />** and **\<SignIn />** components. Passwordless authentication will just work, since you already configured through the Clerk [dashboard](https://dashboard.clerk.dev).
 
-### Sign up <a href="clerk-components-sign-up" id="clerk-components-sign-up"></a>
+### Sign up <a href="#clerk-components-sign-up" id="clerk-components-sign-up"></a>
 
 Signing users up to your application is as simple as rendering the **\<SignUp />** component.
 
@@ -163,7 +163,7 @@ function SignUpPage() {
 {% endtab %}
 {% endtabs %}
 
-### Sign in <a href="clerk-components-sign-in" id="clerk-components-sign-in"></a>
+### Sign in <a href="#clerk-components-sign-in" id="clerk-components-sign-in"></a>
 
 Signing users in with a one-time token is as simple as mounting the **\<SignIn />** component.
 
@@ -214,7 +214,7 @@ In case one of the above integration methods doesn't cover your needs, you can m
 
 You still need to configure your instance in order to enable passwordless authentication, as described at the [top of this guide](passwordless-authentication.md#configuration).
 
-### Sign up <a href="custom-flow-sign-up" id="custom-flow-sign-up"></a>
+### Sign up <a href="#custom-flow-sign-up" id="custom-flow-sign-up"></a>
 
 The passwordless sign up flow is a process which requires users to provide their authentication identifier (email address or phone number) and a one-time code that is sent to them. The important thing to note here is that a user's email address or phone number needs to be verified before the registration is completed.
 
@@ -289,7 +289,7 @@ await signUp.attemptPhoneNumberVerification({
 
 You can also verify your users via their email address. There's two additional helper methods, `prepareEmailAddressVerification` and `attemptEmailAddressVerification` that work the same way as their phone number counterparts do. You can find more available methods in our ClerkJS API documentation for the [SignUp object](../reference/clerkjs/signup.md).
 
-### Sign in <a href="custom-flow-sign-in" id="custom-flow-sign-in"></a>
+### Sign in <a href="#custom-flow-sign-in" id="custom-flow-sign-in"></a>
 
 The passwordless sign in flow is a process which requires users to provide their authentication identifier (email address or phone number) and subsequently a one-time code that is sent to them. We call this one-time code the first factor of authentication.
 

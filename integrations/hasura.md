@@ -36,7 +36,7 @@ Hasura uses the `Authorization` header to authenticate requests. You can retriev
 
 `getToken` should be called before every request to your GraphQL API.  Each token is short-lived for better security, and `getToken` automatically handles caching and refreshing.
 
-### **3.1. **[**Apollo**](https://www.apollographql.com)
+### **3.1.** [**Apollo**](https://www.apollographql.com)
 
 First, you need to install two dependencies:
 

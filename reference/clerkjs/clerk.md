@@ -16,8 +16,8 @@ The `Clerk` object is always available via `window.Clerk`.
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **client**  | <p><em></em><a href="client.md"><em>Client</em></a><em></em></p><p>The <code>Client</code> object for the current window.</p>                                                                                                                                                                                                                                            |
 | environment | Environment                                                                                                                                                                                                                                                                                                                                                              |
-| **session** | <p><em></em><a href="session.md"><em>Session</em></a><em> | null | undefined</em></p><p>The currently active <code>Session</code>, which is guaranteed to be one of the sessions in <code>Client.sessions</code>. If there is no active session, this field will be <strong>null</strong>. If the session is loading, this field will be <strong>undefined</strong>.</p> |
-| **user**    | <p><em></em><a href="user.md"><em>User</em></a><em> | null | undefined</em></p><p>A shortcut to <code>Session.user</code> which holds the currently active <code>User</code> object. If the session is <strong>null</strong> or <strong>undefined</strong>, the <code>user</code> field will match.</p>                                                                  |
+| **session** | <p><em></em><a href="session.md"><em>Session</em></a> <em>| null | undefined</em></p><p>The currently active <code>Session</code>, which is guaranteed to be one of the sessions in <code>Client.sessions</code>. If there is no active session, this field will be <strong>null</strong>. If the session is loading, this field will be <strong>undefined</strong>.</p> |
+| **user**    | <p><em></em><a href="user.md"><em>User</em></a> <em>| null | undefined</em></p><p>A shortcut to <code>Session.user</code> which holds the currently active <code>User</code> object. If the session is <strong>null</strong> or <strong>undefined</strong>, the <code>user</code> field will match.</p>                                                                  |
 | **version** | <p><em>string</em></p><p>The <a href="./">ClerkJS</a> SDK version.</p>                                                                                                                                                                                                                                                                                                   |
 
 ## Methods
@@ -31,8 +31,8 @@ Registers a listener that triggers a callback whenever an important change in th
 Some things to note for specific changes in the `Client` object include:
 
 * When there is an active session, `user === session.user`**.**
-* When there is no active session, `user`** **and `session`** **will both be **null**.
-* When a session is loading, `user`** **and `session`** **will be **undefined**.
+* When there is no active session, `user` **** and `session` **** will both be **null**.
+* When a session is loading, `user` **** and `session` **** will be **undefined**.
 
 {% tabs %}
 {% tab title="Parameters" %}
@@ -378,8 +378,8 @@ If an active session already exists, it will be replaced with the new one. The c
 {% tab title="Parameters" %}
 | Name            | Description                                                                                                                                                                                                                                                                                           |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **session**     | <p><em></em><a href="session.md"><em>SessionResource </em></a><em>| string | null</em></p><p>A <code>Session</code> object or <code>Session</code> ID string to be set as the current session, or <strong>null</strong> to simply remove the active session, without setting a new one.</p>           |
-| **beforeEmit?** | <p><em>(session: </em><a href="session.md"><em>SessionResource</em></a><em> | null) => Promise&#x3C;any> | void</em></p><p>Callback that will trigger when the current session is set to <strong>undefined</strong>, before finally being set to the passed session. Usually used for navigation.</p> |
+| **session**     | <p><em></em><a href="session.md"><em>SessionResource</em> </a><em>| string | null</em></p><p>A <code>Session</code> object or <code>Session</code> ID string to be set as the current session, or <strong>null</strong> to simply remove the active session, without setting a new one.</p>           |
+| **beforeEmit?** | <p><em>(session:</em> <a href="session.md"><em>SessionResource</em></a> <em>| null) => Promise&#x3C;any> | void</em></p><p>Callback that will trigger when the current session is set to <strong>undefined</strong>, before finally being set to the passed session. Usually used for navigation.</p> |
 {% endtab %}
 
 {% tab title="Returns" %}
@@ -507,7 +507,7 @@ This method has no return value.
 
 | Property                  | Description                                                                                                                                                                                                                                                                                                                            |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **selectInitialSession?** | <p><em>(client: </em><a href="client.md"><em>ClientResource</em></a><em>) => </em><a href="session.md"><em>SessionResource</em></a><em> | undefined</em></p><p>This function can be used to set the initial session in <a href="../../popular-guides/popular-guides-multi-session-applications.md">multi-session applications</a>.</p> |
+| **selectInitialSession?** | <p><em>(client:</em> <a href="client.md"><em>ClientResource</em></a><em>) =></em> <a href="session.md"><em>SessionResource</em></a> <em>| undefined</em></p><p>This function can be used to set the initial session in <a href="../../popular-guides/popular-guides-multi-session-applications.md">multi-session applications</a>.</p> |
 | **navigate?**             | <p><em>(to: string) => Promise&#x3C;unknown> | unknown</em></p><p>Provide an implementation for the <a href="clerk.md#navigate-to">Clerk.navigate</a> method.</p>                                                                                                                                                                      |
 
 ### HandleMagicLinkVerificationParams

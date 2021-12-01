@@ -26,8 +26,8 @@ Components can be customized with the **`theme`** prop or by defining Clerk-spec
 {% hint style="warning" %}
 Customization options have an order of precedence from which overrides are applied. This precedence order is shown below:\
 \
-1\. CSS Variables _(takes precedence over) _**→**\
-__2_. _theme prop** **(_takes precedence over)_**  →**\
+1\. CSS Variables _(takes precedence over)_ **→**\
+__2_._ theme prop **** (_takes precedence over)_  **→**\
 ****3. Dashboard settings
 {% endhint %}
 

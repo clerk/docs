@@ -39,7 +39,7 @@ To send events to Google Analytics servers, Clerk uses the [Measurement Protocol
 #### Universal Analytics
 
 * **Tracking ID**\
-  ****The tracking ID is a string composed of your account number and the property index and is used to send data to the correct Google Analytics property. The format is _UA-YYYYYY-Z _and can be found in the Google Analytics UI under:\
+  ****The tracking ID is a string composed of your account number and the property index and is used to send data to the correct Google Analytics property. The format is _UA-YYYYYY-Z_ and can be found in the Google Analytics UI under:\
   **Admin → Tracking Info → Tracking Code**\
   ****
 
@@ -60,13 +60,13 @@ Select during which user authentication events such as user sign-in or user sign
 * **Sign up**\
   ****Sent every time a user signs up for your application through Clerk.\
 
-  * For **Universal Analytics **properties, this is sent as a custom event.\
+  * For **Universal Analytics** properties, this is sent as a custom event.\
     The custom event is composed as:\
     Category: _**Clerk**_\
     Action: _**sign\_up**_\
     __Label: **{{signup method}}**\
 
-  * For **Google Analytics 4 **properties, this matches the standard [sign\_up event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#sign\_up). \
+  * For **Google Analytics 4** properties, this matches the standard [sign\_up event](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#sign\_up). \
 
 * **Sign in**\
   ****Sent every time a user signs in to his account through Clerk.\
@@ -82,7 +82,7 @@ Select during which user authentication events such as user sign-in or user sign
 
 ## Frequently Asked Questions
 
-* **Will Clerk events disrupt**_** **_**session attribution, user count or other metrics  ?**\
+* **Will Clerk events disrupt **_****_** session attribution, user count or other metrics  ?**\
   ****No, Clerk's production architecture allows us to configure the measurement protocol events sent to your property in such a way that session attribution, user count and identification attributes are kept intact. \
   \
   _The only **caveat** in this case is if your authentication domain is regarded as **cross-domain** to the main application domain. If that is the case, feel free to contact us and we will try our best to guide you through a resolution._

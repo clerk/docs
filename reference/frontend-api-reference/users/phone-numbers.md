@@ -2,13 +2,13 @@
 
 ## Available requests
 
-* **`GET  `**`/v1/me/phone_numbers`
-* **`POST `**`/v1/me/phone_numbers`
-* **`GET  `**`/v1/me/phone_numbers/:id`
+* **`GET`**`  ``/v1/me/phone_numbers`
+* **`POST`**` ``/v1/me/phone_numbers`
+* **`GET`**`  ``/v1/me/phone_numbers/:id`
 * **`PATCH`**`/v1/me/phone_numbers/:id`
-* **`POST `**`/v1/me/phone_numbers/:id/send_verification_sms`
-* **`POST `**`/v1/me/phone_numbers/:id/verify`
-* **`DEL  `**`/v1/me/phone_numbers/:id`
+* **`POST`**` ``/v1/me/phone_numbers/:id/send_verification_sms`
+* **`POST`**` ``/v1/me/phone_numbers/:id/verify`
+* **`DEL`**`  ``/v1/me/phone_numbers/:id`
 
 ## The phone number object
 

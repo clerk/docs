@@ -4,7 +4,7 @@ A **Session** object represents an active session for a user.  Sessions are crea
 
 ### Available requests
 
-* **`GET `**`/v1/client/sessions/:id`
+* **`GET`**` ``/v1/client/sessions/:id`
 * **`POST`**`/v1/client/sessions/:id/tokens`
 * **`POST`**`/v1/client/sessions/:id/touch`
 * **`POST`**`/v1/client/sessions/:id/end`

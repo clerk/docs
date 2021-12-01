@@ -30,7 +30,7 @@ The Svix integration can be enabled through [Clerk Dashboard](https://dashboard.
 
 ![Enabling Svix integration for your instance](../.gitbook/assets/enable-svix.png)
 
-Once the Svix integration is enabled, you will need to configure the endpoints of your application which will receive the various Clerk events. You can do that by clicking on **Manage webhooks **> **Add endpoint**.
+Once the Svix integration is enabled, you will need to configure the endpoints of your application which will receive the various Clerk events. You can do that by clicking on **Manage webhooks** > **Add endpoint**.
 
 ![Adding a webhook endpoint](../.gitbook/assets/add-endpoint-svix.png)
 

@@ -1,11 +1,11 @@
 # Sign ins
 
-A **Sign In** represents an active sign in.  A **Client **can only have one active sign in at a time.
+A **Sign In** represents an active sign in.  A **Client** can only have one active sign in at a time.
 
 ## Available requests
 
 * **`POST`**`/v1/client/sign_ins`
-* **`GET `**`/v1/client/sign_ins`
+* **`GET`**` ``/v1/client/sign_ins`
 * **`POST`**`/v1/client/sign_ins/:id/prepare_first_factor`
 * **`POST`**`/v1/client/sign_ins/:id/attempt_first_factor`
 * **`POST`**`/v1/client/sign_ins/:id/attempt_second_factor`
@@ -41,13 +41,13 @@ A **Sign In** represents an active sign in.  A **Client **can only have one acti
 
 {% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_ins" method="post" summary="Create a sign in" %}
 {% swagger-description %}
-**Creates or replaces the current Sign in object.  **
+**Creates or replaces the current Sign in object.**
 
-In order to authenticate a 
+  In order to authenticate a 
 
-**Sign in **
+**Sign in**
 
-in as few requests as possible, you can pass in parameters to this request that can identify and verify the 
+ in as few requests as possible, you can pass in parameters to this request that can identify and verify the 
 
 **Sign in.**
 
@@ -99,11 +99,11 @@ If the
 
 **email_code**
 
-\` then
+\` then 
 
-_ _
+__
 
-an 
+ an 
 
 **identifier**
 
@@ -200,11 +200,11 @@ Required if the strategy is password.  The password to attempt to sign in with.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="redirect_url" type="string" %}
-Required if the strategy is one of the OAuth providers.
+Required if the strategy is one of the OAuth providers. 
 
-** **
+****
 
-This is the URL that the user will be redirected to after the OAuth verification completes.
+ This is the URL that the user will be redirected to after the OAuth verification completes.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="action_complete_redirect_url" type="string" %}
@@ -255,15 +255,15 @@ Prepares the verification object for the identified
 
 **Sign in**
 
-.
+.  
 
-**  **
+****
 
-This step authenticates that the user is 
+  This step authenticates that the user is 
 
-_who they say they are.  _
+_who they say they are._
 
-Depending on the strategy, this request request will do something different.
+  Depending on the strategy, this request request will do something different.
 
 \
 
@@ -280,9 +280,9 @@ Parameter actions:
 
 If the 
 
-**strategy **
+**strategy**
 
-equals 
+ equals 
 
 **email_code**
 
@@ -302,9 +302,9 @@ If the
 
  equals 
 
-**phone_code **
+**phone_code**
 
-then this request will send an SMS with an OTP code.
+ then this request will send an SMS with an OTP code.
 
 \
 
@@ -435,11 +435,11 @@ If the
 
 **strategy**
 
- equals `email_code`
+ equals `email_code` 
 
-** **
+****
 
-or `phone_code` then a 
+ or `phone_code` then a 
 
 **code**
 

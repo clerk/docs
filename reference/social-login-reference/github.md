@@ -27,13 +27,13 @@ First, you need to register a new OAuth Github app. Follow the official Github i
 
 ![Registering an OAuth Github app](../../.gitbook/assets/screely-1628426717069.png)
 
-Notice that you need to add the **Authorization callback URL**. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**,** **and navigate to **Instances ** ➜  **Settings** ** **➜  **User Management **➜ **SSO**.  Click the **Manage credentials **button under the Github provider, select **Custom profile** and copy the **Authorized redirect URI**. Go back to the Github panel, paste the value into the **Authorization callback URL **field and compete the registration.
+Notice that you need to add the **Authorization callback URL**. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** and navigate to **Instances** ➜  **Settings** **** ➜  **User Management** ➜ **SSO**.  Click the **Manage credentials** button under the Github provider, select **Custom profile** and copy the **Authorized redirect URI**. Go back to the Github panel, paste the value into the **Authorization callback URL** field and compete the registration.
 
 Once registration is complete, you'll get redirected to project's admin panel. Click the **Generate a new client secret** button to get your new client secret. Then, copy the **Client ID** and **Client secret.** Go back to the Clerk Dashboard and paste them into the respective fields.
 
 ![Obtaining the Client ID and Client secret](../../.gitbook/assets/screely-1628427343412.png)
 
-Don't forget to click **Apply **in the Clerk dashboard. Social login with Github is now configured 🔥&#x20;
+Don't forget to click **Apply** in the Clerk dashboard. Social login with Github is now configured 🔥&#x20;
 
 ## Next Steps
 

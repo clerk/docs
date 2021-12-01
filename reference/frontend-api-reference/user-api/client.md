@@ -1,6 +1,6 @@
 # Client
 
-The **Client **object contains the current state of the **Sign in**,** Sign up**,** and Session(s)** objects.
+The **Client** object contains the current state of the **Sign in**, **Sign up**, **and Session(s)** objects.
 
 ### Available requests
 

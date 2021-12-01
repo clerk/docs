@@ -16,9 +16,9 @@ Setting `restricted_to_allowlist`to `true` in the instance\_settings will block 
 
 ### Available requests
 
-* **`GET `**`/v1/allowlist_identifiers`
+* **`GET`**` ``/v1/allowlist_identifiers`
 * **`POST`**`/v1/allowlist_identifiers`
-* **`DEL `**`/v1/allowlist_identifiers/:id`
+* **`DEL`**` ``/v1/allowlist_identifiers/:id`
 
 ## [OAuth Token Wallet](oauth-token-wallet.md)
 
@@ -26,4 +26,4 @@ The OAuth Token Wallet allows developers to easily get an active access token fo
 
 ### Available requests
 
-* **`GET`**` /v1/users/:id/oauth_access_tokens/:provider`
+* **`GET`**` ``/v1/users/:id/oauth_access_tokens/:provider`

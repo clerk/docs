@@ -8,7 +8,7 @@ description: Learn how to configure and work with multi-session applications
 
 One of the most powerful features that Clerk provides out of the box is multi-session applications.
 
-A multi-session application is an application that allows multiple accounts to be signed-in from the same browser at the same time. The user can switch from one account to another seamlessly. Each account is independent from the rest and has access to different resources.  It's most clearly explained by the default **\<UserButton /> **below.
+A multi-session application is an application that allows multiple accounts to be signed-in from the same browser at the same time. The user can switch from one account to another seamlessly. Each account is independent from the rest and has access to different resources.  It's most clearly explained by the default **\<UserButton />** below.
 
 ![Clerk's User button](<../.gitbook/assets/Screen Shot 2021-07-28 at 11.51.32 PM.png>)
 
@@ -35,7 +35,7 @@ Looking for more information on session management? Check out our [detailed guid
 
 The first thing you need to do is to enable the multi-session feature in your Clerk instance.
 
-From the [Clerk Dashboard](https://dashboard.clerk.dev), select your instance, and navigate to **Settings **> **User Management **> **User sessions**.&#x20;
+From the [Clerk Dashboard](https://dashboard.clerk.dev), select your instance, and navigate to **Settings** > **User Management** > **User sessions**.&#x20;
 
 Choose **Multi-session**.
 

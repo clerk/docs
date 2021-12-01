@@ -3,7 +3,7 @@
 This integration allows you to use Clerk as the authentication and user management solution for your [bubble.io](https://bubble.io) sites. Add social logins, passwordless auth, multi-factor auth, the familiar user profile button, and more all without code.
 
 {% hint style="info" %}
-**The bubble.io plugin is currently in closed beta. **To get access to the official Clerk plugin, reach out to us on any of our [support channels](https://clerk.dev/support) so we can add you to the beta.
+**The bubble.io plugin is currently in closed beta.** To get access to the official Clerk plugin, reach out to us on any of our [support channels](https://clerk.dev/support) so we can add you to the beta.
 {% endhint %}
 
 ## 1. Install the official bubble.io Clerk plugin
@@ -14,11 +14,11 @@ To get access to the official Clerk plugin, reach out to us on any of our [suppo
 
 After you install the Clerk plugin, add the `FRONTEND_API` key for your instance.&#x20;
 
-_You can find this value on your instance's **Home** page. For more information, go to our _[_**Frontend API**_](../reference/frontend-api-reference/)_** **_documentation.
+_You can find this value on your instance's **Home** page. For more information, go to our_ [_**Frontend API**_](../reference/frontend-api-reference/) _****_ documentation.
 
 ## 2. Automatic sign-up/log-in workflow
 
-For Clerk to work with bubble's sign-up/log-in mechanism, you need to add the Clerk workflow. All actions come from the base bubble _Account _type. The final result of workflow will look like this:&#x20;
+For Clerk to work with bubble's sign-up/log-in mechanism, you need to add the Clerk workflow. All actions come from the base bubble _Account_ type. The final result of workflow will look like this:&#x20;
 
 ![Clerk base workflow](<../.gitbook/assets/Screenshot 2021-07-27 at 9.34.33 AM.png>)
 
@@ -26,7 +26,7 @@ The workflow must be triggered from ClerkProvider's _"Clerk loaded with user"_ e
 
 ### The ClerkProvider element
 
-In order to use Clerk on your page, first you need to add the **ClerkProvider **element.  It can go anywhere, and does not display anything.
+In order to use Clerk on your page, first you need to add the **ClerkProvider** element.  It can go anywhere, and does not display anything.
 
 To create the workflow follow these steps:
 
@@ -50,7 +50,7 @@ For sign out to work, you will need to sign out of both Clerk and bubble.  An ex
 
 ![](<../.gitbook/assets/Screenshot 2021-07-27 at 11.37.25 AM.png>)
 
-When the _Signout_ button is clicked, the action "_Account _**→**_Log the user out" _ is triggered along with the "_Clerk **→** Signout" _action.
+When the _Signout_ button is clicked, the action "_Account_ **→**_Log the user out"_ is triggered along with the "_Clerk **→** Signout"_ action.
 
 ## 4. (Preview-only) URL Redirects
 
@@ -74,11 +74,11 @@ The Clerk plugin includes basic actions that allow you to link sign-up, log-in a
 
 #### OpenSignup
 
-The _OpenSignup _action will open the Clerk sign-up modal.
+The _OpenSignup_ action will open the Clerk sign-up modal.
 
 #### OpenSignin
 
-The _OpenSignin _action will open the Clerk sign-in modal.
+The _OpenSignin_ action will open the Clerk sign-in modal.
 
 #### Signout
 
@@ -90,7 +90,7 @@ The Clerk plugin includes pre-built elements that can enhance your application's
 
 ### ClerkProvider
 
-The _ClerkProvider _element is the base building block for the integration between your page and Clerk. For actions and workflows to function properly, you need to add a ClerkProvider element anywhere on your page so that actions can reference it.
+The _ClerkProvider_ element is the base building block for the integration between your page and Clerk. For actions and workflows to function properly, you need to add a ClerkProvider element anywhere on your page so that actions can reference it.
 
 This element does not display anything.
 
@@ -113,7 +113,7 @@ To show the _UserButton_, add a new workflow using a_"Clerk loaded with user"_ e
 ## Frequently Asked Questions
 
 * **Where can I manage my application's users?**\
-  ****Users can be managed from the [Clerk Dashboard](https://dashboard.clerk.dev) in the **Users **section.\
+  ****Users can be managed from the [Clerk Dashboard](https://dashboard.clerk.dev) in the **Users** section.\
 
 * **Can I change the Clerk interface theme to match my application ?**\
   ****Yes! Navigate to **Settings → Theme** in the [Clerk Dashboard](https://dashboard.clerk.dev) for your instance for complete customizability.  _Don't forget to press the Apply changes button!_

@@ -113,7 +113,7 @@ _Example: A Next.js app leveraging the `/api` folder_
 
 #### React application with cross-origin backend
 
-_Example: React frontend at _[_www.example.com_](http://www.example.com)_, Node backend at _[_api.foo.com_](http://api.foo.com)
+_Example: React frontend at_ [_www.example.com_](http://www.example.com)_, Node backend at_ [_api.foo.com_](http://api.foo.com)
 
 1. Bump `@clerk/clerk-sdk-node` in your backend to v2.1.2 or later
 2. Verify everything is working in your development instance

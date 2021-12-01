@@ -38,10 +38,10 @@ Integrations you have setup will not copy over.  You will need to re-enable thes
 
 ## API Keys and Environment variables
 
-A common mistake when deploying to production is forgetting to change your API keys to your production instances keys.  The best way to set this up, is to make use of **Environment variables.  **All modern hosting providers, such as AWS, GCP, Vercel, Heroku, Render, etc.. make it easy to add these values.  Locally, you should use an `env` file, this way these values are being set dynamically depending on your environment.  Here's a list of Clerk variables you'll need to change:
+A common mistake when deploying to production is forgetting to change your API keys to your production instances keys.  The best way to set this up, is to make use of **Environment variables.**  All modern hosting providers, such as AWS, GCP, Vercel, Heroku, Render, etc.. make it easy to add these values.  Locally, you should use an `env` file, this way these values are being set dynamically depending on your environment.  Here's a list of Clerk variables you'll need to change:
 
 * Frontend API
-  * &#x20;Formatted `clerk.123.abc.lcl.dev` in development, and `clerk.example.com` in production.  and is passed to the **\<ClerkProvider /> **during initialization
+  * &#x20;Formatted `clerk.123.abc.lcl.dev` in development, and `clerk.example.com` in production.  and is passed to the **\<ClerkProvider />** during initialization
 * API Key
   * Formatted `test_xxxxx` in development,  and `live_xxxxx` in production.  These values are used to access Clerk's Backend API
 * OAuth credentials

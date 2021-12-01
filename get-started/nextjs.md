@@ -65,7 +65,7 @@ yarn add @clerk/nextjs
 {% endtab %}
 {% endtabs %}
 
-Now, we need to set the `CLERK_FRONTEND_API` environment variable. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**,** **and navigate to **Development ** ➜  **Instance configuration **and copy the **Frontend API **field.
+Now, we need to set the `CLERK_FRONTEND_API` environment variable. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** and navigate to **Development** ➜  **Instance configuration** and copy the **Frontend API** field.
 
 ![Getting your Frontend API key](../.gitbook/assets/get-started-next-fapi.png)
 
@@ -232,6 +232,6 @@ You now have a working Next.js + Clerk app.  Going forwards, you can:
 
 * Check out [`clerk-nextjs-starter`](https://github.com/clerkinc/clerk-nextjs-starter)template 👩‍💻
 * Learn how to [deploy your app to production](../popular-guides/production-setup.md).
-* Check out our in-depth guides for the most usual use cases in the **Popular Guides **section.
+* Check out our in-depth guides for the most usual use cases in the **Popular Guides** section.
 * Learn more about the [Clerk Components](../main-concepts/clerk-components.md) and the [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md).
 * Come say hi in our [discord channel](https://discord.com/invite/b5rXHjAg7A) 👋

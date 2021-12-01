@@ -47,7 +47,7 @@ Don't forget to click on the **Apply Changes** button at the bottom of the page 
 
 Registered users will still need to enable MFA from their user profile page. Currently, MFA can not be required on all user accounts, this is coming soon.
 
-Users will need to navigate to their user profile, and go to **Security **> **Sign in** > **2-step verification**. From there, they will need to provide a phone number if there's not one on their account, and then enable it for that phone number.
+Users will need to navigate to their user profile, and go to **Security** > **Sign in** > **2-step verification**. From there, they will need to provide a phone number if there's not one on their account, and then enable it for that phone number.
 
 ![Turning MFA on from your user profile.](../.gitbook/assets/screely-1627301486853.png)
 

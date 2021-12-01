@@ -15,7 +15,7 @@ This guide assumes you have properly completed your Next.js [frontend setup](nex
 Create a file named **.env.local** in your application root if it doesn't exist already. Any variables inside this file will be accessible in your backend with **process.env.VARIABLE\_NAME**.
 
 {% hint style="warning" %}
-Make sure you update** **this variable with the API key found in your dashboard under **Settings **→** API Keys**.
+Make sure you update **** this variable with the API key found in your dashboard under **Settings** → **API Keys**.
 {% endhint %}
 
 {% code title=".env.local" %}
@@ -50,7 +50,7 @@ export default requireSession((req, res) => {
 
 That's it! Now, if a user is signed in, requests to **/api/hello** will return that user's ID.  This ID will never change for this user, so you can use it as a stable user ID in your own codebase.
 
-If a user is signed out, the **requireSession **helper will automatically return with HTTP status 401 and no response body. If you'd prefer to process a request when there is no user, try the **withSession** helper instead:
+If a user is signed out, the **requireSession** helper will automatically return with HTTP status 401 and no response body. If you'd prefer to process a request when there is no user, try the **withSession** helper instead:
 
 {% code title="pages/api/hello.js" %}
 ```jsx

@@ -2,12 +2,12 @@
 
 ## Available requests
 
-* **`GET `**`/v1/me/email_addresses`
+* **`GET`**` ``/v1/me/email_addresses`
 * **`POST`**`/v1/me/email_addresses`
-* **`GET `**`/v1/me/email_addresses/:id`
+* **`GET`**` ``/v1/me/email_addresses/:id`
 * **`POST`**`/v1/me/email_addresses/:id/send_verification_email`
 * **`POST`**`/v1/me/email_addresses/:id/verify`
-* **`DEL `**`/v1/me/email_addresses/:id`
+* **`DEL`**` ``/v1/me/email_addresses/:id`
 
 ## The email address object
 

@@ -6,7 +6,7 @@ If an access token has expired, a new one will be issued transparently and retur
 
 ### Available requests
 
-* **`GET`**` /v1/users/:id/oauth_access_tokens/:provider`
+* **`GET`**` ``/v1/users/:id/oauth_access_tokens/:provider`
 
 {% swagger baseUrl="https://api.clerk.dev" path="/v1/users/:id/oauth_access_tokens/:provider" method="get" summary="Retrieve token" %}
 {% swagger-description %}

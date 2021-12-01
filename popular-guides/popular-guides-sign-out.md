@@ -19,7 +19,7 @@ You can either sign out users in Clerk via the [Clerk Components](popular-guides
 
 ## Using Clerk Components
 
-The simplest way to sign out users is via the [\<UserButton />](../components/user-button.md) component. The user button is a pre-built UI component that gives a signed in user a way to manage their account. One of the options is a **Sign out **button.
+The simplest way to sign out users is via the [\<UserButton />](../components/user-button.md) component. The user button is a pre-built UI component that gives a signed in user a way to manage their account. One of the options is a **Sign out** button.
 
 ![Clerk's open User Button.](<../.gitbook/assets/Screen Shot 2021-07-28 at 11.51.32 PM.png>)
 

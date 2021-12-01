@@ -27,13 +27,13 @@ First, you need to register a new OAuth Discord app at the [Discord Developer Po
 
 ![Creating an OAuth Discord app](../../.gitbook/assets/discord-create-app.png)
 
-Set a name for your new application and click create. Now that your application has been created, from the left side panel click on **OAuth2**, this is where you also need to add your** Redirect URL.** Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**,** **and navigate to **Instances ** ➜  **Settings** ** **➜  **User Management **➜ **SSO**.  Click the **Manage credentials **button under the Discord provider, select **Custom profile** and copy the **Authorized redirect URI**. Paste the value into the **Redirect **input and save the changes.
+Set a name for your new application and click create. Now that your application has been created, from the left side panel click on **OAuth2**, this is where you also need to add your **Redirect URL.** Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** and navigate to **Instances** ➜  **Settings** **** ➜  **User Management** ➜ **SSO**.  Click the **Manage credentials** button under the Discord provider, select **Custom profile** and copy the **Authorized redirect URI**. Paste the value into the **Redirect** input and save the changes.
 
 Once all the above are complete, copy the **Client ID** and **Client Secret.** Go back to the Clerk Dashboard and paste them into the respective fields.
 
 ![Obtaining the Client ID and Client secret](../../.gitbook/assets/discord-credentials.png)
 
-Don't forget to click **Apply **in the Clerk dashboard. Social login with Discord is now configured 🔥&#x20;
+Don't forget to click **Apply** in the Clerk dashboard. Social login with Discord is now configured 🔥&#x20;
 
 ## Next Steps
 

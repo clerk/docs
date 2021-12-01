@@ -8,7 +8,7 @@ description: Access the User object inside your components.
 
 The `useUser` hook accesses the active [User](../clerkjs/user.md) object. It can be used to update the user or display information about the user's profile, like their name or email address. The hook provides a shortcut for retrieving the [Clerk.session.user](../clerkjs/clerk.md#attributes) property.
 
-In its simplest form, the `useUser` hook is called without arguments:`useUser()`. The object returned from the hook will hold all state for the currently **signed in **user. As such, the `useUser` hook must be called from a component that is a descendant of the [\<SignedIn/>](../../components/control-components/signed-in.md) component - otherwise, the hook will throw an error. For more details, check the [Simple form](useuser-hook.md#simple-form) section.
+In its simplest form, the `useUser` hook is called without arguments:`useUser()`. The object returned from the hook will hold all state for the currently **signed in** user. As such, the `useUser` hook must be called from a component that is a descendant of the [\<SignedIn/>](../../components/control-components/signed-in.md) component - otherwise, the hook will throw an error. For more details, check the [Simple form](useuser-hook.md#simple-form) section.
 
 For more advanced use cases where you want fine-grained control over the state of the `User` object, you can use the second form of the hook: `useUser({ withAssertions: true });`. This form does not have the constraints mentioned above, so it can also be used from components that are not descendants of a `<SignedIn/>`. For more details, check the [Advanced form w/ state helpers](useuser-hook.md#advanced-form-w-state-helpers) section.
 
@@ -124,7 +124,7 @@ export default App;
 ```
 
 {% hint style="info" %}
-The above helpers are **methods **that need to be passed the user object. This API is designed in such a way to help Typescript correctly infer the relationship between the different states and the user object when using object restructuring.
+The above helpers are **methods** that need to be passed the user object. This API is designed in such a way to help Typescript correctly infer the relationship between the different states and the user object when using object restructuring.
 {% endhint %}
 
 ## Alternatives
@@ -164,7 +164,7 @@ class Greeting extends React.Component {
 export const GreetingWithUser = withUser(Greeting);
 ```
 
-### \<WithUser /> <a href="withuser-component" id="withuser-component"></a>
+### \<WithUser /> <a href="#withuser-component" id="withuser-component"></a>
 
 If you really want to stretch JSX capabilities and you cannot use the [withUser](useuser-hook.md#withuser) higher order component, we provide a `<WithUser/>` component that accepts a [Function as a child](https://reactjs.org/docs/jsx-in-depth.html#functions-as-children). Inside this function, the active [User](../clerkjs/user.md) object will be accessible.
 

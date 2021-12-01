@@ -67,7 +67,7 @@ At the moment, we support the following social providers:
 * [TikTok](../reference/social-login-reference/tiktok.md)
 
 {% hint style="info" %}
-Don't see the provider you need? [Request others here](https://www.clerk.dev/support)_, _we can usually add them within a week's time.
+Don't see the provider you need? [Request others here](https://www.clerk.dev/support)_,_ we can usually add them within a week's time.
 {% endhint %}
 
 ### Usernames

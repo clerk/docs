@@ -46,13 +46,13 @@ We take care of the boring stuff, like efficient polling, secure session managem
 
 ## Configuration
 
-Magic link authentication can be configured through the [Clerk Dashboard](https://dashboard.clerk.dev). Go to your instance, then **Settings **>  **User management** > **Authentication strategy.** Simply choose **Passwordless** as the authentication strategy.&#x20;
+Magic link authentication can be configured through the [Clerk Dashboard](https://dashboard.clerk.dev). Go to your instance, then **Settings** >  **User management** > **Authentication strategy.** Simply choose **Passwordless** as the authentication strategy.&#x20;
 
 ![Enabling passwordless authentication in your instance settings.](https://files.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-MUAdPRv4coy7IsJB3Jd%2F-MfWFxJCQPGeh46HaTzJ%2F-MfWKXLZsnLbDNZgenzn%2Fscreely-1627278145637.png?alt=media\&token=75d00db6-5ba9-48d8-96a7-0f01ebd211c8)
 
 Don't forget that you also need to make sure you've configured your application instance to request the user's email address. Users can receive magic links only via email messages.
 
-Go to your instance **Settings** page again, select **User management **>** Contact Information**. Make sure you select one of the following options;  **Email address** or **Email address OR phone number**.&#x20;
+Go to your instance **Settings** page again, select **User management** > **Contact Information**. Make sure you select one of the following options;  **Email address** or **Email address OR phone number**.&#x20;
 
 ![Selecting email address as the authentication identifier.](https://files.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-MUAdPRv4coy7IsJB3Jd%2F-MfWFxJCQPGeh46HaTzJ%2F-MfWKwEjxmmCaSSl9vyz%2Fscreely-1627278226541.png?alt=media\&token=a06d248a-38d7-46e8-aca7-1d9116e44e88)
 
@@ -137,7 +137,7 @@ On the other hand for adding and verifying email addresses to a user's profile, 
 
 Note that you don't need to pass any special options to the pre-built **\<SignUp />,** **\<SignIn />** and **\<UserProfile />** components. Magic link authentication/verification will just work, since you already configured it through the Clerk [dashboard](https://dashboard.clerk.dev).
 
-### Sign up <a href="clerk-components-sign-up" id="clerk-components-sign-up"></a>
+### Sign up <a href="#clerk-components-sign-up" id="clerk-components-sign-up"></a>
 
 Signing users up to your application is as simple as rendering the **\<SignUp />** component.
 
@@ -180,7 +180,7 @@ function SignUpPage() {
 {% endtab %}
 {% endtabs %}
 
-### Sign in <a href="clerk-components-sign-in" id="clerk-components-sign-in"></a>
+### Sign in <a href="#clerk-components-sign-in" id="clerk-components-sign-in"></a>
 
 Signing users in with a magic link is as simple as mounting the **\<SignIn />** component.
 

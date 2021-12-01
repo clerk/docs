@@ -67,7 +67,7 @@ yarn add @clerk/clerk-react
 {% endtab %}
 {% endtabs %}
 
-Now, we need to set the `CLERK_FRONTEND_API` environment variable. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**,** **and navigate to **Development ** ➜  **Instance configuration **and copy the **Frontend API **field.
+Now, we need to set the `CLERK_FRONTEND_API` environment variable. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** and navigate to **Development** ➜  **Instance configuration** and copy the **Frontend API** field.
 
 ![Getting your Frontend API key](../.gitbook/assets/get-started-next-fapi.png)
 
@@ -222,7 +222,7 @@ The `navigate` function must return the result of the `push` function.
 
 Your app is now configured  🎉    Next, let's see how you can use Clerk to require authentication before navigating to a protected page.
 
-## Requiring authentication <a href="requiring-authentication" id="requiring-authentication"></a>
+## Requiring authentication <a href="#requiring-authentication" id="requiring-authentication"></a>
 
 The easiest way to require authentication before showing a protected page, is to use our Control Components:
 
@@ -341,7 +341,7 @@ And that's all!
 By default, you app will use the [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) to display the sign in and sign up flows. Check the documentation of the [\<SignIn/>](../components/sign-in.md) and [\<SignUp/>](../components/sign-up.md) components to learn how you can mount them directly in your app.
 {% endhint %}
 
-## Next steps <a href="next-steps" id="next-steps"></a>
+## Next steps <a href="#next-steps" id="next-steps"></a>
 
 You now have a working React + Clerk app. Going forwards, you can:
 

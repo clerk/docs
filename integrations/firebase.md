@@ -26,7 +26,7 @@ You can upload the JSON configuration file you will retrieve from Firebase direc
 Upload Service Account JSON file on Clerk
 {% endembed %}
 
-* To upload the file on Clerk, use the **Upload JSON **button on the Firebase integration page:
+* To upload the file on Clerk, use the **Upload JSON** button on the Firebase integration page:
 
 ![Your Application → Your Instance → Integrations → Firebase](<../.gitbook/assets/dashboard.prod.lclclerk.com\_applications\_app\_1qnUZ1eK4LSvdig9wr7pZ81hnVP\_instances (1).png>)
 
@@ -38,8 +38,8 @@ The attributes that you need to fill in to connect Clerk with Firebase, as a cus
   ****The service account ID can be found in the [Google Cloud Console](https://console.cloud.google.com/iam-admin/serviceaccounts?consoleUI=FIREBASE\&hl=fi) for your Firebase project, or in the `client_email` field of a service account JSON file.
 * **Project ID**\
   ****The Firebase project ID is the unique identifier of your Firebase project. Can be found under the Project Settings in the Firebase platform.
-* **Database URL **(_Optional_)\
-  ****The Firebase Realtime Database URL as retrieved from the Firebase platform under the **Realtime Database **page.
+* **Database URL** (_Optional_)\
+  ****The Firebase Realtime Database URL as retrieved from the Firebase platform under the **Realtime Database** page.
 * **Private Key**\
   ****The private key used for signing which belongs to the Google service account ID of your project.  Can be found in the [Google Cloud Console](https://console.cloud.google.com/iam-admin/serviceaccounts?consoleUI=FIREBASE\&hl=fi) for your Firebase project, or in the `private_key` field of a service account JSON file.
 

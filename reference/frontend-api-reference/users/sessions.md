@@ -2,8 +2,8 @@
 
 ## Available requests
 
-* **`GET `**`/v1/me/sessions`
-* **`GET `**`/v1/me/sessions/active`
+* **`GET`**` ``/v1/me/sessions`
+* **`GET`**` ``/v1/me/sessions/active`
 * **`POST`**`/v1/me/sessions/:id/revoke`
 
 ## The session object
@@ -104,4 +104,3 @@ ID of the session.
 ```
 {% endswagger-response %}
 {% endswagger %}
-

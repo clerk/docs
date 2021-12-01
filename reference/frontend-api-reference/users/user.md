@@ -2,7 +2,7 @@
 
 ## Available requests
 
-* **`GET  `**`/v1/me`
+* **`GET`**`  ``/v1/me`
 * **`PATCH`**`/v1/me`
 
 ## The user object

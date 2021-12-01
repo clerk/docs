@@ -4,13 +4,13 @@ This object represents a verified user in your instance. &#x20;
 
 ### Available requests
 
-* **`GET  `**`/v1/users/:id`
-* **`GET  `**`/v1/users`
-* **`POST `**`/v1/users`
+* **`GET`**`  ``/v1/users/:id`
+* **`GET`**`  ``/v1/users`
+* **`POST`**` ``/v1/users`
 * **`PATCH`**`/v1/users/:id`
-* **`POST `**`/v1/users/:id/profile_image`
-* **`DEL  `**`/v1/users/:id`
-* **`GET  `**`/v1/users/:id/oauth_access_token/`
+* **`POST`**` ``/v1/users/:id/profile_image`
+* **`DEL`**`  ``/v1/users/:id`
+* **`GET`**`  ``/v1/users/:id/oauth_access_token/`
 
 ### Example user schema
 

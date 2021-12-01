@@ -27,7 +27,7 @@ The easiest way to add social login is by using our prebuilt [Clerk Hosted Pages
 
 ## Configuration
 
-To enable a social login provider, go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**,** **and navigate to **Instances ** ➜  **Settings** ** **➜  **User Management **➜ **SSO**.
+To enable a social login provider, go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** and navigate to **Instances** ➜  **Settings** **** ➜  **User Management** ➜ **SSO**.
 
 Social login configuration consists of the following steps:
 
@@ -37,7 +37,7 @@ Social login configuration consists of the following steps:
 
 ![Enabling social login providers](../.gitbook/assets/social-signin-enable-providers.png)
 
-Clerk supports the following providers: **Facebook**, **Google**, **Github**, **HubSpot,** **TikTok, GitLab **and** Discord.** For the purposes of this guide we will enable social login with **Google**.
+Clerk supports the following providers: **Facebook**, **Google**, **Github**, **HubSpot,** **TikTok, GitLab** and **Discord.** For the purposes of this guide we will enable social login with **Google**.
 
 {% hint style="info" %}
 We are constantly adding more providers. If you're interested in a provider we don't support yet, [let us know](https://clerk.dev/support)!&#x20;
@@ -51,7 +51,7 @@ Shared OAuth credentials should not be treated as secure.  For this reason, we d
 
 ![Entering the credentials for an OAuth provider](../.gitbook/assets/social-signin-manage-credentials.png)
 
-For production instances, you will need to create your own account with **Google **and generate your own Client ID and Client secret. You can add these by pressing the **Manage credentials **button under the respective provider. For more details, check out the following guides:
+For production instances, you will need to create your own account with **Google** and generate your own Client ID and Client secret. You can add these by pressing the **Manage credentials** button under the respective provider. For more details, check out the following guides:
 
 Finally, copy the `Authorized redirect URI` field and add it to the provider's app configuration dashboard.     For more details, check out the following guides:
 
@@ -253,7 +253,7 @@ And you're done! 🎉
 
 The above examples don't require any specific routes to be defined, they automatically use the [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) to handle the required OAuth redirects. If you prefer having the mounted \<SignIn/> and \<SignUp/> components handle the OAuth redirects instead, you need to follow some additional steps:
 
-From the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, navigate to **Instance ** ➜  **Settings** ** **➜  **URLs & redirects   ➜  Component URLs**. Change the ** Sign Up URL **to `/sign-up` and the **Sign In URL** to `/sign-in`.
+From the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, navigate to **Instance** ➜  **Settings** **** ➜  **URLs & redirects   ➜  Component URLs**. Change the **Sign Up URL** to `/sign-up` and the **Sign In URL** to `/sign-in`.
 
 Finally, in your app define a `/sign-up` route that renders the \<SignUp /> component. Similarly, define a `/sign-in`route that renders the \<SignIn /> component as shown in the following example. Refer to the [\<SignIn/>](../components/sign-in.md) and [\<SignUp/>](../components/sign-up.md) docs to learn more about the `routing` and `path` props.
 
