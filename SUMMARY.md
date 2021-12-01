@@ -36,7 +36,7 @@
 * [Routing](main-concepts/routing.md)
 * [Auth v2](main-concepts/auth-v2.md)
 
-## Clerk Components <a href="components" id="components"></a>
+## Clerk Components <a href="#components" id="components"></a>
 
 * [Introduction](components/introduction.md)
 * [\<SignIn />](components/sign-in.md)
@@ -83,6 +83,7 @@
   * [useSignUp](reference/clerk-react/usesignup-hook.md)
   * [useSession](reference/clerk-react/usesession-hook.md)
   * [useSessionList](reference/clerk-react/usesessionlist-hook.md)
+* [Clerk Expo (beta)](reference/clerk-expo-beta.md)
 * [Backend API](reference/backend-api-reference/README.md)
   * [Introduction](reference/backend-api-reference/introduction.md)
   * [SDKs](reference/backend-api-reference/sdks/README.md)
