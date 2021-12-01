@@ -1,10 +1,14 @@
+---
+description: Integrate Clerk into your React Native application
+---
+
 # Clerk Expo (beta)
 
 ## Overview
 
-Clerk Expo is a wrapper around [Clerk React](clerk-react/). It is the recommended way to integrate Clerk into your React-Native application.
+Clerk Expo is a wrapper around [Clerk React](clerk-react/). It is the recommended way to integrate Clerk into your React Native application.
 
-Clerk Expo provides [hooks](clerk-react/) and [Clerk Control Components](../components/control-components/) which act as helpers for implementing a seamless authentication experience and give you access to the [Clerk object](clerkjs/clerk.md), and a set of useful helper methods for signing in and signing up.
+Clerk Expo provides [hooks](clerk-react/) and [Clerk Control Components](../components/control-components/) which act as helpers for implementing a seamless authentication experience, give you access to the [Clerk object](clerkjs/clerk.md) and a set of useful helper methods for signing in and signing up.
 
 ## Setting up Clerk Expo
 
@@ -24,7 +28,7 @@ yarn add @clerk/clerk-react
 
 ## Clerk provider
 
-The [`ClerkProvider`](clerk-react/clerkprovider.md) allows you to render [Clerk Control Components](../components/control-components/) and access the available Clerk React hooks in any nested component. You have to wrap your application once with a `<ClerkProvider/>`.
+The [`ClerkProvider`](clerk-react/clerkprovider.md) allows you to render [Clerk Control Components](../components/control-components/) and access the available Clerk React hooks in any nested component. You'll have to wrap your application once with a `<ClerkProvider/>`.
 
 Render a `<ClerkProvider/>` component at the root of your React app so that it is available everywhere you need it.
 

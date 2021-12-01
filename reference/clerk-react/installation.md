@@ -34,7 +34,7 @@ yarn add @clerk/clerk-react
 
 ## Clerk provider
 
-The [`ClerkProvider`](clerkprovider.md) allows you to render [Clerk Components](../../main-concepts/clerk-components.md) and access the available Clerk React hooks in any nested component. You have to wrap your application once with a `<ClerkProvider/>`.
+The [`ClerkProvider`](clerkprovider.md) allows you to render [Clerk Components](../../main-concepts/clerk-components.md) and access the available Clerk React hooks in any nested component. You'll have to wrap your application once with a `<ClerkProvider/>`.
 
 Render a `<ClerkProvider/>` component at the root of your React app so that it is available everywhere you need it.
 
