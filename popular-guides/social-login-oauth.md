@@ -293,8 +293,8 @@ You still need to configure your instance through the Clerk Dashboard, as descri
 
 When using OAuth, the sign in and sign up are equivalent. A successful OAuth flow consists of the following steps:
 
-1. Start the OAuth flow by calling [`SignIn.authenticateWithRedirect(params)`](../reference/clerkjs/signin.md#authenticatewithredirectparams) or [`SignUp.authenticateWithRedirect(params)`](../reference/clerkjs/signup.md#signinwithoauth). Note that both of these methods require a `callbackUrl` param, which is the URL that the browser will be redirected to once the user authenticates with the OAuth provider.
-2. Create a route at the URL `callbackUrl` points, typically `/sso-callback`, that calls the `Clerk.handleRedirectCallback()` or simply renders the prebuilt [`<AuthenticateWithRedirectCallback/>`](../components/control-components/authenticate-with-redirect-callback.md) component.
+1. Start the OAuth flow by calling [`SignIn.authenticateWithRedirect(params)`](../reference/clerkjs/signin.md#authenticatewithredirectparams) or [`SignUp.authenticateWithRedirect(params)`](../reference/clerkjs/signup.md#signinwithoauth). Note that both of these methods require a `redirectUrl` param, which is the URL that the browser will be redirected to once the user authenticates with the OAuth provider.
+2. Create a route at the URL `redirectUrl` points, typically `/sso-callback`, that calls the `Clerk.handleRedirectCallback()` or simply renders the prebuilt [`<AuthenticateWithRedirectCallback/>`](../components/control-components/authenticate-with-redirect-callback.md) component.
 
 The React example below uses `react-router-dom`to define the required route. For NextJS apps, you only need to create a `pages/sso-callback` file.
 
@@ -353,8 +353,8 @@ function SignInOAuthButtons() {
   const signInWith = (strategy: OAuthStrategy) => {
     return authenticateWithRedirect({
       strategy,
-      callbackUrl: "/sso-callback",
-      callbackUrlComplete: "/",
+      redirectUrl: "/sso-callback",
+      redirectUrlComplete: "/",
     });
   };
 
