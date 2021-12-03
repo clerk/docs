@@ -26,9 +26,19 @@ The `Clerk` object is always available via `window.Clerk`.
 
 `addListener(listener: (resources: Resources) => void) => UnsubscribeCallback`
 
-Registers a listener that triggers a callback whenever an important change in the `Client` object occurs. This method can be used to hook into different steps of the [sign in](../../main-concepts/sign-in-flow.md) and [sign up](../../main-concepts/sign-up-flow.md) flow and execute custom logic.&#x20;
+Registers a listener that triggers a callback whenever a change in the`Client`, `Session`, or `User` object occurs. This method is primary used to build frontend SDKs like [@clerk/clerk-react](https://www.npmjs.com/package/@clerk/clerk-react).
 
-Some things to note for specific changes in the `Client` object include:
+`Resources` is an interface with the following definition. To import our types, please add [@clerk/types](https://www.npmjs.com/package/@clerk/types):
+
+```typescript
+interface Resources {
+  client: ClientResource;
+  session?: ActiveSessionResource | null;
+  user?: UserResource | null;
+}
+```
+
+Please note that the `session`  and `user` object have a special relationship that the type definition alone does not capture:
 
 * When there is an active session, `user === session.user`**.**
 * When there is no active session, `user` **** and `session` **** will both be **null**.
