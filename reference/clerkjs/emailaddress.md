@@ -51,13 +51,13 @@ This method returns a `Promise` which resolves with an `EmailAddress` object.
 
 Sets up an email verification with magic link flow. Calling `createMagicLinkFlow()` will return two functions.&#x20;
 
-The first function is async and starts the magic link flow, preparing a magic link verification. It sends the magic link email and starts polling for verification results. The signature is `startMagicLinkFlow({ callbackUrl: string }) => Promise<EmailAddressResource>`.
+The first function is async and starts the magic link flow, preparing a magic link verification. It sends the magic link email and starts polling for verification results. The signature is `startMagicLinkFlow({ redirectUrl: string }) => Promise<EmailAddressResource>`.
 
 The second function can be used to stop polling at any time, allowing for full control of the flow and cleanup. The signature is `cancelMagicLinkFlow() => void`.
 
 {% tabs %}
 {% tab title="Returns" %}
-__[_CreateMagicLinkFlowReturn_](emailaddress.md#createmagiclinkflowreturn-less-than-startmagiclinkparams-emailaddressresource-greater-than)_<_[_StartMagicLinkFlowParams_](emailaddress.md#startmagiclinkflowparams)_, _[_EmailAddressResource_](emailaddress.md#attributes)_>_
+__[_CreateMagicLinkFlowReturn_](emailaddress.md#createmagiclinkflowreturn-less-than-startmagiclinkparams-emailaddressresource-greater-than)_<_[_StartMagicLinkFlowParams_](emailaddress.md#startmagiclinkflowparams)_,_ [_EmailAddressResource_](emailaddress.md#attributes)_>_
 
 This method returns two functions. One to start the magic link flow and the other to cancel waiting for the results.
 {% endtab %}
@@ -130,7 +130,7 @@ This method returns the email address attribute.
 
 | Name            | Description                                                                                                                            |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **callbackUrl** | <p><em>string</em></p><p>The magic link target URL. Users will be redirected here once they click the magic link from their email.</p> |
+| **redirectUrl** | <p><em>string</em></p><p>The magic link target URL. Users will be redirected here once they click the magic link from their email.</p> |
 
 ### VerificationResource
 

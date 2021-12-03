@@ -370,7 +370,7 @@ function SignUpMagicLink() {
     // email inbox.
     // su will hold the updated sign up object.
     const su = await startMagicLinkFlow({ 
-      callbackUrl: "https://email-magic-link-url",
+      redirectUrl: "https://email-magic-link-url",
     });
     
     if (su.status === "complete") {
@@ -489,7 +489,7 @@ const res = await startMagicLinkFlow({
   // Pass your app URL that users will be navigated
   // when they click the magic link from their
   // email inbox.
-  redirect_url: "https://redirect-from-email-magic-link"
+  redirectUrl: "https://redirect-from-email-magic-link"
 });
 if (res.status === "completed") {
   // sign up completed
@@ -608,7 +608,7 @@ function SignInMagicLink() {
     // res will hold the updated sign up object.
     const res = await startMagicLinkFlow({ 
       emailAddressId: email_address_id,
-      callbackUrl: "https://email-magic-link-url",
+      redirectUrl: "https://email-magic-link-url",
     });
     
     if (res.status === "complete") {
@@ -733,7 +733,7 @@ const { email_address_id } = signIn.supportedFirstFactors.find(
 // email inbox.
 const res = await startMagicLinkFlow({
   email_address_id,
-  redirect_url: "https://redirect-from-email-magic-link",
+  redirectUrl: "https://redirect-from-email-magic-link",
 });
 if (res.status === "completed") {
   // sign in completed
@@ -825,7 +825,7 @@ function VerifyWithMagicLink({
     // when they click the magic link from their
     // email inbox.
     const res = await startMagicLinkFlow({ 
-      callbackUrl: "https://redirect-from-email-magic-link",
+      redirectUrl: "https://redirect-from-email-magic-link",
     });
     
     // res will hold the updated EmailAddress object.
@@ -858,7 +858,7 @@ const {
 // when they click the magic link from their
 // email inbox.
 const res = await startMagicLinkFlow({
-  redirect_url: "https://redirect-from-email-magic-link",
+  redirectUrl: "https://redirect-from-email-magic-link",
 });
 if (res.verification.status === "verified") {
   // email address was verified

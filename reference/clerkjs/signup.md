@@ -181,7 +181,7 @@ This method returns a `Promise` which resolves with a `SignUp` object. Check the
 
 Sets up a sign up with magic link flow. Calling `createMagicLinkFlow()` will return two functions.&#x20;
 
-The first function is async and starts the magic link flow, preparing a magic link verification. It sends the magic link email and starts polling for verification results. The signature is `startMagicLinkFlow({ callbackUrl: string }) => Promise<SignUpResource>`.
+The first function is async and starts the magic link flow, preparing a magic link verification. It sends the magic link email and starts polling for verification results. The signature is `startMagicLinkFlow({ redirectUrl: string }) => Promise<SignUpResource>`.
 
 The second function can be used to stop polling at any time, allowing for full control of the flow and cleanup. The signature is `cancelMagicLinkFlow() => void`.
 
@@ -258,8 +258,8 @@ This method returns a `Promise` which doesn't resolve to any value.
 | Property                | Description                                                                                                                                                                |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **strategy**            | <p><em>string</em></p><p>The OAuth provider that will be used for singing in. Must be one of the supported <a href="signup.md#oauthstrategy">OAuthStrategy</a> values.</p> |
-| **redirectUrl**         | <p><em>string</em></p><p>The URL that the OAuth provider should redirect to, on successful authorization on their part.</p>                                                |
-| **redirectUrlComplete** | <p><em>string</em></p><p>The URL that the user will be redirected to, after successful authorization from the OAuth provider and Clerk sign in</p>                         |
+| **callbackUrl**         | <p><em>string</em></p><p>The URL that the OAuth provider should redirect to, on successful authorization on their part.</p>                                                |
+| **callbackUrlComplete** | <p><em>string</em></p><p>The URL that the user will be redirected to, after successful authorization from the OAuth provider and Clerk sign in</p>                         |
 
 ### SignUpParams
 
