@@ -144,7 +144,7 @@ Signing users up to your application is as simple as rendering the **\<SignUp />
 {% tabs %}
 {% tab title="Clerk React" %}
 ```jsx
-import { SignUp } from "@clerk.clerk-react";
+import { SignUp } from "@clerk/clerk-react";
 
 // SignUpPage is your custom sign up page component.
 function SignUpPage() {
@@ -294,12 +294,10 @@ import {
   BrowserRouter as Router, 
   Switch, 
 } from "react-router-dom";
-import { 
-  MagicLinkErrorCode, 
-  isMagicLinkError, 
-} from "@clerk/clerk-js";
 import {
-  ClerkProvider,
+  ClerkProvider, 
+  MagicLinkErrorCode, 
+  isMagicLinkError,
   UserButton,
   useClerk,
   useNavigate,
@@ -528,12 +526,10 @@ import {
   BrowserRouter as Router, 
   Switch, 
 } from "react-router-dom";
-import { 
-  MagicLinkErrorCode, 
-  isMagicLinkError, 
-} from "@clerk/clerk-js";
 import {
   ClerkProvider,
+  MagicLinkErrorCode, 
+  isMagicLinkError,
   UserButton,
   useClerk,
   useNavigate,
