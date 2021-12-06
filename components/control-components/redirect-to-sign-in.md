@@ -53,4 +53,8 @@ function PrivatePage() {
 
 ## Props
 
-This component accepts no props.
+| Name                | Description                                                                                                                                                                                              |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **redirectUrl?**    | <p><em>string</em></p><p>Full URL or path to navigate after successful sign in or sign up.<br><br>The same as setting <code>afterSignInUrl</code> and <code>afterSignUpUrl</code> to the same value.</p> |
+| **afterSignInUrl?** | <p><em>string</em></p><p>The full URL or path to navigate after a successful sign in.</p>                                                                                                                |
+| **afterSignUpUrl?** | <p><em>string</em></p><p>The full URL or path to navigate after a successful sign up.</p>                                                                                                                |
