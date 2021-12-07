@@ -142,6 +142,22 @@ Note that you don't need to pass any special options to the pre-built **\<SignUp
 Signing users up to your application is as simple as rendering the **\<SignUp />** component.
 
 {% tabs %}
+{% tab title="Clerk Next.js" %}
+```jsx
+import { SignUp } from "@clerk/nextjs";
+
+// SignUpPage is your custom sign up page component.
+function SignUpPage() {
+  return (
+    // The Clerk SignUp component needs no special 
+    // configuration. Passwordless authentication
+    // will just work when configured from the 
+    // Clerk dashboard.
+    <SignUp />
+  );
+```
+{% endtab %}
+
 {% tab title="Clerk React" %}
 ```jsx
 import { SignUp } from "@clerk/clerk-react";
@@ -185,6 +201,21 @@ function SignUpPage() {
 Signing users in with a magic link is as simple as mounting the **\<SignIn />** component.
 
 {% tabs %}
+{% tab title="Clerk Next.js" %}
+```jsx
+import { SignIn } from "@clerk/nextjs";
+
+// SignInPage is your custom sign in page component.
+function SignInPage() {
+  return (
+    // The Clerk SignIn component needs no special
+    // configuration. 
+    <SignIn />
+  );
+}
+```
+{% endtab %}
+
 {% tab title="Clerk React" %}
 ```jsx
 import { SignIn } from "@clerk/clerk-react";
@@ -226,6 +257,21 @@ function SignInPage() {
 Users can add email addresses through their profile pages and they will be verified via magic links. Simply render the **\<UserProfile />** component.
 
 {% tabs %}
+{% tab title="Clerk Next.js" %}
+```jsx
+import { UserProfile } from "@clerk/nextjs";
+
+// Profile is your custom user profile page component.
+function Profile() {
+  return (
+    // The Clerk UserProfile component needs no special
+    // configuration. 
+    <UserProfile />
+  );
+}
+```
+{% endtab %}
+
 {% tab title="Clerk React" %}
 ```jsx
 import { UserProfile } from "@clerk/clerk-react";
@@ -287,6 +333,168 @@ Let's see all the steps involved in more detail.
 Clerk provides a highly flexible API that allows you to hook into any of the above steps, while abstracting away all the complexities of a magic link based sign up flow.&#x20;
 
 {% tabs %}
+{% tab title="Clerk Next.js" %}
+```jsx
+import React from "react";
+import {
+  MagicLinkErrorCode, 
+  isMagicLinkError,
+  useClerk,
+  useNavigate,
+  useSignUp,
+} from "@clerk/nextjs";
+
+// pages/sign-up.jsx
+// Render the sign up form.
+// Collect user's email address and send a magic link with which
+// they can sign up.
+function SignUp() {
+  const [emailAddress, setEmailAddress] = React.useState("");
+  const [expired, setExpired] = React.useState(false);
+  const [verified, setVerified] = React.useState(false);
+  const { setSession } = useClerk();
+  const { navigate } = useNavigate();
+  const signUp = useSignUp(); 
+   
+  const { 
+    startMagicLinkFlow,
+    cancelMagicLinkFlow, 
+  } = React.useMemo(
+    () => signUp.createMagicLinkFlow(),
+    [signUp],
+  );
+
+  // Cleanup on component unmount.
+  useEffect(() => cancelMagicLinkFlow, []);
+  
+  async function submit(e) {
+    e.preventDefault();
+    setExpired(false);
+    setVerified(false);
+    
+    // Start the sign up flow, by collecting 
+    // the user's email address.
+    await signUp.create({ emailAddress });
+    
+    // Start the magic link flow.
+    // Pass your app URL that users will be navigated
+    // when they click the magic link from their
+    // email inbox.
+    // su will hold the updated sign up object.
+    const su = await startMagicLinkFlow({ 
+      redirectUrl: "https://your-app.domain.com/verification",
+    });
+    
+    // Check the verification result.
+    const verification = su.verifications.emailAddress;
+    if (verification.verifiedFromTheSameClient()) {
+      setVerified(true);
+      // If you're handling the verification result from 
+      // another route/component, you should return here.
+      // See the <MagicLinkVerification/> component as an 
+      // example below.
+      // If you want to complete the flow on this tab, 
+      // don't return. Check the sign up status instead.
+      return;
+    } else if (verification.status === "expired") {
+      setExpired(true);
+    }
+    
+    if (su.status === "complete") {
+      // Sign up is complete, we have a session.
+      // Navigate to the after sign up URL.
+      setSession(
+        su.createdSessionId, 
+        () => navigate("https://after-sign-up-url"),
+      );
+      return;
+    }
+  }
+  
+  if (expired) {
+    return (
+      <div>Magic link has expired</div>
+    );
+  }
+  
+  if (verified) {
+    return (
+      <div>Signed in on other tab</div>
+    );
+  }
+    
+  return (
+    <form onSubmit={submit}>
+      <input 
+        type="email"
+        value={emailAddress}
+        onChange={e => setEmailAddress(e.target.value)}
+      />
+      <button type="submit">
+        Sign up with magic link
+      </button>
+    </form>
+  );
+}
+
+// pages/verification.jsx
+// Handle magic link verification results. This is
+// the final step in the magic link flow.
+function Verification() {
+  const [
+    verificationStatus, 
+    setVerificationStatus,
+  ] = React.useState("loading");
+  
+  const { handleMagicLinkVerification } = useClerk();
+  
+  React.useEffect(() => {
+    async function verify() {
+      try {
+        await handleMagicLinkVerification({
+          redirectUrl: "https://redirect-to-pending-sign-up",
+          redirectUrlComplete: "https://redirect-when-sign-up-complete", 
+        });
+        // If we're not redirected at this point, it means
+        // that the flow has completed on another device. 
+        setVerificationStatus("verified");
+      } catch (err) {
+        // Verification has failed.
+        let status = "failed";
+        if (isMagicLinkError(err) && err.code === MagicLinkErrorCode.Expired) {
+          status = "expired";
+        }
+        setVerificationStatus(status);
+      }
+    }
+    verify();
+  }, []);
+  
+  if (verificationStatus === "loading") {
+    return <div>Loading...</div>
+  }
+  
+  if (verificationStatus === "failed") {
+    return (
+      <div>Magic link verification failed</div>
+    );
+  }
+  
+  if (verificationStatus === "expired") {
+    return (
+      <div>Magic link expired</div>
+    );
+  }
+  
+  return (
+    <div>
+      Successfully signed up. Return to the original tab to continue.
+    </div>
+  );
+}
+```
+{% endtab %}
+
 {% tab title="Clerk React" %}
 ```jsx
 import React from "react";
@@ -526,6 +734,169 @@ Let's see all the steps involved in more detail.
 Clerk provides a highly flexible API that allows you to hook into any of the above steps, while abstracting away all the complexities of a magic link based sign in flow.&#x20;
 
 {% tabs %}
+{% tab title="Clerk Next.js" %}
+```jsx
+import React from "react";
+import {
+  MagicLinkErrorCode, 
+  isMagicLinkError,
+  useClerk,
+  useNavigate,
+  useSignIn,
+} from "@clerk/nextjs";
+
+// pages/sign-in.jsx
+// Render the sign in form.
+// Collect user's email address and send a magic link with which
+// they can sign in.
+function SignIn() {
+  const [emailAddress, setEmailAddress] = React.useState("");
+  const [expired, setExpired] = React.useState(false);
+  const [verified, setVerified] = React.useState(false);
+  const { setSession } = useClerk();
+  const { navigate } = useNavigate();
+  const signIn = useSignIn(); 
+  
+  const { 
+    startMagicLinkFlow,
+    cancelMagicLinkFlow, 
+  } = React.useMemo(
+    () => signIn.createMagicLinkFlow(),
+    [signIn],
+  );
+
+  // Cleanup on component unmount.
+  useEffect(() => cancelMagicLinkFlow, []);
+  
+  async function submit(e) {
+    e.preventDefault();
+    setExpired(false);
+    setVerified(false);
+    
+    // Start the sign in flow, by collecting 
+    // the user's email address.
+    const si = await signIn.create({ identifier: emailAddress });
+    const { email_address_id } = si.supportedFirstFactors.find(
+      ff => ff.strategy === "email_link" && ff.safe_identifier === emailAddress
+    );
+    
+    // Start the magic link flow.
+    // Pass your app URL that users will be navigated
+    // res will hold the updated sign in object.
+    const res = await startMagicLinkFlow({ 
+      emailAddressId: email_address_id,
+      redirectUrl: "https://your-app.domain.com/verification",
+    });
+      
+    // Check the verification result.
+    const verification = su.verifications.emailAddress;
+    if (verification.verifiedFromTheSameClient()) {
+      setVerified(true);
+      // If you're handling the verification result from 
+      // another route/component, you should return here.
+      // See the <Verification/> component as an 
+      // example below.
+      // If you want to complete the flow on this tab, 
+      // don't return. Simply check the sign in status.
+      return;
+    } else if (verification.status === "expired") {
+      setExpired(true);
+    }
+    if (res.status === "complete") {
+      // Sign in is complete, we have a session.
+      // Navigate to the after sign in URL.
+      setSession(
+        res.createdSessionId, 
+        () => navigate("https://after-sign-in-url"),
+      );
+      return;
+    }
+  }
+  
+  if (expired) {
+    return (
+      <div>Magic link has expired</div>
+    );
+  }
+  
+  if (verified) {
+    return (
+      <div>Signed in on other tab</div>
+    );
+  }
+  
+  return (
+    <form onSubmit={submit}>
+      <input 
+        type="email"
+        value={emailAddress}
+        onChange={e => setEmailAddress(e.target.value)}
+      />
+      <button type="submit">
+        Sign in with magic link
+      </button>
+    </form>
+  );
+}
+
+// pages/verification.jsx
+// Handle magic link verification results. This is
+// the final step in the magic link flow.
+function Verification() {
+  const [
+    verificationStatus, 
+    setVerificationStatus,
+  ] = React.useState("loading");
+  
+  const { handleMagicLinkVerification } = useClerk();
+  
+  React.useEffect(() => {
+    async function verify() {
+      try {
+        await handleMagicLinkVerification({
+          redirectUrl: "https://redirect-to-pending-sign-in-like-2fa",
+          redirectUrlComplete: "https://redirect-when-sign-in-complete",
+        });
+        // If we're not redirected at this point, it means
+        // that the flow has completed on another device. 
+        setVerificationStatus("verified");
+      } catch (err) {
+        // Verification has failed.
+        let status = "failed";
+        if (isMagicLinkError(err) && err.code === MagicLinkErrorCode.Expired) {
+          status = "expired";
+        }
+        setVerificationStatus(status);
+      }
+    }
+    verify();
+  }, []);
+  
+  if (verificationStatus === "loading") {
+    return <div>Loading...</div>
+  }
+  
+  if (verificationStatus === "failed") {
+    return (
+      <div>Magic link verification failed</div>
+    );
+  }
+  
+  if (verificationStatus === "expired") {
+    return (
+      <div>Magic link expired</div>
+    );
+  }
+  
+  return (
+    <div>
+      Successfully signed in. Return to the original tab to continue.
+    </div>
+  );
+}
+```
+{% endtab %}
+
 {% tab title="Clerk React" %}
 ```jsx
 import React from "react";
@@ -768,16 +1139,16 @@ Magic links can also provide a nice user experience for verifying email addresse
 Clerk provides a highly flexible API that allows you to hook into any of the above steps, while abstracting away all the complexities of a magic link based email address verification.&#x20;
 
 {% tabs %}
-{% tab title="Clerk React" %}
+{% tab title="Clerk Next.js" %}
 ```jsx
-import { useEffect, useMemo, useState } from "react";
-import { useUser } from "@clerk/clerk-react";
+import React from "react";
+import { useUser } from "@clerk/nextjs";
 
 // A page where users can add a new email address. 
 function NewEmailPage() {
-  const [email, setEmail] = useState('');
-  const [emailAddress, setEmailAddress] = useState(null);
-  const [verified, setVerified] = useState(false);
+  const [email, setEmail] = React.useState('');
+  const [emailAddress, setEmailAddress] = React.useState(null);
+  const [verified, setVerified] = React.useState(false);
   
   const user = useUser();
   
@@ -815,12 +1186,96 @@ function VerifyWithMagicLink({
   const { 
     startMagicLinkFlow,
     cancelMagicLinkFlow, 
-  } = useMemo(
+  } = React.useMemo(
     () => emailAddress.createMagicLinkFlow(),
     [emailAddress],
   );
   
-  useEffect(() => {
+  React.useEffect(() => {
+    verify();
+    // Cleanup on component unmount.
+    return cancelMagicLinkFlow;
+  }, []);
+  
+  async function verify() {
+    // Start the magic link flow.
+    // Pass your app URL that users will be navigated
+    // when they click the magic link from their
+    // email inbox.
+    const res = await startMagicLinkFlow({ 
+      redirectUrl: "https://redirect-from-email-magic-link",
+    });
+    
+    // res will hold the updated EmailAddress object.
+    if (res.verification.status === "verified") {
+      onVerify();
+    } else {
+      // act accordingly
+    }
+  }
+  
+  return (
+    <div>
+      Waiting for verification...
+    </div>
+  );
+}
+```
+{% endtab %}
+
+{% tab title="Clerk React" %}
+```jsx
+import React from "react";
+import { useUser } from "@clerk/clerk-react";
+
+// A page where users can add a new email address. 
+function NewEmailPage() {
+  const [email, setEmail] = React.useState('');
+  const [emailAddress, setEmailAddress] = React.useState(null);
+  const [verified, setVerified] = React.useState(false);
+  
+  const user = useUser();
+  
+  async function submit(e) {
+    e.preventDefault();
+    const res = await user.createEmailAddress({ email });
+    setEmailAddress(res);
+  }
+  
+  if (emailAddress && !verified) {
+    return (
+      <VerifyWithMagicLink 
+        emailAddress={emailAddress} 
+        onVerify={() => setVerified(true)}
+      />
+    );
+  }
+  
+  return (
+    <form onSubmit={submit}>
+      <input
+        type="email"
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+      />
+    </form>
+  );
+}
+
+// A page which verifies email addresses with magic links. 
+function VerifyWithMagicLink({ 
+  emailAddress,
+  onVerify, 
+}) {  
+  const { 
+    startMagicLinkFlow,
+    cancelMagicLinkFlow, 
+  } = React.useMemo(
+    () => emailAddress.createMagicLinkFlow(),
+    [emailAddress],
+  );
+  
+  React.useEffect(() => {
     verify();
     // Cleanup on component unmount.
     return cancelMagicLinkFlow;
