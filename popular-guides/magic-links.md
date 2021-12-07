@@ -110,9 +110,9 @@ function App() {
 
 {% tab title="ClerkJS" %}
 ```javascript
-// redirectToSignIn will cause the browser to
-// visit the Clerk Hosted Pages Sign in URL.        
-window.Clerk.redirectToSignIn();
+// redirectToSignUp will cause the browser to
+// visit the Clerk Hosted Pages Sign up URL.        
+window.Clerk.redirectToSignUp();
 
 // redirectToSignIn will cause the browser to
 // visit the Clerk Hosted Pages Sign in URL.
