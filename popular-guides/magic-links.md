@@ -287,7 +287,7 @@ Let's see all the steps involved in more detail.
 Clerk provides a highly flexible API that allows you to hook into any of the above steps, while abstracting away all the complexities of a magic link based sign up flow.&#x20;
 
 {% tabs %}
-{% tab title="ClerkReact" %}
+{% tab title="Clerk React" %}
 ```jsx
 import React from "react";
 import { 
@@ -368,8 +368,23 @@ function SignUpMagicLink() {
     // email inbox.
     // su will hold the updated sign up object.
     const su = await startMagicLinkFlow({ 
-      redirectUrl: "https://email-magic-link-url",
+      redirectUrl: "https://your-app.domain.com/verification",
     });
+    
+    // Check the verification result.
+    const verification = su.verifications.emailAddress;
+    if (verification.verifiedFromTheSameClient()) {
+      setVerified(true);
+      // If you're handling the verification result from 
+      // another route/component, you should return here.
+      // See the <MagicLinkVerification/> component as an 
+      // example below.
+      // If you want to complete the flow on this tab, 
+      // don't return. Check the sign up status instead.
+      return;
+    } else if (verification.status === "expired") {
+      setExpired(true);
+    }
     
     if (su.status === "complete") {
       // Sign up is complete, we have a session.
@@ -379,14 +394,6 @@ function SignUpMagicLink() {
         () => navigate("https://after-sign-up-url"),
       );
       return;
-    }
-    
-    // Check the verification result.
-    const verification = su.verifications.emailAddress;
-    if (verification.status === "expired") {
-      setExpired(true);
-    } else if (verification.verifiedFromTheSameClient()) {
-      setVerified(true);
     }
   }
   
@@ -519,7 +526,7 @@ Let's see all the steps involved in more detail.
 Clerk provides a highly flexible API that allows you to hook into any of the above steps, while abstracting away all the complexities of a magic link based sign in flow.&#x20;
 
 {% tabs %}
-{% tab title="ClerkReact" %}
+{% tab title="Clerk React" %}
 ```jsx
 import React from "react";
 import { 
@@ -599,30 +606,34 @@ function SignInMagicLink() {
     
     // Start the magic link flow.
     // Pass your app URL that users will be navigated
-    // when they click the magic link from their
-    // email inbox.
-    // res will hold the updated sign up object.
+    // res will hold the updated sign in object.
     const res = await startMagicLinkFlow({ 
       emailAddressId: email_address_id,
-      redirectUrl: "https://email-magic-link-url",
+      redirectUrl: "https://your-app.domain.com/verification",
     });
-    
+      
+    // Check the verification result.
+    const verification = su.verifications.emailAddress;
+    if (verification.verifiedFromTheSameClient()) {
+      setVerified(true);
+      // If you're handling the verification result from 
+      // another route/component, you should return here.
+      // See the <MagicLinkVerification/> component as an 
+      // example below.
+      // If you want to complete the flow on this tab, 
+      // don't return. Simply check the sign in status.
+      return;
+    } else if (verification.status === "expired") {
+      setExpired(true);
+    }
     if (res.status === "complete") {
       // Sign in is complete, we have a session.
-      // Navigate to the after sign up URL.
+      // Navigate to the after sign in URL.
       setSession(
         res.createdSessionId, 
-        () => navigate("https://after-sign-up-url"),
+        () => navigate("https://after-sign-in-url"),
       );
       return;
-    }
-    
-    // Check the verification result.
-    const verification = res.firstFactorVerification;
-    if (verification.status === "expired") {
-      setExpired(true);
-    } else if (verification.verifiedFromTheSameClient()) {
-      setVerified(true);
     }
   }
   
@@ -757,7 +768,7 @@ Magic links can also provide a nice user experience for verifying email addresse
 Clerk provides a highly flexible API that allows you to hook into any of the above steps, while abstracting away all the complexities of a magic link based email address verification.&#x20;
 
 {% tabs %}
-{% tab title="ClerkReact" %}
+{% tab title="Clerk React" %}
 ```jsx
 import { useEffect, useMemo, useState } from "react";
 import { useUser } from "@clerk/clerk-react";
