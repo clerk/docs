@@ -195,11 +195,11 @@ The last name to give to the user.
 Metadata saved on the user, that is visible to both your Frontend and Backend APIs.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="private_metadata" type="string" %}
+{% swagger-parameter in="body" name="private_metadata" type="object" %}
 Metadata saved on the user, that is only visible to your Backend API
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="unsafe_metadata" type="string" %}
+{% swagger-parameter in="body" name="unsafe_metadata" type="object" %}
 Metadata saved on the user, that can be updated from both the Frontend and Backend APIs.  
 
 \
@@ -254,6 +254,20 @@ Metadata saved on the user that is only visible to your backend.
 
 
 Note: Object passed in will replace previous value.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="unsafe_metadata" type="object" %}
+Metadata saved on the user, that can be updated from both the Frontend and Backend APIs.  
+
+\
+
+
+
+
+\
+
+
+Note: Since this data can be modified from the frontend, it is not guaranteed to be safe.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
