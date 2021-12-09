@@ -51,7 +51,7 @@ export default withSession(handler);
 ```typescript
 import { withSession, WithSessionProp } from '@clerk/clerk-sdk-node';
 
-function handler(req WithSessionProp<NextApiRequest>, res: NextApiResponse) {
+function handler(req: WithSessionProp<NextApiRequest>, res: NextApiResponse) {
     if (req.session) {
         // do something with session.userId
     } else {
@@ -85,7 +85,7 @@ export default requireSession(handler)
 ```typescript
 import { requireSession, RequireSessionProp } from '@clerk/clerk-sdk-node';
 
-function handler(req RequireSessionProp<NextApiRequest>, res: NextApiResponse) {
+function handler(req: RequireSessionProp<NextApiRequest>, res: NextApiResponse) {
     // do something with session.userId
 }
 
