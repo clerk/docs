@@ -365,7 +365,7 @@ function SignUp() {
   );
 
   // Cleanup on component unmount.
-  useEffect(() => cancelMagicLinkFlow, []);
+  React.useEffect(() => cancelMagicLinkFlow, []);
   
   async function submit(e) {
     e.preventDefault();
@@ -559,7 +559,7 @@ function SignUpMagicLink() {
   );
 
   // Cleanup on component unmount.
-  useEffect(() => cancelMagicLinkFlow, []);
+  React.useEffect(() => cancelMagicLinkFlow, []);
   
   async function submit(e) {
     e.preventDefault();
@@ -789,7 +789,7 @@ function SignIn() {
     });
       
     // Check the verification result.
-    const verification = su.verifications.emailAddress;
+    const verification = res.verifications.emailAddress;
     if (verification.verifiedFromTheSameClient()) {
       setVerified(true);
       // If you're handling the verification result from 
@@ -961,7 +961,7 @@ function SignInMagicLink() {
   );
 
   // Cleanup on component unmount.
-  useEffect(() => cancelMagicLinkFlow, []);
+  React.useEffect(() => cancelMagicLinkFlow, []);
   
   async function submit(e) {
     e.preventDefault();
@@ -984,7 +984,7 @@ function SignInMagicLink() {
     });
       
     // Check the verification result.
-    const verification = su.verifications.emailAddress;
+    const verification = res.verifications.emailAddress;
     if (verification.verifiedFromTheSameClient()) {
       setVerified(true);
       // If you're handling the verification result from 
