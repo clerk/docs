@@ -62,7 +62,7 @@ This method returns a function that can be used to clean up the registered liste
 
 `closeSignIn() => void`
 
-Closes the [\<SignIn/>](../../components/sign-in.md) modal.
+Closes the [\<SignIn/>](../../components/sign-in/sign-in.md) modal.
 
 {% tabs %}
 {% tab title="Parameters" %}
@@ -78,7 +78,7 @@ This method has no return value.
 
 `closeSignUp() => void`
 
-Closes the [\<SignUp/>](../../components/sign-up.md) modal.
+Closes the [\<SignUp/>](../../components/sign-up/sign-up.md) modal.
 
 {% tabs %}
 {% tab title="Parameters" %}
@@ -188,14 +188,14 @@ This method returns a `Promise` which doesn't resolve to any value.
 
 `mountSignIn(node: HTMLDivElement, nodeProps?: SignInProps) => void`
 
-Renders a [\<SignIn/>](../../components/sign-in.md) component inside the provided HTML element, allowing to pass any props that configure the component.
+Renders a [\<SignIn/>](../../components/sign-in/sign-in.md) component inside the provided HTML element, allowing to pass any props that configure the component.
 
 {% tabs %}
 {% tab title="Parameters" %}
-| Name           | Description                                                                                                                                                                                            |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **node**       | <p><em>HTMLDivElement</em></p><p>An HTML <code>&#x3C;div/></code> element which will render the <a href="../../components/sign-in.md">&#x3C;SignIn/></a> component.</p>                                |
-| **nodeProps?** | <p><em></em><a href="clerk.md#signinprops"><em>SignInProps</em></a><em></em></p><p>Additional props that will be passed to the <a href="../../components/sign-in.md">&#x3C;SignIn/></a> component.</p> |
+| Name           | Description                                                                                                                                                                                                    |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **node**       | <p><em>HTMLDivElement</em></p><p>An HTML <code>&#x3C;div/></code> element which will render the <a href="../../components/sign-in/sign-in.md">&#x3C;SignIn/></a> component.</p>                                |
+| **nodeProps?** | <p><em></em><a href="clerk.md#signinprops"><em>SignInProps</em></a><em></em></p><p>Additional props that will be passed to the <a href="../../components/sign-in/sign-in.md">&#x3C;SignIn/></a> component.</p> |
 {% endtab %}
 
 {% tab title="Returns" %}
@@ -207,14 +207,14 @@ This method has no return value.
 
 `mountSignUp(node: HTMLDivElement, nodeProps?: SignUpProps) => void`
 
-Renders a [\<SignUp/>](../../components/sign-up.md) component inside the provided HTML element, allowing to pass any props that configure the component.
+Renders a [\<SignUp/>](../../components/sign-up/sign-up.md) component inside the provided HTML element, allowing to pass any props that configure the component.
 
 {% tabs %}
 {% tab title="Parameters" %}
-| Name           | Description                                                                                                                                                                                            |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **node**       | <p><em>HTMLDivElement</em></p><p>An HTML <code>&#x3C;div/></code> element which will render the <a href="../../components/sign-up.md">&#x3C;SignUp/></a> component.</p>                                |
-| **nodeProps?** | <p><em></em><a href="clerk.md#signupprops"><em>SignUpProps</em></a><em></em></p><p>Additional props that will be passed to the <a href="../../components/sign-up.md">&#x3C;SignUp/></a> component.</p> |
+| Name           | Description                                                                                                                                                                                                    |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **node**       | <p><em>HTMLDivElement</em></p><p>An HTML <code>&#x3C;div/></code> element which will render the <a href="../../components/sign-up/sign-up.md">&#x3C;SignUp/></a> component.</p>                                |
+| **nodeProps?** | <p><em></em><a href="clerk.md#signupprops"><em>SignUpProps</em></a><em></em></p><p>Additional props that will be passed to the <a href="../../components/sign-up/sign-up.md">&#x3C;SignUp/></a> component.</p> |
 {% endtab %}
 
 {% tab title="Returns" %}
@@ -249,10 +249,10 @@ Renders a [\<UserProfile/>](../../components/user-button.md) component for the a
 
 {% tabs %}
 {% tab title="Parameters" %}
-| Name           | Description                                                                                                                                                                                                                |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **node**       | <p><em>HTMLElement</em></p><p>The element that the UserProfile should be mounted in.</p>                                                                                                                                   |
-| **nodeProps?** | <p><em></em><a href="clerk.md#userprofileprops"><em>UserProfileProps</em></a><em></em></p><p>Additional props that will be passed to the <a href="../../components/user-profile.md">&#x3C;UserProfile/></a> component.</p> |
+| Name           | Description                                                                                                                                                                                                                             |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **node**       | <p><em>HTMLElement</em></p><p>The element that the UserProfile should be mounted in.</p>                                                                                                                                                |
+| **nodeProps?** | <p><em></em><a href="clerk.md#userprofileprops"><em>UserProfileProps</em></a><em></em></p><p>Additional props that will be passed to the <a href="../../components/user-profile/user-profile.md">&#x3C;UserProfile/></a> component.</p> |
 {% endtab %}
 
 {% tab title="Returns" %}
@@ -284,13 +284,13 @@ This method returns a `Promise` that can resolve with any value.
 
 `openSignIn(props: SignInProps) => void`
 
-Opens the [\<SignIn/>](../../components/sign-in.md)component as a modal.
+Opens the [\<SignIn/>](../../components/sign-in/sign-in.md)component as a modal.
 
 {% tabs %}
 {% tab title="Parameters" %}
-| Name      | Description                                                                                                                                                                                                    |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **props** | <p><em></em><a href="clerk.md#signinprops"><em>SignInProps</em></a><em></em></p><p>Configuration properties that will be passed to the <a href="../../components/sign-in.md">&#x3C;SignIn/></a> component.</p> |
+| Name      | Description                                                                                                                                                                                                            |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **props** | <p><em></em><a href="clerk.md#signinprops"><em>SignInProps</em></a><em></em></p><p>Configuration properties that will be passed to the <a href="../../components/sign-in/sign-in.md">&#x3C;SignIn/></a> component.</p> |
 {% endtab %}
 
 {% tab title="Returns" %}
@@ -302,13 +302,13 @@ This method has no return value.
 
 `openSignUp(props: SignUpProps) => void`
 
-Opens the [\<SignUp/>](../../components/sign-up.md) component as a modal.
+Opens the [\<SignUp/>](../../components/sign-up/sign-up.md) component as a modal.
 
 {% tabs %}
 {% tab title="Parameters" %}
-| Name      | Description                                                                                                                                                                                                    |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **props** | <p><em></em><a href="clerk.md#signupprops"><em>SignUpProps</em></a><em></em></p><p>Configuration properties that will be passed to the <a href="../../components/sign-up.md">&#x3C;SignUp/></a> component.</p> |
+| Name      | Description                                                                                                                                                                                                            |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **props** | <p><em></em><a href="clerk.md#signupprops"><em>SignUpProps</em></a><em></em></p><p>Configuration properties that will be passed to the <a href="../../components/sign-up/sign-up.md">&#x3C;SignUp/></a> component.</p> |
 {% endtab %}
 
 {% tab title="Returns" %}
@@ -443,13 +443,13 @@ This method returns a `Promise` which does not resolve to any value.
 
 `unmountSignIn(node: HTMLDivElement) => void`
 
-Unmounts the [\<SignIn/>](../../components/sign-in.md) component from the specified HTML element.
+Unmounts the [\<SignIn/>](../../components/sign-in/sign-in.md) component from the specified HTML element.
 
 {% tabs %}
 {% tab title="Parameters" %}
-| Name     | Description                                                                                                                                          |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **node** | <p><em>HTMLDivElement</em></p><p>The element that the <a href="../../components/sign-in.md">&#x3C;SignIn/></a> component will be unmounted from.</p> |
+| Name     | Description                                                                                                                                                  |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **node** | <p><em>HTMLDivElement</em></p><p>The element that the <a href="../../components/sign-in/sign-in.md">&#x3C;SignIn/></a> component will be unmounted from.</p> |
 {% endtab %}
 
 {% tab title="Returns" %}
@@ -461,13 +461,13 @@ This method has no return value.
 
 `unmountSignUp(node: HTMLDivElement) => void`
 
-Unmounts the [\<SignUp/>](../../components/sign-up.md) component from the specified HTML element.
+Unmounts the [\<SignUp/>](../../components/sign-up/sign-up.md) component from the specified HTML element.
 
 {% tabs %}
 {% tab title="Parameters" %}
-| Name     | Description                                                                                                                                          |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **node** | <p><em>HTMLDivElement</em></p><p>The element that the <a href="../../components/sign-up.md">&#x3C;SignUp/></a> component will be unmounted from.</p> |
+| Name     | Description                                                                                                                                                  |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **node** | <p><em>HTMLDivElement</em></p><p>The element that the <a href="../../components/sign-up/sign-up.md">&#x3C;SignUp/></a> component will be unmounted from.</p> |
 {% endtab %}
 
 {% tab title="Returns" %}
@@ -497,13 +497,13 @@ This method has no return value.
 
 `unmountUserProfile(node: HTMLDivElement) => void`
 
-Unmounts the [\<UserProfile/>](../../components/user-profile.md) component from the specified HTML element.
+Unmounts the [\<UserProfile/>](../../components/user-profile/user-profile.md) component from the specified HTML element.
 
 {% tabs %}
 {% tab title="Parameters" %}
-| Name     | Description                                                                                                                                                    |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **node** | <p><em>HTMLDivElement</em></p><p>The element that the <a href="../../components/user-profile.md">&#x3C;UserProfile/></a> component will be unmounted from.</p> |
+| Name     | Description                                                                                                                                                                 |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **node** | <p><em>HTMLDivElement</em></p><p>The element that the <a href="../../components/user-profile/user-profile.md">&#x3C;UserProfile/></a> component will be unmounted from.</p> |
 {% endtab %}
 
 {% tab title="Returns" %}

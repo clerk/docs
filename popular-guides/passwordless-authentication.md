@@ -114,9 +114,9 @@ Read our detailed [Clerk Hosted Pages guide](../main-concepts/clerk-hosted-pages
 
 You can leverage [Clerk Components](../main-concepts/clerk-components.md) in order to easily add support for passwordless authentication in your application.
 
-Clerk provides a [\<SignUp />](../components/sign-up.md) pre-built component that renders a sign up form to handle user registrations.
+Clerk provides a [\<SignUp />](../components/sign-up/sign-up.md) pre-built component that renders a sign up form to handle user registrations.
 
-Similarly, there's a [\<SignIn />](../components/sign-in.md) pre-built component that renders a sign in form and takes care of user authentication and session creation.
+Similarly, there's a [\<SignIn />](../components/sign-in/sign-in.md) pre-built component that renders a sign in form and takes care of user authentication and session creation.
 
 Note that you don't need to pass any special options to the pre-built **\<SignUp />** and **\<SignIn />** components. Passwordless authentication will just work, since you already configured through the Clerk [dashboard](https://dashboard.clerk.dev).
 

@@ -116,7 +116,7 @@ In addition to enabling 2-factor authentication in your instance, each user will
 
 In this section you can define what personal information must be collected from a user.&#x20;
 
-Whatever you select here will affect the resulted [sign up flow](../main-concepts/sign-up-flow.md) since the user will need to supply this additional information. Every field you select here will be editable through the [user's profile](../components/user-profile.md).
+Whatever you select here will affect the resulted [sign up flow](../main-concepts/sign-up-flow.md) since the user will need to supply this additional information. Every field you select here will be editable through the [user's profile](../components/user-profile/user-profile.md).
 
 For each of the selected personal information you can choose whether it's required or optional. If something is required, then the user must supply it during the sign up flow, and cannot be emptied afterwards.
 

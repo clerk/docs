@@ -8,7 +8,7 @@ description: Access the SignUp object inside your components.
 
 The `useSignUp` hook gives you access to the [SignUp](../clerkjs/signup.md) object inside your components.&#x20;
 
-You can use the methods of the `SignUp` object to create your own custom sign up flow, as an alternative to using Clerk's pre-built [\<SignUp/>](../../components/sign-up.md) component.
+You can use the methods of the `SignUp` object to create your own custom sign up flow, as an alternative to using Clerk's pre-built [\<SignUp/>](../../components/sign-up/sign-up.md) component.
 
 The `SignUp` object will also contain the state of the sign up attempt that is currently in progress, giving you the chance to examine all the details and act accordingly.
 
@@ -42,7 +42,7 @@ function SignUpStep() {
 A more involved example follows below. In this example, we show an approach to create your own custom form for registering users.
 
 {% hint style="info" %}
-We recommend using the [\<SignUp/>](../../components/sign-up.md) component instead of building your own custom registration form. It gives you a ready-made form and handles each step of the sign up flow.
+We recommend using the [\<SignUp/>](../../components/sign-up/sign-up.md) component instead of building your own custom registration form. It gives you a ready-made form and handles each step of the sign up flow.
 {% endhint %}
 
 ```jsx

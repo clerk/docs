@@ -84,7 +84,7 @@ Looking for inspiration on how to set custom user attributes? Our [Workflow star
 
 Users are free to [update their profile info](../reference/clerkjs/user.md#update-params) and [change their profile picture](../reference/clerkjs/user.md#setprofileimage-file). They can add as many [email addresses](../reference/clerkjs/user.md#createemailaddress-email) or [phone numbers](../reference/clerkjs/user.md#createphonenumber-phonenumber) as they want. They can also manage their connected OAuth accounts.
 
-Clerk provides ready-made [components](../components/user-profile.md) and [hosted pages](clerk-hosted-pages.md) that enable updating a user's profile out of the box.&#x20;
+Clerk provides ready-made [components](../components/user-profile/user-profile.md) and [hosted pages](clerk-hosted-pages.md) that enable updating a user's profile out of the box.&#x20;
 
 ## User account security
 
@@ -96,7 +96,7 @@ Users can also change their password. Frequently updating a password leads to sa
 
 Finally, users can get a [list of their active sessions](../reference/clerkjs/user.md#getsessions) and information about the device they signed in from.
 
-Clerk provides ready-made [components](../components/user-profile.md) and [hosted pages](clerk-hosted-pages.md) that enable updating a user's profile out of the box.&#x20;
+Clerk provides ready-made [components](../components/user-profile/user-profile.md) and [hosted pages](clerk-hosted-pages.md) that enable updating a user's profile out of the box.&#x20;
 
 ## Deleting users
 

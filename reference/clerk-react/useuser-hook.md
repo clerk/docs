@@ -8,7 +8,7 @@ description: Access the User object inside your components.
 
 The `useUser` hook accesses the active [User](../clerkjs/user.md) object. It can be used to update the user or display information about the user's profile, like their name or email address. The hook provides a shortcut for retrieving the [Clerk.session.user](../clerkjs/clerk.md#attributes) property.
 
-In its simplest form, the `useUser` hook is called without arguments:`useUser()`. The object returned from the hook will hold all state for the currently **signed in** user. As such, the `useUser` hook must be called from a component that is a descendant of the [\<SignedIn/>](../../components/control-components/signed-in.md) component - otherwise, the hook will throw an error. For more details, check the [Simple form](useuser-hook.md#simple-form) section.
+In its simplest form, the `useUser` hook is called without arguments:`useUser()`. The object returned from the hook will hold all state for the currently **signed in** user. As such, the `useUser` hook must be called from a component that is a descendant of the [\<SignedIn/>](../../components/signed-in.md) component - otherwise, the hook will throw an error. For more details, check the [Simple form](useuser-hook.md#simple-form) section.
 
 For more advanced use cases where you want fine-grained control over the state of the `User` object, you can use the second form of the hook: `useUser({ withAssertions: true });`. This form does not have the constraints mentioned above, so it can also be used from components that are not descendants of a `<SignedIn/>`. For more details, check the [Advanced form w/ state helpers](useuser-hook.md#advanced-form-w-state-helpers) section.
 
@@ -22,7 +22,7 @@ Make sure you've followed the installation guide for [Clerk React](installation.
 
 ### Simple form
 
-A basic example that showcases the `useUser` hook in action is a greeting component that greets the signed in user by their first name. Note that your component must be a descendant of the [\<SignedIn/>](../../components/control-components/signed-in.md) component, which in turn needs to be wrapped inside the [\<ClerkProvider/>](clerkprovider.md).
+A basic example that showcases the `useUser` hook in action is a greeting component that greets the signed in user by their first name. Note that your component must be a descendant of the [\<SignedIn/>](../../components/signed-in.md) component, which in turn needs to be wrapped inside the [\<ClerkProvider/>](clerkprovider.md).
 
 {% tabs %}
 {% tab title="React JSX" %}
@@ -67,7 +67,7 @@ export default App;
 
 ### Advanced form w/ state helpers
 
-A slightly more advanced example follows. It showcases the `useUser` hook used by the `<Greeting/>`component that greets the signed in user by their first name. Note that your component does not need to be a descendant of the [\<SignedIn/>](../../components/control-components/signed-in.md) component.
+A slightly more advanced example follows. It showcases the `useUser` hook used by the `<Greeting/>`component that greets the signed in user by their first name. Note that your component does not need to be a descendant of the [\<SignedIn/>](../../components/signed-in.md) component.
 
 When `useUser` is called with the `withAssertions` option set to true, in addition to the user object it also returns the following helpers:&#x20;
 

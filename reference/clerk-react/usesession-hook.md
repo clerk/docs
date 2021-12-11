@@ -10,7 +10,7 @@ The `useSession` hook accesses the current user [Session](../clerkjs/session.md)
 
 As soon as a [User](../clerkjs/user.md) signs in, we create a [Session](../clerkjs/session.md) on the [Client](../clerkjs/client.md) object. Only one session can be active on a single client, and that's exactly the session that is returned by the `useSession` hook.
 
-The `Session` object returned from the hook will hold all state for the currently active session. As such, the `useSession` hook must be called from a component that is a descendant of the [\<SignedIn/>](../../components/control-components/signed-in.md) component. Otherwise, the hook will throw an error.
+The `Session` object returned from the hook will hold all state for the currently active session. As such, the `useSession` hook must be called from a component that is a descendant of the [\<SignedIn/>](../../components/signed-in.md) component. Otherwise, the hook will throw an error.
 
 ## Usage
 

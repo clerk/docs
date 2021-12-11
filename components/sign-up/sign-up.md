@@ -8,18 +8,18 @@ description: >-
 
 ## Overview
 
-The `<SignUp/>` component is used to render a beautiful, high-conversion sign-up flow with your choice of required fields and social sign-up providers. It supports any authentication scheme, from basic [email/password authentication](../popular-guides/email-and-password.md), to [passwordless](../popular-guides/passwordless-authentication.md) and [social login (OAuth)](../popular-guides/social-login-oauth.md) and it automatically handles everything  for you, from basic data collection to email address and phone number verification.
+The `<SignUp/>` component is used to render a beautiful, high-conversion sign-up flow with your choice of required fields and social sign-up providers. It supports any authentication scheme, from basic [email/password authentication](../../popular-guides/email-and-password.md), to [passwordless](../../popular-guides/passwordless-authentication.md) and [social login (OAuth)](../../popular-guides/social-login-oauth.md) and it automatically handles everything  for you, from basic data collection to email address and phone number verification.
 
-![](../.gitbook/assets/sign-up.png)
+![](../../.gitbook/assets/sign-up.png)
 
-The `<SignUp/>` component is extremely flexible. Simply configure the [User Management](../popular-guides/setup-your-application.md#user-management) settings of your instance according to your business requirements and the `<SignUp/>` .
+The `<SignUp/>` component is extremely flexible. Simply configure the [User Management](../../popular-guides/setup-your-application.md#user-management) settings of your instance according to your business requirements and the `<SignUp/>` .
 
-Control the look and feel of the `<SignUp/>` component and match it to your using the [Theme Settings](../popular-guides/setup-your-application.md#theme), [theming props](sign-up.md#customization) or [plain CSS](sign-up.md#customization).
+Control the look and feel of the `<SignUp/>` component and match it to your using the [Theme Settings](../../popular-guides/setup-your-application.md#theme), [theming props](sign-up.md#customization) or [plain CSS](sign-up.md#customization).
 
 ## Usage
 
 {% hint style="warning" %}
-Make sure you've followed the installation guide for [Clerk React](../reference/clerk-react/installation.md) or [ClerkJS](../reference/clerkjs/installation.md) before running the snippets below.
+Make sure you've followed the installation guide for [Clerk React](../../reference/clerk-react/installation.md) or [ClerkJS](../../reference/clerkjs/installation.md) before running the snippets below.
 {% endhint %}
 
 ### Mounting in your app
@@ -74,7 +74,7 @@ The mounted `<SignUp/>` component uses hash-based routing by default: as the use
 
 With additional configuration, the mounted component can use path-based routing instead (eg: `example.com/sign-up/verify-email`):
 
-1. If using Clerk React, ensure your **ClerkProvider** component has [its **navigate** prop](../reference/clerk-react/installation.md#4-the-navigate-prop) configured.
+1. If using Clerk React, ensure your **ClerkProvider** component has [its **navigate** prop](../../reference/clerk-react/installation.md#4-the-navigate-prop) configured.
 2. Add the **path** and **routing** props to your **SignUp** component. Set **path** to the path where the component renders
 
 {% hint style="info" %}
@@ -179,7 +179,7 @@ export default function SignUpPage() {
 {% endtab %}
 {% endtabs %}
 
-For more information, see [Routing](../main-concepts/routing.md).
+For more information, see [Routing](../../main-concepts/routing.md).
 
 ### Presenting as a modal
 

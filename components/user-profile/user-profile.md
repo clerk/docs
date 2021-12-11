@@ -8,7 +8,7 @@ description: A full-featured account management component
 
 The `<UserProfile/>` component is used to render a beautiful, full-featured account management UI that allows users to manage their profile and security settings.&#x20;
 
-![](../.gitbook/assets/user-profile.png)
+![](../../.gitbook/assets/user-profile.png)
 
 The `<UserProfile/>` comes with built-in support for:
 
@@ -18,12 +18,12 @@ The `<UserProfile/>` comes with built-in support for:
 * Multi-factor authentication management
 * Trusted device management
 
-Control the look and feel of the `<UserProfile/>` component and match it to your using the [Theme Settings](../popular-guides/setup-your-application.md#theme), [theming props](user-profile.md#customization) or [plain CSS](user-profile.md#customization).
+Control the look and feel of the `<UserProfile/>` component and match it to your using the [Theme Settings](../../popular-guides/setup-your-application.md#theme), [theming props](user-profile.md#customization) or [plain CSS](user-profile.md#customization).
 
 ## Usage
 
 {% hint style="warning" %}
-Make sure you've followed the installation guide for [Clerk React](../reference/clerk-react/installation.md) or [ClerkJS](../reference/clerkjs/installation.md) before running the snippets below.
+Make sure you've followed the installation guide for [Clerk React](../../reference/clerk-react/installation.md) or [ClerkJS](../../reference/clerkjs/installation.md) before running the snippets below.
 {% endhint %}
 
 ### Mounting in your app
@@ -105,7 +105,7 @@ The mounted `<UserProfile/>` component uses hash-based routing by default: as th
 
 With additional configuration, the mounted component can use path-based routing instead (eg: `example.com/account/first-name`):
 
-1. If using Clerk React, ensure your **ClerkProvider** component has [its **navigate** prop](../reference/clerk-react/installation.md#4-the-navigate-prop) configured.
+1. If using Clerk React, ensure your **ClerkProvider** component has [its **navigate** prop](../../reference/clerk-react/installation.md#4-the-navigate-prop) configured.
 2. Add the **path** and **routing** props to your **UserProfile** component. Set **path** to the path where the component renders
 
 {% hint style="info" %}
@@ -237,13 +237,13 @@ export default function UserProfilePage() {
 {% endtab %}
 {% endtabs %}
 
-For more information, see [Routing](../main-concepts/routing.md).
+For more information, see [Routing](../../main-concepts/routing.md).
 
 ## Props
 
 | Name                | Description                                                                                                                                                                                                                                                                        |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **routing?**        | <p><em>RoutingStrategy</em></p><p>The routing strategy for your pages. Supported values are:</p><ul><li><strong>hash: </strong>(default) Hash based routing.</li><li><strong>path</strong>: Path based routing.</li><li><strong>virtual</strong>: Virtual based routing.</li></ul> |
+| **routing?**        | <p><em>RoutingStrategy</em></p><p>The routing strategy for your pages. Supported values are:</p><ul><li><strong>hash:</strong> (default) Hash based routing.</li><li><strong>path</strong>: Path based routing.</li><li><strong>virtual</strong>: Virtual based routing.</li></ul> |
 | **path?**           | <p><em>string</em></p><p>The root URL where the component is mounted on.</p>                                                                                                                                                                                                       |
 | **hideNavigation?** | <p><em>boolean</em></p><p>Hides the default navigation bar. Can be used when a custom navigation bar is built.</p>                                                                                                                                                                 |
 | **only?**           | <p><em>string</em></p><p>Renders only a specific page of the UserProfile component. Supported values are: </p><ul><li>account: User account page.</li><li>security: User security page.</li></ul>                                                                                  |

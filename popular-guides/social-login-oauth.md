@@ -168,7 +168,7 @@ To further customize your sign up and sign in pages, you can use [Clerk Componen
 
 ![Pre-built Clerk \<SignUp/> component with Google social login, mounted in a NextJS app](../.gitbook/assets/social-signin-mounted-prebuild-signup.png)
 
-Clerk provides the  [\<SignUp/>](../components/sign-up.md)  and [\<SignIn/>](../components/sign-in.md) prebuilt components that render a conversion-optimized sign up and sign form.
+Clerk provides the  [\<SignUp/>](../components/sign-up/sign-up.md)  and [\<SignIn/>](../components/sign-in/sign-in.md) prebuilt components that render a conversion-optimized sign up and sign form.
 
 Note that you don't need to pass any special props to the \<SignUp/> and \<SignIn/> components, it will automatically display the configuration you chose in the [Clerk Dashboard](https://dashboard.clerk.dev).
 
@@ -255,7 +255,7 @@ The above examples don't require any specific routes to be defined, they automat
 
 From the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, navigate to **Instance** ➜  **Settings** **** ➜  **URLs & redirects   ➜  Component URLs**. Change the **Sign Up URL** to `/sign-up` and the **Sign In URL** to `/sign-in`.
 
-Finally, in your app define a `/sign-up` route that renders the \<SignUp /> component. Similarly, define a `/sign-in`route that renders the \<SignIn /> component as shown in the following example. Refer to the [\<SignIn/>](../components/sign-in.md) and [\<SignUp/>](../components/sign-up.md) docs to learn more about the `routing` and `path` props.
+Finally, in your app define a `/sign-up` route that renders the \<SignUp /> component. Similarly, define a `/sign-in`route that renders the \<SignIn /> component as shown in the following example. Refer to the [\<SignIn/>](../components/sign-in/sign-in.md) and [\<SignUp/>](../components/sign-up/sign-up.md) docs to learn more about the `routing` and `path` props.
 
 The React example below uses `react-router-dom`to define the routes. For more info, take a look at [the example repo](https://codesandbox.io/embed/github/nikosdouvlis/clerk-custom-social-login/tree/mount-sign-in-sign-up/?fontsize=12\&hidenavigation=1\&theme=dark\&view=editor) or consult the [URLs & redirects docs](setup-your-application.md#url-and-redirects).
 

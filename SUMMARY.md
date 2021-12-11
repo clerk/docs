@@ -40,20 +40,25 @@
 ## Clerk Components <a href="#components" id="components"></a>
 
 * [Introduction](components/introduction.md)
-* [\<SignIn />](components/sign-in.md)
-* [\<SignUp />](components/sign-up.md)
+* [Sign-in](components/sign-in/README.md)
+  * [\<SignIn />](components/sign-in/sign-in.md)
+  * [\<SignInButton />](components/sign-in/less-than-signinbutton-greater-than.md)
+  * [\<RedirectToSignIn />](components/sign-in/redirect-to-sign-in.md)
+* [Sign-up](components/sign-up/README.md)
+  * [\<SignUp />](components/sign-up/sign-up.md)
+  * [\<SignUpButton />](components/sign-up/less-than-signupbutton-greater-than.md)
+  * [\<RedirectToSignUp />](components/sign-up/redirect-to-sign-up.md)
+* [User Profile](components/user-profile/README.md)
+  * [\<UserProfile />](components/user-profile/user-profile.md)
+  * [\<RedirectToUserProfile />](components/user-profile/redirect-to-user-profile.md)
 * [\<UserButton />](components/user-button.md)
-* [\<UserProfile />](components/user-profile.md)
+* [\<SignedIn>](components/signed-in.md)
+* [\<SignedOut>](components/signed-out.md)
 * [Customization](components/customization.md)
 * [Control components](components/control-components/README.md)
-  * [\<SignedIn>](components/control-components/signed-in.md)
-  * [\<SignedOut>](components/control-components/signed-out.md)
   * [\<ClerkLoaded>](components/control-components/clerk-loaded.md)
   * [\<ClerkLoading>](components/control-components/clerk-loading.md)
   * [\<AuthenticateWithRedirectCallback />](components/control-components/authenticate-with-redirect-callback.md)
-  * [\<RedirectToSignIn />](components/control-components/redirect-to-sign-in.md)
-  * [\<RedirectToSignUp />](components/control-components/redirect-to-sign-up.md)
-  * [\<RedirectToUserProfile />](components/control-components/redirect-to-user-profile.md)
 
 ## integrations
 

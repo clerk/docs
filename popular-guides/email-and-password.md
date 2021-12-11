@@ -110,7 +110,7 @@ Read our detailed [Clerk Hosted Pages guide](../main-concepts/clerk-hosted-pages
 
 If you want more control over the look and feel of your sign in and sign up experience, but you don't want to completely build one from scratch, you can use the pre-built [Clerk Components](../main-concepts/clerk-components.md).
 
-Clerk provides [\<SignIn />](../components/sign-in.md),  [\<SignUp />](../components/sign-up.md) and [\<UserProfile />](../components/user-profile.md) components that render entire flows. Using these, Clerk will take care of everything from verifying the user's email address to letting your user add 2FA.  Each of these components is also completely customizable via CSS.
+Clerk provides [\<SignIn />](../components/sign-in/sign-in.md),  [\<SignUp />](../components/sign-up/sign-up.md) and [\<UserProfile />](../components/user-profile/user-profile.md) components that render entire flows. Using these, Clerk will take care of everything from verifying the user's email address to letting your user add 2FA.  Each of these components is also completely customizable via CSS.
 
 {% tabs %}
 {% tab title="Clerk React" %}
@@ -149,7 +149,7 @@ function SignUpPage() {
 {% endtab %}
 {% endtabs %}
 
-In the same fashion, there is a [\<SignIn />](../components/sign-in.md) component which renders a sign-in form which takes care of authenticating users and creating sessions.
+In the same fashion, there is a [\<SignIn />](../components/sign-in/sign-in.md) component which renders a sign-in form which takes care of authenticating users and creating sessions.
 
 {% tabs %}
 {% tab title="Clerk React" %}
@@ -189,7 +189,7 @@ function SignInPage() {
 
 Note that you don't need to pass any special options to the SignUp and SignIn components. Email/password authentication will just work, since it has already been configured through the Clerk dashboard.
 
-For more details on the available component options as well as how you can customize them, please visit the [\<SignUp />](../components/sign-up.md) and [\<SignIn />](../components/sign-in.md) component guides.
+For more details on the available component options as well as how you can customize them, please visit the [\<SignUp />](../components/sign-up/sign-up.md) and [\<SignIn />](../components/sign-in/sign-in.md) component guides.
 
 ## Custom flow
 

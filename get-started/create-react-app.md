@@ -338,7 +338,7 @@ Visit [https://localhost:3000](https://localhost:3000) again to see your page. I
 And that's all!
 
 {% hint style="info" %}
-By default, you app will use the [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) to display the sign in and sign up flows. Check the documentation of the [\<SignIn/>](../components/sign-in.md) and [\<SignUp/>](../components/sign-up.md) components to learn how you can mount them directly in your app.
+By default, you app will use the [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) to display the sign in and sign up flows. Check the documentation of the [\<SignIn/>](../components/sign-in/sign-in.md) and [\<SignUp/>](../components/sign-up/sign-up.md) components to learn how you can mount them directly in your app.
 {% endhint %}
 
 ## Next steps <a href="#next-steps" id="next-steps"></a>

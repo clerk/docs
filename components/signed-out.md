@@ -8,14 +8,14 @@ description: Conditionally render content only when there's no signed in user.
 
 The `<SignedOut/>` component offers authentication checks as a cross-cutting concern.
 
-Any child nodes wrapped by a `<SignedOut/>` component will be rendered only if there's no [User](../../reference/clerkjs/user.md) signed in your application.&#x20;
+Any child nodes wrapped by a `<SignedOut/>` component will be rendered only if there's no [User](../reference/clerkjs/user.md) signed in your application.&#x20;
 
 This is a component that controls the rendering flow. It acts as a guard; any content that you place inside a `<SignedOut/>` component will not be accessible to authenticated users.
 
 ## Usage
 
 {% hint style="warning" %}
-Make sure you've followed the installation guide for [Clerk React](../../reference/clerk-react/installation.md) before running the snippets below.
+Make sure you've followed the installation guide for [Clerk React](../reference/clerk-react/installation.md) before running the snippets below.
 {% endhint %}
 
 A common scenario for using the `<SignedOut/>` component is having an application with a page that should be accessible only by signed in users. With the `<SignedOut/>` component, you can show some special content to your visitors.
@@ -55,7 +55,7 @@ For example, a Saas platform website might have a page with information about th
 
 Let's see how the `<SignedOut/>` component might help with the above scenario. There's a restricted route and the `<SignedOut/>` component acts as a conditional inside it, in order to redirect unauthenticated requests to the sign in page.
 
-Notice how we also use the [\<ClerkProvider/>](../../reference/clerk-react/clerkprovider.md), [\<SignedIn/>](signed-in.md) and [\<RedirectToSignIn/>](redirect-to-sign-in.md) components to complete the functionality. The example below uses the popular [React Router](https://reactrouter.com) routing library, but this is just an implementation detail. You can use any routing mechanism to achieve the same result.
+Notice how we also use the [\<ClerkProvider/>](../reference/clerk-react/clerkprovider.md), [\<SignedIn/>](signed-in.md) and [\<RedirectToSignIn/>](sign-in/redirect-to-sign-in.md) components to complete the functionality. The example below uses the popular [React Router](https://reactrouter.com) routing library, but this is just an implementation detail. You can use any routing mechanism to achieve the same result.
 
 {% tabs %}
 {% tab title="Clerk React" %}

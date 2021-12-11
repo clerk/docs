@@ -18,7 +18,7 @@ Whatever the case, the [Client.session](../clerkjs/client.md#attributes) attribu
 Make sure you've followed the installation guide for [Clerk React](installation.md) before running the snippets below.
 {% endhint %}
 
-The example below is very basic, but illustrates how to get a hold of all the sessions on a given [Client](../clerkjs/client.md). Please note that the `useSessionList` hook will throw an error unless your component is a descendant of the [\<ClerkLoaded/>](../../components/control-components/clerk-loaded.md) component. The [\<SignedIn/>](../../components/control-components/signed-in.md) and [\<SignedOut/>](../../components/control-components/signed-out.md) components are already wrapped inside a [\<ClerkLoaded/>](../../components/control-components/clerk-loaded.md) component, so any of these will be enough.
+The example below is very basic, but illustrates how to get a hold of all the sessions on a given [Client](../clerkjs/client.md). Please note that the `useSessionList` hook will throw an error unless your component is a descendant of the [\<ClerkLoaded/>](../../components/control-components/clerk-loaded.md) component. The [\<SignedIn/>](../../components/signed-in.md) and [\<SignedOut/>](../../components/signed-out.md) components are already wrapped inside a [\<ClerkLoaded/>](../../components/control-components/clerk-loaded.md) component, so any of these will be enough.
 
 ```jsx
 import { SignedIn, useSessionList } from "@clerk/clerk-react";

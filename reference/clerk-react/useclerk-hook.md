@@ -20,7 +20,7 @@ There are a couple of [alternative methods](useclerk-hook.md#alternatives) to re
 Make sure you've followed the installation guide for [Clerk React](installation.md) before running the snippets below.
 {% endhint %}
 
-An example of the `useClerk` hook in action is shown below. We get access to the [Clerk](../clerkjs/clerk.md) object in order to render a button that opens the [sign in form](../../components/sign-in.md) as a modal. Note that if your component is not a descendant of the [\<ClerkProvider/>](clerkprovider.md) component, the `useClerk` hook will throw an error.
+An example of the `useClerk` hook in action is shown below. We get access to the [Clerk](../clerkjs/clerk.md) object in order to render a button that opens the [sign in form](../../components/sign-in/sign-in.md) as a modal. Note that if your component is not a descendant of the [\<ClerkProvider/>](clerkprovider.md) component, the `useClerk` hook will throw an error.
 
 ```jsx
 import { useClerk } from "@clerk/clerk-react";
@@ -71,7 +71,7 @@ class SignInButton extends React.Component {
 export const SignInButtonWithClerk = withClerk(SignInButton);
 ```
 
-### \<WithClerk /> <a href="withclerk-component" id="withclerk-component"></a>
+### \<WithClerk /> <a href="#withclerk-component" id="withclerk-component"></a>
 
 f you really want to stretch JSX capabilities and you cannot use the [withClerk](useclerk-hook.md#withclerk) higher order component, we provide a `<WithClerk/>` component that accepts a [Function as a child](https://reactjs.org/docs/jsx-in-depth.html#functions-as-children). Inside this function, the [Clerk](../clerkjs/clerk.md) object will be accessible.
 

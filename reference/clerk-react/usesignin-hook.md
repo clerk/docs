@@ -8,7 +8,7 @@ description: Access the SignIn object inside your components.
 
 The `useSignIn` hook gives you access to the [SignIn](../clerkjs/signin.md) object inside your components.&#x20;
 
-You can use the methods of the `SignIn` object to create your own custom sign in flow, as an alternative to using Clerk's pre-built [\<SignIn/>](../../components/sign-in.md) component.
+You can use the methods of the `SignIn` object to create your own custom sign in flow, as an alternative to using Clerk's pre-built [\<SignIn/>](../../components/sign-in/sign-in.md) component.
 
 The `SignIn` object will also contain the state of the sign in attempt that is currently in progress, giving you the chance to examine all the details and act accordingly.
 
@@ -42,7 +42,7 @@ function SignInStep() {
 A more involved example follows below. In this example, we show an approach to create your own custom form for signing in your users.
 
 {% hint style="info" %}
-We recommend using the [\<SignIn/>](../../components/sign-in.md) component instead of building your own custom sign in form. It gives you a ready-made form and handles each step of the sign in flow.
+We recommend using the [\<SignIn/>](../../components/sign-in/sign-in.md) component instead of building your own custom sign in form. It gives you a ready-made form and handles each step of the sign in flow.
 {% endhint %}
 
 ```jsx

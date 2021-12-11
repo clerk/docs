@@ -18,7 +18,7 @@ Make sure you've followed the installation guide for [Clerk React](../../referen
 
 The example below shows a page which is normally accessible by authenticated users. All other visitors (unauthenticated users) will get redirected to the sign in page.
 
-The [\<SignedIn/>](signed-in.md) and [\<SignedOut/>](signed-out.md) components work together as a conditional, allowing the `<RedirectToUserProfile />` component to be rendered only for authenticated users.
+The [\<SignedIn/>](../signed-in.md) and [\<SignedOut/>](../signed-out.md) components work together as a conditional, allowing the `<RedirectToUserProfile />` component to be rendered only for authenticated users.
 
 {% tabs %}
 {% tab title="Clerk React" %}

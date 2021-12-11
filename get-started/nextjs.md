@@ -133,9 +133,9 @@ Next, let's see how you can use Clerk to require authentication before navigatin
 
 The easiest way to require authentication before showing a protected page, is to use our Control Components:       &#x20;
 
-* [`<SignedIn/>`](../components/control-components/signed-in.md): Renders its children only when a user is signed in.
-* [`<SignedOut/>`](../components/control-components/signed-out.md): Renders its children only when there's no active user.
-* [`<RedirectToSignIn/>`](../components/control-components/redirect-to-sign-in.md): Triggers a redirect to the sign in page.
+* [`<SignedIn/>`](../components/signed-in.md): Renders its children only when a user is signed in.
+* [`<SignedOut/>`](../components/signed-out.md): Renders its children only when there's no active user.
+* [`<RedirectToSignIn/>`](../components/sign-in/redirect-to-sign-in.md): Triggers a redirect to the sign in page.
 
 The following example shows you how to compose our flexible [Control Components](../components/control-components/) to build authentication flows that match your needs. Please note that you don't need to use any additional APIs, everything shown below is just Javascript.
 
@@ -223,7 +223,7 @@ Visit [https://localhost:3000](https://localhost:3000) again to see your page. I
 And that's all!
 
 {% hint style="info" %}
-By default, your app will use the [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) to display the sign in and sign up flows. Check the documentation of the [\<SignIn/>](../components/sign-in.md) and [\<SignUp/>](../components/sign-up.md) components to learn how you can mount them directly in your app.
+By default, your app will use the [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) to display the sign in and sign up flows. Check the documentation of the [\<SignIn/>](../components/sign-in/sign-in.md) and [\<SignUp/>](../components/sign-up/sign-up.md) components to learn how you can mount them directly in your app.
 {% endhint %}
 
 ## Next steps

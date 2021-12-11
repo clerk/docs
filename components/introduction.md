@@ -4,20 +4,20 @@
 
 Clerk Components are pre-built UIs that are ready to drop into your application in one line of code.  Explore all of our components.
 
-{% content-ref url="sign-in.md" %}
-[sign-in.md](sign-in.md)
+{% content-ref url="sign-in/sign-in.md" %}
+[sign-in.md](sign-in/sign-in.md)
 {% endcontent-ref %}
 
-{% content-ref url="sign-up.md" %}
-[sign-up.md](sign-up.md)
+{% content-ref url="sign-up/sign-up.md" %}
+[sign-up.md](sign-up/sign-up.md)
 {% endcontent-ref %}
 
 {% content-ref url="user-button.md" %}
 [user-button.md](user-button.md)
 {% endcontent-ref %}
 
-{% content-ref url="user-profile.md" %}
-[user-profile.md](user-profile.md)
+{% content-ref url="user-profile/user-profile.md" %}
+[user-profile.md](user-profile/user-profile.md)
 {% endcontent-ref %}
 
 ## Component Customization
@@ -32,12 +32,12 @@ All Clerk Components are customizable to match the look and feel of your applica
 
 Control Components help you easily build your app.
 
-{% content-ref url="control-components/signed-in.md" %}
-[signed-in.md](control-components/signed-in.md)
+{% content-ref url="signed-in.md" %}
+[signed-in.md](signed-in.md)
 {% endcontent-ref %}
 
-{% content-ref url="control-components/signed-out.md" %}
-[signed-out.md](control-components/signed-out.md)
+{% content-ref url="signed-out.md" %}
+[signed-out.md](signed-out.md)
 {% endcontent-ref %}
 
 {% content-ref url="control-components/clerk-loaded.md" %}
@@ -52,14 +52,14 @@ Control Components help you easily build your app.
 [authenticate-with-redirect-callback.md](control-components/authenticate-with-redirect-callback.md)
 {% endcontent-ref %}
 
-{% content-ref url="control-components/redirect-to-sign-in.md" %}
-[redirect-to-sign-in.md](control-components/redirect-to-sign-in.md)
+{% content-ref url="sign-in/redirect-to-sign-in.md" %}
+[redirect-to-sign-in.md](sign-in/redirect-to-sign-in.md)
 {% endcontent-ref %}
 
-{% content-ref url="control-components/redirect-to-sign-up.md" %}
-[redirect-to-sign-up.md](control-components/redirect-to-sign-up.md)
+{% content-ref url="sign-up/redirect-to-sign-up.md" %}
+[redirect-to-sign-up.md](sign-up/redirect-to-sign-up.md)
 {% endcontent-ref %}
 
-{% content-ref url="control-components/redirect-to-user-profile.md" %}
-[redirect-to-user-profile.md](control-components/redirect-to-user-profile.md)
+{% content-ref url="user-profile/redirect-to-user-profile.md" %}
+[redirect-to-user-profile.md](user-profile/redirect-to-user-profile.md)
 {% endcontent-ref %}

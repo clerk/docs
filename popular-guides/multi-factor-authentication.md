@@ -146,7 +146,7 @@ Read our detailed [Clerk Hosted Pages guide](../main-concepts/clerk-hosted-pages
 
 You can leverage [Clerk Components](../main-concepts/clerk-components.md) to easily add multi-factor authentication support to your application.
 
-Clerk provides a [\<SignIn />](../components/sign-in.md) pre-built component that renders a sign in form and takes care of authenticating users and creating a session.
+Clerk provides a [\<SignIn />](../components/sign-in/sign-in.md) pre-built component that renders a sign in form and takes care of authenticating users and creating a session.
 
 Note that you don't need to pass any special options to the pre-built **\<SignIn />** component. Multi-factor authentication will just work once users enable it under their profile settings, since it's already been configured through the [Clerk Dashboard](https://dashboard.clerk.dev).
 
