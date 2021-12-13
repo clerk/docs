@@ -500,15 +500,16 @@ function Verification() {
 import React from "react";
 import { 
   BrowserRouter as Router, 
-  Switch, 
+  Routes,
+  Route, 
 } from "react-router-dom";
 import {
-  ClerkProvider, 
+  ClerkProvider,
+  ClerkLoaded, 
   MagicLinkErrorCode, 
   isMagicLinkError,
   UserButton,
   useClerk,
-  useNavigate,
   useSignUp,
 } from "@clerk/clerk-react";
 
@@ -520,20 +521,30 @@ function App() {
       <ClerkProvider frontendApi={frontendApi}>
         <Switch>
           {/* Root path shows sign up page. */}
-          <Route path="/">
-            <SignedOut>
-              <SignUpMagicLink />
-            </SignedOut>
-            <SignedIn>
-              <UserButton afterSignOutAllUrl="/" />
-            </SignedIn>
-          </Route>
+          <Route 
+            path="/"
+            element={
+              <>
+                <SignedOut>
+                  <SignUpMagicLink />
+                </SignedOut>
+                <SignedIn>
+                  <UserButton afterSignOutAllUrl="/" />
+                </SignedIn>
+              </>
+            }
+          />
          
           {/* Define a /verification route that handles magic link result */}
-          <Route path="/verification">
-            <MagicLinkVerification />
-          </Route>
-        </Switch>
+          <Route 
+            path="/verification"
+            element={
+              <ClerkLoaded>
+                <MagicLinkVerification />
+              </ClerkLoaded>
+            }
+          />
+        </Routes>
       </ClerkProvider>
     </Router>
   );
@@ -599,7 +610,7 @@ function SignUpMagicLink() {
       // Navigate to the after sign up URL.
       setSession(
         su.createdSessionId, 
-        () => navigate("https://after-sign-up-url"),
+        () => window.location = "https://after-sign-up-url",
       );
       return;
     }
@@ -766,7 +777,7 @@ function SignIn() {
   );
 
   // Cleanup on component unmount.
-  useEffect(() => cancelMagicLinkFlow, []);
+  React.useEffect(() => cancelMagicLinkFlow, []);
   
   async function submit(e) {
     e.preventDefault();
@@ -789,7 +800,7 @@ function SignIn() {
     });
       
     // Check the verification result.
-    const verification = res.verifications.emailAddress;
+    const verification = res.firstFactorVerification;
     if (verification.verifiedFromTheSameClient()) {
       setVerified(true);
       // If you're handling the verification result from 
@@ -902,15 +913,16 @@ function Verification() {
 import React from "react";
 import { 
   BrowserRouter as Router, 
-  Switch, 
+  Routes,
+  Route, 
 } from "react-router-dom";
 import {
   ClerkProvider,
+  ClerkLoaded,
   MagicLinkErrorCode, 
   isMagicLinkError,
   UserButton,
   useClerk,
-  useNavigate,
   useSignIn,
 } from "@clerk/clerk-react";
 
@@ -920,22 +932,31 @@ function App() {
   return (
     <Router>
       <ClerkProvider frontendApi={frontendApi}>
-        <Switch>
+        <Routes>
           {/* Root path shows sign in page. */}
-          <Route path="/">
-            <SignedOut>
-              <SignInMagicLink />
-            </SignedOut>
-            <SignedIn>
-              <UserButton afterSignOutAllUrl="/" />
-            </SignedIn>
-          </Route>
+          <Route 
+            path="/" 
+            element={
+              <>
+                <SignedOut>
+                  <SignInMagicLink />
+                </SignedOut>
+                <SignedIn>
+                  <UserButton afterSignOutAllUrl="/" />
+                </SignedIn>
+              </>
+            } 
+          />
          
           {/* Define a /verification route that handles magic link result */}
-          <Route path="/verification">
-            <MagicLinkVerification />
-          </Route>
-        </Switch>
+          <Route 
+            path="/verification" 
+            element={
+              <ClerkLoaded>
+                <MagicLinkVerification />
+              </ClerkLoaded>
+            } />
+        </Routes>
       </ClerkProvider>
     </Router>
   );
@@ -949,7 +970,6 @@ function SignInMagicLink() {
   const [expired, setExpired] = React.useState(false);
   const [verified, setVerified] = React.useState(false);
   const { setSession } = useClerk();
-  const { navigate } = useNavigate();
   const signIn = useSignIn(); 
   
   const { 
@@ -984,7 +1004,7 @@ function SignInMagicLink() {
     });
       
     // Check the verification result.
-    const verification = res.verifications.emailAddress;
+    const verification = res.firstFactorVerification;
     if (verification.verifiedFromTheSameClient()) {
       setVerified(true);
       // If you're handling the verification result from 
@@ -1002,7 +1022,7 @@ function SignInMagicLink() {
       // Navigate to the after sign in URL.
       setSession(
         res.createdSessionId, 
-        () => navigate("https://after-sign-in-url"),
+        () => window.location = "https://after-sign-in-url",
       );
       return;
     }
