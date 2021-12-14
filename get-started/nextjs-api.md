@@ -16,7 +16,7 @@ Create a file named **.env.local** in your application root if it doesn't exist 
 
 Get your **CLERK\_API\_KEY** in Dashboard **API Keys** section.
 
-![](../.gitbook/assets/screely-1639472270537.png)
+![](../.gitbook/assets/screely-1639474987551.png)
 
 {% code title=".env.local" %}
 ```jsx
