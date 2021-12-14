@@ -10,7 +10,7 @@ To enable the integration, you will need to provide Clerk with the required Fire
 
 To get started, turn on the Firebase integration in the [dashboard](https://dashboard.clerk.dev):
 
-**Your Application → Your Instance → Integrations → Firebase**
+**Your Application & instance → Integrations → Firebase**
 
 ## 2. Integration configuration
 
@@ -28,7 +28,7 @@ Upload Service Account JSON file on Clerk
 
 * To upload the file on Clerk, use the **Upload JSON** button on the Firebase integration page:
 
-![Your Application → Your Instance → Integrations → Firebase](<../.gitbook/assets/dashboard.prod.lclclerk.com\_applications\_app\_1qnUZ1eK4LSvdig9wr7pZ81hnVP\_instances (1).png>)
+![](../.gitbook/assets/screely-1639508509124.png)
 
 ### 2.2 Fill the required attributes manually
 

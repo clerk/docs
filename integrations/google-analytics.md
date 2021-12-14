@@ -12,7 +12,9 @@ To enable the integration, you will need to provide Clerk with the required Goog
 
 To get started, turn on the Google Analytics integration in the [dashboard](https://dashboard.clerk.dev):
 
-**Your Application → Your Instance → Integrations → Google Analytics**
+**Your Application  and instance → Integrations → Google Analytics**
+
+![](../.gitbook/assets/screely-1639509148300.png)
 
 ## 2. Integration configuration
 

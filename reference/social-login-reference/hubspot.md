@@ -29,7 +29,7 @@ Once your app is created, click on the **Auth** tab and copy the **App Id** and 
 
 ![Configuring a HubSpot app](../../.gitbook/assets/screely-1628433157057.png)
 
-Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** and navigate to **Instances** ➜  **Settings** **** ➜  **User Management** ➜ **SSO**.  Click the **Manage credentials** button under the TikTok provider, select **Custom profile** and paste the values you obtained during the previous step.
+Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**.  Click the **Manage connection** button under the TikTok provider, select **Custom profile** and paste the values you obtained during the previous step.
 
 Before you close the **Manage credentials** modal, copy the **Authorized redirect URI**. Go back to the HubSpot panel and paste it into the **Redirect URL** field and click **Save**.
 

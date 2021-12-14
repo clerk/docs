@@ -27,7 +27,7 @@ If you don't have an existing Twitter Application you've set up for social login
 
 To do so, go to "[Projects & Apps](https://developer.twitter.com/en/portal/projects-and-apps)" and click "**+ Create App**" to create a new application. After entering a name, you'll be presented with your app's credentials; **API Key** and **API Secret**. Copy those values; we're going to use them in a while.
 
-Go to [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** and navigate to **Instances** ➜  **Settings** **** ➜  **User Management** ➜ **SSO**. Click the **Manage credentials** button under the Twitter provider, select **Custom profile** and paste the **API Key** and **API Secret** values which we copied in the previous step, into the **Consumer key** and **Consumer secret** respectively. Then, copy the **Authorized redirect URI,** we're going to need it shortly after.
+Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**. Click the **Manage connection** button under the Twitter provider, select **Custom profile** and paste the **API Key** and **API Secret** values which we copied in the previous step, into the **Consumer key** and **Consumer secret** respectively. Then, copy the **Authorized redirect URI,** we're going to need it shortly after.
 
 ![](../../.gitbook/assets/dashboard\_redirect\_uri.png)
 

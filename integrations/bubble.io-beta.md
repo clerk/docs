@@ -58,15 +58,15 @@ In bubble's preview environment, your app will be running on the following URL: 
 
 
 
-Under **Settings → URL & redirects → Redirects** select "Use custom URL" and enter `/version-test?debug_mode=true` for the following fields:
+Under **Paths** enter `/version-test?debug_mode=true` for the following fields:
 
-* After sign up redirect URL
-* After sign in redirect URL
-* After sign out redirect URL
+* Sign up redirect URL
+* Sign in redirect URL
+* Sign-out redirect, single account URL
 
 The final result should look like this:
 
-![](../.gitbook/assets/dashboard.clerk.dev\_instances\_ins\_1vf0xwsssrY15LD8FLZw4GQYZEJ\_url-settings.png)
+![](../.gitbook/assets/screely-1639508959537.png)
 
 ## Actions
 

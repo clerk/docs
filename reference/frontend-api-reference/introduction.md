@@ -2,7 +2,7 @@
 
 The **Frontend API** is built to be used from your frontend code. It is the same API that our pre-built UIs use.  If you need to augment your Sign in, Sign up, or User profile processes, this API is for you.   We follow a familiar [REST](https://en.wikipedia.org/wiki/Representational\_state\_transfer) style, so hopefully this API is clear.  You can always [reach out](https://www.clerk.dev/support) for help.
 
-The **Frontend API** is accessed via the Frontend API Domain listed in your [dashboard](https://dashboard.clerk.dev).  Navigate to your instance, then it will be in the **Home>Instance Configuration** section.
+The **Frontend API** is accessed via the Frontend API Domain listed in your [Dashboard](https://dashboard.clerk.dev). Navigate to your instance, then it will be in the **Home** section.
 
 In development, the URL will follow the following pattern:
 
@@ -16,7 +16,7 @@ All requests accept form-encoded request bodies, and respond with a JSON-encoded
 
 ## Frontend API Configuration
 
-All configuration for the frontend happens in the [dashboard](https://dashboard.clerk.dev).  Navigate to your instance, then to **Settings>User management** to see and modify these settings.
+All configuration for the frontend happens in the [Dashboard](https://dashboard.clerk.dev).  Navigate to your instance, then to **Authentication** to see and modify these settings.
 
 The **User management** settings you select _will modify certain parts_ of the **Frontend API**.
 

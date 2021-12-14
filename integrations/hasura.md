@@ -8,7 +8,9 @@ We have an official starting repo with Next.js and Hasura, check it out [here](h
 
 To get started, first turn on the Hasura integration in the [dashboard](https://dashboard.clerk.dev):
 
-**Your Application → Your Instance → Integrations → Hasura**
+**Your Application and instance → Integrations → Hasura**
+
+![](../.gitbook/assets/screely-1639508827688.png)
 
 ## 2. Configure Hasura
 

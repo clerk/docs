@@ -6,7 +6,7 @@ The Clerk Backend API is built to be used from your backend code. We make our be
 
 ### Authentication
 
-The Clerk Backend API uses secret API keys. You can find and create your instance API keys in Clerk Dashboard **API Keys** page.&#x20;
+The Clerk Backend API uses secret API keys. You can find and create your instance API keys in Clerk Dashboard **API Keys -> Backend API Keys** page.&#x20;
 
 {% hint style="warning" %}
 These keys should never be shared with anyone, as they allow the holder to access all your Clerk resources.

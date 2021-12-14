@@ -13,7 +13,7 @@ To make the development flow as smooth as possible, Clerk uses preconfigured sha
 For production instances, you will need to create your own developer account with **Google** and generate your own Client ID and Client secret.
 
 {% hint style="info" %}
-The purpose of this guide is to help you setup a Google developer account and a Google OAuth2.0 project - if you're looking for step-by-step instructions using Clerk to add social login (OAuth) to your application, follow the [Social login (OAuth)](../../popular-guides/social-login-oauth.md) guide.
+The purpose of this guide is to help you setup a Google developer account and a Google OAuth2.0 project - if you're looking for step-by-step instructions using Clerk to add Social Login (OAuth) to your application, follow the [Social login (OAuth)](../../popular-guides/social-login-oauth.md) guide.
 {% endhint %}
 
 ## Before you start
@@ -31,7 +31,7 @@ Once you have a OAuth client ID **** created, click on the newly created ID unde
 
 ![Copying the Client ID and Client Secret](../../.gitbook/assets/screely-1628372330828.png)
 
-Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** and navigate to **Instances** ➜  **Settings** **** ➜  **User Management** ➜ **SSO**.  Click the **Manage credentials** button under the Google provider, select **Custom profile** and paste the values you obtained during the previous step.
+Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**.  Click the **Manage connection** button under the Google provider, select **Custom profile** and paste the values you obtained during the previous step.
 
 Before you close the **Manage credentials** modal, copy the **Authorized redirect URI.** Add it to the Google console dashboard by creating a new **Authorized redirect URI** as shown in the screenshot above.&#x20;
 
