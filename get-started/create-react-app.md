@@ -6,12 +6,12 @@ description: Learn to install and initialize Clerk in a new Create React App.
 
 ## Overview
 
-Clerk is the easiest way to add authentication and user management to your React application. This guide will you walk you through the necessary steps to install and use Clerk in a new create-react-app application. For more in-depth guides, check out our **Popular Guides** section.
+Clerk is the easiest way to add authentication and user management to your React application. This guide will you walk you through the necessary steps to install and use Clerk in a new [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) application. For more in-depth guides, check out our **Popular Guides** section.
 
 After following this guide, you should have a working React app complete with:&#x20;
 
 * Fully fledged sign in and sign up flows.
-* Google social login.
+* Google Social Login.
 * Secure email/password authentication.
 * A prebuilt user profile page.
 
@@ -49,7 +49,7 @@ One you have a React app ready, you need to install the Clerk React SDK. This wi
 # Navigate to your application's root directory
 # This should be the actual name from 
 # the previous step
-cd my-app
+cd my-first-application
 
 # Install the clerk-react package 
 npm install @clerk/clerk-react
@@ -59,7 +59,9 @@ npm install @clerk/clerk-react
 {% tab title="yarn" %}
 ```bash
 # Navigate to your application's root directory
-cd yourapp
+# This should be the actual name from 
+# the previous step
+cd my-first-application
 
 # Install the clerk-react package 
 yarn add @clerk/clerk-react
@@ -67,9 +69,9 @@ yarn add @clerk/clerk-react
 {% endtab %}
 {% endtabs %}
 
-Now, we need to set the `CLERK_FRONTEND_API` environment variable. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** and navigate to **Development** ➜  **Instance configuration** and copy the **Frontend API** field.
+Now, we need to set the `CLERK_FRONTEND_API` environment variable. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application** and copy the **Frontend API Key** field from the Development instance Home page.
 
-![Getting your Frontend API key](../.gitbook/assets/get-started-next-fapi.png)
+![](../.gitbook/assets/screely-1639471746983.png)
 
 Then, create a file named `.env.local` in your application root. Any variables inside this file with the `REACT_APP_` prefix will be accessible in your React code via `process.env.REACT_APP_VAR_NAME`. Create a `REACT_APP_CLERK_FRONTEND_API` variable and set it to the `Frontend API` you copied earlier:
 
@@ -82,7 +84,9 @@ touch .env.local
 echo "REACT_APP_CLERK_FRONTEND_API=[your-frontend-api]" > .env.local
 ```
 
-Clerk is now successfully installed   🎉     To run your app, start the development server and navigate to [http://localhost:3000](http://localhost:3000).
+Clerk is now successfully installed! 🎉
+
+To run your app, start the development server and navigate to [http://localhost:3000](http://localhost:3000).
 
 {% tabs %}
 {% tab title="npm" %}

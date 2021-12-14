@@ -11,7 +11,7 @@ Clerk is the easiest way to add authentication and user management to your [Next
 After following this guide, you should have a working Next.js app complete with:&#x20;
 
 * Fully fledged sign in and sign up flows.
-* Google social login.
+* Google Social Login.
 * Secure email/password authentication.
 * A prebuilt user profile page.
 
@@ -65,9 +65,9 @@ yarn add @clerk/nextjs
 {% endtab %}
 {% endtabs %}
 
-Now, we need to set the `CLERK_FRONTEND_API` environment variable. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** and navigate to **Development** ➜  **Instance configuration** and copy the **Frontend API** field.
+Now, we need to set the `CLERK_FRONTEND_API` environment variable. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** copy the **Frontend API Key** field from the Development instance Home page.
 
-![Getting your Frontend API key](../.gitbook/assets/get-started-next-fapi.png)
+![](../.gitbook/assets/screely-1639471746983.png)
 
 Then, create a file named `.env.local` in your application root. Any variables inside this file with the `NEXT_PUBLIC_` prefix will be accessible in your Next.js code via `process.env.NEXT_PUBLIC_VAR_NAME`. Create a `NEXT_PUBLIC_CLERK_FRONTEND_API` variable and set it to the `Frontend API` you copied earlier:
 
@@ -125,7 +125,7 @@ export default MyApp;
 
 `<ClerkProvider/>` from the `@clerk/nextjs` package is already configured to using the same routing logic with Next.js.  This makes sure that navigating between subpages and when navigating to callback URLs, routing remains consistent.
 
-Your app is now configured  🎉  &#x20;
+Your app is now configured! 🎉  &#x20;
 
 Next, let's see how you can use Clerk to require authentication before navigating to a protected page.
 

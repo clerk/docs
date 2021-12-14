@@ -14,9 +14,9 @@ This guide assumes you have properly completed your Next.js [frontend setup](nex
 
 Create a file named **.env.local** in your application root if it doesn't exist already. Any variables inside this file will be accessible in your backend with **process.env.VARIABLE\_NAME**.
 
-{% hint style="warning" %}
-Make sure you update **** this variable with the API key found in your dashboard under **Settings** → **API Keys**.
-{% endhint %}
+Get your **CLERK\_API\_KEY** in Dashboard **API Keys** section.
+
+![](../.gitbook/assets/screely-1639472270537.png)
 
 {% code title=".env.local" %}
 ```jsx
