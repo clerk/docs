@@ -15,7 +15,7 @@
 * [Email and password](popular-guides/email-and-password.md)
 * [Magic links](popular-guides/magic-links.md)
 * [One-time codes (OTP)](popular-guides/passwordless-authentication.md)
-* [Social login (OAuth)](popular-guides/social-login-oauth.md)
+* [Social Login (OAuth)](popular-guides/social-login-oauth.md)
 * [Multi-factor](popular-guides/multi-factor-authentication.md)
 * [Sign out](popular-guides/popular-guides-sign-out.md)
 * [Multi-session applications](popular-guides/popular-guides-multi-session-applications.md)

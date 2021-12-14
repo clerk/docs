@@ -8,7 +8,7 @@ description: >-
 
 ## Overview
 
-The `<SignUp/>` component is used to render a beautiful, high-conversion sign-up flow with your choice of required fields and social sign-up providers. It supports any authentication scheme, from basic [email/password authentication](../../popular-guides/email-and-password.md), to [passwordless](../../popular-guides/passwordless-authentication.md) and [social login (OAuth)](../../popular-guides/social-login-oauth.md) and it automatically handles everything  for you, from basic data collection to email address and phone number verification.
+The `<SignUp/>` component is used to render a beautiful, high-conversion sign-up flow with your choice of required fields and social sign-up providers. It supports any authentication scheme, from basic [Email/password authentication](../../popular-guides/email-and-password.md), to [Passwordless](../../popular-guides/passwordless-authentication.md) and [Social Login (OAuth)](../../popular-guides/social-login-oauth.md) and it automatically handles everything  for you, from basic data collection to email address and phone number verification.
 
 ![](../../.gitbook/assets/sign-up.png)
 

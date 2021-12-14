@@ -6,7 +6,7 @@ description: Full-featured UI for signing users in your application.
 
 ## Overview
 
-The `<SignIn/>` component renders a UI for signing in users. Most of the times, the `<SignIn/>` component is all you need for completing sign ins. It supports any authentication scheme, from [basic](../../popular-guides/email-and-password.md) and [passwordless](../../popular-guides/passwordless-authentication.md), to [social login (OAuth)](../../popular-guides/social-login-oauth.md) and [2-step verification (2FA)](../../popular-guides/multi-factor-authentication.md).
+The `<SignIn/>` component renders a UI for signing in users. Most of the times, the `<SignIn/>` component is all you need for completing sign ins. It supports any authentication scheme, from [Email/password authentication](../../popular-guides/email-and-password.md), and [Passwordless](../../popular-guides/passwordless-authentication.md), to [Social Login (OAuth)](../../popular-guides/social-login-oauth.md) and [Multi-factor verification](../../popular-guides/multi-factor-authentication.md).
 
 The contents and functionality of the `<SignIn/>` component are controlled for the most part by the instance settings you specify in your [Clerk Dashboard](https://dashboard.clerk.dev). Your instance settings also allow for customization of the look and feel of the `<SignIn/>` component.
 
@@ -53,15 +53,15 @@ window.Clerk.openSignIn();
 {% endtab %}
 {% endtabs %}
 
-### Routing & URL path
+### Routing & Paths
 
 The mounted `<SignIn/>` component uses hash-based routing by default. As the sign in flow progresses, the hash portion of the URL will update to reflect the current step. An example of such a URL would be `example.com/sign-in#/factor-one`.
 
 You can instead use path-based routing with some additional configuration. With path-based routing, the above URL would become`example.com/sign-in/factor-one`.
 
-There are two props that control the routing type and the URL path. These are called `routing` and `path`. You can read more about them in the [Props section](sign-in.md#props) of this document.
+There are two props that control the routing type and the path. These are called `routing` and `path`. You can read more about them in the [Props section](sign-in.md#props) of this document.
 
-Below is an example that uses path-based routing to mount the `<SignIn/>` component under the "/sign-in" URL path. The [Clerk React](../../reference/clerk-react/) snippet uses the popular [React Router](https://reactrouter.com) library, but it can be easily adapted to use the  routing library of your choice. We've also added an example for [Next.js](https://nextjs.org), which showcases integration with Next.js routing.&#x20;
+Below is an example that uses path-based routing to mount the `<SignIn/>` component under the "/sign-in" path. The [Clerk React](../../reference/clerk-react/) snippet uses the popular [React Router](https://reactrouter.com) library, but it can be easily adapted to use the  routing library of your choice. We've also added an example for [Next.js](https://nextjs.org), which showcases integration with Next.js routing.&#x20;
 
 {% tabs %}
 {% tab title="Clerk React" %}
