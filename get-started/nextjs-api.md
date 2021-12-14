@@ -18,8 +18,6 @@ Get your **CLERK\_API\_KEY** in Dashboard **API Keys** section.
 
 ![](../.gitbook/assets/screely-1639474987551.png)
 
-![](../.gitbook/assets/screely-1639475393023.png)
-
 {% code title=".env.local" %}
 ```jsx
 CLERK_API_KEY=test_asdf1234
