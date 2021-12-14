@@ -8,6 +8,10 @@ description: Integrate Clerk into your React Native application
 
 Clerk Expo is a wrapper around [Clerk React](clerk-react/). It is the recommended way to integrate Clerk into your React Native application.
 
+{% hint style="info" %}
+Clerk Expo works for IOS and Android. For web based applications use [Clerk React](clerk-react/).
+{% endhint %}
+
 Clerk Expo provides [hooks](clerk-react/) and [Clerk Control Components](../components/control-components/) which act as helpers for implementing a seamless authentication experience, give you access to the [Clerk object](clerkjs/clerk.md) and a set of useful helper methods for signing in and signing up.
 
 ## Setting up Clerk Expo
