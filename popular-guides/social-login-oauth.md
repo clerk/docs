@@ -27,7 +27,7 @@ The easiest way to add social login is by using our prebuilt [Clerk Hosted Pages
 
 ## Configuration
 
-To enable a social login provider, go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** and navigate to **Instances** ➜  **Settings** **** ➜  **User Management** ➜ **SSO**.
+To enable a social login provider, go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** and navigate to **Authentication** **** ➜  **Social Login**
 
 Social login configuration consists of the following steps:
 
@@ -35,9 +35,9 @@ Social login configuration consists of the following steps:
 2. (production instances only) Enter your OAuth credentials (Client ID and Client Secret) for each provider
 3. (production instances only) Copy the `Authorized redirect URI` from the Clerk Dashboard to the provider's app configuration. &#x20;
 
-![Enabling social login providers](../.gitbook/assets/social-signin-enable-providers.png)
+![](../.gitbook/assets/screely-1639506200009.png)
 
-Clerk supports the following providers: **Facebook**, **Google**, **Github**, **HubSpot,** **TikTok, GitLab** and **Discord.** For the purposes of this guide we will enable social login with **Google**.
+Clerk supports the following providers: **Google**, **Facebook**, **Twitter**, **TikTok**, **Discord**, **Twitch,** **Github**, **Gitlab** and **HubSpot**. For the purposes of this guide we will enable social login with **Google**.
 
 {% hint style="info" %}
 We are constantly adding more providers. If you're interested in a provider we don't support yet, [let us know](https://clerk.dev/support)!&#x20;
@@ -49,34 +49,29 @@ In development, after applying these changes, you're good to go! To make the dev
 Shared OAuth credentials should not be treated as secure.  For this reason, we don't allow them in production.
 {% endhint %}
 
-![Entering the credentials for an OAuth provider](../.gitbook/assets/social-signin-manage-credentials.png)
+![](../.gitbook/assets/screely-1639506400176.png)
 
-For production instances, you will need to create your own account with **Google** and generate your own Client ID and Client secret. You can add these by pressing the **Manage credentials** button under the respective provider. For more details, check out the following guides:
+For production instances, you will need to create your own account with **Google** and generate your own Client ID and Client secret. You can add these by pressing the **Manage connection** button under each provider. For more details, check out the following guides:
 
 Finally, copy the `Authorized redirect URI` field and add it to the provider's app configuration dashboard.     For more details, check out the following guides:
 
-* [How to setup social login with **Facebook**](../reference/social-login-reference/social-login-facebook.md)
 * [How to setup social login with **Google**](../reference/social-login-reference/social-login-google.md)****
-* [How to setup social login with **Github**](../reference/social-login-reference/github.md)
+* [How to setup social login with **Facebook**](../reference/social-login-reference/social-login-facebook.md)
 * [How to setup social login with **Twitter**](../reference/social-login-reference/twitter.md)****
-* [How to setup social login with **HubSpot**](../reference/social-login-reference/hubspot.md)****
 * [How to setup social login with **TikTok** ](../reference/social-login-reference/tiktok.md)
-* [How to setup social login with **GitLab**](../reference/social-login-reference/gitlab.md)****
 * [How to setup social login with **Discord**](../reference/social-login-reference/discord.md)****
-* [How to setup social login with **Twitter**](../reference/social-login-reference/twitter.md)****
 * [How to setup social login with **Twitch**](../reference/social-login-reference/twitch.md)****
-
-{% hint style="warning" %}
-Don't forget to click **Apply Changes** button at the bottom of the page once you're done.
-{% endhint %}
+* [How to setup social login with **Github**](../reference/social-login-reference/github.md)
+* [How to setup social login with **GitLab**](../reference/social-login-reference/gitlab.md)****
+* [How to setup social login with **HubSpot**](../reference/social-login-reference/hubspot.md)****
 
 ## Using Clerk Hosted Pages
 
 If you're looking for the fastest way to implement social login based authentication, you can leverage [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) for your sign up, sign in, and user profile pages.  You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
 
-You can find your instances sign up and sign in links in the **Home** > **Instance configuration** section of your instance in Clerk Dashboard.&#x20;
+You can find your instances sign up and sign in links in the **Home** section of your instance in Clerk Dashboard.&#x20;
 
-![Sign up and sign in links for Clerk Hosted Pages](../.gitbook/assets/social-signin-hosted-pages-links.png)
+![](../.gitbook/assets/screely-1639505474295.png)
 
 By default, the URLs for your hosted pages will match the following pattern:
 

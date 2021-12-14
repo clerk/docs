@@ -2,7 +2,7 @@
 description: Learn how to require a second step during authentication.
 ---
 
-# Multi-factor authentication
+# Multi-factor
 
 ## Overview
 
@@ -31,13 +31,13 @@ There's two parts to enabling multi-factor authentication for your application. 
 
 ### Dashboard configuration
 
-From your dashboard, select your application and instance and then go to **Settings** > **User Management** > **2-step verification**. We currently only support a second factor through an **SMS code**. However, we're constantly working on new features.
+From your dashboard, select your application and instance and then go to **Authentication** > **Multi-factor**. We currently only support a second factor through an **SMS code**. However, we're constantly working on new features.
 
 {% hint style="info" %}
-If you're interested in a specific 2FA method that we don't support yet, [let us know](https://clerk.dev/support)!
+If you're interested in a specific Multi-factor method that we don't support yet, [let us know](https://clerk.dev/support)!
 {% endhint %}
 
-![Enabling SMS based MFA from your instance settings.](../.gitbook/assets/screely-1627298418851.png)
+![](../.gitbook/assets/screely-1639506705225.png)
 
 {% hint style="warning" %}
 Don't forget to click on the **Apply Changes** button at the bottom of the page once you're done.
@@ -59,7 +59,7 @@ If you're looking for the fastest way to implement passwordless based authentica
 
 You can find your instances sign up and sign in links in the **Home** > **Instance configuration** section of your instance in Clerk Dashboard.&#x20;
 
-![Getting the Clerk Hosted Pages URLs from the Clerk Dashboard.](../.gitbook/assets/screely-1627299008665.png)
+![](../.gitbook/assets/screely-1639505474295.png)
 
 By default, the URLs for your hosted pages will match the following pattern:
 

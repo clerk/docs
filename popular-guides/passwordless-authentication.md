@@ -1,8 +1,8 @@
 ---
-description: Learn how to send one-time codes to authenticate users.
+description: Learn how to send one-time codes (OTP) to authenticate users.
 ---
 
-# One-time code authentication
+# One-time codes (OTP)
 
 ## Overview
 
@@ -29,31 +29,27 @@ Looking for 2FA? Check out our [Multi-factor authentication](multi-factor-authen
 
 ## Configuration
 
-Passwordless authentication can be configured through the [Clerk Dashboard](https://dashboard.clerk.dev). Go to your instance, then **Settings** >  **User management** > **Authentication strategy.** Simply choose **Passwordless** as the authentication strategy.
+Passwordless authentication can be configured through the [Clerk Dashboard](https://dashboard.clerk.dev). Go to your instance, then **Authentication** > **Standard Form Fields.** Simply choose **Passwordless** as the authentication strategy and click the cog to select One-time codes.
 
-![Enabling passwordless authentication in your instance settings.](../.gitbook/assets/screely-1627278145637.png)
+![](../.gitbook/assets/screely-1639505933346.png)
 
-Don't forget that you also need to make sure you've configured your application instance to request the user's contact information.  Users can receive one-time codes via either an email address or a phone number.
-
-Go to your instance **Settings** page again, select **User management** > **Contact Information**. Make sure you select one of the following options;  **Email address**, **Phone number** or **Email address OR phone number**.&#x20;
+Don't forget that you also need to make sure you've configured your application instance to request the user's contact information.  Users can receive one-time codes via either an email address or a phone number. Make sure you select one of the following options;  **Email address**, **Phone number** or **Email address OR phone number**.&#x20;
 
 For the rest of this guide, we'll use the **Phone number** option.
-
-![Selecting phone number as the authentication identifier.](../.gitbook/assets/dashboard-v1-contact-info-phone.png)
 
 {% hint style="warning" %}
 Don't forget to click on the **Apply Changes** button at the bottom of the page once you're done configuring your instance.
 {% endhint %}
 
-That's all you need to do to enable passwordless authentication for your instance. Now let's see how we can put this configuration to good use.
+That's all you need to do to enable passwordless authentication with One-time codes for your instance. Now let's see how we can put this configuration to good use.
 
 ## Using Clerk Hosted Pages
 
 If you're looking for the fastest way to implement passwordless based authentication, you can leverage [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) for your sign up, sign in, and user profile pages. You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
 
-You can find your instances sign up and sign in links in the **Home** > **Instance configuration** section of your instance in Clerk Dashboard.&#x20;
+You can find your instances section of your instance in Clerk Dashboard.&#x20;
 
-![Getting the Clerk Hosted Pages URLs from the Clerk Dashboard.](../.gitbook/assets/screely-1627299008665.png)
+![](../.gitbook/assets/screely-1639505474295.png)
 
 By default, the URLs for your hosted pages will match the following pattern:
 

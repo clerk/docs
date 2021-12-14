@@ -27,17 +27,15 @@ To keep your users safe, Clerk follows a "secure-by-default" policy, and we foll
 
 The first thing you need to do is enable email address and password-based authentication in your Clerk instance.
 
-From the [Clerk Dashboard](https://dashboard.clerk.dev), select your instance and head over to **Settings** > **User Management**.&#x20;
+From the [Clerk Dashboard](https://dashboard.clerk.dev), select your instance and head over to **Authentication** > **Standard Form Fields**.&#x20;
 
-Select **Email address** for your contact information and **Password-based** as your authentication strategy. For more information on the available settings, check out our [Instance settings guide](broken-reference).
+Select **Email address** for your contact information and **Password** as your authentication strategy. For more information on the available settings, check out our [Instance settings guide](broken-reference).
 
 {% hint style="warning" %}
 Don't forget to click on **Apply changes** at the bottom of the page!
 {% endhint %}
 
-![Choosing email address as an authentication identifier.](../.gitbook/assets/screely-1627110327003.png)
-
-![Enabling password-based authentication strategy in your instance settings.](../.gitbook/assets/screely-1627110354630.png)
+![](../.gitbook/assets/screely-1639505381830.png)
 
 {% hint style="info" %}
 Instead of email address you could also use phone numbers. All you need to do is choose **Phone Number** under contact information.
@@ -47,9 +45,9 @@ Instead of email address you could also use phone numbers. All you need to do is
 
 If you're looking for the fastest way to implement password based authentication, you can leverage [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) for your sign up, sign in, and user profile pages.  You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
 
-You can find your instances sign up and sign in links in the **Home** > **Instance configuration** section of your instance in Clerk Dashboard.&#x20;
+You can find your instances sign up and sign in links in the **Home** section of your instance in Clerk Dashboard.&#x20;
 
-![Clerk Hosted Pages URLs](../.gitbook/assets/screely-1627111581779.png)
+![](../.gitbook/assets/screely-1639505474295.png)
 
 By default, the URLs for your hosted pages will match the following pattern:
 

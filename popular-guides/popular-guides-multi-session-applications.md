@@ -35,11 +35,9 @@ Looking for more information on session management? Check out our [detailed guid
 
 The first thing you need to do is to enable the multi-session feature in your Clerk instance.
 
-From the [Clerk Dashboard](https://dashboard.clerk.dev), select your instance, and navigate to **Settings** > **User Management** > **User sessions**.&#x20;
+From the [Clerk Dashboard](https://dashboard.clerk.dev), select your application and instance, navigate to **Security** > **Sessions** and choose **Multi-session handling**.
 
-Choose **Multi-session**.
-
-![Enabling multi-session in your instance](../.gitbook/assets/screely-1627310188274.png)
+![](../.gitbook/assets/screely-1639506808306.png)
 
 That's all you have to do! Now you have a multi-session application!
 
@@ -90,7 +88,7 @@ Note that you don't need to pass any special options to the UserButton component
 
 ## Custom flow
 
-In case you want more customizability, and you prefer full control over your UI, you can use Clerk's SDKs.
+In case you want more customization, and you prefer full control over your UI, you can use Clerk's SDKs.
 
 ### Active session/user
 

@@ -1,4 +1,4 @@
-# Configurable Session Lifetime
+# Session Lifetime
 
 ## Overview
 
@@ -8,16 +8,18 @@ Ultimately, picking the ideal session lifetime is a trade-off between security a
 
 Fortunately, with Clerk you have to ability to fully control the lifetime of your users' sessions. There are two settings for doing so and you can set them via your instance settings in the Dashboard: **Inactivity timeout** and **Maximum lifetime**.&#x20;
 
-> Please note that anytime either of them or both must be enabled. You are not allowed to disable both of them with respect to security.
+{% hint style="info" %}
+Note that anytime either of them or both must be enabled. You are not allowed to disable both of them with respect to security.
+{% endhint %}
 
 ## Inactivity Timeout
 
-Denotes the duration after which a session will expire and the user will have to sign in again, if they haven't been active on your site. **By default this setting is disabled** for all newly created instances. You can enable it and set your desired value in `Dashboard > Settings > User sessions`
+Denotes the duration after which a session will expire and the user will have to sign in again, if they haven't been active on your site. **By default this setting is disabled** for all newly created instances. You can enable it and set your desired value in **Security -> Sessions** section.
 
-![](../.gitbook/assets/session\_inactivity\_timeout.png)
+![](../.gitbook/assets/screely-1639507886785.png)
 
 ## Maximum lifetime
 
-Denotes the duration after which a session will expire and the user will have to sign in again, regardless of their activity on your site. **By default this setting is enabled with a default value of 7 days** for all newly created instances. You can find this setting and change the value in `Dashboard > Settings > User sessions`
+Denotes the duration after which a session will expire and the user will have to sign in again, regardless of their activity on your site. **By default this setting is enabled with a default value of 7 days** for all newly created instances. You can find this setting and change the value in **Security -> Sessions**.
 
-![](../.gitbook/assets/session\_maximum\_lifetime.png)
+![](../.gitbook/assets/screely-1639508092338.png)

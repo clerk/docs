@@ -46,15 +46,11 @@ We take care of the boring stuff, like efficient polling, secure session managem
 
 ## Configuration
 
-Magic link authentication can be configured through the [Clerk Dashboard](https://dashboard.clerk.dev). Go to your instance, then **Settings** >  **User management** > **Authentication strategy.** Simply choose **Passwordless** as the authentication strategy.&#x20;
+Magic link authentication can be configured through the [Clerk Dashboard](https://dashboard.clerk.dev). Go to your instance, then **Authentication > Standard Form Fields.** Simply choose **Passwordless** as the authentication strategy.
 
-![Enabling passwordless authentication in your instance settings.](https://files.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-MUAdPRv4coy7IsJB3Jd%2F-MfWFxJCQPGeh46HaTzJ%2F-MfWKXLZsnLbDNZgenzn%2Fscreely-1627278145637.png?alt=media\&token=75d00db6-5ba9-48d8-96a7-0f01ebd211c8)
+![](../.gitbook/assets/screely-1639505701741.png)
 
-Don't forget that you also need to make sure you've configured your application instance to request the user's email address. Users can receive magic links only via email messages.
-
-Go to your instance **Settings** page again, select **User management** > **Contact Information**. Make sure you select one of the following options;  **Email address** or **Email address OR phone number**.&#x20;
-
-![Selecting email address as the authentication identifier.](https://files.gitbook.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-MUAdPRv4coy7IsJB3Jd%2F-MfWFxJCQPGeh46HaTzJ%2F-MfWKwEjxmmCaSSl9vyz%2Fscreely-1627278226541.png?alt=media\&token=a06d248a-38d7-46e8-aca7-1d9116e44e88)
+Don't forget that you also need to make sure you've configured your application instance to request the user's email address. Users can receive magic links only via email messages. Make sure you select one of the following options;  **Email address** or **Email address OR phone number**.&#x20;
 
 {% hint style="warning" %}
 Don't forget to click on the **Apply Changes** button at the bottom of the page once you're done configuring your instance.
@@ -66,9 +62,9 @@ That's all you need to do to enable authentication with magic links for your ins
 
 If you're looking for the fastest way to implement authentication with magic links, you can leverage [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) for your sign up, sign in, and user profile pages. You can set these up on your own domain, and match your website's theme with the Clerk Dashboard to create a seamless experience.&#x20;
 
-You can find your instance's sign up and sign in links in the **Home** > **Instance configuration** section of your instance in Clerk Dashboard.&#x20;
+You can find your instance's sign up and sign in links in the **Home** section of your instance in Clerk Dashboard.&#x20;
 
-![Getting the Clerk Hosted Pages URLs from the Clerk Dashboard.](../.gitbook/assets/screely-1627299008665.png)
+![](../.gitbook/assets/screely-1639505474295.png)
 
 By default, the URLs for your hosted pages will match the following pattern:
 
@@ -316,7 +312,7 @@ You still need to configure your instance in order to enable magic link authenti
 
 ### Sign up
 
-Registration with magic links follows a set of steps that require users to enter their email address as their authentication identifier and click on a link that's delivered to them via email message.
+Registration with magic links follows a set of steps that require users to enter their email address as authentication identifiers and click on a link that's delivered to them via email message.
 
 The sign up process can be completed on the same or a different device. For example, users might enter their email address in their desktop browser, but click the sign up magic link from their mobile phone. The user's email address will still be verified and registration will proceed.
 

@@ -28,13 +28,15 @@ Clerk provides webhook support by integrating with [Svix](https://www.svix.com).
 
 The Svix integration can be enabled through [Clerk Dashboard](https://dashboard.clerk.dev), by going to your instance and then to **Integrations** > **Svix**. Use the toggle button to enable/disable the integration.
 
-![Enabling Svix integration for your instance](../.gitbook/assets/enable-svix.png)
+![](../.gitbook/assets/screely-1639507436297.png)
 
-Once the Svix integration is enabled, you will need to configure the endpoints of your application which will receive the various Clerk events. You can do that by clicking on **Manage webhooks** > **Add endpoint**.
+Once the Svix integration is enabled, you will need to configure the endpoints of your application which will receive the various Clerk events. You can do that by clicking on **Manage integration** > **Add endpoint**.
 
-![Adding a webhook endpoint](../.gitbook/assets/add-endpoint-svix.png)
+![](../.gitbook/assets/screely-1639507396704.png)
 
 You can then enter the actual endpoint URL and choose the Clerk events you want to receive to this endpoint. This endpoint URL should be the endpoint exposed by your back-end which will process the Clerk events.&#x20;
+
+![](../.gitbook/assets/screely-1639507631524.png)
 
 Once you're ready, click on **Create** to finalize the endpoint setup.
 
@@ -42,9 +44,7 @@ Once you're ready, click on **Create** to finalize the endpoint setup.
 Selecting no events means that the endpoint will be listening for **all** Clerk events.
 {% endhint %}
 
-![Specifying the webhook endpoint URL](../.gitbook/assets/enter-endpoint-svix.png)
-
-![Selecting the Clerk events that will be sent to this endpoint](../.gitbook/assets/select-events-svix.png)
+![](../.gitbook/assets/screely-1639507638521.png)
 
 You can add as many endpoints as it makes sense for your use case and associate each endpoint with as many events you want. For example, you could have a single a single endpoint for all Clerk events you're interested in, or have dedicated endpoints for each group of events or even for each event individually.
 

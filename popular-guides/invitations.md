@@ -24,9 +24,9 @@ If you're looking into creating invitation-only applications, please refer to ou
 
 ## Creating invitations
 
-At the moment, you can only create invitations for email addresses via the Backend API. First, you will need to grab your API key which can be found in Clerk Dashboard under **Settings** > **API Keys** > **Secret Keys**.
+At the moment, you can only create invitations for email addresses via the Backend API. First, you will need to grab your API key which can be found in Clerk Dashboard under **API Keys** > **Backend API  Keys**.
 
-![](../.gitbook/assets/be-api-key.png)
+![](../.gitbook/assets/screely-1639474987551.png)
 
 Once you have that, you can make the following request to the Backend API:
 
