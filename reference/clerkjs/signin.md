@@ -249,7 +249,7 @@ This method returns a `Promise` which doesn't resolve to any value.
 
 | Name               | Description                                                                                                                                  |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **callbackUrl**    | <p><em>string</em></p><p>The magic link target URL. Users will be redirected here once they click the magic link from their email.</p>       |
+| **redirectUrl**    | <p><em>string</em></p><p>The magic link target URL. Users will be redirected here once they click the magic link from their email.</p>       |
 | **emailAddressId** | <p><em>string</em></p><p>The ID of the user's email address that's going to be used as the first factor identification for verification.</p> |
 
 ### UserData

@@ -302,9 +302,9 @@ This method returns a `Promise` which doesn't resolve to any value.
 
 ### StartMagicLinkFlowParams
 
-| Name              | Description                                                                                              |
-| ----------------- | -------------------------------------------------------------------------------------------------------- |
-| **redirect\_url** | <p><em>string</em></p><p>The URL to be redirected to after the magic link verification is prepared. </p> |
+| Name            | Description                                                                                              |
+| --------------- | -------------------------------------------------------------------------------------------------------- |
+| **redirectUrl** | <p><em>string</em></p><p>The URL to be redirected to after the magic link verification is prepared. </p> |
 
 ### VerificationAttemptParams
 
