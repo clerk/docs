@@ -207,8 +207,8 @@ This method returns a `Promise` which doesn't resolve to any value.
 | Property                | Description                                                                                                                                                                |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **strategy**            | <p><em>string</em></p><p>The OAuth provider that will be used for singing in. Must be one of the supported <a href="signin.md#oauthstrategy">OAuthStrategy</a> values.</p> |
-| **callbackUrl**         | <p><em>string</em></p><p>The URL that the OAuth provider should redirect to, on successful authorization on their part.</p>                                                |
-| **callbackUrlComplete** | <p><em>string</em></p><p>The URL that the user will be redirected to, after successful authorization from the OAuth provider and Clerk sign in</p>                         |
+| **redirectUrl**         | <p><em>string</em></p><p>The URL that the OAuth provider should redirect to, on successful authorization on their part.</p>                                                |
+| **redirectUrlComplete** | <p><em>string</em></p><p>The URL that the user will be redirected to, after successful authorization from the OAuth provider and Clerk sign in</p>                         |
 
 ### PrepareFirstFactorParams
 
