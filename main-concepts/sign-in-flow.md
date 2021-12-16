@@ -33,10 +33,7 @@ A verification can loosely be separated into two main steps _preparing_ and _att
 * **phone\_code**
   * Prepare: sends an SMS with a code.
   * Attempt: user supplies the code.
-* **oauth\_google**
-  * Prepare: generates a link the user must visit.
-  * Attempt: _no attempt step, this happens externally._
-* **oauth\_facebook**
+* **oauth\_google, oauth\_facebook,oauth\_twitter, etc...**
   * Prepare: generates a link the user must visit.
   * Attempt: _no attempt step, this happens externally._
 
