@@ -332,12 +332,13 @@ Clerk provides a highly flexible API that allows you to hook into any of the abo
 {% tab title="Clerk Next.js" %}
 ```jsx
 import React from "react";
+import { useRouter } from "next/router";
 import {
   MagicLinkErrorCode, 
   isMagicLinkError,
   useClerk,
-  useNavigate,
   useSignUp,
+  useMagicLink,
 } from "@clerk/nextjs";
 
 // pages/sign-up.jsx
@@ -348,21 +349,12 @@ function SignUp() {
   const [emailAddress, setEmailAddress] = React.useState("");
   const [expired, setExpired] = React.useState(false);
   const [verified, setVerified] = React.useState(false);
+  const router = useRouter();
   const { setSession } = useClerk();
-  const { navigate } = useNavigate();
   const signUp = useSignUp(); 
    
-  const { 
-    startMagicLinkFlow,
-    cancelMagicLinkFlow, 
-  } = React.useMemo(
-    () => signUp.createMagicLinkFlow(),
-    [signUp],
-  );
-
-  // Cleanup on component unmount.
-  React.useEffect(() => cancelMagicLinkFlow, []);
-  
+  const { startMagicLinkFlow } = useMagicLink(signUp);
+    
   async function submit(e) {
     e.preventDefault();
     setExpired(false);
@@ -401,7 +393,7 @@ function SignUp() {
       // Navigate to the after sign up URL.
       setSession(
         su.createdSessionId, 
-        () => navigate("https://after-sign-up-url"),
+        () => router.push("/after-sign-up-path"),
       );
       return;
     }
@@ -497,7 +489,8 @@ import React from "react";
 import { 
   BrowserRouter as Router, 
   Routes,
-  Route, 
+  Route,
+  useNavigate, 
 } from "react-router-dom";
 import {
   ClerkProvider,
@@ -507,6 +500,7 @@ import {
   UserButton,
   useClerk,
   useSignUp,
+  useMagicLink,
 } from "@clerk/clerk-react";
 
 const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
@@ -553,21 +547,12 @@ function SignUpMagicLink() {
   const [emailAddress, setEmailAddress] = React.useState("");
   const [expired, setExpired] = React.useState(false);
   const [verified, setVerified] = React.useState(false);
+  const navigate = useNavigate();
   const { setSession } = useClerk();
-  const { navigate } = useNavigate();
   const signUp = useSignUp(); 
   
-  const { 
-    startMagicLinkFlow,
-    cancelMagicLinkFlow, 
-  } = React.useMemo(
-    () => signUp.createMagicLinkFlow(),
-    [signUp],
-  );
-
-  // Cleanup on component unmount.
-  React.useEffect(() => cancelMagicLinkFlow, []);
-  
+  const { startMagicLinkFlow } = useMagicLink(signUp);
+    
   async function submit(e) {
     e.preventDefault();
     setExpired(false);
@@ -606,7 +591,7 @@ function SignUpMagicLink() {
       // Navigate to the after sign up URL.
       setSession(
         su.createdSessionId, 
-        () => window.location = "https://after-sign-up-url",
+        () => navigate("/after-sign-up-path"),
       );
       return;
     }
@@ -744,12 +729,13 @@ Clerk provides a highly flexible API that allows you to hook into any of the abo
 {% tab title="Clerk Next.js" %}
 ```jsx
 import React from "react";
+import { useRouter } from "next/router";
 import {
   MagicLinkErrorCode, 
   isMagicLinkError,
   useClerk,
-  useNavigate,
   useSignIn,
+  useMagicLink,
 } from "@clerk/nextjs";
 
 // pages/sign-in.jsx
@@ -760,21 +746,12 @@ function SignIn() {
   const [emailAddress, setEmailAddress] = React.useState("");
   const [expired, setExpired] = React.useState(false);
   const [verified, setVerified] = React.useState(false);
+  const router = useRouter();
   const { setSession } = useClerk();
-  const { navigate } = useNavigate();
   const signIn = useSignIn(); 
   
-  const { 
-    startMagicLinkFlow,
-    cancelMagicLinkFlow, 
-  } = React.useMemo(
-    () => signIn.createMagicLinkFlow(),
-    [signIn],
-  );
-
-  // Cleanup on component unmount.
-  React.useEffect(() => cancelMagicLinkFlow, []);
-  
+  const { startMagicLinkFlow } = useMagicLink(signIn);
+    
   async function submit(e) {
     e.preventDefault();
     setExpired(false);
@@ -814,7 +791,7 @@ function SignIn() {
       // Navigate to the after sign in URL.
       setSession(
         res.createdSessionId, 
-        () => navigate("https://after-sign-in-url"),
+        () => router.push("/after-sign-in-path"),
       );
       return;
     }
@@ -911,6 +888,7 @@ import {
   BrowserRouter as Router, 
   Routes,
   Route, 
+  useNavigate,
 } from "react-router-dom";
 import {
   ClerkProvider,
@@ -920,6 +898,7 @@ import {
   UserButton,
   useClerk,
   useSignIn,
+  useMagicLink,
 } from "@clerk/clerk-react";
 
 const frontendApi = process.env.REACT_APP_CLERK_FRONTEND_API;
@@ -965,20 +944,12 @@ function SignInMagicLink() {
   const [emailAddress, setEmailAddress] = React.useState("");
   const [expired, setExpired] = React.useState(false);
   const [verified, setVerified] = React.useState(false);
+  const navigate = useNavigate();
   const { setSession } = useClerk();
   const signIn = useSignIn(); 
   
-  const { 
-    startMagicLinkFlow,
-    cancelMagicLinkFlow, 
-  } = React.useMemo(
-    () => signIn.createMagicLinkFlow(),
-    [signIn],
-  );
-
-  // Cleanup on component unmount.
-  React.useEffect(() => cancelMagicLinkFlow, []);
-  
+  const { startMagicLinkFlow } = useMagicLink(signIn);
+    
   async function submit(e) {
     e.preventDefault();
     setExpired(false);
@@ -1018,7 +989,7 @@ function SignInMagicLink() {
       // Navigate to the after sign in URL.
       setSession(
         res.createdSessionId, 
-        () => window.location = "https://after-sign-in-url",
+        () => navigate("/after-sign-in-path"),
       );
       return;
     }
@@ -1158,7 +1129,7 @@ Clerk provides a highly flexible API that allows you to hook into any of the abo
 {% tab title="Clerk Next.js" %}
 ```jsx
 import React from "react";
-import { useUser } from "@clerk/nextjs";
+import { useUser, useMagicLink } from "@clerk/nextjs";
 
 // A page where users can add a new email address. 
 function NewEmailPage() {
@@ -1199,18 +1170,10 @@ function VerifyWithMagicLink({
   emailAddress,
   onVerify, 
 }) {  
-  const { 
-    startMagicLinkFlow,
-    cancelMagicLinkFlow, 
-  } = React.useMemo(
-    () => emailAddress.createMagicLinkFlow(),
-    [emailAddress],
-  );
+  const { startMagicLinkFlow } = useMagicLink(emailAddress);
   
   React.useEffect(() => {
     verify();
-    // Cleanup on component unmount.
-    return cancelMagicLinkFlow;
   }, []);
   
   async function verify() {
@@ -1242,7 +1205,7 @@ function VerifyWithMagicLink({
 {% tab title="Clerk React" %}
 ```jsx
 import React from "react";
-import { useUser } from "@clerk/clerk-react";
+import { useUser, useMagicLink } from "@clerk/clerk-react";
 
 // A page where users can add a new email address. 
 function NewEmailPage() {
@@ -1283,18 +1246,10 @@ function VerifyWithMagicLink({
   emailAddress,
   onVerify, 
 }) {  
-  const { 
-    startMagicLinkFlow,
-    cancelMagicLinkFlow, 
-  } = React.useMemo(
-    () => emailAddress.createMagicLinkFlow(),
-    [emailAddress],
-  );
+  const { startMagicLinkFlow } = useMagicLink(emailAddress);
   
   React.useEffect(() => {
     verify();
-    // Cleanup on component unmount.
-    return cancelMagicLinkFlow;
   }, []);
   
   async function verify() {
