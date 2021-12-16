@@ -47,7 +47,7 @@ function App() {
             </SignedOut>
           </Route>
          
-           {/* Define a /sss-callback route that handle the OAuth redirect flow */}
+           {/* Define a /sso-callback route that handle the OAuth redirect flow */}
           <Route path="/sso-callback">
             {/* Simply render the component */}
             <AuthenticateWithRedirectCallback />
@@ -63,8 +63,8 @@ function SignInOAuthButtons() {
   const signInWithGoogle = () =>
     authenticateWithRedirect({
       strategy: "oauth_google",
-      callbackUrl: "/sso-callback",
-      callbackUrlComplete: "/",
+      redirectUrl: "/sso-callback",
+      redirectUrlComplete: "/",
     });
   return <button onClick={signInWithGoogle}>Sign in with Google</button>;
 }
