@@ -68,7 +68,7 @@ ReactDOM.render(<App />, appEl);
 
 {% tab title="Next.js" %}
 ```jsx
-import { ClerkProvider } from '@clerk/clerk-react';
+import { ClerkProvider } from '@clerk/nextjs';
 
 // App is the top-level component. Wrap your whole
 // DOM tree with a ClerkProvider. Pass the Frontend
@@ -121,7 +121,7 @@ function App() {
 {% tab title="Next.js" %}
 ```jsx
 import { useRouter } from "next/router";
-import { ClerkProvider } from "@clerk/clerk-react";
+import { ClerkProvider } from "@clerk/nextjs";
 
 function App({ Component, pageProps }) {
   const { push } = useRouter();

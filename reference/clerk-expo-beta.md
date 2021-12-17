@@ -27,7 +27,7 @@ There's an ES module for Clerk Expo, available under the [@clerk/clerk-expo](htt
 npm install @clerk/clerk-expo
 
 # Alternative install method with yarn.
-yarn add @clerk/clerk-react
+yarn add @clerk/clerk-expo
 ```
 
 ## Clerk provider
