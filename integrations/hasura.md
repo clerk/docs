@@ -96,5 +96,5 @@ export const ApolloProviderWrapper = ({ children }) => {
 
 To get your  `HASURA_GRAPHQL_API`  in Hasura Cloud, you can get it in the [projects page](https://cloud.hasura.io/projects), click the cog wheel, and you'll find it under "GraphQL API".
 
-Then, the last step would be wrapping the components you want to give access to Apollo and the GraphQL API with the `ApolloProviderWrapper`. Remember that there has to be a `<SignedIn>` component wrapping the `ApolloProviderWrapper`. You can read more about it [here](https://docs.clerk.dev/frontend/react/signedin-and-signedout).
+Then, the last step would be wrapping the components you want to give access to Apollo and the GraphQL API with the `ApolloProviderWrapper`. Remember that there has to be a `<SignedIn>` component wrapping the `ApolloProviderWrapper`. You can read more about it [here](../components/signed-in.md).
 

@@ -75,7 +75,7 @@ Will the custom attributes contain sensitive information that should not be disp
 Do you need to set some metadata from your back-end and have them displayed as read-only on the front-end? Use the **publicMetadata** property.
 
 {% hint style="info" %}
-Looking for inspiration on how to set custom user attributes? Our [Workflow starter repo](https://github.com/clerkinc/clerk-workflow-next) demonstrates storing additional user info like their company, country and whether they accept the terms and conditions.
+Looking for inspiration on how to set custom user attributes? Our [Clerk Widget starter repo](https://github.com/clerkinc/clerk-nextjs-examples) demonstrates storing additional user info like their company, country and whether they accept the terms and conditions.
 {% endhint %}
 
 ## Update user profiles
