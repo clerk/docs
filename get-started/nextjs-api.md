@@ -6,11 +6,11 @@ description: >-
 
 # Get started with Next.js API
 
-## 0. Pre-requirements
+## Pre-requirements
 
 This guide assumes you have properly completed your Next.js [frontend setup](nextjs.md).
 
-## 1. Set CLERK\_API\_KEY
+## Set CLERK\_API\_KEY
 
 Create a file named **.env.local** in your application root if it doesn't exist already. Any variables inside this file will be accessible in your backend with **process.env.VARIABLE\_NAME**.
 
@@ -24,7 +24,7 @@ CLERK_API_KEY=test_asdf1234
 ```
 {% endcode %}
 
-## 2. Use the @clerk/nextjs/api
+## Use the @clerk/nextjs/api
 
 The `@clerk/nextjs` package comes with all the Next.js API methods for using Clerk exported at `@clerk/nextjs/api`.
 
@@ -33,7 +33,7 @@ The `@clerk/nextjs` package comes with all the Next.js API methods for using Cle
 import { ... } from "@clerk/nextjs/api";
 ```
 
-## 3. Create an API route
+## Create an API route
 
 In Next.js, API routes are created by adding a file to the **pages/api** folder.  The filename is used as the API path. New Next.js applications come with a **pages/api/hello.js** file that we can edit.
 
