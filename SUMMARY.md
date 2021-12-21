@@ -8,6 +8,7 @@
 * [Get started with React](get-started/create-react-app.md)
 * [Get started with Next.js](get-started/nextjs.md)
 * [Get started with Next.js API](get-started/nextjs-api.md)
+* [Get started with Gatsby](get-started/get-started-with-gatsby.md)
 
 ## Popular guides
 
