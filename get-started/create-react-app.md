@@ -17,7 +17,7 @@ After following this guide, you should have a working React app complete with:&#
 
 ## Before you start
 
-* You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev). For more information, check out our [Setup your application](../popular-guides/setup-your-application.md) guide.
+You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev). For more information, check out our [Setup your application](../popular-guides/setup-your-application.md) guide.
 
 ## Creating a new React app
 

@@ -45,13 +45,11 @@ yarn add gatsby-plugin-clerk @clerk/clerk-react
 {% endtab %}
 {% endtabs %}
 
-As a next step, we need to set the `CLERK_FRONTEND_API` environment variable. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** copy the **Frontend API Key** field from the Development instance Home page.
-
-Now, let's configure the plugin on `gatsby-config.js.`
-
-For this step, you'll need the `frontendApi` key of your Clerk application. To find it, go to the  [Clerk Dashboard](https://dashboard.clerk.dev), choose the application and the instance you're working on, and locate the key on the **Home** tab.
+As a next step, you'll need the `frontendApi` key of your Clerk application. To find it, go to the  [Clerk Dashboard](https://dashboard.clerk.dev), choose the application and the instance you're working on, and locate the key on the **Home** tab.
 
 ![](../.gitbook/assets/screely-1639502896635.png)
+
+Now, let's configure the plugin on `gatsby-config.js.`
 
 ```bash
 // gatsby-config.js
@@ -98,9 +96,9 @@ export default function IndexPage() {
 ```
 {% endcode %}
 
-And that's it, in just a few steps, we added easy and secure authentication with beautiful and complete user management to your Gatsby app. 🎉  &#x20;
+And that's it, in just a few steps, we added easy and secure authentication with beautiful and complete user management to your Gatsby app.
 
-## Clerk Gatsby starter
+## Clerk Gatsby starter repository
 
 To make it even easier for you, we went ahead and created a [Clerk + Gatsby starter repository](https://github.com/clerkinc/clerk-gatsby-starter). It has Clerk integrated with [Gatsby's default starter](https://github.com/gatsbyjs/gatsby-starter-default).
 
