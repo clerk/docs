@@ -1,14 +1,14 @@
 ---
-description: Learn to install and initialize Clerk in a new Gatsby.js application.
+description: Learn to install and initialize Clerk in a new Gatsby application.
 ---
 
 # Get started with Gatsby
 
 ## Overview
 
-Clerk is the easiest way to add authentication and user management to your [Gatsby.js](https://www.gatsbyjs.com) application. This guide will walk you through the necessary steps to install and use Clerk in a new [Gatsby.js](https://www.gatsbyjs.com) application.&#x20;
+Clerk is the easiest way to add authentication and user management to your [Gatsby](https://www.gatsbyjs.com) application. This guide will walk you through the necessary steps to install and use Clerk in a new [Gatsby](https://www.gatsbyjs.com) application.&#x20;
 
-After following this guide, you should have a working [Gatsby.js](https://www.gatsbyjs.com) app complete with:&#x20;
+After following this guide, you should have a working [Gatsby](https://www.gatsbyjs.com) app complete with:&#x20;
 
 * Fully fledged sign in and sign up flows.
 * Google Social Login.
@@ -19,9 +19,9 @@ After following this guide, you should have a working [Gatsby.js](https://www.ga
 
 You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev). For more information, check out our [Setup your application](../popular-guides/setup-your-application.md) guide.
 
-## Installing Clerk Gatsby Plugin
+## Installing the plugin
 
-Once you have a Gatsby.js app ready, you need to install the [Clerk React SDK](../reference/clerk-react/) and [Clerk Gatsby Plugin](https://www.npmjs.com/package/gatsby-plugin-clerk). This will give you access to our [prebuilt Clerk Components](../main-concepts/clerk-components.md) and [React hooks](../reference/clerk-react/).
+Once you have a Gatsby app ready, you need to install the [Clerk React SDK](../reference/clerk-react/) and [clerk-gatsby-plugin](https://www.gatsbyjs.com/plugins/gatsby-plugin-clerk). This will give you access to our [prebuilt Clerk Components](../main-concepts/clerk-components.md) and [React hooks](../reference/clerk-react/).
 
 {% tabs %}
 {% tab title="npm" %}
@@ -98,7 +98,7 @@ export default function IndexPage() {
 
 And that's it, in just a few steps, we added easy and secure authentication with beautiful and complete user management to your Gatsby app.
 
-## Clerk Gatsby starter repository
+## Clerk + Gatsby starter repository
 
 To make it even easier for you, we went ahead and created a [Clerk + Gatsby starter repository](https://github.com/clerkinc/clerk-gatsby-starter). It has Clerk integrated with [Gatsby's default starter](https://github.com/gatsbyjs/gatsby-starter-default).
 
