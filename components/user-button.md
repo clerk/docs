@@ -89,15 +89,14 @@ export default App;
 
 ## Props
 
-| Name                       | Description                                                                                                                                                                                                                                                                        |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **routing?**               | <p><em>RoutingStrategy</em></p><p>The routing strategy for your pages. Supported values are:</p><ul><li><strong>hash:</strong> (default) Hash based routing.</li><li><strong>path</strong>: Path based routing.</li><li><strong>virtual</strong>: Virtual based routing.</li></ul> |
-| **path?**                  | <p><em>string</em></p><p>The root URL where the component is mounted on.</p>                                                                                                                                                                                                       |
-| **signInUrl?**             | <p><em>string</em></p><p>The full URL or path to navigate to when the "Add another account" button is clicked.</p>                                                                                                                                                                 |
-| **userProfileUrl?**        | <p><em>string</em><br><em></em>The full URL or path leading to the user management interface.</p>                                                                                                                                                                                  |
-| **afterSignOutAllUrl?**    | <p><em>string</em></p><p>The full URL or path to navigate to after a signing out from all accounts (multi-session apps) or the currently active account (single-session apps).</p>                                                                                                 |
-| **afterSignOutOneUrl?**    | <p><em>string</em></p><p>The full URL or path to navigate to after a signing out from currently active account (multisession apps) .</p>                                                                                                                                           |
-| **afterSwitchSessionUrl?** | <p><em>string</em></p><p>Full URL or path to navigate to after a successful account change (multi-session apps).</p>                                                                                                                                                               |
+| Name                       | Description                                                                                                                                                                        |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **showName?**              | <p><em>string</em></p><p>Controls if the user name is displayed next to the user image button.</p>                                                                                 |
+| **signInUrl?**             | <p><em>string</em></p><p>The full URL or path to navigate to when the "Add another account" button is clicked.</p>                                                                 |
+| **userProfileUrl?**        | <p><em>string</em><br><em></em>The full URL or path leading to the user management interface.</p>                                                                                  |
+| **afterSignOutAllUrl?**    | <p><em>string</em></p><p>The full URL or path to navigate to after a signing out from all accounts (multi-session apps) or the currently active account (single-session apps).</p> |
+| **afterSignOutOneUrl?**    | <p><em>string</em></p><p>The full URL or path to navigate to after a signing out from currently active account (multisession apps) .</p>                                           |
+| **afterSwitchSessionUrl?** | <p><em>string</em></p><p>Full URL or path to navigate to after a successful account change (multi-session apps).</p>                                                               |
 
 ## Customization
 
