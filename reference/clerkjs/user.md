@@ -102,7 +102,7 @@ This method returns a `Promise` which resolves to an array of `SessionWithActivi
 
 ### getToken(service, options?)
 
-`getToken(service: JWTService, options?: UserGetTokenOptions) => Promise<string>`
+`getToken(service: JWTService, options?: GetUserTokenOptions) => Promise<string>`
 
 Retrieves the user's token for the given integration service. This method uses a cache so a network request will only be made if the token in memory has expired. The TTL for each token is one minute.
 
