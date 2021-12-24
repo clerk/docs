@@ -33,6 +33,7 @@ By following the steps below, you can validate the session token on your own and
    3. If you are planning to use Clerk on a Serverless/Edge Runtime where JWKs caching is challenging, you can use the instance Public Key as an environment variable. The key can be found in `Dashboard > Settings > API Keys > JWT Verification Key`. Note that the JWT Verification key is not in PEM format, the header and footer are missing, in order to be shorter and single-line for easier setup.
 3. Use the above Public Key to verify the token's signature
 4. Validate that the token is not expired, by checking the `exp` and `nbf` claims
+5. If the `azp` claim exists, validate that equals any of your known Origins that are permitted to generate those tokens. This is an extra security check that we are highly recommend to do
 
 > Steps (3) and (4) should better be done by existing JWT libraries of your favourite language&#x20;
 
