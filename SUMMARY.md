@@ -25,6 +25,7 @@
 * [Build your own UI](popular-guides/build-your-own-ui.md)
 * [Sync data to your backend](popular-guides/sync-data-to-your-backend.md)
 * [Validating session tokens](popular-guides/validating-session-tokens.md)
+* [JWT Templates](popular-guides/jwt-templates.md)
 
 ## main concepts
 
