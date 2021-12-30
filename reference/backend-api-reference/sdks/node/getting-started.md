@@ -96,11 +96,35 @@ export requireSession(handler)
 
 ## Express middleware
 
-```javascript
-import { ClerkExpressMiddleware } from '@clerk/clerk-sdk-node';
+### Optional session
 
-app.use(ClerkExpressMiddleware());
+This strategy allows you to detect whether or not there's an active session, and handle each case separately
+
+```javascript
+import { ClerkExpressWithSession } from '@clerk/clerk-sdk-node';
+
+//
+// Initialize express app
+//
+
+app.use(ClerkExpressWithSession());
 ```
+
+### Required session
+
+This strategy mandates that a session be available.  If not, it returns a 401 (no body) and your handler is never called.
+
+```javascript
+import { ClerkExpressRequireSession } from '@clerk/clerk-sdk-node';
+
+//
+// Initialize express app
+//
+
+app.use(ClerkExpressRequireSession());
+```
+
+
 
 ## Manual authentication
 
