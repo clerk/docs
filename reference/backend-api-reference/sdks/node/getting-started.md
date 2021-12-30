@@ -96,11 +96,87 @@ export requireSession(handler)
 
 ## Express middleware
 
-```javascript
-import { ClerkExpressMiddleware } from '@clerk/clerk-sdk-node';
+For usage with <a href="https://github.com/expressjs/express" target="_blank">Express</a>, this package also exports `ClerkExpressWithSession` (lax) & `ClerkExpressRequireSession` (strict)
+middlewares that can be used in the standard manner:
 
-app.use(ClerkExpressMiddleware());
+```ts
+import { ClerkWithSession } from '@clerk/clerk-sdk-node';
+
+// Initialize express app the usual way
+
+app.use(ClerkWithSession());
 ```
+
+The `ClerkWithSession` middleware will set the Clerk session on the request object as `req.session` and then call the next middleware.
+
+You can then implement your own logic for handling a logged-in or logged-out user in your express endpoints or custom
+middleware, depending on whether your users are trying to access a public or protected resource.
+
+If you want to use the express middleware of your custom `Clerk` instance, you can use:
+
+```ts
+app.use(clerk.expressWithSession());
+```
+
+Where `clerk` is your own instance.
+
+If you prefer that the middleware renders a 401 (Unauthenticated) itself, you can use the following variant instead:
+
+```ts
+import { ClerkExpressRequireSession } from '@clerk/clerk-sdk-node';
+
+app.use(ClerkExpressRequireSession());
+```
+
+### onError option
+
+The Express middleware supports an `options` object as an optional argument.
+The only key currently supported is `onError` for providing your own error handler.
+
+The `onError` function, if provided, should take an `Error` argument (`onError(error)`).
+
+Depending on the return value, it can affect the behavior of the middleware as follows:
+
+- If an `Error` is returned, the middleware will call `next(err)` with that error. If the `err` has a `statusCode` it will indicate to Express what HTTP code the response should have.
+- If anything other than an `Error` is returned (or nothing is returned at all), then the middleware will call `next()` without arguments
+
+The default implementations unless overridden are:
+
+```ts
+// defaultOnError swallows the error
+defaultOnError(error: Error) {
+  console.error(error.message);
+}
+
+// strictOnError returns the error so that Express will halt the request chain
+strictOnError(error: Error) {
+  console.error(error.message);
+  return error;
+}
+```
+
+`defaultOnError` is used in the lax middleware variant and `strictOnError` in the strict variant.
+
+### Express Error Handlers
+
+Not to be confused with the `onError` option mentioned above, Express comes with a default error handler for errors encountered in the middleware chain.
+
+Developers can also implement their own custom error handlers as detailed <a href="https://expressjs.com/en/guide/error-handling.html" target="_blank">here</a>.
+
+An example error handler can be found in the [Express examples folder](https://github.com/clerkinc/clerk-sdk-node/tree/main/examples/express):
+
+```js
+// Note: this is just a sample errorHandler that pipes clerk server errors through to your API responses
+// You will want to apply different handling in your own app to avoid exposing too much info to the client
+function errorHandler(err, req, res, next) {
+  const statusCode = err.statusCode || 500;
+  const body = err.data || { error: err.message };
+
+  res.status(statusCode).json(body);
+}
+```
+
+If you are using the strict middleware variant, the `err` pass to your error handler will contain enough context for you to respond as you deem fit.
 
 ## Manual authentication
 
