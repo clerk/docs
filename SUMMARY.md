@@ -12,7 +12,7 @@
 
 ## Popular guides
 
-* [Setup your application](popular-guides/setup-your-application.md)
+* [Set up your application](popular-guides/setup-your-application.md)
 * [Email and password](popular-guides/email-and-password.md)
 * [Magic links](popular-guides/magic-links.md)
 * [One-time codes (OTP)](popular-guides/passwordless-authentication.md)
