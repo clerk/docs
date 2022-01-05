@@ -96,6 +96,7 @@ export requireSession(handler)
 
 ## Express middleware
 
+
 For usage with <a href="https://github.com/expressjs/express" target="_blank">Express</a>, this package also exports `ClerkExpressWithSession` (lax) & `ClerkExpressRequireSession` (strict)
 middlewares that can be used in the standard manner:
 
@@ -177,6 +178,34 @@ function errorHandler(err, req, res, next) {
 ```
 
 If you are using the strict middleware variant, the `err` pass to your error handler will contain enough context for you to respond as you deem fit.
+
+### Optional session
+
+This strategy allows you to detect whether or not there's an active session, and handle each case separately
+
+```javascript
+import { ClerkExpressWithSession } from '@clerk/clerk-sdk-node';
+
+//
+// Initialize express app
+//
+
+app.use(ClerkExpressWithSession());
+```
+
+### Required session
+
+This strategy mandates that a session be available.  If not, it returns a 401 (no body) and your handler is never called.
+
+```javascript
+import { ClerkExpressRequireSession } from '@clerk/clerk-sdk-node';
+
+//
+// Initialize express app
+//
+
+app.use(ClerkExpressRequireSession());
+```
 
 ## Manual authentication
 
