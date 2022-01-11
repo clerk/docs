@@ -147,6 +147,7 @@
 * [Import users](reference/import-users.md)
 * [Export users and data](reference/export-users-and-data.md)
 * [Webhooks](reference/webhooks.md)
+* [Email & SMS templates](reference/email-and-sms-templates.md)
 
 ## Learning Center
 
