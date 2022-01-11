@@ -68,6 +68,7 @@ In the previous example we glanced over something called "automatically-included
 * `jti`: A random alphanumeric string, used as a unique identifier for the token
 * `exp`: The time after which the token will expire, as a Unix timestamp. Determined using the _"Token lifetime"_ template setting.
 * `nbf`: The time before which the token is considered invalid, as a Unix timestamp.  Determined using the _"Allowed Clock Skew"_ template setting.
+* `azp`: The Origin of the request. If it's not present, this claim is omitted.
 
 These are all standard claims registered by IANA. For generic information about them refer to [RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1).
 
