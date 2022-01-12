@@ -27,3 +27,11 @@ The OAuth Token Wallet allows developers to easily get an active access token fo
 ### Available requests
 
 * **`GET`**` ``/v1/users/:id/oauth_access_tokens/:provider`
+
+## [Tokens](introduction.md#tokens)
+
+Create JSON Web Tokens (JWTs) based on a `jwt_template` defined in your instance.
+
+### Available requests
+
+* **`POST`**` ``/v1/tokens`

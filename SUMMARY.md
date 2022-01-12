@@ -118,6 +118,7 @@
     * [Allowlist Identifiers](reference/backend-api-reference/beta-features/allowlist-identifiers.md)
     * [Instance Settings](reference/backend-api-reference/beta-features/instance-settings.md)
     * [OAuth Token Wallet](reference/backend-api-reference/beta-features/oauth-token-wallet.md)
+    * [Tokens](reference/backend-api-reference/beta-features/tokens.md)
 * [Frontend API](reference/frontend-api-reference/README.md)
   * [Introduction](reference/frontend-api-reference/introduction.md)
   * [Client requests](reference/frontend-api-reference/user-api/README.md)
