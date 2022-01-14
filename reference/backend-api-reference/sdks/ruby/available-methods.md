@@ -2,15 +2,15 @@
 
 The Ruby SDK mirrors the [Backend API](../../). Here's a list of the instance methods on the `Clerk::SDK` and the API endpoint each one corresponds to:
 
-| Instance method on SDK object | API endpoint/prefix                                                        | Methods on resource object           |
-| ----------------------------- | -------------------------------------------------------------------------- | ------------------------------------ |
-| `allowlist_identifiers`       | [/v1/allowlist\_identifiers](../../beta-features/allowlist-identifiers.md) | `all` `create` `delete`              |
-| `allowlist`                   | [/v1/beta\_features/allowlist](../../beta-features/)                       | `update`                             |
-| `clients`                     | [/v1/clients](../../clients.md)                                            | `all` `find` `verify_token`          |
-| `emails`                      | [/v1/emails](../../emails.md)                                              | `create`                             |
-| `sessions`                    | [/v1/sessions](../../sessions.md)                                          | `all` `find` `revoke` `verify_token` |
-| `sms_messages`                | [/v1/sms\_messages](../../sms-messages.md)                                 | `create`                             |
-| `users`                       | [/v1/users](../../users.md)                                                | `all` `find` `update` `delete`       |
+| Instance method on SDK object | API endpoint/prefix                                          | Methods on resource object           |
+| ----------------------------- | ------------------------------------------------------------ | ------------------------------------ |
+| `allowlist_identifiers`       | [/v1/allowlist\_identifiers](../../allowlist-identifiers.md) | `all` `create` `delete`              |
+| `allowlist`                   | [/v1/beta\_features/allowlist](../../beta-features/)         | `update`                             |
+| `clients`                     | [/v1/clients](../../clients.md)                              | `all` `find` `verify_token`          |
+| `emails`                      | [/v1/emails](../../emails.md)                                | `create`                             |
+| `sessions`                    | [/v1/sessions](../../sessions.md)                            | `all` `find` `revoke` `verify_token` |
+| `sms_messages`                | [/v1/sms\_messages](../../sms-messages.md)                   | `create`                             |
+| `users`                       | [/v1/users](../../users.md)                                  | `all` `find` `update` `delete`       |
 
 ## Examples
 

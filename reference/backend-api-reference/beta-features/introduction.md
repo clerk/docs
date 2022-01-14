@@ -10,7 +10,7 @@ Modify some of your instance's settings.
 
 * **`PATCH`**`/v1/beta_features/instance_settings`
 
-## ****[**Allowlist identifiers**](allowlist-identifiers.md)****
+## ****[**Allowlist identifiers**](../allowlist-identifiers.md)****
 
 Setting `restricted_to_allowlist`to `true` in the instance\_settings will block users from signing up, unless you have explicitly added them to the allow list.  You can also notify users if they're allowed to sign up.  This feature is part one of our upcoming "Invitations" feature.
 

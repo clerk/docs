@@ -8,9 +8,9 @@ description: >-
 
 ### Overview
 
-The _allowlist_ beta feature allows you to control who can get access to your application. It basically restricts sign ups only to a certain set of email addresses or phone numbers that you define.&#x20;
+The _allowlist_ feature allows you to control who can get access to your application. It basically restricts sign ups only to a certain set of email addresses or phone numbers that you define.&#x20;
 
-You can either select individual email addresses and phone numbers, or whitelist whole email domains.&#x20;
+You can either select individual email addresses and phone numbers, or whitelist whole email domains.
 
 Whenever you add a single email address or phone number to your allowlist identifiers, you can also choose whether you want to notify this person by an invitation to their email address or phone number respectively.&#x20;
 
@@ -21,7 +21,7 @@ Here's an example. If you add `*@clerk.dev` as your allowlist identifier, it mea
 At the moment, as this is still a beta feature, you can only add allowlist identifiers via requests to the Backend API.
 
 {% hint style="info" %}
-In order to use the allowlist beta feature, it needs to be enabled for your instance. To enable it, use our Backend API to [update your instance settings](instance-settings.md).
+In order to use the allowlist feature, it needs to be enabled for your instance. To enable it, use our Backend API to [update your instance settings](beta-features/instance-settings.md).
 {% endhint %}
 
 ### Available requests

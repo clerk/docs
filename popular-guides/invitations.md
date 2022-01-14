@@ -15,7 +15,7 @@ Invitations expire after a month. If the user clicks on an expired invitation, t
 {% hint style="info" %}
 Invitations are only used to invite users to your application. The application will still be available to everyone even without an invitation.
 
-If you're looking into creating invitation-only applications, please refer to our [allowlist feature](../reference/backend-api-reference/beta-features/allowlist-identifiers.md).
+If you're looking into creating invitation-only applications, please refer to our [allowlist feature](../reference/backend-api-reference/allowlist-identifiers.md).
 {% endhint %}
 
 ## Before you start
@@ -49,7 +49,7 @@ The invitation id can be found in the response of the invitation creation reques
 {% hint style="warning" %}
 Revoking an invitation does **not** prevent the user from signing up on their own.
 
-If you're looking for invitation-only applications, please refer to our [allowlist feature](../reference/backend-api-reference/beta-features/allowlist-identifiers.md).
+If you're looking for invitation-only applications, please refer to our [allowlist feature](../reference/backend-api-reference/allowlist-identifiers.md).
 {% endhint %}
 
 ## Custom flow
