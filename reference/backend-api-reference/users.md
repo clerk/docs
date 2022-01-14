@@ -10,7 +10,7 @@ This object represents a verified user in your instance. &#x20;
 * **`PATCH`**`/v1/users/:id`
 * **`POST`**` ``/v1/users/:id/profile_image`
 * **`DEL`**`  ``/v1/users/:id`
-* **`GET`**`  ``/v1/users/:id/oauth_access_token/`
+* **`GET`**`  ``/v1/users/:id/oauth_access_tokens/:provider`
 
 ### Example user schema
 
