@@ -20,14 +20,6 @@ Setting `restricted_to_allowlist`to `true` in the instance\_settings will block 
 * **`POST`**`/v1/allowlist_identifiers`
 * **`DEL`**` ``/v1/allowlist_identifiers/:id`
 
-## [OAuth Token Wallet](oauth-token-wallet.md)
-
-The OAuth Token Wallet allows developers to easily get an active access token for a user's connected OAuth account, e.g. _Sign In with Google._
-
-### Available requests
-
-* **`GET`**` ``/v1/users/:id/oauth_access_tokens/:provider`
-
 ## [Tokens](introduction.md#tokens)
 
 Create JSON Web Tokens (JWTs) based on a `jwt_template` defined in your instance.

@@ -114,7 +114,6 @@
   * [Beta Features](reference/backend-api-reference/beta-features/README.md)
     * [Introduction](reference/backend-api-reference/beta-features/introduction.md)
     * [Instance Settings](reference/backend-api-reference/beta-features/instance-settings.md)
-    * [OAuth Token Wallet](reference/backend-api-reference/beta-features/oauth-token-wallet.md)
     * [Tokens](reference/backend-api-reference/beta-features/tokens.md)
 * [Frontend API](reference/frontend-api-reference/README.md)
   * [Introduction](reference/frontend-api-reference/introduction.md)
