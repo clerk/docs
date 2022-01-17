@@ -179,7 +179,7 @@ export default function SignUpPage() {
 {% endtab %}
 {% endtabs %}
 
-For more information, see [Routing](../../main-concepts/routing.md).
+For more information, see [Routing](broken-reference).
 
 ### Presenting as a modal
 

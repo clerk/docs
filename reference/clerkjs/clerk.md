@@ -6,7 +6,7 @@ description: The Clerk object is the core of the ClerkJS SDK.
 
 ## Overview
 
-The `Clerk` object is a singleton which can act as the entry point for gaining access to other Clerk resources, like the  active [Client](client.md), [Session](session.md) and [User](user.md) objects. It also includes helper methods for mounting [Clerk Components](../../main-concepts/clerk-components.md) to your pages.
+The `Clerk` object is a singleton which can act as the entry point for gaining access to other Clerk resources, like the  active [Client](client.md), [Session](session.md) and [User](user.md) objects. It also includes helper methods for mounting [Clerk Components](broken-reference) to your pages.
 
 The `Clerk` object is always available via `window.Clerk`.
 
@@ -172,9 +172,9 @@ It is absolutely necessary to call this method before using the `Clerk` object i
 
 {% tabs %}
 {% tab title="Parameters" %}
-| Name        | Description                                                                                                                                                                                                                                           |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **options** | <p><em></em><a href="clerk.md#componentoptions"><em>ComponentOptions</em></a><em></em></p><p>Configuration and options for initializing the <code>Clerk</code> object and <a href="../../main-concepts/clerk-components.md">Clerk Components</a>.</p> |
+| Name        | Description                                                                                                                                                                                                                    |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **options** | <p><em></em><a href="clerk.md#componentoptions"><em>ComponentOptions</em></a><em></em></p><p>Configuration and options for initializing the <code>Clerk</code> object and <a href="broken-reference">Clerk Components</a>.</p> |
 {% endtab %}
 
 {% tab title="Returns" %}
@@ -264,7 +264,7 @@ This method has no return value.
 
 `navigate(to: string) => Promise<unknown>`
 
-Helper method which will use the custom push navigation function of your application to navigate to the provided URL or relative path. See the relevant [section on routing](../../main-concepts/routing.md) for more information on navigation.
+Helper method which will use the custom push navigation function of your application to navigate to the provided URL or relative path. See the relevant [section on routing](broken-reference) for more information on navigation.
 
 {% tabs %}
 {% tab title="Parameters" %}

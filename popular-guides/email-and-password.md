@@ -43,7 +43,7 @@ Instead of email address you could also use phone numbers. All you need to do is
 
 ## Using Clerk Hosted Pages
 
-If you're looking for the fastest way to implement password based authentication, you can leverage [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) for your sign up, sign in, and user profile pages.  You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
+If you're looking for the fastest way to implement password based authentication, you can leverage [Clerk Hosted Pages](broken-reference) for your sign up, sign in, and user profile pages.  You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
 
 You can find your instances sign up and sign in links in the **Home** section of your instance in Clerk Dashboard.&#x20;
 
@@ -101,12 +101,12 @@ window.Clerk.redirectToSignIn();
 {% endtabs %}
 
 {% hint style="info" %}
-Read our detailed [Clerk Hosted Pages guide](../main-concepts/clerk-hosted-pages.md) to learn more.
+Read our detailed [Clerk Hosted Pages guide](broken-reference) to learn more.
 {% endhint %}
 
 ## Using Clerk Components
 
-If you want more control over the look and feel of your sign in and sign up experience, but you don't want to completely build one from scratch, you can use the pre-built [Clerk Components](../main-concepts/clerk-components.md).
+If you want more control over the look and feel of your sign in and sign up experience, but you don't want to completely build one from scratch, you can use the pre-built [Clerk Components](broken-reference).
 
 Clerk provides [\<SignIn />](../components/sign-in/sign-in.md),  [\<SignUp />](../components/sign-up/sign-up.md) and [\<UserProfile />](../components/user-profile/user-profile.md) components that render entire flows. Using these, Clerk will take care of everything from verifying the user's email address to letting your user add 2FA.  Each of these components is also completely customizable via CSS.
 

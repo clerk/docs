@@ -4,7 +4,7 @@ description: >-
   OAuth providers like Google, Facebook, Github and more.
 ---
 
-# Social login (OAuth)
+# Social Login (OAuth)
 
 ## Overview
 
@@ -67,7 +67,7 @@ Finally, copy the `Authorized redirect URI` field and add it to the provider's a
 
 ## Using Clerk Hosted Pages
 
-If you're looking for the fastest way to implement social login based authentication, you can leverage [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) for your sign up, sign in, and user profile pages.  You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
+If you're looking for the fastest way to implement social login based authentication, you can leverage [Clerk Hosted Pages](broken-reference) for your sign up, sign in, and user profile pages.  You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
 
 You can find your instances sign up and sign in links in the **Home** section of your instance in Clerk Dashboard.&#x20;
 
@@ -151,7 +151,7 @@ window.Clerk.redirectToSignIn();
 {% endtabs %}
 
 {% hint style="info" %}
-Read our detailed [Clerk Hosted Pages guide](../main-concepts/clerk-hosted-pages.md) to learn more.
+Read our detailed [Clerk Hosted Pages guide](broken-reference) to learn more.
 {% endhint %}
 
 ## Using Clerk Components
@@ -159,7 +159,7 @@ Read our detailed [Clerk Hosted Pages guide](../main-concepts/clerk-hosted-pages
 👉   [Demo](https://2l5yj.csb.app)\
 👩‍💻   [Example repo ](https://codesandbox.io/embed/github/nikosdouvlis/clerk-custom-social-login/tree/mount-sign-in-sign-up/?fontsize=12\&hidenavigation=1\&theme=dark\&view=editor)
 
-To further customize your sign up and sign in pages, you can use [Clerk Components](../main-concepts/clerk-components.md) to easily add authentication anywhere. Doing so will let you add a custom background, modify CSS, and much more. In fact, Clerk's own sign up and sign in pages follow this approach.
+To further customize your sign up and sign in pages, you can use [Clerk Components](broken-reference) to easily add authentication anywhere. Doing so will let you add a custom background, modify CSS, and much more. In fact, Clerk's own sign up and sign in pages follow this approach.
 
 ![Pre-built Clerk \<SignUp/> component with Google social login, mounted in a NextJS app](../.gitbook/assets/social-signin-mounted-prebuild-signup.png)
 
@@ -246,7 +246,7 @@ function SignUpPage() {
 
 And you're done! 🎉
 
-The above examples don't require any specific routes to be defined, they automatically use the [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) to handle the required OAuth redirects. If you prefer having the mounted \<SignIn/> and \<SignUp/> components handle the OAuth redirects instead, you need to follow some additional steps:
+The above examples don't require any specific routes to be defined, they automatically use the [Clerk Hosted Pages](broken-reference) to handle the required OAuth redirects. If you prefer having the mounted \<SignIn/> and \<SignUp/> components handle the OAuth redirects instead, you need to follow some additional steps:
 
 From the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, navigate to **Instance** ➜  **Settings** **** ➜  **URLs & redirects   ➜  Component URLs**. Change the **Sign Up URL** to `/sign-up` and the **Sign In URL** to `/sign-in`.
 

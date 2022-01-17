@@ -166,7 +166,7 @@ export default function SignInPage() {
 
 ### Override URLs
 
-By default, the `<SignIn/>` component will use the [Clerk Hosted Pages](../../main-concepts/clerk-hosted-pages.md) URL for sign ups. You can override this at runtime, by passing the `signUpURL` property to the component.
+By default, the `<SignIn/>` component will use the [Clerk Hosted Pages](broken-reference) URL for sign ups. You can override this at runtime, by passing the `signUpURL` property to the component.
 
 Similarly, you can override the redirect URL after successful sign ins by providing the `afterSignIn` property to the component.
 

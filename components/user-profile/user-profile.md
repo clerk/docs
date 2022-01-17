@@ -237,7 +237,7 @@ export default function UserProfilePage() {
 {% endtab %}
 {% endtabs %}
 
-For more information, see [Routing](../../main-concepts/routing.md).
+For more information, see [Routing](broken-reference).
 
 ## Props
 

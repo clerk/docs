@@ -21,7 +21,7 @@ You need to create a Clerk Application in your [Clerk Dashboard](https://dashboa
 
 ## Installing the plugin
 
-Once you have a Gatsby app ready, you need to install the [Clerk React SDK](../reference/clerk-react/) and [gatsby-plugin-clerk](https://www.gatsbyjs.com/plugins/gatsby-plugin-clerk). This will give you access to our [prebuilt Clerk Components](../main-concepts/clerk-components.md) and [React hooks](../reference/clerk-react/).
+Once you have a Gatsby app ready, you need to install the [Clerk React SDK](../reference/clerk-react/) and [gatsby-plugin-clerk](https://www.gatsbyjs.com/plugins/gatsby-plugin-clerk). This will give you access to our [prebuilt Clerk Components](broken-reference) and [React hooks](../reference/clerk-react/).
 
 {% tabs %}
 {% tab title="npm" %}

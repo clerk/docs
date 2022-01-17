@@ -41,7 +41,7 @@ If you wish to use Typescript, just add `--typescript` to the commands above. Cl
 
 ## Installing Clerk
 
-Once you have a Next.js app ready, you need to install the [Clerk React SDK](../reference/clerk-react/). This will give you access to our [prebuilt Clerk Components](../main-concepts/clerk-components.md) and React hooks.
+Once you have a Next.js app ready, you need to install the [Clerk React SDK](../reference/clerk-react/). This will give you access to our [prebuilt Clerk Components](broken-reference) and React hooks.
 
 {% tabs %}
 {% tab title="npm" %}
@@ -223,7 +223,7 @@ Visit [https://localhost:3000](https://localhost:3000) again to see your page. I
 And that's all!
 
 {% hint style="info" %}
-By default, your app will use the [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) to display the sign in and sign up flows. Check the documentation of the [\<SignIn/>](../components/sign-in/sign-in.md) and [\<SignUp/>](../components/sign-up/sign-up.md) components to learn how you can mount them directly in your app.
+By default, your app will use the [Clerk Hosted Pages](broken-reference) to display the sign in and sign up flows. Check the documentation of the [\<SignIn/>](../components/sign-in/sign-in.md) and [\<SignUp/>](../components/sign-up/sign-up.md) components to learn how you can mount them directly in your app.
 {% endhint %}
 
 ## Next steps
@@ -233,5 +233,5 @@ You now have a working Next.js + Clerk app.  Going forwards, you can:
 * Check out [`clerk-nextjs-starter`](https://github.com/clerkinc/clerk-nextjs-starter)template 👩‍💻
 * Learn how to [deploy your app to production](../popular-guides/production-setup.md).
 * Check out our in-depth guides for the most usual use cases in the **Popular Guides** section.
-* Learn more about the [Clerk Components](../main-concepts/clerk-components.md) and the [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md).
+* Learn more about the [Clerk Components](broken-reference) and the [Clerk Hosted Pages](broken-reference).
 * Come say hi in our [discord channel](https://discord.com/invite/b5rXHjAg7A) 👋

@@ -2,11 +2,11 @@
 description: Learn how to require a second step during authentication.
 ---
 
-# Multi-factor
+# Multifactor auth (MFA)
 
 ## Overview
 
-Clerk supports multi-factor authentication (MFA), often referred as two-factor authentication or 2FA. By enabling MFA, you can encourage or require your users to perform a second verification check during sign in.
+Clerk supports multifactor authentication (MFA), often referred as two-factor authentication or 2FA. By enabling MFA, you can encourage or require your users to perform a second verification check during sign in.
 
 The term multi-factor comes from the 3 main types of verifications:
 
@@ -55,7 +55,7 @@ Next, let's see how you can actually add multi-factor authentication to your app
 
 ## Using Clerk Hosted Pages
 
-If you're looking for the fastest way to implement passwordless based authentication, you can leverage [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) for your sign up, sign in, and user profile pages.  You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
+If you're looking for the fastest way to implement passwordless based authentication, you can leverage [Clerk Hosted Pages](broken-reference) for your sign up, sign in, and user profile pages.  You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
 
 You can find your instances sign up and sign in links in the **Home** > **Instance configuration** section of your instance in Clerk Dashboard.&#x20;
 
@@ -139,12 +139,12 @@ window.Clerk.redirectToSignIn();
 {% endtabs %}
 
 {% hint style="info" %}
-Read our detailed [Clerk Hosted Pages guide](../main-concepts/clerk-hosted-pages.md) to learn more.
+Read our detailed [Clerk Hosted Pages guide](broken-reference) to learn more.
 {% endhint %}
 
 ## Using Clerk Components
 
-You can leverage [Clerk Components](../main-concepts/clerk-components.md) to easily add multi-factor authentication support to your application.
+You can leverage [Clerk Components](broken-reference) to easily add multi-factor authentication support to your application.
 
 Clerk provides a [\<SignIn />](../components/sign-in/sign-in.md) pre-built component that renders a sign in form and takes care of authenticating users and creating a session.
 
@@ -188,7 +188,7 @@ function SignInPage() {
 {% endtabs %}
 
 {% hint style="info" %}
-If you're interested in more pre-built offerings, you can read more about [Clerk Components](../main-concepts/clerk-components.md).
+If you're interested in more pre-built offerings, you can read more about [Clerk Components](broken-reference).
 {% endhint %}
 
 ## Custom flow

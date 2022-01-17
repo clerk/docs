@@ -60,7 +60,7 @@ That's all you need to do to enable authentication with magic links for your ins
 
 ## Using Clerk Hosted Pages
 
-If you're looking for the fastest way to implement authentication with magic links, you can leverage [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) for your sign up, sign in, and user profile pages. You can set these up on your own domain, and match your website's theme with the Clerk Dashboard to create a seamless experience.&#x20;
+If you're looking for the fastest way to implement authentication with magic links, you can leverage [Clerk Hosted Pages](broken-reference) for your sign up, sign in, and user profile pages. You can set these up on your own domain, and match your website's theme with the Clerk Dashboard to create a seamless experience.&#x20;
 
 You can find your instance's sign up and sign in links in the **Home** section of your instance in Clerk Dashboard.&#x20;
 
@@ -118,12 +118,12 @@ window.Clerk.redirectToSignIn();
 {% endtabs %}
 
 {% hint style="info" %}
-Read our detailed [Clerk Hosted Pages guide](../main-concepts/clerk-hosted-pages.md) to learn more.
+Read our detailed [Clerk Hosted Pages guide](broken-reference) to learn more.
 {% endhint %}
 
 ## Using Clerk Components
 
-You can leverage [Clerk Components](../main-concepts/clerk-components.md) in order to easily add support for magic link based authentication in your application.
+You can leverage [Clerk Components](broken-reference) in order to easily add support for magic link based authentication in your application.
 
 Clerk provides a [\<SignUp />](../components/sign-up/sign-up.md) pre-built component that renders a sign up form to handle user registrations.
 
@@ -301,7 +301,7 @@ function Profile() {
 {% endtabs %}
 
 {% hint style="info" %}
-If you're interested in more pre-built offerings, you can read more about [Clerk Components](../main-concepts/clerk-components.md).
+If you're interested in more pre-built offerings, you can read more about [Clerk Components](broken-reference).
 {% endhint %}
 
 ## Custom flow

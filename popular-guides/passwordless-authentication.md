@@ -45,7 +45,7 @@ That's all you need to do to enable passwordless authentication with One-time co
 
 ## Using Clerk Hosted Pages
 
-If you're looking for the fastest way to implement passwordless based authentication, you can leverage [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) for your sign up, sign in, and user profile pages. You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
+If you're looking for the fastest way to implement passwordless based authentication, you can leverage [Clerk Hosted Pages](broken-reference) for your sign up, sign in, and user profile pages. You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
 
 You can find your instances section of your instance in Clerk Dashboard.&#x20;
 
@@ -103,12 +103,12 @@ window.Clerk.redirectToSignIn();
 {% endtabs %}
 
 {% hint style="info" %}
-Read our detailed [Clerk Hosted Pages guide](../main-concepts/clerk-hosted-pages.md) to learn more.
+Read our detailed [Clerk Hosted Pages guide](broken-reference) to learn more.
 {% endhint %}
 
 ## Using Clerk Components
 
-You can leverage [Clerk Components](../main-concepts/clerk-components.md) in order to easily add support for passwordless authentication in your application.
+You can leverage [Clerk Components](broken-reference) in order to easily add support for passwordless authentication in your application.
 
 Clerk provides a [\<SignUp />](../components/sign-up/sign-up.md) pre-built component that renders a sign up form to handle user registrations.
 
@@ -201,7 +201,7 @@ function SignInPage() {
 {% endtabs %}
 
 {% hint style="info" %}
-If you're interested in more pre-built offerings, you can read more about [Clerk Components](../main-concepts/clerk-components.md).
+If you're interested in more pre-built offerings, you can read more about [Clerk Components](broken-reference).
 {% endhint %}
 
 ## Custom flow

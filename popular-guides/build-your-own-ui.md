@@ -30,5 +30,5 @@ Coming soon...
 
 ## Theming customization
 
-To provide a seamless experiences for your authentication flows using [Clerk Components](../main-concepts/clerk-components.md), you can provide a variety of theming options through your application [instance dashboard](setup-your-application.md#theme) or at the code level using Clerk [theming customization](../components/customization.md#overview) options.
+To provide a seamless experiences for your authentication flows using [Clerk Components](broken-reference), you can provide a variety of theming options through your application [instance dashboard](setup-your-application.md#theme) or at the code level using Clerk [theming customization](../components/customization.md#overview) options.
 

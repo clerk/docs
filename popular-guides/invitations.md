@@ -54,7 +54,7 @@ If you're looking for invitation-only applications, please refer to our [allowli
 
 ## Custom flow
 
-If you're using [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md) or [Clerk Components](broken-reference), invitation links are handled out of the box. However, if you have built custom sign up and sign in flows using [ClerkJS](../reference/clerkjs/) directly, then you'll need to do a little bit of extra work.
+If you're using [Clerk Hosted Pages](broken-reference) or [Clerk Components](broken-reference), invitation links are handled out of the box. However, if you have built custom sign up and sign in flows using [ClerkJS](../reference/clerkjs/) directly, then you'll need to do a little bit of extra work.
 
 The first thing that changes in this case is that during the invitation creation, you will need to specify the url of your sign up page. You can do that by including an additional `redirect_url` parameter in the invitation creation request.
 

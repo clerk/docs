@@ -17,7 +17,7 @@
 * [Magic links](popular-guides/magic-links.md)
 * [One-time codes (OTP)](popular-guides/passwordless-authentication.md)
 * [Social Login (OAuth)](popular-guides/social-login-oauth.md)
-* [Multi-factor](popular-guides/multi-factor-authentication.md)
+* [Multifactor auth (MFA)](popular-guides/multi-factor-authentication.md)
 * [Sign out](popular-guides/popular-guides-sign-out.md)
 * [Multi-session applications](popular-guides/popular-guides-multi-session-applications.md)
 * [Deploy to production](popular-guides/production-setup.md)
@@ -32,11 +32,8 @@
 * [The User object](main-concepts/user-object.md)
 * [Sign in flow](main-concepts/sign-in-flow.md)
 * [Sign up flow](main-concepts/sign-up-flow.md)
-* [Clerk Hosted Pages](main-concepts/clerk-hosted-pages.md)
-* [Clerk Components](main-concepts/clerk-components.md)
 * [Session management](main-concepts/session-management.md)
-* [Session Lifetime](main-concepts/session-lifetime.md)
-* [Routing](main-concepts/routing.md)
+* [Session lifetime](main-concepts/session-lifetime.md)
 * [Auth v2](main-concepts/auth-v2.md)
 
 ## Clerk Components <a href="#components" id="components"></a>

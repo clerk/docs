@@ -84,7 +84,7 @@ Users signing up via an SSO provider, won't have a username. In this case, they 
 
 ### Authentication strategy
 
-This setting controls whether users can sign in using a registered password or their authentication process will rely solely on passwordless means like email magic links and one-time codes.&#x20;
+This setting controls whether users can sign in using a registered password or their authentication process will rely solely on passwordless means like email magic links and one-time codes.
 
 * **Password**: Selecting this option will force users to provide a password during their sign up process. Clerk offer out of the box protection against [weak and leaked passwords](../learning-center/security/password-protection.md). Note that the passwordless option is still available to the users even if password-based is selected. For more information on how to setup password-based authentication, check our [detailed guide](email-and-password.md).
 * **Passwordless**: Send an Email Magic Link or an Email or SMS passcode (OTP) to the user, so that they can verify they own their account. For more information on how to set up passwordless authentication, check our [detailed guide](passwordless-authentication.md).
@@ -95,7 +95,7 @@ Users signing up via an SSO provider, won't have a password even if password-bas
 
 ### Sessions
 
-This setting affects how many accounts users can have in a single browser tab.&#x20;
+This setting affects how many accounts users can have in a single browser tab.
 
 Clerk offers multi-sessions out of the box, just by selecting the respective option in this section. If **Multi-session handling** is selected, then users can sign into multiple accounts and easily switch between them.
 
@@ -119,7 +119,7 @@ In addition to enabling 2-factor authentication in your instance, each user will
 
 ### User model
 
-In this section you can define what personal information must be collected from a user.&#x20;
+In this section you can define what personal information must be collected from a user.
 
 Whatever you select here will affect the resulted [sign up flow](../main-concepts/sign-up-flow.md) since the user will need to supply this additional information. Every field you select here will be editable through the [user's profile](../components/user-profile/user-profile.md).
 
@@ -133,7 +133,7 @@ At the moment, we support the following personal information:
 
 The settings on this section control the look and feel of your application. From here you can control the colors, fonts, spacing and other properties of your application.
 
-These settings affect all [Clerk Components](../main-concepts/clerk-components.md) of your application.
+These settings affect all [Clerk Components](broken-reference) of your application.
 
 The theme settings we provide are:
 
@@ -145,7 +145,7 @@ The theme settings we provide are:
 * **Shadow**: Controls whether the Clerk Components will have shadow or not. Please note that the shadow size is predefined (_0 2px 8px rgba(0, 0, 0, 0.2)_).
 * **Spacing**: Controls whether the spacing between the elements of Clerk Components will be the standard spacing (_1 em_) or compact spacing (_0.75 em_)
 * **Button font, font color and font weight**: These settings control how the button text of the Clerk Components will look like.
-* **Page background color**: Controls the background color of the [Clerk Hosted Pages](../main-concepts/clerk-hosted-pages.md).
+* **Page background color**: Controls the background color of the [Clerk Hosted Pages](broken-reference).
 
 ### Code-side theming
 

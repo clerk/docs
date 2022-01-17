@@ -6,7 +6,7 @@ description: Access the Clerk object inside your components.
 
 ## Overview
 
-The `useClerk` hook accesses the [Clerk](../clerkjs/clerk.md) object. It can be used to retrieve any object in the [ClerkJS](../clerkjs/) SDK. Moreover, it allows access to all of the [Clerk object's methods](../clerkjs/clerk.md#methods), giving you the freedom to build alternatives to any [Clerk Component](../../main-concepts/clerk-components.md).
+The `useClerk` hook accesses the [Clerk](../clerkjs/clerk.md) object. It can be used to retrieve any object in the [ClerkJS](../clerkjs/) SDK. Moreover, it allows access to all of the [Clerk object's methods](../clerkjs/clerk.md#methods), giving you the freedom to build alternatives to any [Clerk Component](broken-reference).
 
 {% hint style="info" %}
 If you want to access a [ClerkJS](../clerkjs/) object directly, like [User](../clerkjs/user.md) or [Session](../clerkjs/session.md), Clerk provides more specific hooks like [useUser](useuser-hook.md) or [useSession](usesession-hook.md). There's probably a more fine-grained [Clerk React](./) hook that you can turn to before resorting to the `useClerk` hook.
