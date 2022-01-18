@@ -180,9 +180,9 @@ Signs in users via OAuth. This is commonly known as Single Sign On (SSO), where 
 
 {% tabs %}
 {% tab title="Parameters" %}
-| Name       | Description                                                                                                                                                                                                                                                                               |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **params** | <p><em>AuthenticateWithRedirectParams</em></p><p>An object that specifies the verification strategy (one of the supported OAuth providers), the callback URL the OAuth provider should redirect to, as well as the URL that the user should be redirected to upon successful sign in.</p> |
+| Name       | Description                                                                                                                                                                                                                                                                                                                                                        |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **params** | <p><em></em><a href="signin.md#authenticatewithredirectparams"><em>AuthenticateWithRedirectParams</em></a><em></em></p><p>An object that specifies the verification strategy (one of the supported OAuth providers), the callback URL the OAuth provider should redirect to, as well as the URL that the user should be redirected to upon successful sign in.</p> |
 {% endtab %}
 
 {% tab title="Returns" %}
