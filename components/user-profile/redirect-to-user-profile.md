@@ -6,7 +6,7 @@ description: Navigate to the user profile URL.
 
 ## Overview
 
-Rendering a `<RedirectToUserProfile/>` component will navigate to the user profile URL which has been configured in your application instance. You can find the configuration in the [Clerk Dashboard](https://dashboard.clerk.dev). Go to your application, select your instance, then go to **Settings** > **URL & redirects**.&#x20;
+Rendering a `<RedirectToUserProfile/>` component will navigate to the user profile URL which has been configured in your application instance. You can find the configuration in the [Clerk Dashboard](https://dashboard.clerk.dev). Go to your application, select your instance, then go to **Paths**.
 
 This component will use the custom `navigate` function from the [`<ClerkProvider/>` component](../../reference/clerk-react/clerkprovider.md) if one is given - otherwise it will trigger a full page reload with the new URL location.
 

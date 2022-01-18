@@ -6,7 +6,7 @@ description: Navigate immediately to the sign-up URL
 
 ## Overview
 
-Rendering a `<RedirectToSignUp/>` component will navigate to the sign up URL which has been configured in your application instance. You can find the configuration in the [Clerk Dashboard](https://dashboard.clerk.dev). Go to your application, select your instance, then go to **Settings** > **URL & redirects**.&#x20;
+Rendering a `<RedirectToSignUp/>` component will navigate to the sign up URL which has been configured in your application instance. You can find the configuration in the [Clerk Dashboard](https://dashboard.clerk.dev). Go to your application, select your instance, then go to **Paths**.&#x20;
 
 The behavior will be just like a server-side (3xx) redirect, and will override the current location in the history stack.
 
