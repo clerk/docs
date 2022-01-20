@@ -29,7 +29,7 @@ The first thing you need to do is enable email address and password-based authen
 
 From the [Clerk Dashboard](https://dashboard.clerk.dev), select your instance and head over to **Authentication** > **Standard Form Fields**.&#x20;
 
-Select **Email address** for your contact information and **Password** as your authentication strategy. For more information on the available settings, check out our [Instance settings guide](broken-reference).
+Select **Email address** for your contact information and **Password** as your authentication strategy.
 
 {% hint style="warning" %}
 Don't forget to click on **Apply changes** at the bottom of the page!
@@ -43,7 +43,7 @@ Instead of email address you could also use phone numbers. All you need to do is
 
 ## Using Clerk Hosted Pages
 
-If you're looking for the fastest way to implement password based authentication, you can leverage [Clerk Hosted Pages](broken-reference) for your sign up, sign in, and user profile pages.  You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
+If you're looking for the fastest way to implement password based authentication, you can leverage Clerk Hosted Pages for your sign up, sign in, and user profile pages.  You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
 
 You can find your instances sign up and sign in links in the **Home** section of your instance in Clerk Dashboard.&#x20;
 
