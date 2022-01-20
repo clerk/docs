@@ -4,10 +4,10 @@
 
 ### **Set CLERK\_API\_KEY**
 
-The Node SDK will pick automatically the `CLERK_API_KEY` vale from your environment **** variables. If your application is using .**env** files, create a file named **.env.local** in your application root if it doesn't exist already and add the above variable.
+The Node SDK will pick automatically the `CLERK_API_KEY` vale from your environment \*\*\*\* variables. If your application is using .**env** files, create a file named **.env.local** in your application root if it doesn't exist already and add the above variable.
 
 {% hint style="warning" %}
-Make sure you update **** this variable with the API key found in your dashboard under **Settings** → **API Keys**.
+Make sure you update \*\*\*\* this variable with the API key found in your dashboard under **Settings** → **API Keys**.
 {% endhint %}
 
 {% code title=".env.local" %}
@@ -20,9 +20,9 @@ For detailed usage to the [official documentation of the Node SDK](https://www.n
 
 **Multi session applications**
 
-If Clerk is running in multi-session mode, it's important to ensure your frontend sends the Session ID that is making the request.&#x20;
+If Clerk is running in multi-session mode, it's important to ensure your frontend sends the Session ID that is making the request.
 
-Our middlewares will look for a query string parameter named **\_clerk\_session\_id.**  If this parameter is not found, the middleware will instead choose the last active session, which may be subject to race conditions and should not be relied on for authenticating actions.
+Our middlewares will look for a query string parameter named **\_clerk\_session\_id.** If this parameter is not found, the middleware will instead choose the last active session, which may be subject to race conditions and should not be relied on for authenticating actions.
 
 ## Next.js middleware
 
@@ -66,7 +66,7 @@ export withSession(handler);
 
 ### Required session
 
-This strategy mandates that a session be available.  If not, it returns a 401 (no body) and your handler is never called.
+This strategy mandates that a session be available. If not, it returns a 401 (no body) and your handler is never called.
 
 {% tabs %}
 {% tab title="Javascript" %}
@@ -96,22 +96,19 @@ export requireSession(handler)
 
 ## Express middleware
 
-
-For usage with <a href="https://github.com/expressjs/express" target="_blank">Express</a>, this package also exports `ClerkExpressWithSession` (lax) & `ClerkExpressRequireSession` (strict)
-middlewares that can be used in the standard manner:
+For usage with [Express](https://github.com/expressjs/express), this package also exports `ClerkExpressWithSession` (lax) & `ClerkExpressRequireSession` (strict) middlewares that can be used in the standard manner:
 
 ```ts
-import { ClerkWithSession } from '@clerk/clerk-sdk-node';
+import { ClerkExpressWithSession } from '@clerk/clerk-sdk-node';
 
-// Initialize express app the usual way
-
-app.use(ClerkWithSession());
+// Initialize Express app the usual way
+// Then add Clerk middleware
+app.use(ClerkExpressWithSession());
 ```
 
-The `ClerkWithSession` middleware will set the Clerk session on the request object as `req.session` and then call the next middleware.
+The `ClerkExpressWithSession` middleware will set the Clerk session on the request object as `req.session` and then call the next middleware.
 
-You can then implement your own logic for handling a logged-in or logged-out user in your express endpoints or custom
-middleware, depending on whether your users are trying to access a public or protected resource.
+You can then implement your own logic for handling a logged-in or logged-out user in your express endpoints or custom middleware, depending on whether your users are trying to access a public or protected resource.
 
 If you want to use the express middleware of your custom `Clerk` instance, you can use:
 
@@ -131,15 +128,14 @@ app.use(ClerkExpressRequireSession());
 
 ### onError option
 
-The Express middleware supports an `options` object as an optional argument.
-The only key currently supported is `onError` for providing your own error handler.
+The Express middleware supports an `options` object as an optional argument. The only key currently supported is `onError` for providing your own error handler.
 
 The `onError` function, if provided, should take an `Error` argument (`onError(error)`).
 
 Depending on the return value, it can affect the behavior of the middleware as follows:
 
-- If an `Error` is returned, the middleware will call `next(err)` with that error. If the `err` has a `statusCode` it will indicate to Express what HTTP code the response should have.
-- If anything other than an `Error` is returned (or nothing is returned at all), then the middleware will call `next()` without arguments
+* If an `Error` is returned, the middleware will call `next(err)` with that error. If the `err` has a `statusCode` it will indicate to Express what HTTP code the response should have.
+* If anything other than an `Error` is returned (or nothing is returned at all), then the middleware will call `next()` without arguments
 
 The default implementations unless overridden are:
 
@@ -162,7 +158,7 @@ strictOnError(error: Error) {
 
 Not to be confused with the `onError` option mentioned above, Express comes with a default error handler for errors encountered in the middleware chain.
 
-Developers can also implement their own custom error handlers as detailed <a href="https://expressjs.com/en/guide/error-handling.html" target="_blank">here</a>.
+Developers can also implement their own custom error handlers as detailed [here](https://expressjs.com/en/guide/error-handling.html).
 
 An example error handler can be found in the [Express examples folder](https://github.com/clerkinc/clerk-sdk-node/tree/main/examples/express):
 
@@ -195,7 +191,7 @@ app.use(ClerkExpressWithSession());
 
 ### Required session
 
-This strategy mandates that a session be available.  If not, it returns a 401 (no body) and your handler is never called.
+This strategy mandates that a session be available. If not, it returns a 401 (no body) and your handler is never called.
 
 ```javascript
 import { ClerkExpressRequireSession } from '@clerk/clerk-sdk-node';
@@ -211,7 +207,7 @@ app.use(ClerkExpressRequireSession());
 
 ### Authenticate a particular session
 
-Highly recommended for authenticating actions. &#x20;
+Highly recommended for authenticating actions.
 
 ```javascript
 import { sessions } from '@clerk/clerk-sdk-node';
