@@ -37,7 +37,7 @@ yarn create next-app
 {% endtab %}
 {% endtabs %}
 
-If you wish to use Typescript, just add `--typescript` to the commands above. Clerk is written in Typescript, so it works out of the box without any extra configuration. For more information, you can reference the [Next.js documentation](https://nextjs.org/docs/api-reference/create-next-app).
+If you wish to use TypeScript, just add `--typescript` to the commands above. Clerk is written in TypeScript, so it works out of the box without any extra configuration. For more information, you can reference the [Next.js documentation](https://nextjs.org/docs/api-reference/create-next-app).
 
 ## Installing Clerk
 
@@ -72,11 +72,8 @@ Now, we need to set the `CLERK_FRONTEND_API` environment variable. Go to the [Cl
 Then, create a file named `.env.local` in your application root. Any variables inside this file with the `NEXT_PUBLIC_` prefix will be accessible in your Next.js code via `process.env.NEXT_PUBLIC_VAR_NAME`. Create a `NEXT_PUBLIC_CLERK_FRONTEND_API` variable and set it to the `Frontend API` you copied earlier:
 
 ```bash
-# Create the .env.local file
-touch .env.local
- 
-# Add the environment variable. Don't forget to
-# replace [your-frontend-api] with the actual Frontend API key
+# Add environment variable to .env.local file
+# Replace [your-frontend-api] with the actual Frontend API key
 echo "NEXT_PUBLIC_CLERK_FRONTEND_API=[your-frontend-api]" > .env.local
 ```
 
@@ -104,9 +101,8 @@ For more details, consult the [Clerk React installation](../reference/clerk-reac
 
 Clerk requires your application to be wrapped in the [`<ClerkProvider/>`](../reference/clerk-react/clerkprovider.md) component. In Next.js, we add this in `pages/_app.js`.&#x20;
 
-{% code title="pages/_app.jsx" %}
+{% code title="pages/_app.js" %}
 ```jsx
-import '../styles/globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
 
 function MyApp({ Component, pageProps }) {
@@ -139,9 +135,8 @@ The easiest way to require authentication before showing a protected page, is to
 
 The following example shows you how to compose our flexible [Control Components](../components/control-components/) to build authentication flows that match your needs. Please note that you don't need to use any additional APIs, everything shown below is just Javascript.
 
-{% code title="pages/_app.tsx" %}
+{% code title="pages/_app.js" %}
 ```jsx
-import '../styles/globals.css';
 import { ClerkProvider, SignedIn, SignedOut, RedirectToSignIn } from '@clerk/nextjs';
 import { useRouter } from 'next/router';
 
@@ -196,8 +191,8 @@ Edit the `pages/index.js` page. We're going to use the `useUser` hook and the `U
 
 {% code title="pages/index.js" %}
 ```jsx
-import styles from "../styles/Home.module.css";
-import { useUser, UserButton } from "@clerk/nextjs";
+import styles from '../styles/Home.module.css';
+import { useUser, UserButton } from '@clerk/nextjs';
 
 export default function Home() {
   // Get the current user's firstName
@@ -228,10 +223,10 @@ By default, your app will use the [Clerk Hosted Pages](broken-reference) to disp
 
 ## Next steps
 
-You now have a working Next.js + Clerk app.  Going forwards, you can:
+You now have a working Next.js + Clerk app.  Going forward, you can:
 
-* Check out [`clerk-nextjs-starter`](https://github.com/clerkinc/clerk-nextjs-starter)template 👩‍💻
-* Learn how to [deploy your app to production](../popular-guides/production-setup.md).
-* Check out our in-depth guides for the most usual use cases in the **Popular Guides** section.
+* Check out the [`clerk-nextjs-starter`](https://github.com/clerkinc/clerk-nextjs-starter)template
 * Learn more about the [Clerk Components](broken-reference) and the [Clerk Hosted Pages](broken-reference).
-* Come say hi in our [discord channel](https://discord.com/invite/b5rXHjAg7A) 👋
+* Read our in-depth guides on the most common use cases in the **Popular Guides** section.
+* When you're ready, learn how to [deploy your app to production](../popular-guides/production-setup.md).
+* Get support or at least say hi in our [Discord channel](https://discord.com/invite/b5rXHjAg7A) 👋
