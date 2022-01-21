@@ -24,6 +24,7 @@
 * [Deploy to production](popular-guides/production-setup.md)
 * [Invitations](popular-guides/invitations.md)
 * [Build your own UI](popular-guides/build-your-own-ui.md)
+* [Making authenticated requests to the backend](popular-guides/making-authenticated-requests-to-the-backend.md)
 * [Sync data to your backend](popular-guides/sync-data-to-your-backend.md)
 * [Validating session tokens](popular-guides/validating-session-tokens.md)
 * [JWT Templates](popular-guides/jwt-templates.md)
