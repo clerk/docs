@@ -10,9 +10,9 @@ The `Web3Wallet` object describes a Web3 wallet public address. The public addre
 
 Web3 public addresses must be verified so that we can make sure they can be assigned to their rightful owners. The verification is completed via Web3 wallet browser extensions such as [Metamask](https://metamask.io). The `Web3Wallet3` object holds all the necessary state around the verification process.&#x20;
 
-The verification process always starts with the signUp.prepareWeb3WalletVerification() or signIn.prepareFirstFactor() method, which will send the public wallet to Clerk Frontend API and will receive a nonce that needs to be signed by the Web3 wallet browser extension.
+The verification process always starts with the [signUp.prepareWeb3WalletVerification()](https://docs.clerk.dev/reference/clerkjs/signup#prepareweb3walletverification) or [signIn.prepareFirstFactor()](https://docs.clerk.dev/reference/clerkjs/signin#preparefirstfactor) method, which will send the public wallet to Clerk Frontend API and will receive a nonce that needs to be signed by the Web3 wallet browser extension.
 
-The second and final step involves an attempt to complete the verification by calling signUp.attemptWeb3WalletVerification() or signIn.attemptFirstFactor() method, passing the generated signature as a parameter.
+The second and final step involves an attempt to complete the verification by calling [signUp.attemptWeb3WalletVerification()](https://docs.clerk.dev/reference/clerkjs/signup#attemptweb3walletverification) or [signIn.attemptFirstFactor()](https://docs.clerk.dev/reference/clerkjs/signin#attemptfactorparams) method, passing the generated signature as a parameter.
 
 ## Attributes
 
