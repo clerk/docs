@@ -172,27 +172,15 @@ An email address, phone number, or username.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="strategy" type="string" %}
- The first step of the strategy to perform, as part of this request. allowed options are:
+&#x20;The first step of the strategy to perform, as part of this request. allowed options are:
 
-\
+\`email\_link\`\
+\`phone\_code\`\
+\`email\_code\`\
+\`password\`
 
-
-\`phone_code`
-
-\
-
-
-\`email_code`
-
-\
-
-
-\`password`
-
-\
-
-
-\`oauth_[provider]`
+\`web3\_metamask\_signature\`\
+\`oauth\_\[provider]\`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="password" type="string" %}
@@ -251,142 +239,34 @@ Optional if the strategy is one of the OAuth providers.  If the OAuth verificati
 
 {% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_ins/:id/prepare_first_factor" method="post" summary="Prepare first factor" %}
 {% swagger-description %}
-Prepares the verification object for the identified 
-
-**Sign in**
-
-.  
-
-****
-
-  This step authenticates that the user is 
-
-_who they say they are._
-
-  Depending on the strategy, this request request will do something different.
-
+Prepares the verification object for the identified **Sign in**.  ****  This step authenticates that the user is _who they say they are._  Depending on the strategy, this request request will do something different.\
 \
-
-
-
-
-\
-
-
 Parameter actions:
 
+If the **strategy** equals **email\_link** then this request will send an email magic link.
+
+If the **strategy** equals **email\_code** then this request will send an email with an OTP code.\
 \
+If the **strategy** equals **phone\_code** then this request will send an SMS with an OTP code.
 
-
-If the 
-
-**strategy**
-
- equals 
-
-**email_code**
-
- then this request will send an email with an OTP code.
-
+If the **strategy** equals **web3\_metamask\_signature** then this request generate a nonce that the **User** needs to sign in the browser using their Web3 Wallet browser extension.\
 \
-
-
-
-
+If the **strategy** equals **oauth\_\[provider]** then this request generate a URL that the **User** needs to visit in order to authenticate.\
 \
-
-
-If the 
-
-**strategy**
-
- equals 
-
-**phone_code**
-
- then this request will send an SMS with an OTP code.
-
-\
-
-
-
-
-\
-
-
-If the 
-
-**strategy**
-
- equals 
-
-**oauth_[provider]**
-
- then this request generate a URL that the 
-
-**User**
-
- needs to visit in order to authenticate.
-
-\
-
-
-
-
-\
-
-
-
-
-\
-
-
-Parameter rules:
-
-\
-
-
-If the 
-
-**strategy**
-
- equals `
-
-**oauth_[provider]**
-
-\` then a 
-
-**redirect_url**
-
- is required, and an 
-
-**action_complete_redirect_url**
-
- is optional.
-
-\
-
-
+Parameter rules:\
+If the **strategy** equals \`**oauth\_\[provider]**\` then a **redirect\_url** is required, and an **action\_complete\_redirect\_url** is optional.\
 
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="strategy" type="string" %}
 The strategy to prepare.  Allowed options are:
 
-\
+\`email\_link\`\
+\`email\_code\`\
+\`phone\_code\`
 
-
-\`email_code`
-
-\
-
-
-\`phone_code`
-
-\
-
-
-\`oauth_[provider]`
+\`web3\_metamask\_signature\`\
+\`oauth\_\[provider]\`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="redirect_url" type="string" %}
@@ -411,76 +291,28 @@ Optional if the strategy is one of the OAuth providers.  If the OAuth verificati
 
 {% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_ins/:id/attempt_first_factor" method="post" summary="Attempt first factor" %}
 {% swagger-description %}
-Attempt the first verification.  Requires the sign in attempt to be identified, and the first factor verification to be prepared, unless you're using a password.
-
+Attempt the first verification.  Requires the sign in attempt to be identified, and the first factor verification to be prepared, unless you're using a password.\
 \
-
-
-
-
+Parameter rules:\
 \
+If the **strategy** equals \`email\_code\` **** or \`phone\_code\` then a **code** is required.
 
+If the **strategy** equals \`password\` then a **password** is required.
 
-Parameter rules:
-
-\
-
-
-
-
-\
-
-
-If the 
-
-**strategy**
-
- equals `email_code` 
-
-****
-
- or `phone_code` then a 
-
-**code**
-
- is required.
-
-\
-
-
-If the 
-
-**strategy**
-
- equals `password` then a 
-
-**password**
-
- is required. Additionally
-
-\
-
-
+If the **strategy** equals \`web3\_metamask\_signature\` then a **signature** is required.\
 
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="strategy" type="string" %}
-The strategy to attempt.  Allowed options are: 
+The strategy to attempt.  Allowed options are:&#x20;
 
-\
+\`email\_link\`\
+\`email\_code\`\
+\`phone\_code\`
 
+\`password\`
 
-\`email_code`
-
-\
-
-
-\`phone_code`
-
-\
-
-
-\`password`
+\`web3\_metamask\_signature\`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="code" type="string" %}
@@ -489,6 +321,10 @@ The code to attempt the verification with.
 
 {% swagger-parameter in="body" name="password" type="string" %}
 The password to attempt the verification with.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="signature" type="string" %}
+Web3 wallet generated signature to be verified. This parameter is required only for web3 verification strategies.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="path" name="id" type="string" required="true" %}

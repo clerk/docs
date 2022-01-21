@@ -37,6 +37,7 @@ Also, the attributes of the SignUp object can basically be grouped into three ca
 | **username**                  | <p><em>string | null</em></p><p>The username supplied to the current sign-up. <br>This attribute is available only <em>if usernames are enabled</em>. Check the available <a href="../../popular-guides/setup-your-application.md#user-management">instance settings</a> for more information.</p>                                                                                                                                                                                                                                                                                            |
 | **emailAddress**              | <p><em>string | null</em></p><p>The email address supplied to the current sign-up.</p><p>This attribute is available only <em>if the selected contact information includes email address</em>. Check the available <a href="../../popular-guides/setup-your-application.md#user-management">instance settings</a> for more information.</p>                                                                                                                                                                                                                                                   |
 | **phoneNumber**               | <p><em>string | null</em></p><p>The phone number supplied to the current sign-up.<br>This attribute is available only <em>if the selected contact information includes phone number</em>. Check the available <a href="../../popular-guides/setup-your-application.md#user-management">instance settings</a> for more information.</p>                                                                                                                                                                                                                                                        |
+| **web3Wallet**                | <p><em>string | null</em></p><p>The Web3 wallet public address supplied to the current sign-up. In <a href="https://docs.metamask.io/guide/common-terms.html#address-public-key">Ethereum</a>, the address is made up of <code>0x</code> + <code>40 hexadecimal characters.</code></p>                                                                                                                                                                                                                                                                                                        |
 | **passwordEnabled**           | <p><em>boolean</em></p><p>The value of this attribute is true if a password was supplied to the current sign-up.</p><p>This attribute is available only <em>if password-based authentication is enabled</em>. Check the available <a href="../../popular-guides/setup-your-application.md#user-management">instance settings</a> for more information.</p>                                                                                                                                                                                                                                    |
 | **firstName**                 | <p><em>string | null</em></p><p>The first name supplied to the current sign-up.<br>This attribute is available only <em>if  name is enabled in personal information</em>. Check the available <a href="../../popular-guides/setup-your-application.md#user-management">instance settings</a> for more information.</p>                                                                                                                                                                                                                                                                        |
 | **lastName**                  | <p><em>string | null</em></p><p>The last name supplied to the current sign-up.<br>This attribute is available only <em>if  name is enabled in personal information</em>. Check the available <a href="../../popular-guides/setup-your-application.md#user-management">instance settings</a> for more information.</p>                                                                                                                                                                                                                                                                         |
@@ -231,6 +232,22 @@ This method returns a `Promise` which resolves with a `SignUp` object. Check the
 {% endtab %}
 {% endtabs %}
 
+### prepareWeb3WalletVerification()
+
+`prepareWeb3WalletVerification() => Promise<SignUpResource>`
+
+Helper method that allows you to initiate a verification process for a web3 wallet public address. It sends the public address to the server and expects a nonce that will need to be signed.
+
+This is equivalent to calling `SignUp.prepareVerification("web3_metamask_signature")`.
+
+### attemptWeb3WalletVerification()
+
+`attemptPhoneNumberVerification() => Promise<SignUpResource>`
+
+Helper method that attempts to complete the verification process for a web3 wallet public address. It basically verifies that the supplied code is the same as the one-time code that was sent to the phone number during the prepare verification phase..
+
+This is equivalent to calling `SignUp.attemptVerification({strategy: "web3_metamask_signature", signature: "..." })`.
+
 ### authenticateWithRedirect(params) <a href="#signinwithoauth" id="signinwithoauth"></a>
 
 `authenticateWithRedirect(params: AuthenticateWithRedirectParams) => Promise<void>`
@@ -250,6 +267,26 @@ _Promise\<void>_
 This method returns a `Promise` which doesn't resolve to any value.
 {% endtab %}
 {% endtabs %}
+
+### authenticateWithMetamask(params)
+
+`authenticateWithMetamask(params: AuthenticateWithMetamaskParams) => void`
+
+Starts a sign up flow that uses the Metamask browser extension to authenticate the user using their public wallet address.
+
+{% tabs %}
+{% tab title="Parameters" %}
+| Name        | Description                                                                         |
+| ----------- | ----------------------------------------------------------------------------------- |
+| redirectUrl | <p><em>string</em></p><p>Full URL or path to navigate after successful sign up.</p> |
+{% endtab %}
+
+{% tab title="Returns" %}
+This method has no return value.
+{% endtab %}
+{% endtabs %}
+
+## Interfaces
 
 ## Interfaces
 
@@ -328,6 +365,7 @@ This method returns a `Promise` which doesn't resolve to any value.
 
 | Value           | Description                                                                                                                                               |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **email\_link** | <p>Specify email code as the verification strategy.</p><p>This applies only to email addresses and is a one-time code sent to that email address.</p>     |
 | **email\_code** | <p>Specify email code as the verification strategy.</p><p>This applies only to email addresses and is a one-time code sent to that email address.</p>     |
 | **phone\_code** | <p>Specify phone code as the verification strategy.</p><p>This applies only to phone number and is a one-time code sent to that phone number via SMS.</p> |
 

@@ -17,6 +17,7 @@
     "profile_image_url": "https://images.clerk.dev/uploaded/img_jlkkcq2786n0.jpeg",
     "primary_email_address_id": "idn_1o4qfa1caa235iei6",
     "primary_phone_number_id": null,
+    "primary_web3_wallet_id": null,
     "password_enabled": true,
     "two_factor_enabled": false,
     "email_addresses": [
@@ -37,6 +38,7 @@
         }
     ],
     "phone_numbers": [],
+    "web3_wallets": [],
     "external_accounts": [
         {
             "object": "google_account",

@@ -58,6 +58,24 @@ This method returns a function that can be used to clean up the registered liste
 {% endtab %}
 {% endtabs %}
 
+### authenticateWithMetamask(params)
+
+`authenticateWithMetamask(params:` AuthenticateWithMetamaskParams`) => void`
+
+Starts an authentication flow that uses the Metamask browser extension to authenticate the user using their public wallet address.
+
+{% tabs %}
+{% tab title="Parameters" %}
+| Name | Description                                                                                                                                                                                                                                 |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|      | <p><em></em><a href="clerk.md#handlemagiclinkverificationparams"><em>AuthenticateWithMetamaskParams</em></a><em></em></p><p>These props allow you to define the URL where the user should be redirected to on successful authentication</p> |
+{% endtab %}
+
+{% tab title="Returns" %}
+This method has no return value.
+{% endtab %}
+{% endtabs %}
+
 ### closeSignIn()
 
 `closeSignIn() => void`
@@ -519,6 +537,14 @@ This method has no return value.
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **selectInitialSession?** | <p><em>(client:</em> <a href="client.md"><em>ClientResource</em></a><em>) =></em> <a href="session.md"><em>SessionResource</em></a> <em>| undefined</em></p><p>This function can be used to set the initial session in <a href="../../popular-guides/popular-guides-multi-session-applications.md">multi-session applications</a>.</p> |
 | **navigate?**             | <p><em>(to: string) => Promise&#x3C;unknown> | unknown</em></p><p>Provide an implementation for the <a href="clerk.md#navigate-to">Clerk.navigate</a> method.</p>                                                                                                                                                                      |
+
+### AuthenticateWithMetamaskParams
+
+
+
+| Property         | Description                                                                                    |
+| ---------------- | ---------------------------------------------------------------------------------------------- |
+| **redirectUrl?** | <p><em>string</em></p><p>Full URL or path to navigate after successful sign in or sign up.</p> |
 
 ### HandleMagicLinkVerificationParams
 
