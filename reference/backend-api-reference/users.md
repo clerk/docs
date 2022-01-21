@@ -24,7 +24,6 @@ This object represents a verified user in your instance. &#x20;
     "profile_image_url": "https://images.clerk.services/clerk/default-profile.svg",
     "primary_email_address_id": "idn_1oBNgISXFbSf5m0uP2Wl0qWtNGX",
     "primary_phone_number_id": null,
-    "primary_web3_wallet_id": null,
     "password_enabled": true,
     "two_factor_enabled": false,
     "email_addresses": [
@@ -54,20 +53,6 @@ This object represents a verified user in your instance. &#x20;
                 "expire_at": 1616461499
             },
             "linked_to": []
-        }
-    ],
-    "web3_wallets": [
-        {
-            "id": "idn_23xyKkHEPpQQk9RzTCJVHsKoOTW",
-            "object": "web3_wallet",
-            "web3_wallet": "0x0000000000000000000000000000000000000000",
-            "verification": {
-                "status": "verified",
-                "strategy": "web3_metamask_signature",
-                "attempts": 1,
-                "expire_at": 1642690572653,
-                "nonce": "foz4bbtrtw283h0bz72r101d9t9uyjdyx0t84krg"
-            }
         }
     ],
     "external_accounts": [],

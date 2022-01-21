@@ -20,6 +20,18 @@ Clerk Components are pre-built UIs that are ready to drop into your application 
 [user-profile.md](user-profile/user-profile.md)
 {% endcontent-ref %}
 
+{% content-ref url="signed-in.md" %}
+[signed-in.md](signed-in.md)
+{% endcontent-ref %}
+
+{% content-ref url="signed-out.md" %}
+[signed-out.md](signed-out.md)
+{% endcontent-ref %}
+
+{% content-ref url="less-than-signinwithmetamaskbutton-greater-than.md" %}
+[less-than-signinwithmetamaskbutton-greater-than.md](less-than-signinwithmetamaskbutton-greater-than.md)
+{% endcontent-ref %}
+
 ## Component Customization
 
 All Clerk Components are customizable to match the look and feel of your application.  Go to the following page to learn more.

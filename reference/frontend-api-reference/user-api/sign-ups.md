@@ -43,7 +43,6 @@ A **Sign up** represents an active sign up.  A **Client** can only have one acti
     "username": null, 
     "email_address": null, 
     "phone_number": null, 
-    "web3_wallet": null,
     "external_account": null, 
     "password_enabled": false, 
     "first_name": null, 
@@ -54,7 +53,6 @@ A **Sign up** represents an active sign up.  A **Client** can only have one acti
     "verifications": {
         "email_address": null,
         "phone_number": null,
-        "web3_wallet": null,
         "external_account": null
     }
 }
@@ -94,7 +92,12 @@ You can optionally pass any of the following parameters as part of the creation 
 
 **Sign Up**
 
- can also be updated at a later stage with a
+ can also be updated at a later stage with a 
+
+\
+
+
+
 
 `PATCH /v1/client/sign_up`
 
@@ -115,14 +118,6 @@ The email address of the new
 **User**
 
 . Must be a valid email address, and be unique.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="web3_wallet" type="string" %}
-The Web3 wallet public address of the new 
-
-**User**
-
-. Must be a valid Etherium address, and be unique.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="username" type="string" %}
@@ -183,7 +178,6 @@ The password of the new
   "username": null,
   "email_address": null,
   "phone_number": null,
-  "web3_wallet": null,
   "external_account": null,
   "password_enabled": false,
   "first_name": null,
@@ -194,7 +188,6 @@ The password of the new
   "verifications": {
     "email_address": null,
     "phone_number": null,
-    "web3_wallet": null,
     "external_account": null
   }
 }
@@ -248,14 +241,6 @@ The email address of the new
 **User**
 
 . Must be a valid email address, and be unique.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="web3_wallet" type="string" %}
-The Web3 wallet public address of the new 
-
-**User**
-
-. Must be a valid Etherium address, and be unique.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="username" type="string" %}
@@ -318,7 +303,6 @@ The password of the new
   "username": null,
   "email_address": "homer@example.com",
   "phone_number": null,
-  "web3_wallet": null,
   "external_account": null,
   "password_enabled": false,
   "first_name": "Homer",
@@ -329,7 +313,6 @@ The password of the new
   "verifications": {
     "email_address": null,
     "phone_number": null,
-    "web3_wallet": null,
     "external_account": null
   }
 }
@@ -365,21 +348,13 @@ You can find more information about the state of the verification under the
 {% swagger-parameter in="body" name="strategy" type="string" %}
 The verification strategy. Can be one of 
 
-`email_link`
-
-, 
-
 `email_code`
 
 , 
 
 `phone_code`
 
-, 
-
-`web3_metamask_signature`
-
- or one of the oauth related strategies such as 
+ or one of the oauth related strategies like 
 
 `oauth_google`
 
@@ -391,7 +366,7 @@ The verification strategy. Can be one of
 
 `oauth_<provider>`
 
-.
+ in general.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="path" name="id" type="string" required="true" %}
@@ -415,7 +390,6 @@ The verification strategy. Can be one of
   "username": null,
   "email_address": "homer@example.com",
   "phone_number": null,
-  "web3_wallet": null,
   "external_account": null,
   "password_enabled": false,
   "first_name": "Homer",
@@ -435,7 +409,6 @@ The verification strategy. Can be one of
       ]
     },
     "phone_number": null,
-    "web3_wallet": null,
     "external_account": null
   }
 }
@@ -482,10 +455,6 @@ A character string that needs to be verified. Usually 6 digits.
 
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="signature" %}
-A Web3 wallet generated signature to be verified. This parameter is required only for web3 verification strategies.
-{% endswagger-parameter %}
-
 {% swagger-response status="200" description="POST /v1/client/sign_up/attempt_verification with strategy email_code and a valid code." %}
 ```
 {
@@ -522,7 +491,6 @@ A Web3 wallet generated signature to be verified. This parameter is required onl
       ]
     },
     "phone_number": null,
-    "web3_wallet": null,
     "external_account": null
   }
 }
