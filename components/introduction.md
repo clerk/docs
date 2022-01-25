@@ -28,8 +28,8 @@ Clerk Components are pre-built UIs that are ready to drop into your application 
 [signed-out.md](signed-out.md)
 {% endcontent-ref %}
 
-{% content-ref url="SignInWithMetamaskButton.md" %}
-[SignInWithMetamaskButton.md](SignInWithMetamaskButton.md)
+{% content-ref url="sign-in-with-metamask-button.md" %}
+[sign-in-with-metamask-button.md](sign-in-with-metamask-button.md)
 {% endcontent-ref %}
 
 ## Component Customization

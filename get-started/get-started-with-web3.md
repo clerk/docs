@@ -134,7 +134,7 @@ The easiest way to require authentication before showing a protected page is to 
 * [`<SignedIn/>`](../components/signed-in.md): Renders its children only when a user is signed in.
 * [`<SignedOut/>`](../components/signed-out.md): Renders its children only when there's no active user.
 
-As a child of `<SignedOut/>`, we will include our [`<SignInWithMetamaskButton/>`](../components/SignInWithMetamaskButton.md) so the user can trigger the Metamask authentication flow.
+As a child of `<SignedOut/>`, we will include our [`<SignInWithMetamaskButton/>`](../components/sign-in-with-metamask-button.md) so the user can trigger the Metamask authentication flow.
 
 The following example shows you how to compose our flexible [Control Components](../components/control-components/) to build authentication flows that match your needs. Please note that you don't need to use any additional APIs, everything shown below is just Javascript.
 
