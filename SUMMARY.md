@@ -55,7 +55,7 @@
 * [\<UserButton />](components/user-button.md)
 * [\<SignedIn>](components/signed-in.md)
 * [\<SignedOut>](components/signed-out.md)
-* [\<SignInWithMetamaskButton/>](components/less-than-signinwithmetamaskbutton-greater-than.md)
+* [\<SignInWithMetamaskButton/>](components/SignInWithMetamaskButton.md)
 * [Customization](components/customization.md)
 * [Control components](components/control-components/README.md)
   * [\<ClerkLoaded>](components/control-components/clerk-loaded.md)
