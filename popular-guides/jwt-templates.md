@@ -8,7 +8,7 @@ description: Customize your authentication tokens and integrate with anyone!
 
 Clerk offers the ability to generate [JSON Web Tokens](https://en.wikipedia.org/wiki/JSON\_Web\_Token) (JWTs) representing users that are signed in to your application.
 
-JWT Templates is a powerful feature that extends this functionality by allowing you to _customize_ the contents of these tokens.This enables you to integrate with any third-party services that support authentication with JWTs.
+JWT Templates is a powerful feature that extends this functionality by allowing you to _customize_ the contents of these tokens. This enables you to integrate with any third-party services that support authentication with JWTs.
 
 ## Overview
 
