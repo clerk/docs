@@ -67,7 +67,7 @@ yarn add @clerk/nextjs
 
 Now, we need to set the `CLERK_FRONTEND_API` environment variable. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** copy the **Frontend API Key** field from the Development instance Home page.
 
-![](../.gitbook/assets/screely-1639502896635.png)
+![Home page with Frontend API key highlighted](<../.gitbook/assets/home - frontend api key highlighted.png>)
 
 Then, create a file named `.env.local` in your application root. Any variables inside this file with the `NEXT_PUBLIC_` prefix will be accessible in your Next.js code via `process.env.NEXT_PUBLIC_VAR_NAME`. Create a `NEXT_PUBLIC_CLERK_FRONTEND_API` variable and set it to the `Frontend API` you copied earlier:
 

@@ -8,7 +8,7 @@ description: Learn how to set up and configure your Clerk application
 
 The first thing you need to do is head over to the [Clerk Dashboard](https://dashboard.clerk.dev) and click on the **Add Application** button. You'll then be presented with a subset of the available authentication settings (no worries, you can always change them later):
 
-![](<../.gitbook/assets/Screenshot 2022-01-24 at 13.24.53.png>)
+![Add new application page](<../.gitbook/assets/add new application page.png>)
 
 An application is comprised of different instances. In particular, once the application is created, you should be able to see the following instances:
 

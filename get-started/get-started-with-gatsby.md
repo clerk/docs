@@ -47,7 +47,7 @@ yarn add gatsby-plugin-clerk @clerk/clerk-react
 
 As a next step, you'll need the `frontendApi` key of your Clerk application. To find it, go to the  [Clerk Dashboard](https://dashboard.clerk.dev), choose the application and the instance you're working on, and locate the key on the **Home** tab.
 
-![](../.gitbook/assets/screely-1639502896635.png)
+![Home page with Frontend API key highlighted](<../.gitbook/assets/home - frontend api key highlighted.png>)
 
 Now, let's configure the plugin on `gatsby-config.js.`
 
