@@ -28,6 +28,7 @@
 * [Sync data to your backend](popular-guides/sync-data-to-your-backend.md)
 * [Validating session tokens](popular-guides/validating-session-tokens.md)
 * [JWT Templates](popular-guides/jwt-templates.md)
+* [SSR Beta](popular-guides/ssr-beta.md)
 
 ## main concepts
 
