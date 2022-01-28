@@ -10,7 +10,7 @@ Clerk offers the capability to override the default system email & SMS messages 
 
 The template editor enables you to change the wording and styling so that it is more consistent with your own branding.
 
-It is also a useful way to translate the content to another target language in the case that English is not your application default locale.
+It is also a useful way to translate the content to another target language in the case that English is not the default locale of your application.
 
 ### Terminology
 
@@ -33,8 +33,8 @@ In this section you can see which templates can be modified at the time of writi
 The following email templates are available for editing:
 
 * Invitation (slug: `invitation`) - email sent to a person invited to join your application
-* Magic link (slug: `magic_link`) - email containing magic link to allow the user to sign in without providing a password
-* Verification code (slug: `verification_code`) - email containing OTP (One Time Password) code for verifying account access
+* Magic link (slug: `magic_link`) - email containing magic link to allow the user to sign in without providing a password, or verify the ownership of an email address
+* Verification code (slug: `verification_code`) - email containing an OTP (One Time Password) code for verifying account access
 
 ![Email template list](../.gitbook/assets/email\_template\_list.png)
 
@@ -43,15 +43,21 @@ The following email templates are available for editing:
 The following SMS templates are available for editing:
 
 * Invitation (slug: `invitation`) - SMS sent to person invited to join your application
-* Verification code (slug: `verification_code`) - SMS containing OTP code for verifying account access
+* Verification code (slug: `verification_code`) - SMS containing an OTP code for verifying account access
 
 ![SMS template list](../.gitbook/assets/sms\_template\_list.png)
 
 ## Before you start
 
-The email editor uses the [Revolvapp](https://imperavi.com/revolvapp) email template editor plugin by Imperavi. To acquaint yourself with the template markup syntax, please consult the corresponding [documentation page](https://imperavi.com/revolvapp/docs/syntax/quick-start). As you will see, the template markup is an HTML-like language and each type of node supports its own set of attributes which control its behavior. A lot of the attributes are borrowed from HTML itself.
+### Revolvapp WYSIWYG email editor plugin
+
+The email editor uses the [Revolvapp](https://imperavi.com/revolvapp) email template editor plugin by Imperavi. To acquaint yourself with the template markup syntax, please consult the corresponding [documentation page](https://imperavi.com/revolvapp/docs/syntax/quick-start).
+
+As you will see, the template markup is an HTML-like language and each type of node supports its own set of attributes which control its behavior. A lot of the attributes are borrowed from HTML itself.
 
 Revolvapp allows the user to design the template using blocks and under the hood transpiles its markup to table-based HTML so that the resulting email renders consistently across email clients.
+
+### Handlebars templating language
 
 Both the email and SMS editor use the [Handlebars](https://handlebarsjs.com) templating language for the interpolation of dynamic values into your content via variables. It is a well established language, especially popular in the Javascript ecosystem, which has been adopted by leading Email Service Providers (ESPs) for templating as well.
 
@@ -87,23 +93,23 @@ Templates are editable:
 
 This allows you freely test the templating feature on your development environment so as to see if it fits your individual use case, before deciding on a plan upgrade.
 
-![Email template editor UI](../.gitbook/assets/email\_template\_editor.png)
+![Email template editor](../.gitbook/assets/email\_template\_editor.png)
 
-![SMS template editor UI](../.gitbook/assets/sms\_template\_editor.png)
+![SMS template editor](<../.gitbook/assets/sms\_template\_editor (1).png>)
 
 ### Preview
 
 The Preview operation enables you to get an idea of how the template will render when sent to the the recipient. This is useful for sampling your changes without actually having to commit them first.
 
-To trigger a preview, you can click on the **Preview** button at the bottom right of the screen.
+To trigger a preview, you can click on the **Preview Icon** at the bottom left of the screen (see screenshot below).
 
 In email templates, the `AppLogo` and `Copyright` sections will be replaced with their actual markup in this view. For both emails & SMS, the template variables will be replaced with sample values.
 
-Previewing is available on instances where templates are editable, based on your subscription plan.
+Previewing is available for all templates.
 
-![Email template preview](../.gitbook/assets/email\_template\_preview.png)
+![Email template preview](../.gitbook/assets/email\_preview.png)
 
-![SMS template preview](../.gitbook/assets/sms\_template\_preview.png)
+![SMS template preview](../.gitbook/assets/sms\_preview.png)
 
 ### Reset
 
@@ -115,23 +121,27 @@ Template reset is applicable to editable templates.
 
 ### Revert
 
-Even if you override a Clerk-provided template with your own customizations, you can always roll back to the system default template version by clicking on the **Revert** button.
+Even if you override a Clerk-provided template with your own customizations, you can always roll back to the system default template version by clicking on the **Revert Icon** (see screenshot below).
 
 This can be useful if you want to start over from scratch.
 
 Note: your current changes will be lost so please make sure you indeed wish to discard them prior to reverting. You will be asked to confirm your choice to prevent an unintentional action.
 
-![Revert prompt](../.gitbook/assets/revert\_prompt.png)
+![Revert to default template](../.gitbook/assets/revert\_email.png)
 
 ### Copy to another instance of the same application
 
-If your application has more than one instance then you will also have the option of copying the current state of the editor to another instance.
+If your application has more than one instance, then you will also have the option of copying the current state of the editor to another instance.
 
 This is especially useful for promoting changes from your **development** or **staging** environment to **production**, after you have tested them.
 
-To copy to another instance you will need to first click on the **Copy to** button and then from the sub-menu select the target instance you.
+To copy to another instance you will need to first click on the **Copy to** icon (see screenshot below) and then from the sub-menu select the target instance.
 
 Since this change will override the current state of the template on the target instance, you will be  asked to confirm your choice.
+
+Note that the copy icon will not appear if there are no other instances available on your application.
+
+![Copy to another instance dropdown](<../.gitbook/assets/image (8).png>)
 
 ![Copy prompt](../.gitbook/assets/copy\_prompt.png)
 
@@ -144,7 +154,7 @@ The email WYSIWYG editor is split into two parts:
 
 Since the toolbar exposes quite a few tools, we will examine them in more detail in the following sub-sections.
 
-![](../.gitbook/assets/email\_toolbar\_textarea.png)
+![Email editor toolbar & text area](../.gitbook/assets/email\_editor.png)
 
 ### Toolbar controls
 
@@ -165,7 +175,7 @@ Shows how the email will render on a mobile device with a portrait aspect ratio.
 
 Click on the mobile view toggle again to return to desktop view.
 
-![The email editor in mobile view mode](../.gitbook/assets/mobile\_view.png)
+![The email editor in mobile view mode](<../.gitbook/assets/mobile\_view (1).png>)
 
 #### HTML mode toggle
 
@@ -175,7 +185,7 @@ For this tool to appear you will need to unselect any currently selected block.
 
 To exit HTML / source mode, click on the toggle again.
 
-![The email editor in HTML view mode](../.gitbook/assets/html\_view.png)
+![The email editor in html view mode](../.gitbook/assets/html\_view.png)
 
 #### Background button
 
@@ -241,7 +251,7 @@ Note: currently only providing a link to image is supported.
 
 It is possible to configure the image width and Alt Tex, as well as turn it into a link.
 
-![Image options - note that further configuration is available through the settings](<../.gitbook/assets/image (8).png>)
+![Image options - note that further configuration is available through the settings](<../.gitbook/assets/image (8) (1).png>)
 
 ### How to make buttons & links inherit your theme colors
 
@@ -259,7 +269,7 @@ Since you may not want all buttons or links to have this behavior, you will need
 
 These classes can be added as attributes to the Revolvapp template markup after toggling the editor to HTML (i.e. source) mode.
 
-![cl-branded-button class being used to mark that a button inherits your theme colors](../.gitbook/assets/branded\_classes.png)
+![cl-branded-button class being used to mark that a button inherits your theme colors](../.gitbook/assets/cl-branded-button.png)
 
 ### Text area controls
 
@@ -283,4 +293,4 @@ When you are satisfied with your edits you can persist them by clicking on the *
 
 To insert a variable at the current cursor position, you can click on the corresponding variable badge in the variable widget that is located adjacent to the text area.
 
-![SMS template editor - variable widget](../.gitbook/assets/sms\_variable\_widget.png)
+![SMS template editor - variable widget](../.gitbook/assets/variable\_widget.png)
