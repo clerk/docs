@@ -19,6 +19,10 @@ We approached SSR with two high-level goals:
 
 This documentation is intended for developers who have a baseline understanding of Clerk’s functionality. If you’re new to Clerk and need SSR, don’t worry! We recommend trying our [Get Started with Next.js](https://docs.clerk.dev/get-started/nextjs) guide first.
 
+### Demo repo
+
+See SSR in action with our [demo repo](https://github.com/clerkinc/clerk-nextjs-ssr-demo) - the only setup step is configure `.env.local`  with your settings from your own Clerk instance.
+
 ### NPM package
 
 SSR support is available by installing `@clerk/nextjs@next` with either `npm` or `yarn`.
