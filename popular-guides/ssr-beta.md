@@ -157,6 +157,12 @@ const Page = () => {
 
 The Session resource works identically to the User resource. There is a corresponding `{loadSession: true}` flag as well as a `useSession()` with the same signature.
 
+### Typescript 4.6
+
+For better type support, we highly recommend updating to [Typescript 4.6](https://devblogs.microsoft.com/typescript/announcing-typescript-4-6-beta/), which is also in public beta.
+
+For typed applications, our new hooks benefit significantly from Typescript's new [Control Flow Analysis for Dependent Parameters](https://devblogs.microsoft.com/typescript/announcing-typescript-4-6-beta/#control-flow-analysis-for-dependent-parameters).
+
 ### Upgrading from @2 to @next
 
 If you are upgrading an existing application, you will need to make the following changes
