@@ -42,11 +42,11 @@ Critically, **Clerk uses stateless JWTs to authenticate SSR in under 1 milliseco
 ```jsx
 // Next.js
 import { withServerSideAuth } from "@clerk/nextjs/ssr";
+
 export const getServerSideProps = withServerSideAuth(
   async (context) => {
     const { userId, sessionId, getToken } = context.auth;
-
-		// Load any data your application needs and pass to props
+    // Load any data your application needs and pass to props
     return { props: {} };
   }
 );
@@ -75,18 +75,18 @@ export default MyApp;
 Now, `useAuth()` can be used throughout the application during SSR. Since we updated `<ClerkProvider>`, the `isLoading` state will be `false` during SSR. It’s only set to `true` during client-side rendering.
 
 ```jsx
-import { useAuth } from "@clerk/nextjs";
+import { useAuth } from '@clerk/nextjs';
 
 const Page = () => {
-	const { isLoading, userId, sessionId, getToken } = useAuth();
+  const { isLoading, userId, sessionId, getToken } = useAuth();
+  
+  // Handle these cases in case the user signs out while on the page.
+  if (isLoading || !userId) {
+    return null;
+  }
 
-	// Handle these cases in case the user signs out while on the page.
-	if(isLoading || !userId){
-		return null
-	}
-
-	return <div>Hello, {userId}</div>
-}
+  return <div>Hello, {userId}</div>;
+};
 ```
 
 Note: if you’re currently using `useSession()` only for `getToken`, we recommend switching to `useAuth()`.
@@ -101,15 +101,15 @@ In practice, we expect developers will do this when they want to render user pro
 
 ```jsx
 // Next.js
-import { withServerSideAuth } from "@clerk/nextjs/ssr";
-export const getServerSideProps = withServerSideAuth(async (context) => {
-		const { user } = context;
+import { withServerSideAuth } from '@clerk/nextjs/ssr';
 
-		// Load any data your application needs and pass to props
+export const getServerSideProps = withServerSideAuth(
+  context => {
+    const { user } = context;
+    // Load any data your application needs and pass to props
     return { props: {} };
   },
-  // These flags can be set independently
-  { loadUser: true }
+  { loadUser: true },
 );
 ```
 
@@ -121,8 +121,8 @@ _If you’ve already done this for `useAuth()` above, no further changes are nee
 
 ```jsx
 // Next.js
-import type { AppProps } from "next/app";
-import { ClerkProvider } from "@clerk/nextjs";
+import type { AppProps } from 'next/app';
+import { ClerkProvider } from '@clerk/nextjs';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -135,22 +135,22 @@ function MyApp({ Component, pageProps }: AppProps) {
 export default MyApp;
 ```
 
-Now, `useAuth()` can be used throughout the application during SSR. Since we updated `<ClerkProvider>`, the `isLoading` state will be `false` during SSR. It’s only set to `true` during client-side rendering.
+Now, `useUser()` can be used throughout the application during SSR. Since we updated `<ClerkProvider>`, the `isLoading` state will be `false` during SSR. It’s only set to `true` during client-side rendering.
 
-If you’ve used Clerk in the past, you’ll notice the the addition of the `isLoading` and `isSignedIn` states. If the `loadUser` or flags are passed to the data-loader, the objects will be preloaded during SSR.
+If you’ve used Clerk in the past, you’ll notice the the addition of the `isLoading` and `isSignedIn` states. If the `loadUser` or `loadSession` flags are passed to the data-loader, the objects will be preloaded during SSR.
 
 ```jsx
-import { useAuth } from "@clerk/nextjs";
+import { useUser } from '@clerk/nextjs';
 
 const Page = () => {
-	const { isLoading, isSignedIn, user } = useUser();
-	
-	if(isLoading || !isSignedIn){
-		return null;
+  const { isLoading, isSignedIn, user } = useUser();
+
+  if (isLoading || !isSignedIn) {
+    return null;
   }
 
-	return <>Hello, {user.firstName}</>
-}
+  return <>Hello, {user.firstName}</>;
+};
 ```
 
 ### Retrieving the Session resource during SSR
