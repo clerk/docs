@@ -50,7 +50,7 @@ To add the JWT secret locally with Hasura Core, you need to set both the `HASURA
 
 ```yaml
 HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
-HASURA_GRAPHQL_JWT_SECRET: '{"jwk_url":"<YOUR_FRONTEND_API>/.well-known/jwks.json"}'.
+HASURA_GRAPHQL_JWT_SECRET: '{"jwk_url":"https://<YOUR_FRONTEND_API>/.well-known/jwks.json"}'.
 ```
 
 Replace `<YOUR_FRONTEND_API>` with the Frontend API value from your Clerk instance dashboard.
