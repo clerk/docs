@@ -35,7 +35,7 @@ Once you have a OAuth client ID created, click on the newly created ID under **O
 
 ![Retrieving the App ID and App Secret](../../.gitbook/assets/screely-1628401739107.png)
 
-Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**. Click the **Manage connection** button under the Facebook provider, select **Custom profile** and paste the values you obtained during the previous step.
+Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**. Click the **Manage connection** button under the Facebook provider and paste the values you obtained during the previous step.
 
 ![Adding the Valid OAuth Redirect URI](../../.gitbook/assets/screely-1628402032599.png)
 

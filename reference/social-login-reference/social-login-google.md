@@ -31,7 +31,7 @@ Once you have a OAuth client ID **** created, click on the newly created ID unde
 
 ![Copying the Client ID and Client Secret](../../.gitbook/assets/screely-1628372330828.png)
 
-Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**.  Click the **Manage connection** button under the Google provider, select **Custom profile** and paste the values you obtained during the previous step.
+Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**.  Click the **Manage connection** button under the Google provider and paste the values you obtained during the previous step.
 
 Before you close the **Manage credentials** modal, copy the **Authorized redirect URI.** Add it to the Google console dashboard by creating a new **Authorized redirect URI** as shown in the screenshot above.&#x20;
 

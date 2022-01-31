@@ -29,7 +29,7 @@ First, you need to create a new TikTok app. Go to the [TikTok for developers](ht
 
 Add an icon and a name for your new project and hit **Start**.&#x20;
 
-You'll get redirected to the app creation form. Notice that you need to fill the **Callback URL** and **Redirect domain** fields. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**. Click the **Manage connection** button under the Github provider, select **Custom profile** and copy the **Authorized redirect URI**.&#x20;
+You'll get redirected to the app creation form. Notice that you need to fill the **Callback URL** and **Redirect domain** fields. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**. Click the **Manage connection** button under the Github provider and copy the **Authorized redirect URI**.&#x20;
 
 ![Filling the Callback URL and Redirect domain fields](../../.gitbook/assets/screely-1628431072612.png)
 

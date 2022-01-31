@@ -9,7 +9,7 @@ To make the development flow as smooth as possible, Clerk uses preconfigured sha
 For production instances, you will need to generate your own Client ID and Client secret using your Twitch account.
 
 {% hint style="info" %}
-The purpose of this guide is to help you create a Github account and a Github OAuth app - if you're looking for step-by-step instructions using Clerk to add social login (OAuth) to your application, follow the [Social login (OAuth)](../../popular-guides/social-login-oauth.md) guide.
+The purpose of this guide is to help you create a Twitch account and a Twitch OAuth app - if you're looking for step-by-step instructions using Clerk to add social login (OAuth) to your application, follow the [Social login (OAuth)](../../popular-guides/social-login-oauth.md) guide.
 {% endhint %}
 
 ## Before you start
@@ -23,7 +23,7 @@ First, you need to register a new OAuth Twitch app at the [Twitch Developers Con
 
 ![](../../.gitbook/assets/twitch-create-oauth-app-1.png) ![Creating an OAuth Twitch app](../../.gitbook/assets/twitch-create-oauth-app-2.png)
 
-Set a name and the a category for your new application. You also need to add the **OAuth Redirect URLs.** Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**. Click the **Manage connection** button under the Twitch provider, select **Custom profile** and copy the **Authorized redirect URI**. Paste the value into the **OAuth Redirect URLs** input and click create.
+Set a name and the a category for your new application. You also need to add the **OAuth Redirect URLs.** Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**. Click the **Manage connection** button under the Twitch provider and copy the **Authorized redirect URI**. Paste the value into the **OAuth Redirect URLs** input and click create.
 
 Once all the above are complete, copy the **Client ID** and **Client Secret.** Go back to the Clerk Dashboard and paste them into the respective fields.
 
