@@ -337,11 +337,11 @@ Bearer [YOUR_API_KEY]
 Retrieve a valid (i.e. non-expired) OAuth access token for a user that has previously authenticated with a particular OAuth provider.
 {% endswagger-description %}
 
-{% swagger-parameter in="path" name="provider" type="string" %}
+{% swagger-parameter in="path" name="provider" type="string" required="true" %}
 The ID of the OAuth provider (e.g. oauth_google).
 {% endswagger-parameter %}
 
-{% swagger-parameter in="path" name="id" type="string" %}
+{% swagger-parameter in="path" name="id" type="string" required="true" %}
 The user ID.
 {% endswagger-parameter %}
 

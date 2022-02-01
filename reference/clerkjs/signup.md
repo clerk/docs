@@ -372,7 +372,7 @@ This method has no return value.
 
 ### OAuthStrategy
 
-`oauth_facebook | oauth_github | oauth_google | oauth_hubspot | oauth_tiktok | oauth_gitlab | oauth_discord | oauth_twitter | oauth_twitch`
+`oauth_facebook | oauth_github | oauth_google | oauth_hubspot | oauth_tiktok | oauth_gitlab | oauth_discord | oauth_twitter | oauth_twitch | oauth_linkedin`
 
 | Value               | Description                                          |
 | ------------------- | ---------------------------------------------------- |
@@ -385,3 +385,4 @@ This method has no return value.
 | **oauth\_discord**  | Specify Discord as the verification OAuth provider.  |
 | **oauth\_twitter**  | Specify Twitter as the verification OAuth provider.  |
 | **oauth\_twitch**   | Specify Twitch as the verification OAuth provider.   |
+| **oauth\_linkedin** | Specify LinkedIn as the verification OAuth provider. |

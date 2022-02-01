@@ -145,6 +145,7 @@
   * [Twitch](reference/social-login-reference/twitch.md)
   * [Github](reference/social-login-reference/github.md)
   * [GitLab](reference/social-login-reference/gitlab.md)
+  * [LinkedIn](reference/social-login-reference/linkedin.md)
   * [HubSpot](reference/social-login-reference/hubspot.md)
 * [Import users](reference/import-users.md)
 * [Export users and data](reference/export-users-and-data.md)
