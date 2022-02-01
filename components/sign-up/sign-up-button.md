@@ -29,7 +29,7 @@ import { SignUpButton } from "@clerk/nextjs";
 ### Custom button, open a modal
 
 ```xml
-<SignUpButton mode="modal">
+<SignUpButton modal>
   <button className="btn">
     Sign up
   </button>
@@ -38,8 +38,9 @@ import { SignUpButton } from "@clerk/nextjs";
 
 ## Props
 
-| **modal**           | <p><em>"redirect" | "modal"</em></p><p>If mode is set to "redirect", the button will redirect to the sign-up page. If mode is set to "modal", the button will open a modal instead.<br><br>Defaults to "redirect"</p>                                                                   |
+| Name                | Description                                                                                                                                                                                                                                                                             |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **modal**           | <p><em>boolean</em><br><em></em>If true, the button will open a modal instead of redirecting.</p>                                                                                                                                                                                       |
 | **redirectUrl?**    | <p><em>string</em></p><p>Full URL or path to navigate to after successful sign in or sign up. Use this instead of setting <code>afterSignInUrl</code> and <code>afterSignUpUrl</code> to the same value.<br><br>To return to the same URL, set to <code>window.location.href</code></p> |
 | **afterSignInUrl?** | <p><em>string</em></p><p>The full URL or path to navigate to after a successful sign in.<br><br>Defaults to the Sign-in URL on the Paths page of your Dashboard.</p>                                                                                                                    |
 | **afterSignUpUrl?** | <p><em>string</em></p><p>The full URL or path to navigate to after a successful sign up.<br><br>Defaults to the Sign-up URL on the Paths page of your Dashboard.</p>                                                                                                                    |
