@@ -38,8 +38,20 @@ Keep in mind that you cannot create an invitation if there is already one for th
 The email address the invitation will be sent to.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="public_metadata" type="object" %}
+Metadata that will be attached to the newly created invitation. The value of this property should be a well-formed JSON object.
+
+Once the user accepts the invitation and signs up, these metadata will end up in the user's public metadata.
+{% endswagger-parameter %}
+
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
 Bearer [YOUR_API_KEY]
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="redirect_url" type="string" %}
+Optional URL which specifies where to redirect the user once they click the invitation link.
+
+This is only required if you have implemented a [custom flow](../../popular-guides/invitations.md#custom-flow) and you're not using Clerk Hosted Pages or Clerk Components.
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="The new invitation was created." %}

@@ -52,6 +52,18 @@ Revoking an invitation does **not** prevent the user from signing up on their ow
 If you're looking for invitation-only applications, please refer to our [allowlist feature](../reference/backend-api-reference/allowlist-identifiers.md).
 {% endhint %}
 
+## Invitation metadata
+
+Invitations can optionally carry metadata that will eventually end up in the created user once they sign up. The metadata must be a well-formed JSON object.
+
+In order to add metadata to an invitation, you can use the `public_metadata` property when the invitation is created:
+
+```
+curl https://api.clerk.dev/v1/invitations -X POST -d '{"email_address": "email@example.com", "public_metadata": {"user_type": "loyalty"}}' -H "Authorization:Bearer $YOUR_API_KEY" -H 'Content-Type:application/json'
+```
+
+Once an invited user signs up using the invitation link, the invitation metadata will end up in the user's `public_metadata`. For more information on a user's metadata, please refer to [Custom User Metadata](../main-concepts/user-object.md#custom-user-metadata).
+
 ## Custom flow
 
 If you're using [Clerk Hosted Pages](broken-reference) or [Clerk Components](broken-reference), invitation links are handled out of the box. However, if you have built custom sign up and sign in flows using [ClerkJS](../reference/clerkjs/) directly, then you'll need to do a little bit of extra work.
