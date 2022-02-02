@@ -121,11 +121,12 @@ Returns a `Promise` that resolves to a `string`. The string is the user's sessio
 
 ### GetSessionTokenOptions
 
-| Property             | Description                                                                                           |
-| -------------------- | ----------------------------------------------------------------------------------------------------- |
-| **leewayInSeconds?** | <p><em>number</em></p><p>The number of seconds that we allow the token to be cached.</p>              |
-| **template?**        | <p><em>string</em></p><p>The name of the JWT template to generate a new token from.</p>               |
-| **throwOnError?**    | <p><em>boolean</em></p><p>Whether to throw an error or return an empty string, if an error occur.</p> |
+| Property             | Description                                                                                                                                                                                                                                          |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **leewayInSeconds?** | <p><em>number</em></p><p>The number of seconds that we allow the token to be cached.</p>                                                                                                                                                             |
+| **template?**        | <p><em>string</em></p><p>The name of the JWT template to generate a new token from.</p>                                                                                                                                                              |
+| **throwOnError?**    | <p><em>boolean</em></p><p>Whether to throw an error or return an empty string, if an error occurs.</p>                                                                                                                                               |
+| **skipCache?**       | <p><em>boolean</em><br>Whether to skip the cache lookup and force a call to the server instead, even within the TTL. Useful if the token claims are time-sensitive or depend on data that can be updated (e.g. user fields).<br>(default: false)</p> |
 
 ## Types
 
