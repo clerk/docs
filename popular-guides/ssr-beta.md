@@ -72,16 +72,16 @@ function MyApp({ Component, pageProps }: AppProps) {
 export default MyApp;
 ```
 
-Now, `useAuth()` can be used throughout the application during SSR. Since we updated `<ClerkProvider>`, the `isLoading` state will be `false` during SSR. It’s only set to `true` during client-side rendering.
+Now, `useAuth()` can be used throughout the application during SSR. Since we updated `<ClerkProvider>`, the `isLoaded` state will be `false` during SSR. It’s only set to `true` during client-side rendering.
 
 ```jsx
 import { useAuth } from '@clerk/nextjs';
 
 const Page = () => {
-  const { isLoading, userId, sessionId, getToken } = useAuth();
+  const { isLoaded, userId, sessionId, getToken } = useAuth();
   
   // Handle these cases in case the user signs out while on the page.
-  if (isLoading || !userId) {
+  if (isLoaded || !userId) {
     return null;
   }
 
@@ -135,17 +135,17 @@ function MyApp({ Component, pageProps }: AppProps) {
 export default MyApp;
 ```
 
-Now, `useUser()` can be used throughout the application during SSR. Since we updated `<ClerkProvider>`, the `isLoading` state will be `false` during SSR. It’s only set to `true` during client-side rendering.
+Now, `useUser()` can be used throughout the application during SSR. Since we updated `<ClerkProvider>`, the `isLoaded` state will be `false` during SSR. It’s only set to `true` during client-side rendering.
 
-If you’ve used Clerk in the past, you’ll notice the the addition of the `isLoading` and `isSignedIn` states. If the `loadUser` or `loadSession` flags are passed to the data-loader, the objects will be preloaded during SSR.
+If you’ve used Clerk in the past, you’ll notice the the addition of the `isLoaded` and `isSignedIn` states. If the `loadUser` or `loadSession` flags are passed to the data-loader, the objects will be preloaded during SSR.
 
 ```jsx
 import { useUser } from '@clerk/nextjs';
 
 const Page = () => {
-  const { isLoading, isSignedIn, user } = useUser();
+  const { isLoaded, isSignedIn, user } = useUser();
 
-  if (isLoading || !isSignedIn) {
+  if (isLoaded || !isSignedIn) {
     return null;
   }
 
@@ -170,3 +170,80 @@ If you are upgrading an existing application, you will need to make the followin
 * `useUser()` and `useSession()` have changed signatures (see above)
 * `<RedirectToSignIn/>` and `<RedirectToSignUp/>` now return users to the same page they came from by default, instead of to the URL in your dashboard.
 * If you have not upgraded to “Auth v2", you will need to. Auth v1 is not compatible with SSR. If your application was created after October 21, 2021, you are already using Auth v2. [Upgrade information is available here.](../main-concepts/auth-v2.md)
+
+You can find a detailed migration guide below:
+
+#### useUser()
+
+| Old API                   | New API                                             |
+| ------------------------- | --------------------------------------------------- |
+| `const user = useUser();` | `const { isLoaded, isSignedIn, user } = useUser();` |
+
+#### useSession()
+
+| Old API                         | New API                                                                                                                                                                                                                         |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `const session = useSession();` | <p><code>const { isLoaded, isSignedIn, session } = useSession();</code></p><p><br>or use the newly introduced <code>useAuth()</code> hook:<br><br><code>const { isLoaded, sessionId, userId, getToken } = useAuth();</code></p> |
+
+#### \<RedirectToSignIn /> and \<RedirectToSignUp/>
+
+| Old API                          | New API                                                                                              |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `<RedirectToSignIn returnBack/>` | <p><code>&#x3C;RedirectToSignIn /></code><br><code></code>(redirects to current page by default)</p> |
+| `<RedirectToSignIn returnBack/>` | <p><code>&#x3C;RedirectToSignUp /></code><br><code></code>(redirects to current page by default)</p> |
+
+#### \<SignIn />
+
+| Old API       | New API          |
+| ------------- | ---------------- |
+| `afterSignIn` | `afterSignInUrl` |
+| `signUpURL`   | `signUpUrl`      |
+
+#### \<SignUp />
+
+| Old API       | New API          |
+| ------------- | ---------------- |
+| `afterSignUp` | `afterSignUpUrl` |
+| `signInURL`   | `signInUrl`      |
+
+#### \<UserButton />
+
+| Old API              | New API                 |
+| -------------------- | ----------------------- |
+| `afterSwitchSession` | `afterSwitchSessionUrl` |
+| `userProfileURL`     | `userProfileUrl`        |
+| `signInURL`          | `signInUrl`             |
+| `afterSignOutAll`    | `afterSignOutAllUrl`    |
+| `afterSignOutOne`    | `afterSignOutOneUrl`    |
+
+#### SignIn & SignUp
+
+| Old API                                                          | New API                                                          |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `createMagicLinkFlow({ callbackUrl })`                           | `createMagicLinkFlow({ redirectUrl })`                           |
+| `authenticateWithRedirect({ callbackUrl, callbackUrlComplete })` | `authenticateWithRedirect({ redirectUrl, redirectUrlComplete })` |
+
+#### Email
+
+| Old API                                | New API                                |
+| -------------------------------------- | -------------------------------------- |
+| `createMagicLinkFlow({ callbackUrl })` | `createMagicLinkFlow({ redirectUrl })` |
+
+#### User
+
+| Old API                          | New API                                           |
+| -------------------------------- | ------------------------------------------------- |
+| `User.getToken("template-name")` | `Session.getToken({ template: "template-name" })` |
+
+#### Session
+
+| Old API            | New API |
+| ------------------ | ------- |
+| `Session.revoke()` | -       |
+
+#### window.Clerk
+
+| Old API                        | New API                                                                                   |
+| ------------------------------ | ----------------------------------------------------------------------------------------- |
+| `Clerk.redirectToSignIn(true)` | <p><code>Clerk.redirectToSignIn()</code></p><p>(redirects to current page by default)</p> |
+| `Clerk.redirectToSignUp(true)` | <p><code>Clerk.redirectToSignUp()</code></p><p>(redirects to current page by default)</p> |
