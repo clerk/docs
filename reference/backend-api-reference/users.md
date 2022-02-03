@@ -198,6 +198,10 @@ The username to give to the user.  It must be unique across your instance.
 The plaintext password to give the user.  Must be at least 8 characters long, and can not be found in any list of hacked passwords.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="skip_password_checks" type="boolean" %}
+When set to true all password checks are skipped. It is recommended to use this method only when migrating plaintext passwords to Clerk. Upon migration the user base should be prompted to pick stronger password.
+{% endswagger-parameter %}
+
 {% swagger-parameter in="body" name="first_name" type="string" %}
 The first name to give to the user.
 {% endswagger-parameter %}
