@@ -301,7 +301,7 @@ Note: Since this data can be modified from the frontend, it is not guaranteed to
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://clerk.example.com" path="/v1/users/:id/profile_image" method="post" summary="Update a user's profile image" %}
+{% swagger baseUrl="https://clerk.example.com" path="/v1/users/:id/profile_image" method="post" summary="Set a user's profile image" %}
 {% swagger-description %}
 Upload a new profile image for a user. Must use multipart/form-data with one image file.  It must be a jpg, png, gif, or webp image smaller than 10 MB.
 {% endswagger-description %}
