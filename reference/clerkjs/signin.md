@@ -317,7 +317,7 @@ This method returns a `Promise` which resolves to the current SignInResource
 
 ### OAuthStrategy
 
-`oauth_facebook | oauth_github | oauth_google | oauth_hubspot | oauth_tiktok | oauth_gitlab | oauth_discord | oauth_twitter | oauth_twitch | oauth_linkedin`
+`oauth_facebook | oauth_github | oauth_google | oauth_hubspot | oauth_tiktok | oauth_gitlab | oauth_discord | oauth_twitter | oauth_twitch | oauth_linkedin | oauth_dropbox`
 
 | Value               | Description                                          |
 | ------------------- | ---------------------------------------------------- |
@@ -331,4 +331,5 @@ This method returns a `Promise` which resolves to the current SignInResource
 | **oauth\_twitter**  | Specify Twitter as the verification OAuth provider.  |
 | **oauth\_twitch**   | Specify Twitch as the verification OAuth provider.   |
 | **oauth\_linkedin** | Specify LinkedIn as the verification OAuth provider. |
+| **oauth\_dropbox**  | Specify Dropbox as the verification OAuth provider.  |
 

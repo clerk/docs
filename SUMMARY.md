@@ -147,6 +147,7 @@
   * [GitLab](reference/social-login-reference/gitlab.md)
   * [LinkedIn](reference/social-login-reference/linkedin.md)
   * [HubSpot](reference/social-login-reference/hubspot.md)
+  * [Dropbox](reference/social-login-reference/dropbox.md)
 * [Import users](reference/import-users.md)
 * [Export users and data](reference/export-users-and-data.md)
 * [Webhooks](reference/webhooks.md)
