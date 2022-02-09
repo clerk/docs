@@ -111,7 +111,7 @@ const customThemeOptions = {
     fontColor: "#f4f4f4",
     
     /* Clerk buttons font family */
-    fontFamily: "Inter, sans serif"
+    fontFamily: "Inter, sans serif",
     
     /* Clerk buttons font weight */
     fontWeight: "300",
