@@ -209,7 +209,7 @@ The digests should be generated with one of the algorithms we support. The hashi
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="password_hasher" type="string" %}
-With this property you can specify the hashing algorithm that was used to generate the password digest.
+The hashing algorithm that was used to generate the password digest.
 
 The algorithms we support at the moment are [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) and [pbkdf2\_sha256\_django](https://docs.djangoproject.com/en/4.0/topics/auth/passwords/).
 
