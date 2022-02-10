@@ -202,6 +202,20 @@ The plaintext password to give the user.  Must be at least 8 characters long, an
 When set to true all password checks are skipped. It is recommended to use this method only when migrating plaintext passwords to Clerk. Upon migration the user base should be prompted to pick stronger password.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="password_digest" type="string" %}
+In case you already have the password digests and not the passwords, you can use them for the newly created user via this property.&#x20;
+
+The digests should be generated with one of the algorithms we support. The hashing algorithm can be specified using the `password_hasher` property.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="password_hasher" type="string" %}
+With this property you can specify the hashing algorithm that was used to generate the password digest.
+
+The algorithms we support at the moment are [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) and [pbkdf2\_sha256\_django](https://docs.djangoproject.com/en/4.0/topics/auth/passwords/).
+
+If you need support for any particular hashing algorithm, [let us know](https://clerk.dev/support).
+{% endswagger-parameter %}
+
 {% swagger-parameter in="body" name="first_name" type="string" %}
 The first name to give to the user.
 {% endswagger-parameter %}
