@@ -24,7 +24,7 @@ If Clerk is running in multi-session mode, it's important to ensure your fronten
 
 Our middlewares will look for a query string parameter named **\_clerk\_session\_id.** If this parameter is not found, the middleware will instead choose the last active session, which may be subject to race conditions and should not be relied on for authenticating actions.
 
-## Next.js middleware
+## Node.js middleware
 
 ### Optional session
 

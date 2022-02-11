@@ -167,6 +167,10 @@ export default requireSession((req, res) => {
 })
 ```
 
+#### Node.js and Express Middleware
+
+Both the above-mentioned `withSession` and `requireSession` functions are available in the Node SDK. There are also exports available specifically for Express. You can read more about the [Express middleware here](../reference/backend-api-reference/sdks/node/getting-started.md#express-middleware).
+
 #### Go Middleware
 
 The Clerk Go SDK provides a simple middleware that adds the active session to the request’s context. You can see an example code [implementation in Go here](../reference/backend-api-reference/sdks/golang/verifying-a-session.md).
