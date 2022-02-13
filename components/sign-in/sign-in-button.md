@@ -29,7 +29,7 @@ import { SignInButton } from "@clerk/nextjs";
 ### Custom button, open a modal
 
 ```xml
-<SignInButton mode="modal"/>
+<SignInButton mode="modal">
   <button className="btn">
     Sign in
   </button>
