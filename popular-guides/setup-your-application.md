@@ -73,7 +73,7 @@ Don't see the provider you need? [Request others here](https://www.clerk.dev/sup
 
 ### Usernames
 
-This setting controls whether the users can define and use custom usernames to sign up and sign in. A username should be from 4 to 15 characters long and can contain alphanumeric characters and underscores.
+This setting controls whether the users can define and use custom usernames to sign up and sign in. A username should be from 4 to 64 characters long and can contain alphanumeric characters, underscores (\_) or dashes (-).
 
 {% hint style="warning" %}
 Users signing up via an SSO provider, won't have a username. In this case, they will need to manually enter a username via their user profile.
