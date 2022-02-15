@@ -261,6 +261,30 @@ Update a user.
 Bearer [YOUR_API_KEY]
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="first_name" %}
+The first name to give to the user.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="last_name" %}
+The first name to give to the user.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="username" %}
+The username to give to the user.  It must be unique across your instance.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="password" %}
+The plaintext password to give the user.  Must be at least 8 characters long, and can not be found in any list of hacked passwords.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="primary_email_address_idd" %}
+The ID of the email address to set as primary. It must be verified, and present on the current user.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="primary_phone_number_id" %}
+The ID of the phone number to set as primary. It must be verified, and present on the current user.
+{% endswagger-parameter %}
+
 {% swagger-parameter in="body" name="public_metadata" type="object" %}
 Metadata saved on the user, that is visible to both your frontend and backend.
 
