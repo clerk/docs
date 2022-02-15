@@ -285,6 +285,10 @@ The ID of the email address to set as primary. It must be verified, and present 
 The ID of the phone number to set as primary. It must be verified, and present on the current user.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="profile_image_id" %}
+The ID of the image to set as the users profile image.
+{% endswagger-parameter %}
+
 {% swagger-parameter in="body" name="public_metadata" type="object" %}
 Metadata saved on the user, that is visible to both your frontend and backend.
 
