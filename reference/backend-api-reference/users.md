@@ -182,6 +182,14 @@ Bearer [YOUR_API_KEY]
 The ID of the user you use in in your external systems.  Must be unique across your instance.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="first_name" type="string" %}
+The first name to give to the user.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="last_name" type="string" %}
+The last name to give to the user.
+{% endswagger-parameter %}
+
 {% swagger-parameter in="body" name="email_address[]" type="string" %}
 Email addresses to add to the user.  Must be unique across your instance.  The first email address will be set as the users primary email address.
 {% endswagger-parameter %}
@@ -198,10 +206,6 @@ The username to give to the user.  It must be unique across your instance.
 The plaintext password to give the user.  Must be at least 8 characters long, and can not be found in any list of hacked passwords.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="skip_password_checks" type="boolean" %}
-When set to true all password checks are skipped. It is recommended to use this method only when migrating plaintext passwords to Clerk. Upon migration the user base should be prompted to pick stronger password.
-{% endswagger-parameter %}
-
 {% swagger-parameter in="body" name="password_digest" type="string" %}
 In case you already have the password digests and not the passwords, you can use them for the newly created user via this property.&#x20;
 
@@ -216,12 +220,8 @@ The algorithms we support at the moment are [bcrypt](https://en.wikipedia.org/wi
 If you need support for any particular hashing algorithm, [let us know](https://clerk.dev/support).
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="first_name" type="string" %}
-The first name to give to the user.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="last_name" type="string" %}
-The last name to give to the user.
+{% swagger-parameter in="body" name="skip_password_checks" type="boolean" %}
+When set to true all password checks are skipped. It is recommended to use this method only when migrating plaintext passwords to Clerk. Upon migration the user base should be prompted to pick stronger password.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="public_metadata" type="object" %}
