@@ -33,7 +33,7 @@ This strategy allows you to detect whether or not there's an active session, and
 {% tabs %}
 {% tab title="Javascript" %}
 ```javascript
-import { withSession } from '@clerk/clerk-sdk-node';
+import { withAuth } from '@clerk/clerk-sdk-node';
 
 function handler(req, res) {
     if (req.session) {
@@ -43,15 +43,15 @@ function handler(req, res) {
     }
 }
 
-export default withSession(handler);
+export default withAuth(handler);
 ```
 {% endtab %}
 
 {% tab title="Typescript" %}
 ```typescript
-import { withSession, WithSessionProp } from '@clerk/clerk-sdk-node';
+import { withAuth, WithAuthProp } from '@clerk/clerk-sdk-node';
 
-function handler(req: WithSessionProp<NextApiRequest>, res: NextApiResponse) {
+function handler(req: WithAuthProp<NextApiRequest>, res: NextApiResponse) {
     if (req.session) {
         // do something with session.userId
     } else {
@@ -59,7 +59,7 @@ function handler(req: WithSessionProp<NextApiRequest>, res: NextApiResponse) {
     }
 }
 
-export withSession(handler);
+export withAuth(handler);
 ```
 {% endtab %}
 {% endtabs %}
@@ -71,25 +71,25 @@ This strategy mandates that a session be available. If not, it returns a 401 (no
 {% tabs %}
 {% tab title="Javascript" %}
 ```javascript
-import { requireSession } from '@clerk/clerk-sdk-node';
+import { requireAuth } from '@clerk/clerk-sdk-node';
 
 function handler(req, res) {
     // do something with session.userId
 }
 
-export default requireSession(handler)
+export default requireAuth(handler)
 ```
 {% endtab %}
 
 {% tab title="Typescript" %}
 ```typescript
-import { requireSession, RequireSessionProp } from '@clerk/clerk-sdk-node';
+import { requireAuth, RequireAuthProp } from '@clerk/clerk-sdk-node';
 
-function handler(req: RequireSessionProp<NextApiRequest>, res: NextApiResponse) {
+function handler(req: RequireAuthProp<NextApiRequest>, res: NextApiResponse) {
     // do something with session.userId
 }
 
-export requireSession(handler)
+export default requireAuth(handler)
 ```
 {% endtab %}
 {% endtabs %}
@@ -99,11 +99,11 @@ export requireSession(handler)
 For usage with [Express](https://github.com/expressjs/express), this package also exports `ClerkExpressWithSession` (lax) & `ClerkExpressRequireSession` (strict) middlewares that can be used in the standard manner:
 
 ```ts
-import { ClerkExpressWithSession } from '@clerk/clerk-sdk-node';
+import { ClerkExpressWithAuth } from '@clerk/clerk-sdk-node';
 
 // Initialize Express app the usual way
 // Then add Clerk middleware
-app.use(ClerkExpressWithSession());
+app.use(ClerkExpressWithAuth());
 ```
 
 The `ClerkExpressWithSession` middleware will set the Clerk session on the request object as `req.session` and then call the next middleware.
@@ -121,9 +121,9 @@ Where `clerk` is your own instance.
 If you prefer that the middleware renders a 401 (Unauthenticated) itself, you can use the following variant instead:
 
 ```ts
-import { ClerkExpressRequireSession } from '@clerk/clerk-sdk-node';
+import { ClerkExpressRequireAuth } from '@clerk/clerk-sdk-node';
 
-app.use(ClerkExpressRequireSession());
+app.use(ClerkExpressRequireAuth());
 ```
 
 ### onError option
@@ -180,13 +180,13 @@ If you are using the strict middleware variant, the `err` pass to your error han
 This strategy allows you to detect whether or not there's an active session, and handle each case separately
 
 ```javascript
-import { ClerkExpressWithSession } from '@clerk/clerk-sdk-node';
+import { ClerkExpressWithAuth } from '@clerk/clerk-sdk-node';
 
 //
 // Initialize express app
 //
 
-app.use(ClerkExpressWithSession());
+app.use(ClerkExpressWithAuth());
 ```
 
 ### Required session
@@ -194,13 +194,13 @@ app.use(ClerkExpressWithSession());
 This strategy mandates that a session be available. If not, it returns a 401 (no body) and your handler is never called.
 
 ```javascript
-import { ClerkExpressRequireSession } from '@clerk/clerk-sdk-node';
+import { ClerkExpressRequireAuth } from '@clerk/clerk-sdk-node';
 
 //
 // Initialize express app
 //
 
-app.use(ClerkExpressRequireSession());
+app.use(ClerkExpressRequireAuth());
 ```
 
 ## Manual authentication
