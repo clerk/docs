@@ -380,7 +380,9 @@ Bearer [YOUR_API_KEY]
 
 {% swagger baseUrl="https://api.clerk.dev/" path="v1/users/:id/oauth_access_tokens/:provider" method="get" summary="Retrieve OAuth access token for a user" %}
 {% swagger-description %}
-Retrieve a valid (i.e. non-expired) OAuth access token for a user that has previously authenticated with a particular OAuth provider.
+Retrieve the OAuth access token for a user that has previously authenticated with a particular OAuth provider.
+
+For OAuth 2.0, if the access token has expired and we have a corresponding refresh token, the access token will be refreshed transparently the new one will be returned.&#x20;
 {% endswagger-description %}
 
 {% swagger-parameter in="path" name="provider" type="string" required="true" %}
@@ -392,10 +394,12 @@ The user ID.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
+Response for an OAuth 2.0 token:
+
 ```
 {
-  "token": "xxxxxxxxxxxxxxxxxxxxx",
   "provider": "oauth_google",
+  "token": "xxxxxxxxxxxxxxxxxxxxx",
   "scopes": [
     "openid",
     "https://www.googleapis.com/auth/userinfo.email"
@@ -404,13 +408,35 @@ The user ID.
 }
 
 ```
+
+Response for an OAuth 1.0 token:
+
+```
+{
+  "provider": "oauth_twitter",
+  "token": "xxxxxxxxxxxxxxxxxxxxx",
+  "secret": "yyyyyyyyyyyyyyyyyyyy"
+}
+```
 {% endswagger-response %}
 
-{% swagger-response status="422: Unprocessable Entity" description="The access token has expired but the provider hasn't provided us with a refresh token and so we cannot fetch a new access token." %}
+{% swagger-response status="400: Bad Request" description="Unknown OAuth provider" %}
 ```javascript
 {
     // Response
 }
 ```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="No token exists for this particular user/provider combination" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="422: Unprocessable Entity" description="The access token has expired but the provider hasn't provided us with a refresh token and so we cannot fetch a new access token." %}
+
 {% endswagger-response %}
 {% endswagger %}
