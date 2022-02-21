@@ -393,17 +393,7 @@ The ID of the OAuth provider (e.g. oauth_google)
 The user ID
 {% endswagger-parameter %}
 
-{% swagger-response status="200: OK" description="Response for an OAuth 1.0 token" %}
-```javascript
-{
-  "provider": "oauth_twitter",
-  "token": "xxxxxxxxxxxxxxxxxxxxx",
-  "secret": "yyyyyyyyyyyyyyyyyyyy"
-}
-```
-{% endswagger-response %}
-
-{% swagger-response status="200: OK" description="OAuth 2.0 token" %}
+{% swagger-response status="200: OK" description="Response for an OAuth 2.0 token" %}
 ```javascript
 {
   "provider": "oauth_google",
@@ -413,6 +403,16 @@ The user ID
     "https://www.googleapis.com/auth/userinfo.email"
     "https://www.googleapis.com/auth/userinfo.profile"
   ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="200: OK" description="Response for an OAuth 1.0 token" %}
+```javascript
+{
+  "provider": "oauth_twitter",
+  "token": "xxxxxxxxxxxxxxxxxxxxx",
+  "secret": "yyyyyyyyyyyyyyyyyyyy"
 }
 ```
 {% endswagger-response %}
