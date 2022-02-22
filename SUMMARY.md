@@ -10,6 +10,7 @@
 * [Get started with Next.js API](get-started/nextjs-api.md)
 * [Get started with Gatsby](get-started/get-started-with-gatsby.md)
 * [Get started with Web3](get-started/get-started-with-web3.md)
+* [Get started with Remix](get-started/remix.md)
 
 ## Popular guides
 
