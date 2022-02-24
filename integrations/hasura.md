@@ -102,7 +102,7 @@ const Main = () => {
 export default Main;
 ```
 
-Note that the `getToken({ template: <your-template-name> })` call is asynchronous and returns a Promise needs to be resolved before accessing the token value. This token is short-lived for better security and should be called before every request to your GraphQL API. The caching and refreshing of the token is handled automatically by Clerk.
+Note that the `getToken({ template: <your-template-name> })` call is asynchronous and returns a Promise that needs to be resolved before accessing the token value. This token is short-lived for better security and should be called before every request to your GraphQL API. The caching and refreshing of the token is handled automatically by Clerk.
 
 ### Next steps
 
