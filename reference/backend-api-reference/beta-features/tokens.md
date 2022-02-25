@@ -11,7 +11,7 @@ Tokens requests allows you to create JWTs from your backend based on `jwt_templa
 Creates a JSON Web Token(JWT) based on a JWT Template defined for your instance.
 {% endswagger-description %}
 
-{% swagger-parameter in="path" name="name" type="string" required="true" %}
+{% swagger-parameter in="body" name="name" required="true" %}
 The name of the JWT Template defined in your instance provider (e.g. 
 
 `custom_hasura`
@@ -19,7 +19,7 @@ The name of the JWT Template defined in your instance provider (e.g.
 ).
 {% endswagger-parameter %}
 
-{% swagger-parameter in="path" name="user_id" type="string" required="true" %}
+{% swagger-parameter in="body" name="user_id" required="true" %}
 The Clerk user ID which you would like to create a JWT for.
 {% endswagger-parameter %}
 
