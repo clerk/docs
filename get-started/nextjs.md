@@ -41,7 +41,7 @@ If you wish to use TypeScript, just add `--typescript` to the commands above. Cl
 
 ## Installing Clerk
 
-Once you have a Next.js app ready, you need to install the [Clerk React SDK](../reference/clerk-react/). This will give you access to our [prebuilt Clerk Components](broken-reference) and React hooks.
+Once you have a Next.js app ready, you need to install the Clerk Next.js SDK. This will give you access to our prebuilt Clerk Components and React hooks.
 
 {% tabs %}
 {% tab title="npm" %}
@@ -65,7 +65,7 @@ yarn add @clerk/nextjs
 {% endtab %}
 {% endtabs %}
 
-Now, we need to set the `CLERK_FRONTEND_API` environment variable. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** copy the **Frontend API Key** field from the Development instance Home page.
+Now, we need to set the `CLERK_FRONTEND_API` environment variable. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** copy the **Frontend API Key** field from the Development instance Home page:
 
 ![Home page with Frontend API key highlighted](<../.gitbook/assets/home - frontend api key highlighted.png>)
 

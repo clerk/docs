@@ -56,6 +56,6 @@ You will need to copy:
 * The Bitbucket Client **Key** to the **Client ID** input on Clerk
 * The Bitbucket Client **Secret** to the **Client Secret** input on Clerk
 
-![Client ID & Client Secret inputs for Bitbucket connection](<../../.gitbook/assets/image (8) (1).png>)
+![Client ID & Client Secret inputs for Bitbucket connection](<../../.gitbook/assets/image (8).png>)
 
 That's it, now you are all set to sign up & sign in to Clerk with Bitbucket!
