@@ -110,12 +110,20 @@ List all users.  Ordered by creation date, with the newest user first.
 Bearer [YOUR_API_KEY]
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="phone_number" type="string[]" %}
-Returns users with the phone numbers specified. Accepts up to 100 phone numbers. Any phone numbers not found are ignored.
+{% swagger-parameter in="query" name="email_address" type="string[]" %}
+Returns users with the specified email addresses. Accepts up to 100 email addresses.  Any email addresses not found are ignored.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="email_address" type="string[]" %}
-Returns users with the email addresses specified. Accepts up to 100 email addresses.  Any email addresses not found are ignored.
+{% swagger-parameter in="query" name="phone_number" type="string[]" %}
+Returns users with the specified phone numbers. Accepts up to 100 phone numbers. Any phone numbers not found are ignored.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="username" type="string[]" %}
+Returns users with the specified usernames. Accepts up to 100 usernames. Any usernames not found are ignored.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="web3_wallet" type="string[]" %}
+Returns users with the specified web3 wallet addresses. Accepts up to 100 web3 wallet addresses. Any web3 wallet addressed not found are ignored.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="user_id" type="string[]" %}
