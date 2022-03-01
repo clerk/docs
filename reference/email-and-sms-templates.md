@@ -141,7 +141,7 @@ Since this change will override the current state of the template on the target 
 
 Note that the copy icon will not appear if there are no other instances available on your application.
 
-![Copy to another instance dropdown](<../.gitbook/assets/image (8) (1).png>)
+![Copy to another instance dropdown](<../.gitbook/assets/image (8) (1) (1).png>)
 
 ![Copy prompt](../.gitbook/assets/copy\_prompt.png)
 
@@ -251,7 +251,7 @@ Note: currently only providing a link to image is supported.
 
 It is possible to configure the image width and Alt Tex, as well as turn it into a link.
 
-![Image options - note that further configuration is available through the settings](<../.gitbook/assets/image (8) (1) (1).png>)
+![Image options - note that further configuration is available through the settings](<../.gitbook/assets/image (8) (1) (1) (1).png>)
 
 ### How to make buttons & links inherit your theme colors
 

@@ -35,25 +35,25 @@ Social login configuration consists of the following steps:
 2. (production instances only) Enter your OAuth credentials (Client ID and Client Secret) for each provider
 3. (production instances only) Copy the `Authorized redirect URI` from the Clerk Dashboard to the provider's app configuration. &#x20;
 
-![](../.gitbook/assets/screely-1639506200009.png)
-
 Clerk supports the following providers: **Google**, **Facebook**, **Twitter**, **TikTok**, **Discord**, **Twitch,** **Github**, **Gitlab, LinkedIn, Dropbox** and **HubSpot**. For the purposes of this guide we will enable social login with **Google**.
+
+![Enabling and configuring social login providers](../.gitbook/assets/social\_all\_providers.png)
 
 {% hint style="info" %}
 We are constantly adding more providers. If you're interested in a provider we don't support yet, [let us know](https://clerk.dev/support)!&#x20;
 {% endhint %}
 
-In development, after applying these changes, you're good to go! To make the development flow as smooth as possible, Clerk uses preconfigured shared OAuth credentials and redirect URIs.  Navigate to your sign in or sign up page to see it in action 🙂
+In development, after applying these changes, you're good to go! To make the development flow as smooth as possible, Clerk uses pre-configured shared OAuth credentials and redirect URIs.  Navigate to your sign in or sign up page to see it in action 🙂
 
 {% hint style="danger" %}
 Shared OAuth credentials should not be treated as secure.  For this reason, we don't allow them in production.
 {% endhint %}
 
-![](../.gitbook/assets/screely-1639506400176.png)
+![Configuring Google SSO with a custom profile](../.gitbook/assets/social\_configuring\_google.png)
 
-For production instances, you will need to create your own account with **Google** and generate your own Client ID and Client secret. You can add these by pressing the **Manage connection** button under each provider. For more details, check out the following guides:
+For production instances, you will need to create your own account with **Google** and generate your own Client ID and Client secret.
 
-Finally, copy the `Authorized redirect URI` field and add it to the provider's app configuration dashboard.     For more details, check out the following guides:
+Finally, copy the `Authorized redirect URI` field and add it to the provider's app configuration dashboard. For more details, check out the following guides:
 
 * [How to setup social login with **Google**](../reference/social-login-reference/social-login-google.md)****
 * [How to setup social login with **Facebook**](../reference/social-login-reference/social-login-facebook.md)
@@ -66,10 +66,17 @@ Finally, copy the `Authorized redirect URI` field and add it to the provider's a
 * [How to setup social login with **LinkedIn**](../reference/social-login-reference/linkedin.md)****
 * [How to setup social login with **Dropbox**](../reference/social-login-reference/dropbox.md)****
 * [How to setup social login with **HubSpot**](../reference/social-login-reference/hubspot.md)****
+* [How to setup social login with **Microsoft**](../reference/social-login-reference/microsoft.md)****
+
+### Configuring additional OAuth scopes
+
+For each provider, there is a set of pre-configured OAuth scopes that are absolutely necessary for authentication to work properly with Clerk. We call them _base_ scopes.
+
+On top of them, you can specify any additional scopes supported by the provider, by adding them to the "Scopes" field when configuring a custom profile.
 
 ## Using Clerk Hosted Pages
 
-If you're looking for the fastest way to implement social login based authentication, you can leverage [Clerk Hosted Pages](broken-reference) for your sign up, sign in, and user profile pages.  You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
+If you're looking for the fastest way to implement social login based authentication, you can leverage [Clerk Hosted Pages](broken-reference) for your sign up, sign in, and user profile pages. You can set these up on your own domain, and match your websites theme with the Clerk Dashboard to create a seamless experience.&#x20;
 
 You can find your instances sign up and sign in links in the **Home** section of your instance in Clerk Dashboard.&#x20;
 
