@@ -1,6 +1,6 @@
 # Introduction
 
-The Clerk Backend API is built to be used from your backend code. We make our best attempt to make your Clerk resources available to you in a predictable manner. All requests accept form-encoded request bodies, and respond with a JSON-encoded body.
+The Clerk Backend API is organized around [REST](http://en.wikipedia.org/wiki/Representational\_State\_Transfer) and is built to be used from your backend code. All requests accept [JSON-encoded](https://www.json.org/json-en.html) (highly recommended) and [form-encoded](https://en.wikipedia.org/wiki/POST\_\(HTTP\)#Use\_for\_submitting\_web\_forms) request bodies, return [JSON-encoded](https://www.json.org/json-en.html) responses and uses standard HTTP response codes, authentication, and verbs.
 
 > Base URL: **https://api.clerk.dev/**
 
