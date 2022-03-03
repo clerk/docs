@@ -68,6 +68,7 @@
 ## integrations
 
 * [Firebase](integrations/firebase.md)
+* [Supabase](integrations/supabase.md)
 * [Hasura](integrations/hasura.md)
 * [Fauna](integrations/fauna.md)
 * [bubble.io (beta)](integrations/bubble.io-beta.md)
