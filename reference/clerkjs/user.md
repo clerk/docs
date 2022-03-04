@@ -194,6 +194,9 @@ This method returns a `Promise` which resolves to a `User` object.
 | **firstName**      | <p><em>string</em></p><p>The user's first name as registered with the OAuth provider.</p>                                       |
 | **lastName**       | <p><em>string</em></p><p>The user's first name as registered with the OAuth provider.</p>                                       |
 | **picture**        | <p><em>string</em></p><p>URL for the user's profile picture (avatar) that's registered with the OAuth provider.</p>             |
+| **username**       | <p><em>string | null</em></p><p>The user's username as registered with the OAuth provider.</p>                                  |
+| **publicMetadata** | <p><em>{[string]: any}</em></p><p>Additional, opaque metadata returned by the provider during an OAuth flow.</p>                |
+| **label**          | <p><em>string | null</em></p><p>A label to differentiate external accounts of the same user and the same provider</p>           |
 
 ### ImageResource
 
