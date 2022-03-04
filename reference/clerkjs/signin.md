@@ -317,19 +317,22 @@ This method returns a `Promise` which resolves to the current SignInResource
 
 ### OAuthStrategy
 
-`oauth_facebook | oauth_github | oauth_google | oauth_hubspot | oauth_tiktok | oauth_gitlab | oauth_discord | oauth_twitter | oauth_twitch | oauth_linkedin | oauth_dropbox`
+`oauth_facebook | oauth_github | oauth_google | oauth_hubspot | oauth_tiktok | oauth_gitlab | oauth_discord | oauth_twitter | oauth_twitch | oauth_linkedin | oauth_dropbox | oauth_bitbucket | oauth_microsoft | oauth_notion`
 
-| Value               | Description                                          |
-| ------------------- | ---------------------------------------------------- |
-| **oauth\_facebook** | Specify Facebook as the verification OAuth provider. |
-| **oauth\_github**   | Specify Github as the verification OAuth provider.   |
-| **oauth\_google**   | Specify Google as the verification OAuth provider.   |
-| **oauth\_hubspot**  | Specify HubSpot as the verification OAuth provider.  |
-| **oauth\_tiktok**   | Specify TikTok as the verification OAuth provider.   |
-| **oauth\_gitlab**   | Specify GitLab as the verification OAuth provider.   |
-| **oauth\_discord**  | Specify Discord as the verification OAuth provider.  |
-| **oauth\_twitter**  | Specify Twitter as the verification OAuth provider.  |
-| **oauth\_twitch**   | Specify Twitch as the verification OAuth provider.   |
-| **oauth\_linkedin** | Specify LinkedIn as the verification OAuth provider. |
-| **oauth\_dropbox**  | Specify Dropbox as the verification OAuth provider.  |
+| Value                | Description                                           |
+| -------------------- | ----------------------------------------------------- |
+| **oauth\_facebook**  | Specify Facebook as the verification OAuth provider.  |
+| **oauth\_github**    | Specify Github as the verification OAuth provider.    |
+| **oauth\_google**    | Specify Google as the verification OAuth provider.    |
+| **oauth\_hubspot**   | Specify HubSpot as the verification OAuth provider.   |
+| **oauth\_tiktok**    | Specify TikTok as the verification OAuth provider.    |
+| **oauth\_gitlab**    | Specify GitLab as the verification OAuth provider.    |
+| **oauth\_discord**   | Specify Discord as the verification OAuth provider.   |
+| **oauth\_twitter**   | Specify Twitter as the verification OAuth provider.   |
+| **oauth\_twitch**    | Specify Twitch as the verification OAuth provider.    |
+| **oauth\_linkedin**  | Specify LinkedIn as the verification OAuth provider.  |
+| **oauth\_dropbox**   | Specify Dropbox as the verification OAuth provider.   |
+| **oauth\_bitbucket** | Specify Bitbucket as the verification OAuth provider. |
+| **oauth\_microsoft** | Specify Microsoft as the verification OAuth provider. |
+| **oauth\_notion**    | Specify Notion as the verification OAuth provider.    |
 

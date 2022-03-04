@@ -154,6 +154,7 @@
   * [Bitbucket](reference/social-login-reference/bitbucket.md)
   * [Dropbox](reference/social-login-reference/dropbox.md)
   * [Microsoft](reference/social-login-reference/microsoft.md)
+  * [Notion](reference/social-login-reference/notion.md)
 * [Import users](reference/import-users.md)
 * [Export users and data](reference/export-users-and-data.md)
 * [Webhooks](reference/webhooks.md)

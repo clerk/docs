@@ -235,18 +235,21 @@ This method returns a `Promise` which resolves to a `User` object.
 
 ### OAuthProvider
 
-`facebook | github | google | hubspot | tiktok | gitlab | discord | twitter | twitch | linkedin | dropbox`
+`facebook | github | google | hubspot | tiktok | gitlab | discord | twitter | twitch | linkedin | dropbox | bitbucket | microsoft | notion`
 
-| Value        | Description              |
-| ------------ | ------------------------ |
-| **facebook** | Facebook OAuth provider. |
-| **github**   | Github OAuth provider.   |
-| **google**   | Google OAuth provider.   |
-| **hubspot**  | Hubspot OAuth provider.  |
-| **tiktok**   | TikTok OAuth provider.   |
-| **gitlab**   | GitLab OAuth provider.   |
-| **discord**  | Discord OAuth provider.  |
-| **twitter**  | Twitter OAuth provider.  |
-| **twitch**   | Twitch OAuth provider.   |
-| **linkedin** | LinkedIn OAuth provider. |
-| **dropbox**  | Dropbox OAuth provider.  |
+| Value         | Description               |
+| ------------- | ------------------------- |
+| **facebook**  | Facebook OAuth provider.  |
+| **github**    | Github OAuth provider.    |
+| **google**    | Google OAuth provider.    |
+| **hubspot**   | Hubspot OAuth provider.   |
+| **tiktok**    | TikTok OAuth provider.    |
+| **gitlab**    | GitLab OAuth provider.    |
+| **discord**   | Discord OAuth provider.   |
+| **twitter**   | Twitter OAuth provider.   |
+| **twitch**    | Twitch OAuth provider.    |
+| **linkedin**  | LinkedIn OAuth provider.  |
+| **dropbox**   | Dropbox OAuth provider.   |
+| **bitbucket** | Bitbucket OAuth provider. |
+| **microsoft** | Microsoft OAuth provider. |
+| **notion**    | Notion OAuth provider.    |

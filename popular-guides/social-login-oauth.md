@@ -35,7 +35,7 @@ Social login configuration consists of the following steps:
 2. (production instances only) Enter your OAuth credentials (Client ID and Client Secret) for each provider
 3. (production instances only) Copy the `Authorized redirect URI` from the Clerk Dashboard to the provider's app configuration. &#x20;
 
-Clerk supports the following providers: **Google**, **Facebook**, **Twitter**, **TikTok**, **Discord**, **Twitch,** **Github**, **Gitlab, LinkedIn, Dropbox** and **HubSpot**. For the purposes of this guide we will enable social login with **Google**.
+Clerk supports multiple providers and for the purposes of this guide we will enable social login with **Google**.
 
 ![Enabling and configuring social login providers](../.gitbook/assets/social\_all\_providers.png)
 
@@ -67,6 +67,7 @@ Finally, copy the `Authorized redirect URI` field and add it to the provider's a
 * [How to setup social login with **Dropbox**](../reference/social-login-reference/dropbox.md)****
 * [How to setup social login with **HubSpot**](../reference/social-login-reference/hubspot.md)****
 * [How to setup social login with **Microsoft**](../reference/social-login-reference/microsoft.md)****
+* [How to setup social login with **Notion**](../reference/social-login-reference/notion.md)****
 
 ### Configuring additional OAuth scopes
 
