@@ -98,7 +98,7 @@ This element does not display anything.
 
 The _UserButton_ element gives your users an easy way to manage their account(s).
 
-![](<../.gitbook/assets/image (2) (1).png>)
+![](<../.gitbook/assets/image (2).png>)
 
 {% hint style="info" %}
 _The element should not be visible on page load, as shown below._

@@ -41,3 +41,7 @@ User requests are responsible for handling any actions on the current user, and 
 ### [Tokens requests](tokens.md)
 
 * **`POST`**`/v1/me/tokens`
+
+### [Organization requests](../organization-requests/)
+
+* **`GET`**`/v1/me/organizations`
