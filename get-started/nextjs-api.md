@@ -39,9 +39,9 @@ In Next.js, API routes are created by adding a file to the **pages/api** folder.
 
 {% code title="pages/api/hello.js" %}
 ```jsx
-import { requireSession } from "@clerk/nextjs/api";
+import { requireAuth } from "@clerk/nextjs/api";
 
-export default requireSession((req, res) => {
+export default requireAuth((req, res) => {
   res.statusCode = 200;
   res.json({ id: req.session.userId });
 });
@@ -50,13 +50,13 @@ export default requireSession((req, res) => {
 
 That's it! Now, if a user is signed in, requests to **/api/hello** will return that user's ID.  This ID will never change for this user, so you can use it as a stable user ID in your own codebase.
 
-If a user is signed out, the **requireSession** helper will automatically return with HTTP status 401 and no response body. If you'd prefer to process a request when there is no user, try the **withSession** helper instead:
+If a user is signed out, the **requireAuth** helper will automatically return with HTTP status 401 and no response body. If you'd prefer to process a request when there is no user, try the **withAuth** helper instead:
 
 {% code title="pages/api/hello.js" %}
 ```jsx
-import { withSession } from "@clerk/nextjs/api";
+import { withAuth } from "@clerk/nextjs/api";
 
-export default withSession((req, res) => {
+export default withAuth((req, res) => {
   res.statusCode = 200;
   if (req.session){
     res.json({ id: req.session.userId });
