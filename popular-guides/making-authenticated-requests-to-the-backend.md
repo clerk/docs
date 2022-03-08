@@ -138,12 +138,12 @@ If you are using Next.js or Express with Node.js, Clerk provides middleware that
 
 #### Next.js Serverless API Route
 
-In Next.js, the `withSession` and `requireSession` helper functions can be used in your API routes to access the authenticated user.
+In Next.js, the `withAuth` and `requireAuth` helper functions can be used in your API routes to access the authenticated user.
 
 ```jsx
-import { withSession } from '@clerk/nextjs/api';
+import { withAuth } from '@clerk/nextjs/api';
 
-export default withSession((req, res) => {
+export default withAuth((req, res) => {
   if (req.session){
     res.status(200).json({ id: req.session.userId });
   } else {
@@ -154,22 +154,22 @@ export default withSession((req, res) => {
 
 #### Gatsby Functions
 
-The Gatsby Function uses the `requireSession` helper function from the Node SDK directly.
+The Gatsby Function uses the `requireAuth` helper function from the Node SDK directly.
 
 ```jsx
-import { requireSession } from '@clerk/clerk-sdk-node';
+import { requireAuth } from '@clerk/clerk-sdk-node';
 
-// `requireSession` automatically throws an
+// `requireAuth` automatically throws an
 // error when no user session is found.
 
-export default requireSession((req, res) => {
+export default requireAuth((req, res) => {
   res.status(200).json({ id: req.session.userId })
 })
 ```
 
 #### Node.js and Express Middleware
 
-Both the above-mentioned `withSession` and `requireSession` functions are available in the Node SDK. There are also exports available specifically for Express. You can read more about the [Express middleware here](../reference/backend-api-reference/sdks/node/getting-started.md#express-middleware).
+Both the above-mentioned `withAuth` and `requireAuth` functions are available in the Node SDK. There are also exports available specifically for Express. You can read more about the [Express middleware here](../reference/backend-api-reference/sdks/node/getting-started.md#express-middleware).
 
 #### Go Middleware
 
