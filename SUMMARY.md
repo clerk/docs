@@ -82,7 +82,6 @@
   * [Client](reference/clerkjs/client.md)
   * [EmailAddress](reference/clerkjs/emailaddress.md)
   * [Organization](reference/clerkjs/organization.md)
-  * [Page 1](reference/clerkjs/page-1.md)
   * [PhoneNumber](reference/clerkjs/phonenumber.md)
   * [Web3Wallet](reference/clerkjs/web3wallet.md)
   * [Session](reference/clerkjs/session.md)

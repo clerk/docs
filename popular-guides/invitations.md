@@ -77,7 +77,7 @@ curl https://api.clerk.dev/v1/invitations -X POST -d '{"email_address": "email@e
 This `redirect_url` basically tells Clerk where to redirect the user when they click on the invitation link. This redirection will include an invitation token, something like the following:
 
 ```url
-https://www.example.com/my-sign-up?__clerk_invitation_token=.....
+https://www.example.com/my-sign-up?__clerk_ticket=.....
 ```
 
 The second and final thing you'll need to do is to pass this token into the sign up `create` call, when starting the sign up flow.
@@ -90,17 +90,19 @@ import { useSignUp } from "@clerk/clerk-react";
 const signUp = useSignUp();
 
 // Get the token from the query parameter
-const param = '__clerk_invitation_token';
-const invitationToken = const val = new URL(window.location.href).searchParams.get(param);
+const param = '__clerk_ticket';
+const ticket = new URL(window.location.href).searchParams.get(param);
 
 // Create a new sign-up with the supplied invitation token.
+// Make sure you're also passing the ticket strategy.
 // You can also include any additional information required 
 // based on your application configuration. Or, you can add 
 // them later using the `signUp.update` method.
 // After the below call, the user's email address will be 
 // verified because of the invitation token.
 const response = await signUp.create({
-  invitationToken,
+  strategy: "ticket",
+  ticket,
   firstName,
   lastName
 });
@@ -113,16 +115,18 @@ const { client } = window.Clerk;
 
 // Get the token from the query parameter
 const param = '__clerk_invitation_token';
-const invitationToken = const val = new URL(window.location.href).searchParams.get(param);
+const ticket = new URL(window.location.href).searchParams.get(param);
 
-// Create a new sign-up with the supplied invitation token.
+// Create a new sign-up with the supplied invitation ticket.
+// Make sure you're also passing the ticket strategy.
 // You can also include any additional information required 
 // based on your application configuration. Or, you can add 
 // them later using the `signUp.update` method.
 // After the below call, the user's email address will be 
 // verified because of the invitation token.
 const signUp = await client.signUp.create({
-  invitationToken,
+  strategy: "ticket",
+  ticket,
   firstName,
   lastName
 });
