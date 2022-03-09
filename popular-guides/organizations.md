@@ -186,45 +186,49 @@ export default function NewOrganization() {
 ```jsx
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useClerk } from "@clerk/nextjs";
+import { useOrganizations } from "@clerk/nextjs";
+import { OrganizationMembershipResource } from "@clerk/types";
 
-// Lists all organization the user is a member of. 
+// Lists all organization the user is a member of.
 // Each entry is a link to a page to manage organization
 // members.
 export default function Organizations() {
-  const [organizations, setOrganizations] = useState([]);
+  const [organizationMemberships, setOrganizationMemberships] = useState<
+    OrganizationMembershipResource[]
+  >([]);
 
-  const { getOrganizations } = useClerk();
+  const { getOrganizationMemberships } = useOrganizations();
 
   useEffect(() => {
-    async function fetchOrganizations() {
+    async function fetchOrganizationMemberships() {
       try {
-        const orgs = await getOrganizations();
-        setOrganizations(orgs);
+        const orgs = await getOrganizationMemberships();
+        setOrganizationMemberships(orgs);
       } catch (err) {
         console.error(err);
       }
     }
 
-    fetchOrganizations();
+    fetchOrganizationMemberships();
   }, []);
 
   return (
     <div>
       <h2>Your organizations</h2>
       <ul>
-        {organizations.map((organization) => (
-          <Link
-            key={organization.id}
-            href={`/organizations/${organization.id}`}
-          >
-            {organization.name}
-          </Link>
-        ))}
+        {organizationMemberships.map(({ organization }) => (
+            <Link
+              key={organization.id}
+              href={`/organizations/${organization.id}`}
+            >
+              {organization.name}
+            </Link>
+          ))}
       </ul>
     </div>
   );
 }
+
 
 ```
 {% endtab %}
@@ -232,38 +236,37 @@ export default function Organizations() {
 {% tab title="Clerk React" %}
 ```jsx
 import { useState, useEffect } from "react";
-import { useClerk } from "@clerk/react";
+import { useOrganizations } from "@clerk/react";
 
-// Lists all organization the user is a member of. 
+// Lists all organization the user is a member of.
 // Each entry is a link to a page to manage organization
 // members.
 export default function Organizations() {
-  const [organizations, setOrganizations] = useState([]);
+  const [organizationMemberships, setOrganizationMemberships] = useState<
+    OrganizationMembershipResource[]
+  >([]);
 
-  const { getOrganizations } = useClerk();
+  const { getOrganizationMemberships } = useOrganizations();
 
   useEffect(() => {
-    async function fetchOrganizations() {
+    async function fetchOrganizationMemberships() {
       try {
-        const orgs = await getOrganizations();
-        setOrganizations(orgs);
+        const orgs = await getOrganizationMemberships();
+        setOrganizationMemberships(orgs);
       } catch (err) {
         console.error(err);
       }
     }
 
-    fetchOrganizations();
+    fetchOrganizationMemberships();
   }, []);
 
   return (
     <div>
       <h2>Your organizations</h2>
       <ul>
-        {organizations.map((organization) => (
-          <a
-            key={organization.id}
-            href={`/organizations/${organization.id}`}
-          >
+        {organizationMemberships.map(({ organization }) => (
+          <a key={organization.id} href={`/organizations/${organization.id}`}>
             {organization.name}
           </a>
         ))}
@@ -271,6 +274,7 @@ export default function Organizations() {
     </div>
   );
 }
+
 ```
 {% endtab %}
 
@@ -281,8 +285,8 @@ export default function Organizations() {
 <script>
   const list = document.getElementById("organizations_list");
   try {
-    const organizations = await window.Clerk.getOrganizations();
-    organizations.map((organization) => {
+    const organizationMemberships = await window.Clerk.getOrganizationMemberships();
+    organizationMemberships.map(({ organization }) => {
       const li = document.createElement("li");
       li.textContent = `${organization.name} - ${organization.role}`;
       list.appendChild(li);
