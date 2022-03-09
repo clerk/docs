@@ -347,8 +347,8 @@ export default function Organization() {
     <div>
       <h2>{currentOrganizationMembership.organization.name}</h2>
 
-      <Memberships organization={currentOrganization} isAdmin={isAdmin} />
-      {isAdmin && <Invitations organization={currentOrganization} />}
+      <Memberships organization={currentOrganizationMembership.organization} isAdmin={isAdmin} />
+      {isAdmin && <Invitations organization={currentOrganizationMembership.organization} />}
     </div>
   );
 }
@@ -521,42 +521,45 @@ import { useOrganizations } from "@clerk/react";
 // pending invitations.
 // Invite new members.
 export default function Organization({ organizationId }) {
-  const [organization, setOrganization] = useState(null);
+  const [organizationMemberships, setOrganizationMemberships] = useState([]);
 
-  const { getOrganization } = useOrganizations();
+  const { getOrganizationMemberships } = useOrganizations();
 
   useEffect(() => {
-    async function fetchOrganization() {
+    async function fetchOrganizationMemberships() {
       try {
-        const org = await getOrganization(organizationId);
-        setOrganization(org);
+        const orgMemberships = await getOrganizationMemberships();
+        setOrganizationMemberships(orgMemberships);
       } catch (err) {
         console.log(err);
       }
     }
 
-    fetchOrganization();
-  }, [organizationId, getOrganization]);
+    fetchOrganizationMemberships();
+  }, [organizationId, getOrganizationMemberships]);
 
-  if (!organization) {
+  const currentOrganizationMembership = organizationMemberships.find(membership => 
+    membership.organization.id === organizationId);
+
+  if (!currentOrganizationMembership) {
     return null;
   }
-
-  const isAdmin = organization.role === "admin";
+  
+  const isAdmin = currentOrganizationMembership.role === "admin";
 
   return (
     <div>
-      <h2>{organization.name}</h2>
+      <h2>{currentOrganizationMembership.organization.name}</h2>
 
-      <Memberships organization={organization} />
-      {isAdmin && <Invitations organization={organization} />}
+      <Memberships organization={currentOrganizationMembership.organization} isAdmin={isAdmin} />
+      {isAdmin && <Invitations organization={currentOrganizationMembership.organization} />}
     </div>
   );
 }
 
 // List of organization memberships. Administrators can
 // change member roles or remove members from the organization.
-function Memberships({ organization }) {
+function Memberships({ organization, isAdmin }) {
   const [memberships, setMemberships] = useState([]);
 
   const getMemberships = organization.getMemberships;
@@ -592,8 +595,6 @@ function Memberships({ organization }) {
       console.error(err);
     }
   }
-  
-  const isAdmin = organization.role === "admin";
 
   return (
     <div>
