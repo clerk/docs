@@ -57,7 +57,7 @@ This tutorial assumes that a [signed in user](../main-concepts/sign-in-flow.md) 
 // pages/organizations/new.js
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { useClerk } from "@clerk/nextjs";
+import { useOrganizations } from "@clerk/nextjs";
 
 // Form to create a new organization. The current user
 // will become the organization administrator.
@@ -65,7 +65,7 @@ export default function NewOrganization() {
   const [name, setName] = useState("");
   const router = useRouter();
 
-  const { createOrganization } = useClerk();
+  const { createOrganization } = useOrganizations();
 
   async function submit(e) {
     e.preventDefault();
@@ -103,14 +103,14 @@ export default function NewOrganization() {
 {% tab title="Clerk React" %}
 ```jsx
 import { useState } from "react";
-import { useClerk } from "@clerk/react";
+import { useOrganizations } from "@clerk/react";
 
 // Form to create a new organization. The current user
 // will become the organization administrator.
 export default function NewOrganization() {
   const [name, setName] = useState("");
 
-  const { createOrganization } = useClerk();
+  const { createOrganization } = useOrganizations();
 
   async function submit(e) {
     e.preventDefault();
