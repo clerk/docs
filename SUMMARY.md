@@ -31,6 +31,7 @@
 * [Validating session tokens](popular-guides/validating-session-tokens.md)
 * [JWT Templates](popular-guides/jwt-templates.md)
 * [SSR Beta](popular-guides/ssr-beta.md)
+* [Organizations](popular-guides/organizations.md)
 
 ## main concepts
 
