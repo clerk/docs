@@ -403,25 +403,37 @@ The user ID
 
 {% swagger-response status="200: OK" description="Response for an OAuth 2.0 token" %}
 ```javascript
-{
-  "provider": "oauth_google",
-  "token": "xxxxxxxxxxxxxxxxxxxxx",
-  "scopes": [
-    "openid",
-    "https://www.googleapis.com/auth/userinfo.email"
-    "https://www.googleapis.com/auth/userinfo.profile"
-  ]
-}
+[
+  {
+    "object": "oauth_access_token",
+    "provider": "oauth_google",
+    "token": "xxxxxxxxxxxxxxxxxxxxx",
+    "public_metadata": {},
+    "label": "clerk",
+    "scopes": [
+      "openid",
+      "https://www.googleapis.com/auth/userinfo.email"
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+  }
+  ...
+]
 ```
 {% endswagger-response %}
 
 {% swagger-response status="200: OK" description="Response for an OAuth 1.0 token" %}
 ```javascript
-{
-  "provider": "oauth_twitter",
-  "token": "xxxxxxxxxxxxxxxxxxxxx",
-  "secret": "yyyyyyyyyyyyyyyyyyyy"
-}
+[
+  {
+    "object": "oauth_access_token",
+    "provider": "oauth_twitter",
+    "token": "xxxxxxxxxxxxxxxxxxxxx",
+    "public_metadata": {},
+    "label": "clerk",
+    "token_secret": "xxxxxxxxxxxxxxxxxxxxx"
+  }
+  ...
+]
 ```
 {% endswagger-response %}
 
