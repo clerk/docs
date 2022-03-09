@@ -286,9 +286,9 @@ export default function Organizations() {
   const list = document.getElementById("organizations_list");
   try {
     const organizationMemberships = await window.Clerk.getOrganizationMemberships();
-    organizationMemberships.map(({ organization }) => {
+    organizationMemberships.map((membership) => {
       const li = document.createElement("li");
-      li.textContent = `${organization.name} - ${organization.role}`;
+      li.textContent = `${membership.organization.name} - ${membership.role}`;
       list.appendChild(li);
     });
   } catch (err) {
@@ -731,11 +731,9 @@ function Invitations({ organization }) {
 </form>
 
 <script>
-  async function renderMemberships(organization) {
+  async function renderMemberships(organization, isAdmin) {
     const list = document.getElementById("memberships_list");
     try {
-      const isAdmin = organization.role === "admin";
-
       const memberships = await organization.getMembers();
       memberships.map((membership) => {
         const li = document.createElement("li");
@@ -771,11 +769,9 @@ function Invitations({ organization }) {
     }
   }
 
-  async function renderInvitations(organization) {
+  async function renderInvitations(organization, isAdmin) {
     const list = document.getElementById("invitations_list");
     try {
-      const isAdmin = organization.role === "admin";
-
       const invitations = await organization.getPendingInvitations();
       invitations.map((invitation) => {
         const li = document.createElement("li");
@@ -802,14 +798,18 @@ function Invitations({ organization }) {
   async function init() {
     // This is the current organization ID.
     const organizationId = "org_XXXXXXX";
-    const currentOrganization = await window.Clerk.getOrganization(organizationId)
+    const organizationMemberships = await window.Clerk.getOrganizationMemberships()
+    const currentMembership = organizationMemberships.find(membership 
+      => membership.organization.id === organizationId);
+    const currentOrganization = currentMembership.organization;
+    
     if (!currentOrganization) {
       return;
     }
-    const isAdmin = currentOrganization.role === "admin";
+    const isAdmin = currentMembership.role === "admin";
 
-    renderMemberships(currentOrganization);
-    renderInvitations(currentOrganization);
+    renderMemberships(currentOrganization, isAdmin);
+    renderInvitations(currentOrganization, isAdmin);
 
     if (isAdmin) {
       const form = document.getElementById("new_invitation");
