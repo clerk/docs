@@ -90,6 +90,7 @@
   * [SignIn](reference/clerkjs/signin.md)
   * [SignUp](reference/clerkjs/signup.md)
   * [User](reference/clerkjs/user.md)
+  * [OrganizationInvitation](reference/clerkjs/organizationinvitation.md)
   * [OrganizationMembership](reference/clerkjs/organizationmembership.md)
 * [Clerk React](reference/clerk-react/README.md)
   * [Installation](reference/clerk-react/installation.md)
