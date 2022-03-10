@@ -20,7 +20,62 @@ The examples below illustrates simple usage of the methods available. Note that 
 
 A more guided approach can be found at the [Organizations Popular Guide](../../popular-guides/organizations.md) section.
 
-{% code title="Memberships" %}
+{% tabs %}
+{% tab title="createOrganization" %}
+```jsx
+import { useState } from "react";
+import { SignedIn, useOrganizations } from "@clerk/clerk-react";
+
+function App() {
+  return (
+    <SignedIn>
+      <NewOrganization />
+    </SignedIn>
+  );
+}
+
+// Form to create a new organization. The current user
+// will become the organization administrator.
+function NewOrganization() {
+  const [name, setName] = useState("");
+  const router = useRouter();
+
+  const { createOrganization } = useOrganizations();
+
+  async function submit(e) {
+    e.preventDefault();
+    try {
+      // Create a new organization.
+      await createOrganization({ name });
+      setName("");
+      // Do anything after the action is complete
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  return (
+    <div>
+      <h2>Create an organization</h2>
+      <form onSubmit={submit}>
+        <div>
+          <label>Name</label>
+          <br />
+          <input
+            name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <button>Create organization</button>
+      </form>
+    </div>
+  );
+}
+```
+{% endtab %}
+
+{% tab title="getMemberships" %}
 ```jsx
 // Retrieve OrganizationMemberships of the current user.
 import { SignedIn, useOrganizations } from "@clerk/clerk-react";
@@ -33,7 +88,7 @@ function App() {
   );
 }
 
-export default function OrganizationMemberships() {
+function OrganizationMemberships() {
   const [organizationMemberships, setOrganizationMemberships] = useState([]);
 
   const { getOrganizationMemberships } = useOrganizations();
@@ -67,4 +122,52 @@ export default function OrganizationMemberships() {
   );
 }
 ```
-{% endcode %}
+{% endtab %}
+
+{% tab title="getOrganization" %}
+```jsx
+import { useState } from "react";
+import { SignedIn, useOrganizations } from "@clerk/clerk-react";
+
+function App() {
+  return (
+    <SignedIn>
+      <GetOrganization orgId={'test_org_id'} />
+    </SignedIn>
+  );
+}
+
+function GetOrganization({ orgId }){
+  const [organization, setOrganization] = useState(null);
+
+  const { getOrganization } = useOrganizations();
+
+  useEffect(() => {
+    async function fetchOrganization() {
+      try {
+        const org = await getOrganization(orgId);
+        setOrganization(orgs);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    fetchOrganization();
+  }, [orgId]);
+  
+  if(!organization){
+    return null;
+  }
+  
+  return (
+    <div>
+      <h2>Organization {organization.name} with id: {organization.id}</h2>
+    </div>
+  );
+}
+```
+{% endtab %}
+{% endtabs %}
+
+#### View all organizations the current user belongs to
+
