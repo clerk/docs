@@ -100,6 +100,7 @@
   * [useSignIn](reference/clerk-react/usesignin-hook.md)
   * [useSignUp](reference/clerk-react/usesignup-hook.md)
   * [useSession](reference/clerk-react/usesession-hook.md)
+  * [useOrganizations](reference/clerk-react/useorganizations.md)
   * [useSessionList](reference/clerk-react/usesessionlist-hook.md)
 * [Clerk Expo](reference/clerk-expo.md)
 * [Backend API](reference/backend-api-reference/README.md)
