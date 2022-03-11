@@ -14,7 +14,7 @@ Clerk is the easiest way to add authentication and user management to your [Remi
 
 After following this guide, you should have a working Remix app complete with:&#x20;
 
-* Fully fledged sign in and sign up flows.
+* Fully fledged sign up and sign in flows.
 * Social Login with the vendors of your choice (Google, Twitter, etc)
 * Secure password or passwordless authentication.
 * A prebuilt user profile page.
@@ -53,6 +53,8 @@ After you've installed `dotenv` and made the necessary change to your package.js
 
 ```bash
 # Add environment variable to .env.local file
+# Replace [your-frontend-api] with the actual Frontend API key
+echo "CLERK_FRONTEND_API=[your-frontend-api]" > .env
 # Replace [your-backend-api-key] with the actual Backend API key
 echo "CLERK_API_KEY=[your-backend-api-key]" > .env
 ```
@@ -65,29 +67,29 @@ npm run dev
 
 ## Initialize Clerk in app/root.tsx
 
-In Remix, `app/root.tsx` wraps your entire application in both server and browser contexts. Clerk requires modifications to this file so we can propagate the authentication state through your Remix routes.
+In Remix, `app/root.tsx` wraps your entire application in both server and browser contexts. Clerk requires three modifications to this file so we can share the authentication state with your Remix routes.
 
 ### Set \`rootAuthLoader\`
 
-First, let's define a loader in root.tsx.  Users who are not signed in will be redirected to your sign-in page:
+First, we must define a root loader.
 
 ```javascript
 import { rootAuthLoader } from "@clerk/remix/ssr.server";
-import { redirect } from "remix";
+
+export const loader: LoaderFunction = (args) => rootAuthLoader(args);
+```
+
+If you'd like to load additional data, you can pass your own loader directly to `rootAuthLoader`.
+
+```javascript
+import { rootAuthLoader } from "@clerk/remix/ssr.server";
 
 export const loader: LoaderFunction = (args) =>
   rootAuthLoader(args, ({ params, request, context, auth }) => {
-    if(!auth.userId){
-      return redirect("https://accounts.foo.bar.lcl.dev/sign-in");
-    }
     // auth.userId will be set if there is a signed in user
     return { yourData: "here" };
   });
 ```
-
-{% hint style="info" %}
-Currently, your entire application must require authentication. This limitation will be resolved by March 11.
-{% endhint %}
 
 ### Connect Clerk to React
 
@@ -107,17 +109,26 @@ Then, wrap `App` with `ConnectClerk` and pass in your `frontendApi` variable fro
 ```javascript
 import { ConnectClerk } from "@clerk/remix";
 
-export default ConnectClerk(App, {
-  // Replace with your own value
-  frontendApi: "clerk.foo.bar.lcl.dev",
-});
+export default ConnectClerk(App);
 ```
 
-{% hint style="info" %}
-Currently, the frontendApi value must be hardcoded. We are exploring alternatives and will release a new version soon.
-{% endhint %}
+### Connect Clerk to the Catch Boundary
 
-That's all! The rest of your application can now leverage authentication as needed.
+Clerk uses Remix's catch boundary to refresh expired authentication tokens.
+
+```java
+import { ConnectClerkCatchBoundary } from "@clerk/remix";
+
+export const CatchBoundary = ConnectClerkCatchBoundary();
+```
+
+You can add your own boundary simply by passing it as an argument.
+
+```jsx
+export const CatchBoundary = ConnectClerkCatchBoundary(YourBoundary);
+```
+
+That's everything! The rest of your application can now leverage authentication as needed.
 
 ## Using authentication state
 
@@ -130,7 +141,11 @@ Use the `getAuth` helper to retrieve the user ID and session ID from a loader or
 ```javascript
 import { getAuth } from "@clerk/remix/ssr.server";
 
-const { userId, sessionId } = await getAuth(request);
+export const loader: LoaderFunction = async ({ request }) => {
+  const { userId, sessionId } = await getAuth(request);
+  
+  // Your loader here
+}
 ```
 
 ### In React
@@ -145,6 +160,20 @@ const { userId, sessionId } = useAuth();
 
 A complete reference to our React helpers is [available here](broken-reference).
 
-### Demo repository
+## Protecting routes
+
+To protect a route from signed out users, simply add a redirect to your loader if no `userId` is found in the authentication state:
+
+```jsx
+export const loader: LoaderFunction = async ({ request }) => {
+  const { userId, sessionId } = await getAuth(request);
+  if(!auth.userId){
+    return redirect("https://accounts.foo.bar.lcl.dev/sign-in");
+  }
+  // Your loader here
+}
+```
+
+## Demo repository
 
 [Clerk Remix Demo Repository](https://github.com/nikosdouvlis/clerk-remix-demo)
