@@ -86,7 +86,7 @@ export const loader: LoaderFunction = (args) =>
 ```
 
 {% hint style="info" %}
-Currently, your entire application must require authentication. This limitation will be resolved before February 11.
+Currently, your entire application must require authentication. This limitation will be resolved by March 11.
 {% endhint %}
 
 ### Connect Clerk to React

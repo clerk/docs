@@ -6,8 +6,6 @@ description: Support for server-side rendering with Clerk is now in open beta.
 
 Thank you for your interest in server-side rendering with Clerk! Our team is incredibly excited to open the SSR beta to the public and eager to hear your feedback. We’d appreciate if you can [connect with us in Discord](https://discord.com/invite/b5rXHjAg7A) to share your feedback, or otherwise contact us by email at support@clerk.dev.
 
-_Please note: Today, Clerk only support SSR for Next.js. We plan to add a Remix SDK by Friday, February 4, as well as make the building blocks available in our public Javascript repository for easy porting to other frontend frameworks._
-
 ### SSR objectives
 
 We approached SSR with two high-level goals:
