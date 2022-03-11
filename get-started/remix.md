@@ -45,14 +45,9 @@ Now, we need to retrieve your Backend API Key from the [Clerk Dashboard](https:/
 
 ![Home page with Frontend API key highlighted](<../.gitbook/assets/home - frontend api key highlighted.png>)
 
-Remix does not include a mechanism for setting environment variables, so developers must configure one themselves.&#x20;
-
-For the purposes of this guide, we suggest using the `dotenv` npm package as described in Remix's [Guide to Environment Variables](https://remix.run/docs/en/v1/guides/envvars).
-
-After you've installed `dotenv` and made the necessary change to your package.json `dev` script, create a `.env` file with your key:
+Remix allows developers to set environment variables by creating a `.env` file in their application root. Add Clerk's environment variables as follows:
 
 ```bash
-# Add environment variable to .env.local file
 # Replace [your-frontend-api] with the actual Frontend API key
 echo "CLERK_FRONTEND_API=[your-frontend-api]" > .env
 # Replace [your-backend-api-key] with the actual Backend API key
