@@ -39,10 +39,6 @@ In order to successfully create an organization you need to provide the ID of th
 The name of the new organization.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="instance_id" type="string" required="true" %}
-The ID of the instance that the new organization will be associated with.
-{% endswagger-parameter %}
-
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
 Bearer [YOUR_API_KEY]
 {% endswagger-parameter %}

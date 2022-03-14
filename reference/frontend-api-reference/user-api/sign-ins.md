@@ -174,13 +174,15 @@ An email address, phone number, or username.
 {% swagger-parameter in="body" name="strategy" type="string" %}
 &#x20;The first step of the strategy to perform, as part of this request. allowed options are:
 
-\`email\_link\`\
-\`phone\_code\`\
-\`email\_code\`\
-\`password\`
+`email_link`\
+`phone_code`\
+`email_code`\
+`password`
 
-\`web3\_metamask\_signature\`\
-\`oauth\_\[provider]\`
+`web3_metamask_signature`\
+`oauth_[provider]`
+
+`ticket`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="password" type="string" %}
@@ -197,6 +199,18 @@ Required if the strategy is one of the OAuth providers.
 
 {% swagger-parameter in="body" name="action_complete_redirect_url" type="string" %}
 Optional if the strategy is one of the OAuth providers.  If the OAuth verification results in a completed Sign in, this is the URL that the user will be redirected to.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="ticket" type="string" %}
+Required if the strategy is `ticket`.
+
+It should contain the JWT ticket value that will be used to verify the user.
+
+These JWT tickets are generated in the following cases:
+
+`organization invitations`
+
+`sign in tokens`
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
@@ -286,8 +300,6 @@ Optional if the strategy is one of the OAuth providers.  If the OAuth verificati
 ```
 {% endswagger-response %}
 {% endswagger %}
-
-
 
 {% swagger baseUrl="https://clerk.example.com" path="/v1/client/sign_ins/:id/attempt_first_factor" method="post" summary="Attempt first factor" %}
 {% swagger-description %}
