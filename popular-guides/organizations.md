@@ -33,6 +33,8 @@ Administrators can then invite other users to join the organization. An invitati
 
 Administrators can also revoke an invitation for a user that hasn't joined yet, as well as remove a user who's already a member from the organization or change their role. When removing organization members or updating their role, there needs to be at least one administrator for the organization at all times.
 
+Administrators can also update an organization, in order to change the organization name for example.
+
 Finally, all members of an organization, regardless of their role can view information about other members in the same organization.
 
 ## Before you start
@@ -45,7 +47,7 @@ Finally, all members of an organization, regardless of their role can view infor
 
 Let's follow a simple scenario for setting up an organization and managing its members.&#x20;
 
-In the following guide, we'll create a new organization and invite a couple of members. We'll see how to revoke one of the two invitations, and update the other member's role. Finally, we'll remove the other member from the organization.
+In the following guide, we'll create a new organization, update it and then invite a couple of members. We'll see how to revoke one of the two invitations, and update the other member's role. Finally, we'll remove the other member from the organization.
 
 This tutorial assumes that a [signed in user](../main-concepts/sign-in-flow.md) already exists. All snippets below require a session and user to be present.
 
@@ -296,6 +298,200 @@ export default function Organizations() {
   }
 </script>
 
+```
+{% endtab %}
+{% endtabs %}
+
+#### Update the organization name
+
+{% tabs %}
+{% tab title="Next.js" %}
+```jsx
+// pages/organizations/[id]/edit.js
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { useOrganizations } from "@clerk/nextjs";
+
+export default function EditOrganization() {
+  const [organization, setOrganization] = useState(null);
+  const [name, setName] = useState("");
+
+  const { query } = useRouter();
+  const organizationId = query.id;
+
+  const { getOrganization } = useOrganizations();
+
+  useEffect(() => {
+    async function fetchOrganization() {
+      try {
+        const org = await getOrganization(organizationId);
+        setOrganization(org);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    fetchOrganization();
+  }, [organizationId, getOrganization]);
+
+  useEffect(() => {
+    if (!organization) {
+      return;
+    }
+    setName(organization.name);
+  }, [organization]);
+
+  async function submit(e) {
+    e.preventDefault();
+    try {
+      await organization.update({ name });
+      router.push(`/organizations/${organization.id}`);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  if (!organization) {
+    return null;
+  }
+
+  return (
+    <div>
+      <h2>Edit organization</h2>
+      <form onSubmit={submit}>
+        <div>
+          <label>Name</label>
+          <br />
+          <input
+            name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <button>Save</button>
+      </form>
+    </div>
+  );
+}
+```
+{% endtab %}
+
+{% tab title="Clerk React" %}
+```jsx
+import { useState, useEffect } from "react";
+import { useOrganizations } from "@clerk/react";
+
+export default function EditOrganization({ organizationId }) {
+  const [organization, setOrganization] = useState(null);
+  const [name, setName] = useState("");
+
+  const { getOrganization } = useOrganizations();
+
+  useEffect(() => {
+    async function fetchOrganization() {
+      try {
+        const org = await getOrganization(organizationId);
+        setOrganization(org);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    fetchOrganization();
+  }, [organizationId, getOrganization]);
+
+  useEffect(() => {
+    if (!organization) {
+      return;
+    }
+    setName(organization.name);
+  }, [organization]);
+
+  async function submit(e) {
+    e.preventDefault();
+    try {
+      await organization.update({ name });
+      router.push(`/organizations/${organization.id}`);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  if (!organization) {
+    return null;
+  }
+
+  return (
+    <div>
+      <h2>Edit organization</h2>
+      <form onSubmit={submit}>
+        <div>
+          <label>Name</label>
+          <br />
+          <input
+            name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <button>Save</button>
+      </form>
+    </div>
+  );
+}
+```
+{% endtab %}
+
+{% tab title="ClerkJS" %}
+```html
+<form id="edit_organization">
+  <div>
+    <label>Name</label>
+    <br />
+    <input name="name" />
+  </div>
+  <button>Save</button>
+</form>
+
+<script>
+  async function init() {
+    // This is the current organization ID.
+    const organizationId = "org_XXXXXXX";
+    const organizationMemberships = await window.Clerk.getOrganizationMemberships()
+    const currentMembership = organizationMemberships.find(membership 
+      => membership.organization.id === organizationId);
+    const currentOrganization = currentMembership.organization;
+    
+    if (!currentOrganization) {
+      return;
+    }
+    
+    editOrganization(currentOrganization);
+  }
+  
+  async function editOrganization(organization) {
+    const form = document.getElementById("edit_organization");
+    const inputEl = form.getElementsByTagName("input")[0];
+    if (inputEl) {
+      inputEl.value = organization.name;
+    }
+    
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const inputEl = form.getElementsByTagName("input")[0];
+      if (!inputEl) {
+        return;
+      }
+      try {
+        await organization.update({ name: inputEl.value });
+      } catch (err) {
+        console.error(err);
+      }
+    });
+  }
+  
+  init();
+</script>
 ```
 {% endtab %}
 {% endtabs %}

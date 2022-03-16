@@ -78,6 +78,27 @@ This method returns a `Promise` which resolves to the  `OrganizationInvitationRe
 {% endtab %}
 {% endtabs %}
 
+### update(params)
+
+`update(params: UpdateOrganizationParams) => Promise<OrganizationResource>`
+
+Updates an organization's attributes.
+
+{% tabs %}
+{% tab title="Parameters" %}
+
+
+| Name     | Description                                      |
+| -------- | ------------------------------------------------ |
+| **name** | <p><em>string</em><br>The organization name.</p> |
+{% endtab %}
+
+{% tab title="Returns" %}
+_Promise\<OrganizationResource>_\
+This method returns a `Promise` which resolves to an [Organization](organization.md).
+{% endtab %}
+{% endtabs %}
+
 ### updateMember(params)
 
 `updateMember(params: UpdateMembershipParams) =>Promise<`OrganizationMembershipResource`>`
