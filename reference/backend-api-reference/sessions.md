@@ -8,6 +8,7 @@ This object represents an active session for a user.  Sessions are created when 
 * **`GET`**`/v1/sessions`
 * **`POST`**`/v1/sessions/:id/revoke`
 * **`POST`**`/v1/sessions/:id/verify`
+* `POST /v1/sessions/:id/tokens/:templateName`
 
 ### Example session schema
 
@@ -128,6 +129,53 @@ The JWT that is sent via the `__session` cookie from your frontend.  Note: this 
             "code": "resource_not_found"
         }
     ]
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger method="post" path="/v1/sessions/:id/tokens/:templateName" baseUrl="https://api.clerk.dev" summary="Create a token based on a session and a template name" %}
+{% swagger-description %}
+Creates a JSON Web Token(JWT) based on a session and a JWT Template name defined for your instance.
+{% endswagger-description %}
+
+{% swagger-parameter in="header" name="Authorization" required="true" %}
+Bearer [YOUR_API_KEY]
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" required="true" name="id" %}
+Session ID
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="templateName" required="true" %}
+The name of the JWT Template defined in your instance (e.g. 
+
+`custom_hasura`
+
+).
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Success" %}
+```javascript
+{
+    "object": "token",
+    "jwt": "eyJhbGciOiJSUzI1NiIsImtpZCI6Imluc18xazVvd0NSWEx3c3huUmt6RGNoVm9XVG1YSTgiLCJ0eXAiOiJKV1QifQ.eyJleHAiOjE2NDIwMjk2NDIsImZpcnN0X25hbWUiOiJCb3NzIiwiaWF0IjoxNjQyMDI5NTgyLCJpc3MiOiJodHRwczovL2NsZXJrLmNsZXJrc3RhZ2UuZGV2IiwianRpIjoiYzU2YTUwN2Y3ODU3ZjkyNjBlNzQiLCJuYmYiOjE2NDIwMjk1NzcsInN1YiI6InVzZXJfMW41QVkyUlhKeUJHaEdMQWhkRWZmYU9DcEZKIn0.jMZjFadJiRsFS9uh0JqzmepAmbij52qKL0nEIzXWquTecRlWLgU2dmFt66jRLEN32SdV0ERyD4eyEKfN8L_judgVR_p38qXnKvgnE_pLmZpwjLjSDm05Ow081VH6Kd2PZuvMbW7DU6xAl5x2Fqj6QqlQGdicuEYcTKxzU5Bo3yJ8Heqnjaa-91VyRritF1hz6J3AVaePEAFS0aU2vdNvXABbup_Om2IfbT1Exr76k8btJKhQvGdkQPDd88V_5DIemmDvV76d4SKR9LE5fYXpGAM74Q1aSI5XNmvjf0aTR_hdoNFNAxjss_0geq3xdCCtLpKN8NMOh7beL4MWjBjifA"
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="Session not found or inactive, JWT template not found for the provided name" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="500: Internal Server Error" description="Something went wrong" %}
+```javascript
+{
+    // Response
 }
 ```
 {% endswagger-response %}
