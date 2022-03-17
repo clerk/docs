@@ -223,7 +223,51 @@ The digests should be generated with one of the algorithms we support. The hashi
 {% swagger-parameter in="body" name="password_hasher" type="string" %}
 The hashing algorithm that was used to generate the password digest.
 
-The algorithms we support at the moment are [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) and [pbkdf2\_sha256\_django](https://docs.djangoproject.com/en/4.0/topics/auth/passwords/).
+The algorithms we support at the moment are [bcrypt](https://en.wikipedia.org/wiki/Bcrypt), [pbkdf2\_sha256\_django](https://docs.djangoproject.com/en/4.0/topics/auth/passwords/) and [scrypt\_firebase](https://firebaseopensource.com/projects/firebase/scrypt/).
+
+Each of the above expects the incoming digest to be of a particular format. More specifically:
+
+
+
+_**bcrypt**_: The digest should be of the following form:&#x20;
+
+`$<algorithm version>$<cost>$<salt & hash>`\
+
+
+_**pbkdf2\_sha256\_django**:_ This is the Django-specific variant of PBKDF2 and the digest should have the following format (as exported from Django):
+
+`pbkdf2_sha256$<iterations>$<salt>$<hash>`\
+
+
+_**scrypt\_firebase**_: The Firebase-specific variant of scrypt.
+
+The value is expected to have 6 segments separated by the `$` character and include the following information:
+
+_hash_: The actual Base64 hash. This can be retrieved when exporting the user from Firebase.
+
+_salt_: The salt used to generate the above hash. Again, this is given when exporting the user.
+
+_signer key_: The base64 encoded signer key.
+
+_salt separator_: The base64 encoded salt separator.
+
+_rounds_: The number of rounds the algorithm needs to run.
+
+_memory cost_: The cost of the algorithm run
+
+
+
+The first 2 (hash and salt) are per user and can be retrieved when exporting the user from Firebase.
+
+The other 4 values (signer key, salt separator, rounds and memory cost) are project-wide settings and can be retrieved from the project's password hash parameters.
+
+
+
+Once you have all these, you can combine it in the following format and send this as the digest in order for Clerk to accept it:
+
+`<hash>$<salt>$<signer key>$<salt separator>$<rounds>$<memory cost>`
+
+
 
 If you need support for any particular hashing algorithm, [let us know](https://clerk.dev/support).
 {% endswagger-parameter %}
