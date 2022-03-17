@@ -25,9 +25,7 @@ To keep your users safe, Clerk follows a "secure-by-default" policy, and we foll
 
 ## Configuration
 
-The first thing you need to do is enable email address and password-based authentication in your Clerk instance.
-
-From the [Clerk Dashboard](https://dashboard.clerk.dev), select your instance and head over to **Authentication** > **Standard Form Fields**.&#x20;
+The first thing you need to do is enable email address and password-based authentication on the [Email, Phone, Username page](https://dashboard.clerk.dev/last-active?path=user-authentication/email-phone-username).
 
 Select **Email address** for your contact information and **Password** as your authentication strategy.
 

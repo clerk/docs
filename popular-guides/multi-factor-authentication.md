@@ -27,7 +27,7 @@ Interested in single-factor authentication? Check out our guides on [password-ba
 
 ## Configuration
 
-There's two parts to enabling multi-factor authentication for your application. First, you need to apply the appropriate configuration setting in the [Clerk Dashboard](https://dashboard.clerk.dev). Then, registered users need to turn on MFA for their own account through their **User Profile** page.
+There's two parts to enabling multi-factor authentication for your application. First, you need to apply the appropriate configuration setting on the [Multi-factor authentication page](https://dashboard.clerk.dev/last-active?path=user-authentication/multi-factor). Then, registered users need to turn on MFA for their own account through their **User Profile** page.
 
 ### Dashboard configuration
 
@@ -148,7 +148,7 @@ You can leverage [Clerk Components](broken-reference) to easily add multi-factor
 
 Clerk provides a [\<SignIn />](../components/sign-in/sign-in.md) pre-built component that renders a sign in form and takes care of authenticating users and creating a session.
 
-Note that you don't need to pass any special options to the pre-built **\<SignIn />** component. Multi-factor authentication will just work once users enable it under their profile settings, since it's already been configured through the [Clerk Dashboard](https://dashboard.clerk.dev).
+Note that you don't need to pass any special options to the pre-built **\<SignIn />** component. Multi-factor authentication will just work once users enable it under their profile settings, since it's already been configured on the [Multi-factor authentication page](https://dashboard.clerk.dev/last-active?path=user-authentication/multi-factor).
 
 {% tabs %}
 {% tab title="Clerk React" %}

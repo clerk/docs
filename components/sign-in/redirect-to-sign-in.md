@@ -6,7 +6,7 @@ description: Navigate immediately to the sign-in URL
 
 ## Overview
 
-Rendering a `<RedirectToSignIn/>` component will navigate to the sign in URL which has been configured in your application instance. You can find the configuration in the [Clerk Dashboard](https://dashboard.clerk.dev). Go to your application, select your instance, then go to **Paths**.
+Rendering a `<RedirectToSignIn/>` component will navigate to the sign in URL which has been configured in your application instance. You can find the configuration on the [Paths page](https://dashboard.clerk.dev/last-active?path=paths).
 
 The behavior will be just like a server-side (3xx) redirect, and will override the current location in the history stack.
 

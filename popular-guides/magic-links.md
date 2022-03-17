@@ -46,11 +46,9 @@ We take care of the boring stuff, like efficient polling, secure session managem
 
 ## Configuration
 
-Magic link authentication can be configured through the [Clerk Dashboard](https://dashboard.clerk.dev). Go to your instance, then **Authentication > Standard Form Fields.** Simply choose **Passwordless** as the authentication strategy.
+Magic link authentication can be configured on the [Email, Phone, Username page](https://dashboard.clerk.dev/last-active?path=user-authentication/email-phone-username). Simply choose **Email verification link** as the authentication strategy.
 
-![](../.gitbook/assets/screely-1639505701741.png)
-
-Don't forget that you also need to make sure you've configured your application instance to request the user's email address. Users can receive magic links only via email messages. Make sure you select one of the following options;  **Email address** or **Email address OR phone number**.&#x20;
+Don't forget that you also need to make sure you've configured your application instance to request the user's email address. Users can receive magic links only via email messages. Make sure you select the **Email address** option.&#x20;
 
 {% hint style="warning" %}
 Don't forget to click on the **Apply Changes** button at the bottom of the page once you're done configuring your instance.
@@ -131,7 +129,7 @@ Similarly, there's a [\<SignIn />](../components/sign-in/sign-in.md) pre-built c
 
 On the other hand for adding and verifying email addresses to a user's profile, Clerk offers a customizable [\<UserProfile />](../components/user-profile/user-profile.md) pre-built component.
 
-Note that you don't need to pass any special options to the pre-built **\<SignUp />,** **\<SignIn />** and **\<UserProfile />** components. Magic link authentication/verification will just work, since you already configured it through the Clerk [dashboard](https://dashboard.clerk.dev).
+Note that you don't need to pass any special options to the pre-built **\<SignUp />,** **\<SignIn />** and **\<UserProfile />** components. Magic link authentication/verification will just work, since you already configured it on the [Email, Phone, Username page](https://dashboard.clerk.dev/last-active?path=user-authentication/email-phone-username).
 
 ### Sign up <a href="#clerk-components-sign-up" id="clerk-components-sign-up"></a>
 

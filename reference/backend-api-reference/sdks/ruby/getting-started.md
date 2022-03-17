@@ -22,7 +22,7 @@ $ gem install clerk-sdk-ruby
 
 ## Quick Start
 
-First, you need to get an API key for a Clerk instance. This is done via the [Clerk dashboard](https://dashboard.clerk.dev/applications).
+First, you need to get an API key for a Clerk instance. This is done on the [API Keys page](https://dashboard.clerk.dev/last-active?path=api-keys).
 
 Then you can instantiate a `Clerk::SDK` instance and access all [Backend API](../../) endpoints. Here's a quick example:
 

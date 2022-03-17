@@ -35,7 +35,7 @@ Looking for more information on session management? Check out our [detailed guid
 
 The first thing you need to do is to enable the multi-session feature in your Clerk instance.
 
-From the [Clerk Dashboard](https://dashboard.clerk.dev), select your application and instance, navigate to **Security** > **Sessions** and choose **Multi-session handling**.
+Go to the [Sessions page](https://dashboard.clerk.dev/last-active?path=sessions) and enable **Multi-session handling**.
 
 ![](../.gitbook/assets/screely-1639506808306.png)
 

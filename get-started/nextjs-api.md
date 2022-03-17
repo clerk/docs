@@ -14,9 +14,7 @@ This guide assumes you have properly completed your Next.js [frontend setup](nex
 
 Create a file named **.env.local** in your application root if it doesn't exist already. Any variables inside this file will be accessible in your backend with **process.env.VARIABLE\_NAME**.
 
-Now, we need to set the `CLERK_API_KEY` environment variable. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** copy the **Backend API Key** field from the Development instance Home page.
-
-![Home page with Backend API key highlighted](<../.gitbook/assets/home - backend api key highlighted.png>)
+Now, we need to set the `CLERK_API_KEY` environment variable. Go to the [API Keys page](https://dashboard.clerk.dev/last-active?path=api-keys) and copy the **Backend API Key** field.
 
 {% code title=".env.local" %}
 ```jsx

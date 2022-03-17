@@ -27,7 +27,7 @@ First, you need to register a new OAuth Dropbox app at the [Dropbox App Console]
 
 ![Creating an OAuth Dropbox app](../../.gitbook/assets/oauth\_dropbox\_create\_app.png)
 
-First you need to choose the API type, the App's type of access and to set a name for your new application. You also need to add the **OAuth Redirect URLs.** Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**. Click the **Manage connection** button under the Twitch provider and copy the **Authorized redirect URI**. Paste the value into the **OAuth Redirect URIs** input and click create.
+First you need to choose the API type, the App's type of access and to set a name for your new application. You also need to add the **OAuth Redirect URLs.** Go to the [Social Login page](https://dashboard.clerk.dev/last-active?path=authentication/social) and enable Dropbox. In the modal that opened, ensure **Use custom credentials** is enabled and copy **Authorized redirect URI**. Paste the value into the **OAuth Redirect URIs** input and click create.
 
 Once all the above are complete, copy the **Client ID** and **Client Secret.** Go back to the Clerk Dashboard and paste them into the respective fields.
 

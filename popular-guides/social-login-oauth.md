@@ -27,7 +27,7 @@ The easiest way to add social login is by using our prebuilt [Clerk Hosted Pages
 
 ## Configuration
 
-To enable a social login provider, go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, **** and navigate to **Authentication** **** ➜  **Social Login**
+To enable a social login provider, go to the [Social Login page](https://dashboard.clerk.dev/last-active?path=authentication/social).
 
 Social login configuration consists of the following steps:
 
@@ -175,7 +175,7 @@ To further customize your sign up and sign in pages, you can use [Clerk Componen
 
 Clerk provides the  [\<SignUp/>](../components/sign-up/sign-up.md)  and [\<SignIn/>](../components/sign-in/sign-in.md) prebuilt components that render a conversion-optimized sign up and sign form.
 
-Note that you don't need to pass any special props to the \<SignUp/> and \<SignIn/> components, it will automatically display the configuration you chose in the [Clerk Dashboard](https://dashboard.clerk.dev).
+Note that you don't need to pass any special props to the \<SignUp/> and \<SignIn/> components, it will automatically display the configuration you chose on the [Social Login page](https://dashboard.clerk.dev/last-active?path=authentication/social).
 
 When using social login, the sign up and sign in flows are equivalent.  If a user doesn't have an account and tries to sign in, an account will be made for them, and vice versa.
 
@@ -258,7 +258,7 @@ And you're done! 🎉
 
 The above examples don't require any specific routes to be defined, they automatically use the [Clerk Hosted Pages](broken-reference) to handle the required OAuth redirects. If you prefer having the mounted \<SignIn/> and \<SignUp/> components handle the OAuth redirects instead, you need to follow some additional steps:
 
-From the [Clerk Dashboard](https://dashboard.clerk.dev), select your **Application**, navigate to **Instance** ➜  **Paths.** Change the **Sign Up URL** to `/sign-up` and the **Sign In URL** to `/sign-in`.
+On the [Paths page](https://dashboard.clerk.dev/last-active?path=paths), change the **Sign Up URL** to `/sign-up` and the **Sign In URL** to `/sign-in`.
 
 Finally, in your app define a `/sign-up` route that renders the \<SignUp /> component. Similarly, define a `/sign-in`route that renders the \<SignIn /> component as shown in the following example. Refer to the [\<SignIn/>](../components/sign-in/sign-in.md) and [\<SignUp/>](../components/sign-up/sign-up.md) docs to learn more about the `routing` and `path` props.
 

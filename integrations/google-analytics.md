@@ -10,9 +10,7 @@ This integration enables Clerk to send  user authentication events to the config
 
 To enable the integration, you will need to provide Clerk with the required Google Analytics configuration attributes depending on the type of Google Analytics property. **We support both Universal Analytics and Google Analytics 4 properties.**
 
-To get started, turn on the Google Analytics integration in the [dashboard](https://dashboard.clerk.dev):
-
-**Your Application  and instance → Integrations → Google Analytics**
+To get started, turn on the Google Analytics integration on the [Integrations page](https://dashboard.clerk.dev/last-active?path=integrations).
 
 ![](../.gitbook/assets/screely-1639509148300.png)
 
