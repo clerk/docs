@@ -79,7 +79,7 @@ const Page = () => {
   const { isLoaded, userId, sessionId, getToken } = useAuth();
   
   // Handle these cases in case the user signs out while on the page.
-  if (isLoaded || !userId) {
+  if (!isLoaded || !userId) {
     return null;
   }
 
