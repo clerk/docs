@@ -31,19 +31,36 @@ To support SSR, Clerk is adding an “auth” context to both React components a
 
 * **userId:** The ID of the active user, or `null` when signed out. In data-loaders, this is often the only piece of information needed to securely retrieve the data associated with a request.
 * **sessionId:** The ID of the active session, or `null` when signed out. This is primarily used in audit logs to enable device-level granularity instead of user-level.
-* **getToken(): R**etrieves the signed JWT associated with the request, or throws when signed out. Used for relaying the JWT to other services which must reverify the signature. _Please note: custom JWT templates like `getToken({template: "hasura"})` are not available yet._
+* **getToken({ template?: string; }):** Retrieves a signed JWT that is structured according to the corresponding JWT template in your dashboard. If no template parameter is provided, a default Clerk session JWT is returned.
 
-Critically, **Clerk uses stateless JWTs to authenticate SSR in under 1 millisecond** without a database query or other network request.
+The new "auth" context is available in Next.js API routes, during server-side rendering, and in React components as follows.
 
-#### Data-loaders: `context.auth`
+#### API Routes: `req.auth`
 
 ```jsx
 // Next.js
-import { withServerSideAuth } from "@clerk/nextjs/ssr";
+import { withAuth } from "@clerk/nextjs/ssr";
+
+export const getServerSideProps = withAuth(
+  async ( req, res ) => {
+    const { userId, sessionId, getToken } = req.auth;
+    const supabaseToken = getToken({templateName: "supabase"})
+    // Load any data your application needs for the API route
+    return { props: {} };
+  }
+);
+```
+
+#### Server-side rendering: `req.auth`
+
+```jsx
+// Next.js
+import { withServerSideAuth } from "@clerk/nextjs/api";
 
 export const getServerSideProps = withServerSideAuth(
-  async (context) => {
-    const { userId, sessionId, getToken } = context.auth;
+  async ({ req }) => {
+    const { userId, sessionId, getToken } = req.auth;
+    const supabaseToken = getToken({templateName: "hasura"})    
     // Load any data your application needs and pass to props
     return { props: {} };
   }
@@ -102,8 +119,8 @@ In practice, we expect developers will do this when they want to render user pro
 import { withServerSideAuth } from '@clerk/nextjs/ssr';
 
 export const getServerSideProps = withServerSideAuth(
-  context => {
-    const { user } = context;
+  ({ req }) => {
+    const { user } = req;
     // Load any data your application needs and pass to props
     return { props: {} };
   },
