@@ -41,7 +41,7 @@ The new "auth" context is available in Next.js API routes, during server-side re
 // Next.js
 import { withAuth } from "@clerk/nextjs/ssr";
 
-export const getServerSideProps = withAuth(
+export default withAuth(
   async ( req, res ) => {
     const { userId, sessionId, getToken } = req.auth;
     const supabaseToken = getToken({templateName: "supabase"})
