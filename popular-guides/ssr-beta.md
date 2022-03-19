@@ -39,7 +39,7 @@ The new "auth" context is available in Next.js API routes, during server-side re
 
 ```jsx
 // Next.js
-import { withAuth } from "@clerk/nextjs/ssr";
+import { withAuth } from "@clerk/nextjs/api";
 
 export default withAuth(
   async ( req, res ) => {
@@ -55,7 +55,7 @@ export default withAuth(
 
 ```jsx
 // Next.js
-import { withServerSideAuth } from "@clerk/nextjs/api";
+import { withServerSideAuth } from "@clerk/nextjs/ssr";
 
 export const getServerSideProps = withServerSideAuth(
   async ({ req }) => {
