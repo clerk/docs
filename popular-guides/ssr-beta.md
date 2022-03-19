@@ -37,8 +37,10 @@ The new "auth" context is available in Next.js API routes, during server-side re
 
 #### API Routes: `req.auth`
 
+``
+
+{% code title="pages/api/hello.ts" %}
 ```jsx
-// Next.js
 import { withAuth } from "@clerk/nextjs/api";
 
 export default withAuth(
@@ -50,12 +52,17 @@ export default withAuth(
   }
 );
 ```
+{% endcode %}
 
 #### Server-side rendering: `req.auth`
 
+{% code title="pages/my-page.tsx" %}
 ```jsx
-// Next.js
 import { withServerSideAuth } from "@clerk/nextjs/ssr";
+
+export default MyPage(){
+   return ...;
+}
 
 export const getServerSideProps = withServerSideAuth(
   async ({ req }) => {
@@ -66,13 +73,14 @@ export const getServerSideProps = withServerSideAuth(
   }
 );
 ```
+{% endcode %}
 
 #### React components: `useAuth()`
 
 For `useAuth()` to work during SSR, the state from the data-loader must be passed to `<ClerkProvider>`. This is accomplished simply in the application’s entrypoint:
 
+{% code title="pages/_app.tsx" %}
 ```jsx
-// Next.js
 import type { AppProps } from "next/app";
 import { ClerkProvider } from "@clerk/nextjs";
 
@@ -86,9 +94,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 export default MyApp;
 ```
+{% endcode %}
 
 Now, `useAuth()` can be used throughout the application during SSR. Since we updated `<ClerkProvider>`, the `isLoaded` state will be `false` during SSR. It’s only set to `true` during client-side rendering.
 
+{% code title="pages/page.tsx" %}
 ```jsx
 import { useAuth } from '@clerk/nextjs';
 
@@ -103,6 +113,7 @@ const Page = () => {
   return <div>Hello, {userId}</div>;
 };
 ```
+{% endcode %}
 
 Note: if you’re currently using `useSession()` only for `getToken`, we recommend switching to `useAuth()`.
 
@@ -115,8 +126,11 @@ In practice, we expect developers will do this when they want to render user pro
 #### Data-loader: `{loadUser: true}`
 
 ```jsx
-// Next.js
 import { withServerSideAuth } from '@clerk/nextjs/ssr';
+
+export default MyPage(){
+   return ...;
+}
 
 export const getServerSideProps = withServerSideAuth(
   ({ req }) => {
@@ -135,7 +149,6 @@ For `useUser()` to work during SSR, the state from the data-loader must be passe
 _If you’ve already done this for `useAuth()` above, no further changes are needed._
 
 ```jsx
-// Next.js
 import type { AppProps } from 'next/app';
 import { ClerkProvider } from '@clerk/nextjs';
 
