@@ -79,7 +79,7 @@ export const getServerSideProps = withServerSideAuth(
 ```jsx
 import { withEdgeMiddlewareAuth } from "@clerk/nextjs/edge-middleware";
 
-export default withServerSideAuth(
+export default withEdgeMiddlewareAuth(
   async ( req ) => {
     const { userId, sessionId, getToken } = req.auth;
     const supabaseToken = getToken({templateName: "hasura"})
