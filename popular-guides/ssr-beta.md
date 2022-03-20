@@ -37,8 +37,6 @@ The new "auth" context is available in Next.js API routes, during server-side re
 
 #### API Routes: `req.auth`
 
-``
-
 {% code title="pages/api/hello.ts" %}
 ```jsx
 import { withAuth } from "@clerk/nextjs/api";
@@ -70,6 +68,26 @@ export const getServerSideProps = withServerSideAuth(
     const supabaseToken = getToken({templateName: "hasura"})    
     // Load any data your application needs and pass to props
     return { props: {} };
+  }
+);
+```
+{% endcode %}
+
+#### Edge Middleware: `req.auth`
+
+{% code title="pages/_middleware.js" %}
+```jsx
+import { withEdgeMiddlewareAuth } from "@clerk/nextjs/edge-middleware";
+
+export default withServerSideAuth(
+  async ( req ) => {
+    const { userId, sessionId, getToken } = req.auth;
+    const supabaseToken = getToken({templateName: "hasura"})
+    
+    // Run your middleware
+
+    // Complete response
+    return NextResponse.next();
   }
 );
 ```
