@@ -26,7 +26,7 @@ Given the asynchronous nature of webhooks, they might not fit in every use case 
 
 Clerk provides webhook support by integrating with [Svix](https://www.svix.com).&#x20;
 
-The Svix integration can be enabled through [Clerk Dashboard](https://dashboard.clerk.dev), by going to your instance and then to **Integrations** > **Svix**. Use the toggle button to enable/disable the integration.
+The Svix integration can be enabled on the [Integrations page](https://dashboard.clerk.dev/last-active?path=integrations). Use the toggle button to enable/disable the integration.
 
 ![](../.gitbook/assets/screely-1639507436297.png)
 

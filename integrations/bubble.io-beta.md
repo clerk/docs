@@ -113,10 +113,10 @@ To show the _UserButton_, add a new workflow using a_"Clerk loaded with user"_ e
 ## Frequently Asked Questions
 
 * **Where can I manage my application's users?**\
-  ****Users can be managed from the [Clerk Dashboard](https://dashboard.clerk.dev) in the **Users** section.\
+  ****Users can be managed from the [Users page](https://dashboard.clerk.dev/last-active?path=users).\
 
 * **Can I change the Clerk interface theme to match my application ?**\
-  ****Yes! Navigate to **Settings → Theme** in the [Clerk Dashboard](https://dashboard.clerk.dev) for your instance for complete customizability.  _Don't forget to press the Apply changes button!_
+  ****Yes! Navigate to the [Theme page](https://dashboard.clerk.dev/last-active?path=customization/theme) for complete customizability.  _Don't forget to press the Apply changes button!_
 * **Can I migrate all my existing bubble.io users to Clerk ?**\
   ****Yes! [Contact us](https://clerk.dev/support) and we can help you migrate your existing user base.
 

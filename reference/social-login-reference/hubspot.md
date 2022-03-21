@@ -29,9 +29,9 @@ Once your app is created, click on the **Auth** tab and copy the **App Id** and 
 
 ![Configuring a HubSpot app](../../.gitbook/assets/screely-1628433157057.png)
 
-Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**.  Click the **Manage connection** button under the HubSpot provider and paste the values you obtained during the previous step.
+Go to the [Social Login page](https://dashboard.clerk.dev/last-active?path=authentication/social) and enable HubSpot. In the modal that opened, ensure **Use custom credentials** is enabled and paste the values you obtained during the previous step.
 
-Before you close the **Manage credentials** modal, copy the **Authorized redirect URI**. Go back to the HubSpot panel and paste it into the **Redirect URL** field and click **Save**.
+Before you close the modal, copy the **Authorized redirect URI**. Go back to the HubSpot panel and paste it into the **Redirect URL** field and click **Save**.
 
 Don't forget to click **Apply** in the Clerk dashboard. Social login with HubSpot is now configured 🔥&#x20;
 

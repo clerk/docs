@@ -29,11 +29,9 @@ Looking for 2FA? Check out our [Multi-factor authentication](multi-factor-authen
 
 ## Configuration
 
-Passwordless authentication can be configured through the [Clerk Dashboard](https://dashboard.clerk.dev). Go to your instance, then **Authentication** > **Standard Form Fields.** Simply choose **Passwordless** as the authentication strategy and click the cog to select One-time codes.
+Passwordless authentication can be configured on the [Email, Phone, Username page](https://dashboard.clerk.dev/last-active?path=user-authentication/email-phone-username). Simply choose **Email verification link**, **Email verification code** or **SMS verification code** as the authentication strategy.
 
-![](../.gitbook/assets/screely-1639505933346.png)
-
-Don't forget that you also need to make sure you've configured your application instance to request the user's contact information.  Users can receive one-time codes via either an email address or a phone number. Make sure you select one of the following options;  **Email address**, **Phone number** or **Email address OR phone number**.&#x20;
+Don't forget that you also need to make sure you've configured your application instance to request the user's contact information.  Users can receive one-time codes via either an email address or a phone number. Make sure you select one of the following options: **Email address** or **Phone number**.&#x20;
 
 For the rest of this guide, we'll use the **Phone number** option.
 

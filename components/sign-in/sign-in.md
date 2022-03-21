@@ -8,7 +8,7 @@ description: Full-featured UI for signing users in your application.
 
 The `<SignIn/>` component renders a UI for signing in users. Most of the times, the `<SignIn/>` component is all you need for completing sign ins. It supports any authentication scheme, from [Email/password authentication](../../popular-guides/email-and-password.md), and [Passwordless](../../popular-guides/passwordless-authentication.md), to [Social Login (OAuth)](../../popular-guides/social-login-oauth.md) and [Multi-factor verification](../../popular-guides/multi-factor-authentication.md).
 
-The contents and functionality of the `<SignIn/>` component are controlled for the most part by the instance settings you specify in your [Clerk Dashboard](https://dashboard.clerk.dev). Your instance settings also allow for customization of the look and feel of the `<SignIn/>` component.
+The contents and functionality of the `<SignIn/>` component are controlled for the most part by the instance settings you specify in your [Clerk Dashboard](https://dashboard.clerk.dev/last-active). Your instance settings also allow for customization of the look and feel of the `<SignIn/>` component.
 
 You can further customize your `<SignIn/>` component by passing additional [properties](sign-in.md#props) at the time of rendering.
 
@@ -22,7 +22,7 @@ Here's an example of what the component looks like once it's rendered.
 Make sure you've followed the installation guide for [Clerk React](../../reference/clerk-react/installation.md) or [ClerkJS](../../reference/clerkjs/installation.md) before running the snippets below.
 {% endhint %}
 
-Once you set up the desired functionality and look and feel for the `<SignIn/>` component, all that's left is to render it inside your page. The default rendering is simple but powerful enough to cover most use-cases. The authentication and display (look and feel) configuration that you've set up in your [Clerk Dashboard](https://dashboard.clerk.dev) will work out of the box.
+Once you set up the desired functionality and look and feel for the `<SignIn/>` component, all that's left is to render it inside your page. The default rendering is simple but powerful enough to cover most use-cases. The authentication and display (look and feel) configuration that you've set up in your [Clerk Dashboard](https://dashboard.clerk.dev/last-active) will work out of the box.
 
 {% tabs %}
 {% tab title="Clerk React" %}
@@ -229,4 +229,4 @@ window.Clerk.openSignIn({
 
 ## Customization
 
-The `<SignIn/>` component can be highly customized through the Instance settings in the [Clerk Dashboard](https://dashboard.clerk.dev). This document will be updated soon with all necessary details.
+The `<SignIn/>` component can be highly customized through the Instance settings on the [Theme page](https://dashboard.clerk.dev/last-active?path=customization/theme). This document will be updated soon with all necessary details.

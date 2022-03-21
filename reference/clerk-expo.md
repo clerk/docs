@@ -38,7 +38,7 @@ Render a `<ClerkProvider/>` component at the root of your React app so that it i
 
 In order to use`<ClerkProvider/>` first you need to locate the entry point file of your React Native app. In Expo, this is usually your `src/App.js`.
 
-Replace the `frontendApi` prop with the [Frontend API](frontend-api-reference/) host found in your [Clerk Dashboard](https://dashboard.clerk.dev).
+Replace the `frontendApi` prop with the [Frontend API](frontend-api-reference/) host found on the [API Keys page](https://dashboard.clerk.dev/last-active?path=api-keys).
 
 ```jsx
 import React from "react";

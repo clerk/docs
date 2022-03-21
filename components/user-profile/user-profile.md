@@ -28,7 +28,7 @@ Make sure you've followed the installation guide for [Clerk React](../../referen
 
 ### Mounting in your app
 
-Once you set up the desired functionality and look and feel for the `<UserProfile/>` component, all that's left is to render it inside your page. The default rendering is simple but powerful enough to cover most use-cases. The  theme configuration (look and feel) that you've set up in your [Clerk Dashboard](https://dashboard.clerk.dev) will work out of the box.
+Once you set up the desired functionality and look and feel for the `<UserProfile/>` component, all that's left is to render it inside your page. The default rendering is simple but powerful enough to cover most use-cases. The  theme configuration (look and feel) that you've set up on the [Theme page](https://dashboard.clerk.dev/last-active?path=customization/theme) will work out of the box.
 
 {% tabs %}
 {% tab title="Clerk React" %}
@@ -250,4 +250,4 @@ For more information, see [Routing](broken-reference).
 
 ## Customization
 
-The `<UserProfile/>` component can be highly customized through the Instance settings in the [Clerk Dashboard](https://dashboard.clerk.dev). This document will be updated soon with all necessary details.
+The `<UserProfile/>` component can be highly customized through the Instance settings on the [Theme page](https://dashboard.clerk.dev/last-active?path=customization/theme). This document will be updated soon with all necessary details.

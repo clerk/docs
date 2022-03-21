@@ -27,7 +27,7 @@ First, you need to create a new OAuth LinkedIn app.
 
 ![Creating an OAuth LinkedIn app](../../.gitbook/assets/oauth\_linkedin\_create\_app.png)
 
-You need to set a name, associate a LinkedIn page with it and finally upload a logo for your new application. Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**. Click the **Manage connection** button under the LinkedIn provider, copy the **Authorized redirect URI** and paste the value into the **Redirect URL**, as shown below.
+You need to set a name, associate a LinkedIn page with it and finally upload a logo for your new application. Go to the [Social Login page](https://dashboard.clerk.dev/last-active?path=authentication/social) and enable LinkedIn. In the modal that opened, ensure **Use custom credentials** is enabled and copy **Authorized redirect URI**. Paste the value into the **Redirect URL**, as shown below.
 
 ![Obtaining the Application ID and Client secret](../../.gitbook/assets/oauth\_linkedin\_credentials.png)
 

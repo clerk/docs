@@ -40,7 +40,7 @@ Render a `<ClerkProvider/>` component at the root of your React app so that it i
 
 In order to use`<ClerkProvider/>,` first you need to locate the entry point file of your React app. Usually this is your `src/index.js` (Create React App) or `pages/_app` (Next.js) file. In general, you're looking for the file where the `ReactDOM.render` function gets called.
 
-Replace the `frontendApi` prop with the [Frontend API](../frontend-api-reference/) host found in your [Clerk Dashboard](https://dashboard.clerk.dev).
+Replace the `frontendApi` prop with the [Frontend API](../frontend-api-reference/) host found on the [API Keys page](https://dashboard.clerk.dev/last-active?path=api-keys).
 
 {% tabs %}
 {% tab title="React" %}

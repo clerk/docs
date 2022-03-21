@@ -41,9 +41,7 @@ Once you have a Remix app ready, you need to install the Clerk Remix SDK. This w
 npm install @clerk/remix@next
 ```
 
-Now, we need to retrieve your Backend API Key from the [Clerk Dashboard](https://dashboard.clerk.dev). Select your **Application**, **** and find the value on the Development instance Home page.
-
-![Home page with Frontend API key highlighted](<../.gitbook/assets/home - frontend api key highlighted.png>)
+Now, we need to retrieve your Backend API Key from the [API Keys page](https://dashboard.clerk.dev/last-active?path=api-keys).
 
 Remix allows developers to set environment variables by creating a `.env` file in their application root. Add Clerk's environment variables as follows:
 

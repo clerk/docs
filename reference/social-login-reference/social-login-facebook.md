@@ -35,11 +35,11 @@ Once you have a OAuth client ID created, click on the newly created ID under **O
 
 ![Retrieving the App ID and App Secret](../../.gitbook/assets/screely-1628401739107.png)
 
-Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**. Click the **Manage connection** button under the Facebook provider and paste the values you obtained during the previous step.
+Go to the [Social Login page](https://dashboard.clerk.dev/last-active?path=authentication/social) and enable Facebook. In the modal that opened, ensure **Use custom credentials** is enabled and paste the values you obtained during the previous step.
 
 ![Adding the Valid OAuth Redirect URI](../../.gitbook/assets/screely-1628402032599.png)
 
-Before you close the **Manage credentials** modal, copy the **Authorized redirect URI**. Go back to the Facebook dashboard, open the **Facebook Login** menu (sidebar) and click **Settings**. **** Paste the URI you copied before into the **Valid OAuth Redirect URIs** field. Hit **Save Changes**.
+Before you close the modal, copy the **Authorized redirect URI**. Go back to the Facebook dashboard, open the **Facebook Login** menu (sidebar) and click **Settings**. **** Paste the URI you copied before into the **Valid OAuth Redirect URIs** field. Hit **Save Changes**.
 
 Don't forget to click **Apply** in the Clerk dashboard. Social login with Facebook is now configured 🔥&#x20;
 

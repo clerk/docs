@@ -8,9 +8,7 @@ We have an example application showcasing how to integrate Clerk with Firebase, 
 
 To enable the integration, you will need to provide Clerk with the required Firebase configuration attributes depending on the Firebase features you would require authenticated user access to.
 
-To get started, turn on the Firebase integration in the [dashboard](https://dashboard.clerk.dev):
-
-**Your Application & instance → Integrations → Firebase**
+To get started, turn on the Firebase integration on the [Integrations page](https://dashboard.clerk.dev/last-active?path=integrations).
 
 ## 2. Integration configuration
 

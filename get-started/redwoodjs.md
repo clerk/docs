@@ -16,9 +16,9 @@ This guide will walk you through the necessary steps to integrate Clerk as the e
 
 ### Getting started
 
-The first step is to create a new Clerk application from your Clerk Dashboard if you haven’t done so already. You can choose whichever authentication strategy and social login providers you prefer. For more information, check out our [Set up your application](../popular-guides/setup-your-application.md) guide.
+The first step is to create a new Clerk application from your [Clerk Dashboard](https://dashboard.clerk.dev) if you haven’t done so already. You can choose whichever authentication strategy and social login providers you prefer. For more information, check out our [Set up your application](../popular-guides/setup-your-application.md) guide.
 
-After your Clerk application has been created, scroll down to the **Connect your application** section of the dashboard and locate your API keys.
+Now, we need to retrieve your API keys from the [API Keys page](https://dashboard.clerk.dev/last-active?path=api-keys).
 
 In your Redwood app directory, create a `.env` file (if one does not currently exist) and set the following environment variables to the respective values from your Clerk dashboard:
 

@@ -27,7 +27,7 @@ First, you need to register a new OAuth Twitch app at the [Twitch Developers Con
 
 ![](../../.gitbook/assets/twitch-create-oauth-app-1.png) ![Creating an OAuth Twitch app](../../.gitbook/assets/twitch-create-oauth-app-2.png)
 
-Set a name and the a category for your new application. You also need to add the **OAuth Redirect URLs.** Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**. Click the **Manage connection** button under the Twitch provider and copy the **Authorized redirect URI**. Paste the value into the **OAuth Redirect URLs** input and click create.
+Set a name and the a category for your new application. You also need to add the **OAuth Redirect URLs.** Go to the [Social Login page](https://dashboard.clerk.dev/last-active?path=authentication/social) and enable Twitch. In the modal that opened, ensure **Use custom credentials** is enabled and copy **Authorized redirect URI**. Paste the value into the **OAuth Redirect URLs** input and click create.
 
 Once all the above are complete, copy the **Client ID** and **Client Secret.** Go back to the Clerk Dashboard and paste them into the respective fields.
 

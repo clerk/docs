@@ -32,7 +32,7 @@ npm install @clerk/clerk-js
 yarn add @clerk/clerk-js
 ```
 
-Once you've installed the ClerkJS package, you first have to import it in your own code. The [Clerk object](clerk.md) constructor needs the [Frontend API](../frontend-api-reference/) URL as a parameter. You can find the URL in your **Instance Home** page in the [Clerk Dashboard](https://dashboard.clerk.dev).
+Once you've installed the ClerkJS package, you first have to import it in your own code. The [Clerk object](clerk.md) constructor needs the [Frontend API](../frontend-api-reference/) URL as a parameter. You can find the **Frontend API key** on the [API Keys page](https://dashboard.clerk.dev/last-active?path=api-keys).
 
 ```javascript
 import Clerk from "@clerk/clerk-js";
@@ -46,7 +46,7 @@ await clerk.load({
 
 ### Loading ClerkJS as a script
 
-You can also load ClerkJS with a `<script/>` tag in your website, straight from your [Frontend API](../frontend-api-reference/) URL. You can find the URL in your **Instance Home** page in the [Clerk Dashboard](https://dashboard.clerk.dev).
+You can also load ClerkJS with a `<script/>` tag in your website, straight from your [Frontend API](../frontend-api-reference/) URL. You can find the URL on the [API Keys page](https://dashboard.clerk.dev/last-active?path=api-keys).
 
 For security reasons, the ClerkJS library can only be loaded from the same domain. Make sure your website runs on the same domain as your Frontend API.
 

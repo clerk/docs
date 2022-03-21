@@ -31,9 +31,9 @@ Once you have a OAuth client ID **** created, click on the newly created ID unde
 
 ![Copying the Client ID and Client Secret](../../.gitbook/assets/screely-1628372330828.png)
 
-Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**.  Click the **Manage connection** button under the Google provider and paste the values you obtained during the previous step.
+Go to the [Social Login page](https://dashboard.clerk.dev/last-active?path=authentication/social) and enable Google.  In the modal that opened, ensure **Use custom credentials** is enabled and paste the values you obtained during the previous step.
 
-Before you close the **Manage credentials** modal, copy the **Authorized redirect URI.** Add it to the Google console dashboard by creating a new **Authorized redirect URI** as shown in the screenshot above.&#x20;
+Before you close the modal, copy the **Authorized redirect URI.** Add it to the Google console dashboard by creating a new **Authorized redirect URI** as shown in the screenshot above.&#x20;
 
 Don't forget to click **Apply** in the Clerk dashboard. Social login with Google is now configured 🔥&#x20;
 

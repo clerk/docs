@@ -31,7 +31,7 @@ You need to set a name, a logo and associate a Notion workspace with it. Make su
 
 ![](../../.gitbook/assets/oauth-notion-public-integration.png)
 
-Go to the [Clerk Dashboard](https://dashboard.clerk.dev), select your application **** and instance and go to **Authentication -> Social Login**. Click the **Manage connection** button under the Notion provider, copy the **Authorized redirect URI** and paste the value into the **Redirect URIs**, as shown below, after changing the integration type to **Public**. Fill also any other information required from Notion and click Submit.
+Go to the [Social Login page](https://dashboard.clerk.dev/last-active?path=authentication/social) and enable Notion. In the modal that opened, ensure **Use custom credentials** is enabled and copy **Authorized redirect URI**. Paste the value into the **Redirect URIs**, as shown below, after changing the integration type to **Public**. Fill also any other information required from Notion and click Submit.
 
 ![Obtaining the Client ID and Client secret](../../.gitbook/assets/oauth-notion-credentials.png)
 
