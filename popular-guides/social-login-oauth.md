@@ -68,6 +68,7 @@ Finally, copy the `Authorized redirect URI` field and add it to the provider's a
 * [How to setup social login with **HubSpot**](../reference/social-login-reference/hubspot.md)****
 * [How to setup social login with **Microsoft**](../reference/social-login-reference/microsoft.md)****
 * [How to setup social login with **Notion**](../reference/social-login-reference/notion.md)****
+* [How to setup social login with **Apple**](../reference/social-login-reference/apple.md)****
 
 ### Configuring additional OAuth scopes
 

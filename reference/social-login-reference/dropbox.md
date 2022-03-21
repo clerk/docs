@@ -19,7 +19,7 @@ The purpose of this guide is to help you create a Dropbox account and a Dropbox 
 ## Before you start
 
 * You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev). For more information, check out our [Setup your application](../../popular-guides/setup-your-application.md) guide.
-* You need to have a Dropbox account. To create one, [click here](https://www.twitch.tv).
+* You need to have a Dropbox account. To create one, [click here](https://www.dropbox.com/lp/developers).
 
 ## Configuring Dropbox social login
 
