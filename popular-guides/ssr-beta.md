@@ -44,7 +44,7 @@ import { withAuth } from "@clerk/nextjs/api";
 export default withAuth(
   async ( req, res ) => {
     const { userId, sessionId, getToken } = req.auth;
-    const supabaseToken = getToken({template: "supabase"})
+    const supabaseToken = await getToken({template: "supabase"})
     // Load any data your application needs for the API route
     return { props: {} };
   }
@@ -65,7 +65,7 @@ export default MyPage(){
 export const getServerSideProps = withServerSideAuth(
   async ({ req }) => {
     const { userId, sessionId, getToken } = req.auth;
-    const hasuraToken = getToken({template: "hasura"})    
+    const hasuraToken = await getToken({template: "hasura"})    
     // Load any data your application needs and pass to props
     return { props: {} };
   }
@@ -82,7 +82,7 @@ import { withEdgeMiddlewareAuth } from "@clerk/nextjs/edge-middleware";
 export default withEdgeMiddlewareAuth(
   async ( req ) => {
     const { userId, sessionId, getToken } = req.auth;
-    const supabaseToken = getToken({template: "supabase"})
+    const supabaseToken = await getToken({template: "supabase"})
     
     // Run your middleware
 
