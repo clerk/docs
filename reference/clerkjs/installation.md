@@ -10,6 +10,10 @@ ClerkJS is our foundational JavaScript library for building user management and 
 
 The primary integration path through ClerkJS is with [Clerk Components](broken-reference), as ClerkJS provides the foundation upon which all Clerk's UI offerings are built. However, integrating with ClerkJS directly gives you full freedom to use Clerk any way you see fit, dropping down to a lower level of primitives and commands for sign ins, sign ups and user profile management.
 
+{% hint style="info" %}
+Looking for a quickstart? We created a [demo app](https://github.com/clerkinc/clerk-js-starter) to show you how to add Clerk to your project.
+{% endhint %}
+
 ## Setting up ClerkJS
 
 There are two ways you can include ClerkJS in your project. You can either [import the ClerkJS npm module](installation.md#using-clerkjs-as-a-module) or [load ClerkJS directly in your browser](installation.md#loading-clerkjs-as-a-script).

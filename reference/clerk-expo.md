@@ -14,6 +14,10 @@ Clerk Expo works for IOS and Android. For web based applications use [Clerk Reac
 
 Clerk Expo provides [hooks](clerk-react/) and [Clerk Control Components](../components/control-components/) which act as helpers for implementing a seamless authentication experience, give you access to the [Clerk object](clerkjs/clerk.md) and a set of useful helper methods for signing in and signing up.
 
+{% hint style="info" %}
+Looking for a quickstart? We created a [demo app](https://github.com/clerkinc/clerk-expo-starter) to show you how to add Clerk to your project.
+{% endhint %}
+
 ## Setting up Clerk Expo
 
 {% hint style="warning" %}

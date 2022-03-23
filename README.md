@@ -7,7 +7,7 @@ description: Add complete user management to your application in minutes.
 Dig into our API reference documentation and quickstarts. You’re covered with everything from SDKs in your favorite languages to sample apps for React, Next.js and Ruby on Rails.
 
 {% hint style="info" %}
-Questions or feature requests? We're always available  on [Discord](https://discord.gg/tF35UMNRuM) or [by email](mailto:support@clerk.dev).
+Questions or feature requests? We're always available on [Discord](https://discord.gg/tF35UMNRuM) or [by email](mailto:support@clerk.dev).
 {% endhint %}
 
 ## Quickstarts
