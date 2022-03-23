@@ -6,7 +6,7 @@ description: A full-featured account management component
 
 ## Overview
 
-The `<UserProfile/>` component is used to render a beautiful, full-featured account management UI that allows users to manage their profile and security settings.&#x20;
+The `<UserProfile/>` component is used to render a beautiful, full-featured account management UI that allows users to manage their profile and security settings.
 
 ![](../../.gitbook/assets/user-profile.png)
 
@@ -28,7 +28,7 @@ Make sure you've followed the installation guide for [Clerk React](../../referen
 
 ### Mounting in your app
 
-Once you set up the desired functionality and look and feel for the `<UserProfile/>` component, all that's left is to render it inside your page. The default rendering is simple but powerful enough to cover most use-cases. The  theme configuration (look and feel) that you've set up on the [Theme page](https://dashboard.clerk.dev/last-active?path=customization/theme) will work out of the box.
+Once you set up the desired functionality and look and feel for the `<UserProfile/>` component, all that's left is to render it inside your page. The default rendering is simple but powerful enough to cover most use-cases. The theme configuration (look and feel) that you've set up on the [Theme page](https://dashboard.clerk.dev/last-active?path=customization/theme) will work out of the box.
 
 {% tabs %}
 {% tab title="Clerk React" %}
@@ -76,7 +76,6 @@ function App() {
 }
 
 export default App;
-
 
 ```
 {% endtab %}
@@ -172,7 +171,6 @@ function App() {
 }
 
 export default App;
-
 ```
 {% endtab %}
 
@@ -212,7 +210,6 @@ export default function UserProfilePage() {
   // Don't forget to set the "routing" and "path" props
   return <UserProfile routing='path' path='/user' />;
 }
-
 ```
 {% endtab %}
 
@@ -237,7 +234,7 @@ export default function UserProfilePage() {
 {% endtab %}
 {% endtabs %}
 
-For more information, see [Routing](broken-reference).
+For more information, see [Routing](broken-reference/).
 
 ## Props
 
@@ -246,7 +243,7 @@ For more information, see [Routing](broken-reference).
 | **routing?**        | <p><em>RoutingStrategy</em></p><p>The routing strategy for your pages. Supported values are:</p><ul><li><strong>hash:</strong> (default) Hash based routing.</li><li><strong>path</strong>: Path based routing.</li><li><strong>virtual</strong>: Virtual based routing.</li></ul> |
 | **path?**           | <p><em>string</em></p><p>The root URL where the component is mounted on.</p>                                                                                                                                                                                                       |
 | **hideNavigation?** | <p><em>boolean</em></p><p>Hides the default navigation bar. Can be used when a custom navigation bar is built.</p>                                                                                                                                                                 |
-| **only?**           | <p><em>string</em></p><p>Renders only a specific page of the UserProfile component. Supported values are: </p><ul><li>account: User account page.</li><li>security: User security page.</li></ul>                                                                                  |
+| **only?**           | <p><em>string</em></p><p>Renders only a specific page of the UserProfile component. Supported values are:</p><ul><li>account: User account page.</li><li>security: User security page.</li></ul>                                                                                   |
 
 ## Customization
 

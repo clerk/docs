@@ -38,7 +38,6 @@
 * [The User object](main-concepts/user-object.md)
 * [Sign in flow](main-concepts/sign-in-flow.md)
 * [Sign up flow](main-concepts/sign-up-flow.md)
-* [Session management](main-concepts/session-management.md)
 * [Session lifetime](main-concepts/session-lifetime.md)
 * [Auth v2](main-concepts/auth-v2.md)
 

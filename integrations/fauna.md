@@ -16,7 +16,7 @@ The first step is to create a new Clerk application from your Clerk Dashboard if
 
 After your Clerk application has been created, scroll down to the **Connect your application** section of the dashboard and copy your **Frontend API key**.
 
-![](../.gitbook/assets/01\_frontend-api-key.png)
+![](../.gitbook/assets/05\_clerk-frontend-api.png)
 
 The next step is to head over to the Fauna database that you want Clerk-authenticated users to access. Click on the **Security** link on the left-hand navigation and then the **Providers** tab.
 

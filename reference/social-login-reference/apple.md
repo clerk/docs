@@ -39,7 +39,7 @@ In the next sections of this guide, we'll see how we can get each of these. Let'
 
 First, sign in to the Apple Developer portal and from the sidebar click on **Certificates, Identifiers and Profiles.**
 
-![](<../../.gitbook/assets/screely-1647269950072 (1).png>)
+![](../../.gitbook/assets/screely-1647269950072.png)
 
 ### Retrieving the Apple Team ID
 
@@ -77,7 +77,7 @@ Navigate back to the **Certificates, Identifiers & Profiles** screen and from th
 
 On the next screen, select **Services ID** from the dropdown at the top-right corner and click on the blue plus icon to create a new Services ID.
 
-![](<../../.gitbook/assets/screely-1647348882514 (1).png>)
+![](../../.gitbook/assets/screely-1647348882514.png)
 
 You'll be taken to the same **Register new identifier** screen as in the previous section. This time, we'll choose **Services IDs** from the various options we're presented and then click **Continue**.
 

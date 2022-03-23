@@ -30,7 +30,7 @@ Supabase requires that JWTs be signed with the H256 signing algorithm and use th
 
 Reveal the JWT secret to copy it and then paste it in the Signing key field in the Clerk JWT template.
 
-![](../.gitbook/assets/04\_signing-key.png)
+![](<../.gitbook/assets/04\_signing-key (1).png>)
 
 After the key is added, you can click the Apply Changes button to save your template.
 
@@ -50,7 +50,7 @@ REACT_APP_SUPABASE_KEY=your-supabase-anon-key
 
 Your Clerk Frontend API can be found on the Clerk Dashboard home in the **Connect your application** section.
 
-![](../.gitbook/assets/05\_clerk-frontend-api.png)
+![](../.gitbook/assets/01\_frontend-api-key.png)
 
 To get the ones needed for Supabase, navigate to the same **Settings** > **API** page as before and locate the anon public key and URL.
 

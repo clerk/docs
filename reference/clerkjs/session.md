@@ -17,7 +17,7 @@ In certain scenarios, a session might be replaced by another one. This is often 
 All sessions that are **expired**, **removed**, **replaced**, **ended** or **abandoned** are not considered valid.&#x20;
 
 {% hint style="info" %}
-For more details regarding the different session states, see our documentation on [Session management](../../main-concepts/session-management.md).
+For more details regarding the different session states, see our documentation on [Session management](broken-reference).
 {% endhint %}
 
 ## Attributes

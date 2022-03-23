@@ -91,5 +91,5 @@ await window.Clerk.signOut();
 {% endtabs %}
 
 {% hint style="info" %}
-For more information on session management, please check our detailed [Session management](../main-concepts/session-management.md) guide.
+For more information on session management, please check our detailed [Session management](broken-reference) guide.
 {% endhint %}

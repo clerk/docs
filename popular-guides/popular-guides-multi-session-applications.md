@@ -8,11 +8,11 @@ description: Learn how to configure and work with multi-session applications
 
 One of the most powerful features that Clerk provides out of the box is multi-session applications.
 
-A multi-session application is an application that allows multiple accounts to be signed-in from the same browser at the same time. The user can switch from one account to another seamlessly. Each account is independent from the rest and has access to different resources.  It's most clearly explained by the default **\<UserButton />** below.
+A multi-session application is an application that allows multiple accounts to be signed-in from the same browser at the same time. The user can switch from one account to another seamlessly. Each account is independent from the rest and has access to different resources. It's most clearly explained by the default **\<UserButton />** below.
 
 ![Clerk's User button](<../.gitbook/assets/Screen Shot 2021-07-28 at 11.51.32 PM.png>)
 
-Note that you can switch which account is active, add additional accounts, and manage each account independently. &#x20;
+Note that you can switch which account is active, add additional accounts, and manage each account independently.
 
 To enable a multi-session instance, you need to handle the following scenarios:
 
@@ -23,7 +23,7 @@ To enable a multi-session instance, you need to handle the following scenarios:
 There are two main ways to handle all the above: [using Clerk Components](popular-guides-multi-session-applications.md) or [using a custom flow](popular-guides-multi-session-applications.md#custom-flow).
 
 {% hint style="info" %}
-Looking for more information on session management? Check out our [detailed guide](../main-concepts/session-management.md).
+Looking for more information on session management? Check out our [detailed guide](broken-reference).
 {% endhint %}
 
 ## Before you start
@@ -145,11 +145,11 @@ window.Clerk.setSession(availableSessions[0].id);
 
 To add a new session, simply link to your existing sign in flow. New sign ins will automatically add to the list of available sessions on the client.
 
-To create a sign in flow, please check one of the following popular guides:&#x20;
+To create a sign in flow, please check one of the following popular guides:
 
 * [Email and password](email-and-password.md)
 * [Passwordless authentication](passwordless-authentication.md)
-* [Social login (OAuth)](social-login-oauth.md)&#x20;
+* [Social login (OAuth)](social-login-oauth.md)
 
 For more information on how Clerk's sign in flow works, checkout our detailed [sign in guide](../main-concepts/sign-in-flow.md).
 
