@@ -332,7 +332,7 @@ If you need support for any particular hashing algorithm, [let us know](https://
 When set to true all password checks are skipped. It is recommended to use this method only when migrating plaintext passwords to Clerk. Upon migration the user base should be prompted to pick stronger password.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="skip_password_requirementt" type="boolean" %}
+{% swagger-parameter in="body" name="skip_password_requirement" type="boolean" %}
 When set to true, `password` is not required anymore when creating the user and can be omitted.
 
 This is useful when you are trying to create a user that doesn't have a password, in an instance that's using passwords.
