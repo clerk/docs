@@ -14,6 +14,10 @@ The Clerk integration with Redwood enables you to focus on building the frontend
 
 This guide will walk you through the necessary steps to integrate Clerk as the external authentication provider for RedwoodJS.
 
+{% hint style="info" %}
+Looking for a quickstart? We created a [demo app](https://github.com/clerkinc/clerk-redwood-starter) to show you how to add Clerk to your project.
+{% endhint %}
+
 ### Getting started
 
 The first step is to create a new Clerk application from your [Clerk Dashboard](https://dashboard.clerk.dev) if you haven’t done so already. You can choose whichever authentication strategy and social login providers you prefer. For more information, check out our [Set up your application](../popular-guides/setup-your-application.md) guide.
