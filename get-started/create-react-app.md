@@ -6,9 +6,9 @@ description: Learn to install and initialize Clerk in a new Create React App.
 
 ## Overview
 
-Clerk is the easiest way to add authentication and user management to your React application. This guide will you walk you through the necessary steps to install and use Clerk in a new [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) application. For more in-depth guides, check out our **Popular Guides** section.
+Clerk is the easiest way to add authentication and user management to your React application. This guide will walk you through the necessary steps to install and use Clerk in a new [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) application. For more in-depth guides, check out our **Popular Guides** section.
 
-After following this guide, you should have a working React app complete with:&#x20;
+After following this guide, you should have a working React app complete with:
 
 * Fully fledged sign in and sign up flows.
 * Google Social Login.
@@ -21,7 +21,7 @@ You need to create a Clerk Application in your [Clerk Dashboard](https://dashboa
 
 ## Creating a new React app
 
-&#x20; Start by creating a new React application - this is usually done using the [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) CLI:
+Start by creating a new React application - this is usually done using the [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) CLI:
 
 {% tabs %}
 {% tab title="npm" %}
@@ -41,7 +41,7 @@ If you wish to use Typescript, just add `--typescript` to the commands above. Cl
 
 ## Installing Clerk
 
-One you have a React app ready, you need to install the Clerk React SDK. This will give you access to our [prebuilt Clerk Components](broken-reference) and React hooks.
+One you have a React app ready, you need to install the Clerk React SDK. This will give you access to our [prebuilt Clerk Components](broken-reference/) and React hooks.
 
 {% tabs %}
 {% tab title="npm" %}
@@ -104,7 +104,7 @@ For more details, consult the [Clerk React installation](../reference/clerk-reac
 
 ## Adding \<ClerkProvider />
 
-Clerk requires your application to be wrapped in the `<ClerkProvider/>` context. In React, we add this in `src/App.jsx`.&#x20;
+Clerk requires your application to be wrapped in the `<ClerkProvider/>` context. In React, we add this in `src/App.jsx`.
 
 Wrap your app with `<ClerkProvider/>` and pass the `REACT_APP_CLERK_FRONTEND_API` env variable you just created to the `frontendApi` prop. Replace your `src/App.jsx` with:
 
@@ -140,9 +140,9 @@ Navigate to [http://localhost:3000](http://localhost:3000) to view the changes. 
 
 ## Adding a router
 
-`<ClerkProvider/>` also accepts a `navigate` prop that enables Clerk to navigate inside your application without a full page reload, using the same routing logic your app does.  Our display components use this prop when navigating between subpages, and when navigating to callback URLs.
+`<ClerkProvider/>` also accepts a `navigate` prop that enables Clerk to navigate inside your application without a full page reload, using the same routing logic your app does. Our display components use this prop when navigating between subpages, and when navigating to callback URLs.
 
-You can pass the `navigate` prop a function which takes the destination URL as an argument and performs a "push" navigation. You should not implement the push yourself, but instead wrap the push function provided by your router.&#x20;
+You can pass the `navigate` prop a function which takes the destination URL as an argument and performs a "push" navigation. You should not implement the push yourself, but instead wrap the push function provided by your router.
 
 Most React apps use the popular [`react-router-dom` router](https://reactrouter.com), which is also what we'll be using for this guide. Install it by running the following command:
 
@@ -222,7 +222,7 @@ export default App;
 The `navigate` function must return the result of the `push` function.
 {% endhint %}
 
-Your app is now configured  🎉    Next, let's see how you can use Clerk to require authentication before navigating to a protected page.
+Your app is now configured 🎉 Next, let's see how you can use Clerk to require authentication before navigating to a protected page.
 
 ## Requiring authentication <a href="#requiring-authentication" id="requiring-authentication"></a>
 
@@ -270,7 +270,6 @@ function App() {
 function Hello() {
   return <div>Hello from Clerk</div>;
 }
-
 ```
 {% endcode %}
 
@@ -280,9 +279,9 @@ Visit [https://localhost:3000](https://localhost:3000) to see your page - you'll
 
 ## Hello, world!
 
-That's all you need to start using Clerk. Now you can say hello to your user!&#x20;
+That's all you need to start using Clerk. Now you can say hello to your user!
 
-Let's edit the  `<Hello/>` component. We're going to use the `useUser` hook and the `UserButton` component as shown in the example:
+Let's edit the `<Hello/>` component. We're going to use the `useUser` hook and the `UserButton` component as shown in the example:
 
 {% code title="src/App.jsx" %}
 ```jsx
@@ -329,7 +328,6 @@ function Hello() {
 }
 
 export default App;
-
 ```
 {% endcode %}
 
@@ -340,7 +338,7 @@ Visit [https://localhost:3000](https://localhost:3000) again to see your page. I
 And that's all!
 
 {% hint style="info" %}
-By default, you app will use the [Clerk Hosted Pages](broken-reference) to display the sign in and sign up flows. Check the documentation of the [\<SignIn/>](../components/sign-in/sign-in.md) and [\<SignUp/>](../components/sign-up/sign-up.md) components to learn how you can mount them directly in your app.
+By default, you app will use the [Clerk Hosted Pages](broken-reference/) to display the sign in and sign up flows. Check the documentation of the [\<SignIn/>](../components/sign-in/sign-in.md) and [\<SignUp/>](../components/sign-up/sign-up.md) components to learn how you can mount them directly in your app.
 {% endhint %}
 
 ## Next steps <a href="#next-steps" id="next-steps"></a>
