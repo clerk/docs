@@ -6,6 +6,7 @@ This object represents a verified user in your instance. &#x20;
 
 * **`GET`**`  ``/v1/users/:id`
 * **`GET`**`  ``/v1/users`
+* **`GET`**`  ``/v1/users/count`
 * **`POST`**` ``/v1/users`
 * **`PATCH`**`/v1/users/:id`
 * **`POST`**` ``/v1/users/:id/profile_image`
@@ -130,6 +131,14 @@ Returns users with the specified web3 wallet addresses. Accepts up to 100 web3 w
 Returns users with the user ids specified.  Accepts up to 100 user ids. Any user ids not found are ignored.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="query" name="query" type="string" %}
+Returns users that match the given query.
+
+For possible matches, we check the email addresses, phone numbers, usernames, web3 wallets, user ids, first and last names.
+
+The query value doesn't need to match the exact value you're looking for, it's capable of partial matches as well.
+{% endswagger-parameter %}
+
 {% swagger-parameter in="query" name="offset" type="string" %}
 Offset allows pagination through all users.  If used, returns users starting after the number supplied.
 {% endswagger-parameter %}
@@ -163,6 +172,53 @@ Defaults to `-created_at`.
         ...
     },
     ]
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger method="get" path="/v1/users/count" baseUrl="https://api.clerk.dev" summary="Count users" %}
+{% swagger-description %}
+Returns a total count of all users that match the given filtering criteria.
+{% endswagger-description %}
+
+{% swagger-parameter in="query" name="email_address" type="string[]" %}
+Returns users with the specified email addresses. Accepts up to 100 email addresses.  Any email addresses not found are ignored.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="phone_number" type="string[]" %}
+Returns users with the specified phone numbers. Accepts up to 100 phone numbers. Any phone numbers not found are ignored.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="username" type="string[]" %}
+Returns users with the specified usernames. Accepts up to 100 usernames. Any usernames not found are ignored.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="web3_wallet" type="string[]" %}
+Returns users with the specified web3 wallet addresses. Accepts up to 100 web3 wallet addresses. Any web3 wallet addressed not found are ignored.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="user_id" type="string[]" %}
+Returns users with the user ids specified.  Accepts up to 100 user ids. Any user ids not found are ignored.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="query" type="string[]" %}
+Returns users that match the given query.
+
+For possible matches, we check the email addresses, phone numbers, usernames, web3 wallets, user ids, first and last names.
+
+The query value doesn't need to match the exact value you're looking for, it's capable of partial matches as well.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Authorizaton" type="string" required="true" %}
+Bearer [YOUR_API_KEY]
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="The total number of users that match the given filter criteria" %}
+```javascript
+{
+    object: "total_count",
+    total_count: 1 // number of users
+}
 ```
 {% endswagger-response %}
 {% endswagger %}
@@ -274,6 +330,14 @@ If you need support for any particular hashing algorithm, [let us know](https://
 
 {% swagger-parameter in="body" name="skip_password_checks" type="boolean" %}
 When set to true all password checks are skipped. It is recommended to use this method only when migrating plaintext passwords to Clerk. Upon migration the user base should be prompted to pick stronger password.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="skip_password_requirementt" type="boolean" %}
+When set to true, `password` is not required anymore when creating the user and can be omitted.
+
+This is useful when you are trying to create a user that doesn't have a password, in an instance that's using passwords.
+
+Please note that you cannot use this flag if password is the only way for a user to sign into your instance.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="public_metadata" type="object" %}
