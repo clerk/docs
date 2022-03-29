@@ -1,0 +1,3 @@
+redirects:
+  popular-guides/ssr-beta: /get-started/nextjs.md
+  get-started/nextjs-api: /get-started/nextjs.md
