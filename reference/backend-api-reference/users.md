@@ -9,6 +9,7 @@ This object represents a verified user in your instance. &#x20;
 * **`GET`**`  ``/v1/users/count`
 * **`POST`**` ``/v1/users`
 * **`PATCH`**`/v1/users/:id`
+* **`PATCH`**`/v1/users/:id/metadata`
 * **`POST`**` ``/v1/users/:id/profile_image`
 * **`DEL`**`  ``/v1/users/:id`
 * **`GET`**`  ``/v1/users/:id/oauth_access_tokens/:provider`
@@ -78,8 +79,6 @@ This object represents a verified user in your instance. &#x20;
     "updated_at": 1612756155
 }
 ```
-
-###
 
 {% swagger baseUrl="https://api.clerk.dev" path="/v1/users/:id" method="get" summary="Retrieve a user" %}
 {% swagger-description %}
@@ -454,6 +453,81 @@ Note: Since this data can be modified from the frontend, it is not guaranteed to
     "id": "user_1oBNj55jOjSK9rOYrT5QHqj7eaK",
     "object": "user"
     ...
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger baseUrl="https://api.clerk.dev" path="/v1/users/:id/metadata" method="patch" summary="Merge and update a user's metadata" %}
+{% swagger-description %}
+Update a user's metadata attributes by merging existing values with the provided parameters.&#x20;
+
+This endpoint behaves differently than the Update user endpoint. Metadata values will not be replaced entirely. Instead, a deep merge will be performed. Deep means that any nested JSON objects will be merged as well.
+
+You can remove metadata keys at any level by setting their value to `null`.
+{% endswagger-description %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" %}
+Bearer [YOUR_API_KEY]
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="public_metadata" type="object" %}
+Metadata saved on the user, that is visible to both your frontend and backend.
+
+\
+
+
+The new object will be merged with the existing value.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="private_metadata" type="object" %}
+Metadata saved on the user that is only visible to your backend.
+
+\
+
+
+The new object will be merged with the existing value.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="unsafe_metadata" type="object" %}
+Metadata saved on the user, that can be updated from both the Frontend and Backend APIs.  
+
+\
+
+
+The new object will be merged with the existing value.
+
+\
+
+
+
+
+\
+
+
+Note: Since this data can be modified from the frontend, it is not guaranteed to be safe.
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="User metadata successfully updated." %}
+```
+// see example schema
+{
+    "id": "user_1oBNj55jOjSK9rOYrT5QHqj7eaK",
+    "object": "user"
+    ...}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="User not found on the instance." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "resource_not_found",
+      "long_message": "No user was found with id user_26oyVupb9nU9hSYPh1yJJNqe7Hl",
+      "message": "not found"
+    }
+  ]
 }
 ```
 {% endswagger-response %}

@@ -68,7 +68,7 @@ Here's a comparison of the different metadata attributes on the User object and 
 
 Choosing which metadata field you should use for setting custom attributes on your users becomes a matter of access and visibility.&#x20;
 
-Do you need to set the custom attributes from the front-end (using our ClerkJS library or the Frontend API)? You should choose the **unsafeMetadata** property.
+Do you need to set the custom attributes from the front-end (using our [ClerkJS](../reference/clerkjs/) library or the [Frontend API](../reference/frontend-api-reference/))? You should choose the **unsafeMetadata** property.
 
 Will the custom attributes contain sensitive information that should not be displayed on the front-end? Use the **privateMetadata** property.
 
