@@ -2,34 +2,34 @@
 description: Add complete user management to your application in minutes.
 ---
 
-# Welcome to Clerk docs
+# Welcome to Clerk API Reference
 
-Dig into our API reference documentation and quickstarts. You’re covered with everything from SDKs in your favorite languages to sample apps for React, Next.js and Ruby on Rails.
+Dig into our API reference documentation and SDKs. We have everything you need to get started setting up authentication with Clerk.
 
 {% hint style="info" %}
 Questions or feature requests? We're always available on [Discord](https://discord.gg/tF35UMNRuM) or [by email](mailto:support@clerk.dev).
 {% endhint %}
 
-## Quickstarts
+## Component and API Reference
 
-Explore our guides and examples to integrate Clerk.
+Explore our reference documentation and SDKs to integrate Clerk into your application.
 
-### Build your first Clerk app with React
+### Go SDK
 
-{% content-ref url="get-started/create-react-app.md" %}
-[create-react-app.md](get-started/create-react-app.md)
+{% content-ref url="reference/backend-api-reference/sdks/golang/getting-started.md" %}
+[getting-started.md](reference/backend-api-reference/sdks/golang/getting-started.md)
 {% endcontent-ref %}
 
-### Build your first Clerk app with Next.js
+### Node SDK
 
-{% content-ref url="get-started/nextjs.md" %}
-[nextjs.md](get-started/nextjs.md)
+{% content-ref url="reference/backend-api-reference/sdks/node/getting-started.md" %}
+[getting-started.md](reference/backend-api-reference/sdks/node/getting-started.md)
 {% endcontent-ref %}
 
-### Authenticate Next.js API endpoints
+### Ruby SDK
 
-{% content-ref url="get-started/nextjs-api.md" %}
-[nextjs-api.md](get-started/nextjs-api.md)
+{% content-ref url="reference/backend-api-reference/sdks/ruby/getting-started.md" %}
+[getting-started.md](reference/backend-api-reference/sdks/ruby/getting-started.md)
 {% endcontent-ref %}
 
 ### Or clone one of our starter repos

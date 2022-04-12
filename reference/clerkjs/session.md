@@ -12,7 +12,7 @@ The `Session` object includes methods for recording session activity and ending 
 
 As soon as a [User](user.md) signs in, we create a Session for the current [Client](client.md). Clients can have more than one sessions at any point in time, but only one of those sessions will be **active**.
 
-In certain scenarios, a session might be replaced by another one. This is often the case with [mutli-session applications](../../popular-guides/popular-guides-multi-session-applications.md).
+In certain scenarios, a session might be replaced by another one. This is often the case with [mutli-session applications](broken-reference).
 
 All sessions that are **expired**, **removed**, **replaced**, **ended** or **abandoned** are not considered valid.&#x20;
 
@@ -112,12 +112,12 @@ Returns a `Promise` that resolves to a `string`. The string is the user's sessio
 
 ### PublicUserData
 
-| Property            | Description                                                                                                                                                                                                                 |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **firstName**       | <p><em>string | null</em></p><p>The user's first name. This attribute will only be populated if name is enabled in <a href="../../popular-guides/setup-your-application.md#personal-information">instance settings</a>.</p> |
-| **lastName**        | <p><em>string | null</em></p><p>The user's last name. This attribute will only be populated if name is enabled in <a href="../../popular-guides/setup-your-application.md#personal-information">instance settings</a>.</p>  |
-| **profileImageUrl** | <p><em>string</em></p><p>The URL of the user's profile image.</p>                                                                                                                                                           |
-| **identifier**      | <p><em>string</em></p><p>The user's identifier (email address, phone number, username, etc) that was used for authentication when this session was created.</p>                                                             |
+| Property            | Description                                                                                                                                                              |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **firstName**       | <p><em>string | null</em></p><p>The user's first name. This attribute will only be populated if name is enabled in <a href="broken-reference">instance settings</a>.</p> |
+| **lastName**        | <p><em>string | null</em></p><p>The user's last name. This attribute will only be populated if name is enabled in <a href="broken-reference">instance settings</a>.</p>  |
+| **profileImageUrl** | <p><em>string</em></p><p>The URL of the user's profile image.</p>                                                                                                        |
+| **identifier**      | <p><em>string</em></p><p>The user's identifier (email address, phone number, username, etc) that was used for authentication when this session was created.</p>          |
 
 ### GetSessionTokenOptions
 

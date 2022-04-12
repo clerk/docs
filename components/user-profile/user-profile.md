@@ -18,7 +18,7 @@ The `<UserProfile/>` comes with built-in support for:
 * Multi-factor authentication management
 * Trusted device management
 
-Control the look and feel of the `<UserProfile/>` component and match it to your using the [Theme Settings](../../popular-guides/setup-your-application.md#theme), [theming props](user-profile.md#customization) or [plain CSS](user-profile.md#customization).
+Control the look and feel of the `<UserProfile/>` component and match it to your using the [Theme Settings](broken-reference), [theming props](user-profile.md#customization) or [plain CSS](user-profile.md#customization).
 
 ## Usage
 
@@ -234,7 +234,7 @@ export default function UserProfilePage() {
 {% endtab %}
 {% endtabs %}
 
-For more information, see [Routing](broken-reference/).
+For more information, see [Routing](https://github.com/clerkinc/docs/blob/2.0.0/components/user-profile/broken-reference/README.md).
 
 ## Props
 

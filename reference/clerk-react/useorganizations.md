@@ -13,12 +13,12 @@ For now the available methods are: `createOrganization`, `getOrganizationMembers
 ## Usage
 
 {% hint style="warning" %}
-Make sure you've followed the installation guide for [Clerk React](installation.md) `or` [`Clerk Next.js`](../../get-started/nextjs.md#installing-clerk) `` before running the snippets below.
+Make sure you've followed the installation guide for [Clerk React](installation.md) `or` [`Clerk Next.js`](broken-reference) `` before running the snippets below.
 {% endhint %}
 
 The examples below illustrates simple usage of the methods available. Note that your component must be a descendant of the [\<SignedIn/>](../../components/signed-in.md) component, which in turn needs to be wrapped inside the [\<ClerkProvider/>](clerkprovider.md).
 
-A more guided approach can be found at the [Organizations Popular Guide](../../popular-guides/organizations.md) section.
+A more guided approach can be found at the [Organizations Popular Guide](broken-reference) section.
 
 {% tabs %}
 {% tab title="createOrganization" %}

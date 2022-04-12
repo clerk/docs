@@ -18,7 +18,7 @@ By using the theming options, you can change visual elements of your authenticat
 * and more...
 
 {% hint style="info" %}
-The customization options detailed here are a code-side alternative to [instance-level theming](../popular-guides/setup-your-application.md#theme) configured through the Clerk dashboard. Every theming option provided at code-side will be **merged** with the theming defined in your application dashboard.
+The customization options detailed here are a code-side alternative to [instance-level theming](broken-reference) configured through the Clerk dashboard. Every theming option provided at code-side will be **merged** with the theming defined in your application dashboard.
 {% endhint %}
 
 Components can be customized with the **`theme`** prop or by defining Clerk-specific [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using\_CSS\_custom\_properties). Both ways are described in this guide.
@@ -276,5 +276,5 @@ const heartyThemeOptions = {
 
 If you need more customization capabilities for your use-case, please reach out to any of our [community channels](https://clerk.dev/support).  We are constantly evaluating new customization options and would love to hear your feedback!
 
-If you require complete customization, you can also implement [ClerkJS custom flows](../popular-guides/email-and-password.md#custom-flow), which leverage the same underlying APIs that are used to build our components.
+If you require complete customization, you can also implement [ClerkJS custom flows](broken-reference), which leverage the same underlying APIs that are used to build our components.
 

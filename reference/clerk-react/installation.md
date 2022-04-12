@@ -8,18 +8,18 @@ description: Learn how to make Clerk React components available in your project.
 
 Clerk React is a wrapper around [ClerkJS](../clerkjs/). It is the recommended way to integrate Clerk into your React application.
 
-Clerk React provides [React.js](https://reactjs.org) implementations of [Clerk Components](broken-reference); highly customizable, pre-built components that you can use to build beautiful user management applications. You can find display components for building [sign in](../../components/sign-in/sign-in.md), [sign up](../../components/sign-up/sign-up.md), [account switching](../../components/user-button.md) and [user profile management](../../components/user-profile/user-profile.md) pages as well as flow [control components](../../components/control-components/) which act as helpers for implementing a seamless authentication experience.
+Clerk React provides [React.js](https://reactjs.org) implementations of [Clerk Components](https://github.com/clerkinc/docs/blob/2.0.0/reference/clerk-react/broken-reference/README.md); highly customizable, pre-built components that you can use to build beautiful user management applications. You can find display components for building [sign in](../../components/sign-in/sign-in.md), [sign up](../../components/sign-up/sign-up.md), [account switching](../../components/user-button.md) and [user profile management](../../components/user-profile/user-profile.md) pages as well as flow [control components](../../components/control-components/) which act as helpers for implementing a seamless authentication experience.
 
 Clerk React comes loaded with custom [hooks](./). These hooks give you access to the [Clerk object](../clerkjs/clerk.md), and a set of useful helper methods for signing in and signing up.
 
 {% hint style="info" %}
-This doc assumes that you already have a basic working knowledge of [React](https://reactjs.org) and that you have already set up a React project. If you're new to React, you can check our Getting Started guides on [React](../../get-started/create-react-app.md) or [Next.js](../../get-started/nextjs.md).
+This doc assumes that you already have a basic working knowledge of [React](https://reactjs.org) and that you have already set up a React project. If you're new to React, you can check our Getting Started guides on [React](broken-reference) or [Next.js](broken-reference).
 {% endhint %}
 
 ## Setting up Clerk React
 
 {% hint style="warning" %}
-You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev) before you can set up Clerk React. For more information, check out our [Setup your application](../../popular-guides/setup-your-application.md) guide.
+You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev) before you can set up Clerk React. For more information, check out our [Setup your application](broken-reference) guide.
 {% endhint %}
 
 There's an ES module for Clerk React, available under the [@clerk/clerk-react](https://www.npmjs.com/package/@clerk/clerk-react) npm package. Use `npm` or `yarn` to install the Clerk React module.
@@ -34,7 +34,7 @@ yarn add @clerk/clerk-react
 
 ## Clerk provider
 
-The [`ClerkProvider`](clerkprovider.md) allows you to render [Clerk Components](broken-reference) and access the available Clerk React hooks in any nested component. You'll have to wrap your application once with a `<ClerkProvider/>`.
+The [`ClerkProvider`](clerkprovider.md) allows you to render [Clerk Components](https://github.com/clerkinc/docs/blob/2.0.0/reference/clerk-react/broken-reference/README.md) and access the available Clerk React hooks in any nested component. You'll have to wrap your application once with a `<ClerkProvider/>`.
 
 Render a `<ClerkProvider/>` component at the root of your React app so that it is available everywhere you need it.
 

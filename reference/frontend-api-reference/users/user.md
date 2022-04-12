@@ -11,6 +11,7 @@
 {
     "id": "user_1o4q123qMeCkKKIXcA9h8",
     "object": "user",
+    "external_id" "my_previous_auth_solution_id",
     "username": null,
     "first_name": "Boss",
     "last_name": "Clerk",

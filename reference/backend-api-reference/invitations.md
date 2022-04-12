@@ -6,7 +6,7 @@ description: Learn how to handle invitations via the backend API
 
 ## Overview
 
-This resource provides the necessary methods to create, revoke and list your invitations. For more information on how invitations work, refer to our [Invitations](../../popular-guides/invitations.md) guide.
+This resource provides the necessary methods to create, revoke and list your invitations. For more information on how invitations work, refer to our [Invitations](broken-reference) guide.
 
 ### Available requests
 
@@ -51,7 +51,7 @@ Bearer [YOUR_API_KEY]
 {% swagger-parameter in="body" name="redirect_url" type="string" %}
 Optional URL which specifies where to redirect the user once they click the invitation link.
 
-This is only required if you have implemented a [custom flow](../../popular-guides/invitations.md#custom-flow) and you're not using Clerk Hosted Pages or Clerk Components.
+This is only required if you have implemented a [custom flow](broken-reference) and you're not using Clerk Hosted Pages or Clerk Components.
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="The new invitation was created." %}

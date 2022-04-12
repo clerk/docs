@@ -2,7 +2,7 @@
 description: Integrate Clerk into your React Native application
 ---
 
-# Clerk Expo (beta)
+# Clerk Expo
 
 ## Overview
 
@@ -21,7 +21,7 @@ Looking for a quickstart? We created a [demo app](https://github.com/clerkinc/cl
 ## Setting up Clerk Expo
 
 {% hint style="warning" %}
-You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev) before you can set up Clerk React. For more information, check out our [Setup your application](../popular-guides/setup-your-application.md) guide.
+You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev) before you can set up Clerk React. For more information, check out our [Setup your application](broken-reference) guide.
 {% endhint %}
 
 There's an ES module for Clerk Expo, available under the [@clerk/clerk-expo](https://www.npmjs.com/package/@clerk/clerk-expo) npm package. Use `npm` or `yarn` to install the Clerk React module.

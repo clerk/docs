@@ -14,7 +14,7 @@ For production instances, you will need to generate your own Client ID and Clien
 
 ## Before you start
 
-* You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev). For more information, check out our [Setup your application](../../popular-guides/setup-your-application.md) guide.
+* You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev). For more information, check out our [Setup your application](broken-reference) guide.
 * You need to have a Microsoft Azure account, you can sign up for one [here](https://azure.microsoft.com/en-us/free/).
 
 ## Limitations

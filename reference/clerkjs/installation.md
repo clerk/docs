@@ -6,9 +6,9 @@ description: Learn how to make ClerkJS available in your project.
 
 ## Overview
 
-ClerkJS is our foundational JavaScript library for building user management and authentication. It  enables you to register, sign in, verify and manage users for your application using highly customizable flows.&#x20;
+ClerkJS is our foundational JavaScript library for building user management and authentication. It enables you to register, sign in, verify and manage users for your application using highly customizable flows.
 
-The primary integration path through ClerkJS is with [Clerk Components](broken-reference), as ClerkJS provides the foundation upon which all Clerk's UI offerings are built. However, integrating with ClerkJS directly gives you full freedom to use Clerk any way you see fit, dropping down to a lower level of primitives and commands for sign ins, sign ups and user profile management.
+The primary integration path through ClerkJS is with [Clerk Components](https://github.com/clerkinc/docs/blob/2.0.0/reference/clerkjs/broken-reference/README.md), as ClerkJS provides the foundation upon which all Clerk's UI offerings are built. However, integrating with ClerkJS directly gives you full freedom to use Clerk any way you see fit, dropping down to a lower level of primitives and commands for sign ins, sign ups and user profile management.
 
 {% hint style="info" %}
 Looking for a quickstart? We created a [demo app](https://github.com/clerkinc/clerk-js-starter) to show you how to add Clerk to your project.
@@ -21,7 +21,7 @@ There are two ways you can include ClerkJS in your project. You can either [impo
 In either case, after the ClerkJS library is loaded, you need to call the [~~`Clerk.load()`~~](clerk.md#load) method to initialize ClerkJS, passing the desired options.
 
 {% hint style="warning" %}
-You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev) before you can set up ClerkJS. For more information, check out our [Setup your application](../../popular-guides/setup-your-application.md) guide.
+You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev) before you can set up ClerkJS. For more information, check out our [Setup your application](broken-reference) guide.
 {% endhint %}
 
 ### Using ClerkJS as a module
@@ -80,8 +80,8 @@ Add the following script in your site's `<body>` element.
 
 ## TypeScript support
 
-The [ClerkJS npm package](https://www.npmjs.com/package/@clerk/clerk-js) includes TypeScript declarations for many of the objects returned from the [Clerk Frontend API](../frontend-api-reference/).&#x20;
+The [ClerkJS npm package](https://www.npmjs.com/package/@clerk/clerk-js) includes TypeScript declarations for many of the objects returned from the [Clerk Frontend API](../frontend-api-reference/).
 
-The type declarations in `@clerk/clerk-js` for these objects will always track the latest version of the Clerk Frontend API. If you would like to use these types but are using an older version of the Clerk Frontend API, we recommend [u](https://stripe.com/docs/upgrades#how-can-i-upgrade-my-api)pdating to the latest version, or ignoring and overriding the type definitions as necessary.&#x20;
+The type declarations in `@clerk/clerk-js` for these objects will always track the latest version of the Clerk Frontend API. If you would like to use these types but are using an older version of the Clerk Frontend API, we recommend [u](https://stripe.com/docs/upgrades#how-can-i-upgrade-my-api)pdating to the latest version, or ignoring and overriding the type definitions as necessary.
 
 Note that we may release new [minor and patch](https://semver.org) versions of `@clerk/clerk-js` with small but backwards-incompatible fixes to the type declarations. These changes will not affect ClerkJS itself.

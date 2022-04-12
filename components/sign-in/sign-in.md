@@ -6,7 +6,7 @@ description: Full-featured UI for signing users in your application.
 
 ## Overview
 
-The `<SignIn/>` component renders a UI for signing in users. Most of the times, the `<SignIn/>` component is all you need for completing sign ins. It supports any authentication scheme, from [Email/password authentication](../../popular-guides/email-and-password.md), and [Passwordless](../../popular-guides/passwordless-authentication.md), to [Social Login (OAuth)](../../popular-guides/social-login-oauth.md) and [Multi-factor verification](../../popular-guides/multi-factor-authentication.md).
+The `<SignIn/>` component renders a UI for signing in users. Most of the times, the `<SignIn/>` component is all you need for completing sign ins. It supports any authentication scheme, from [Email/password authentication](broken-reference), and [Passwordless](broken-reference), to [Social Login (OAuth)](broken-reference) and [Multi-factor verification](broken-reference).
 
 The contents and functionality of the `<SignIn/>` component are controlled for the most part by the instance settings you specify in your [Clerk Dashboard](https://dashboard.clerk.dev/last-active). Your instance settings also allow for customization of the look and feel of the `<SignIn/>` component.
 
@@ -61,9 +61,48 @@ You can instead use path-based routing with some additional configuration. With 
 
 There are two props that control the routing type and the path. These are called `routing` and `path`. You can read more about them in the [Props section](sign-in.md#props) of this document.
 
-Below is an example that uses path-based routing to mount the `<SignIn/>` component under the "/sign-in" path. The [Clerk React](../../reference/clerk-react/) snippet uses the popular [React Router](https://reactrouter.com) library, but it can be easily adapted to use the  routing library of your choice. We've also added an example for [Next.js](https://nextjs.org), which showcases integration with Next.js routing.&#x20;
+Below is an example that uses path-based routing to mount the `<SignIn/>` component under the "/sign-in" path. The [Clerk React](../../reference/clerk-react/) snippet uses the popular [React Router](https://reactrouter.com) library, but it can be easily adapted to use the routing library of your choice. We've also added an example for [Next.js](https://nextjs.org), which showcases integration with Next.js routing.
 
 {% tabs %}
+{% tab title="Clerk NextJS" %}
+```jsx
+// In _app.jsx:
+// Your usual NextJS root component, wrapped by ClerkProvider
+import { ClerkProvider } from '@clerk/clerk-react';
+import { useRouter } from 'next/router';
+
+function MyApp({ Component, pageProps }) {
+  // Get the navigate/push method from
+  // the NextJS router
+  const { push } = useRouter();
+
+  return (
+    // Pass the push method to ClerkProvider
+    <ClerkProvider 
+      frontendApi="clerk.[your-domain].com"
+      navigate={(to) => push(to)}
+    >
+      <Component {...pageProps} />
+    </ClerkProvider>
+  );
+}
+
+export default MyApp;
+
+
+// In pages/sign-in/[[..index]].jsx:
+// This is your catch all route that renders the SignIn 
+// component
+import { SignIn } from '@clerk/clerk-react';
+
+export default function SignInPage() {
+  // Mount the SignIn component under "/sign-up". 
+  // The routing is set to path-based.
+  return <SignIn routing="path" path="/sign-in" />;
+}
+```
+{% endtab %}
+
 {% tab title="Clerk React" %}
 ```jsx
 import { 
@@ -104,45 +143,6 @@ export default App;
 ```
 {% endtab %}
 
-{% tab title="Clerk Next" %}
-```jsx
-// In _app.jsx:
-// Your usual NextJS root component, wrapped by ClerkProvider
-import { ClerkProvider } from '@clerk/clerk-react';
-import { useRouter } from 'next/router';
-
-function MyApp({ Component, pageProps }) {
-  // Get the navigate/push method from
-  // the NextJS router
-  const { push } = useRouter();
-
-  return (
-    // Pass the push method to ClerkProvider
-    <ClerkProvider 
-      frontendApi="clerk.[your-domain].com"
-      navigate={(to) => push(to)}
-    >
-      <Component {...pageProps} />
-    </ClerkProvider>
-  );
-}
-
-export default MyApp;
-
-
-// In pages/sign-in/[[..index]].jsx:
-// This is your catch all route that renders the SignIn 
-// component
-import { SignIn } from '@clerk/clerk-react';
-
-export default function SignInPage() {
-  // Mount the SignIn component under "/sign-up". 
-  // The routing is set to path-based.
-  return <SignIn routing="path" path="/sign-in" />;
-}
-```
-{% endtab %}
-
 {% tab title="ClerkJS" %}
 ```javascript
 <html>
@@ -166,7 +166,7 @@ export default function SignInPage() {
 
 ### Override URLs
 
-By default, the `<SignIn/>` component will use the [Clerk Hosted Pages](broken-reference) URL for sign ups. You can override this at runtime, by passing the `signUpURL` property to the component.
+By default, the `<SignIn/>` component will use the [Clerk Hosted Pages](https://github.com/clerkinc/docs/blob/2.0.0/components/sign-in/broken-reference/README.md) URL for sign ups. You can override this at runtime, by passing the `signUpURL` property to the component.
 
 Similarly, you can override the redirect URL after successful sign ins by providing the `afterSignIn` property to the component.
 
@@ -187,8 +187,8 @@ import { rootPath, signUpURL } from "src/routes";
 function SignInPage() {
   return (
     <SignIn 
-      afterSignIn={rootPath}
-      signUpURL={signUpURL}
+      afterSignInUrl={rootPath}
+      signUpUrl={signUpURL}
     />
   );
 }
@@ -209,8 +209,8 @@ window.Clerk.mountSignIn(
 
 // Open the sign in component as a modal.
 window.Clerk.openSignIn({
-  afterSignIn: "/home",
-  signUpURL: "/sign-up",  
+  afterSignInUrl: "/home",
+  signUpUrl: "/sign-up",  
 });
 ```
 {% endtab %}

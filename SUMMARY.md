@@ -1,47 +1,14 @@
 # Table of contents
 
-* [Welcome to Clerk docs](README.md)
+* [Welcome to Clerk API Reference](README.md)
+* [Clerk's Guides and Docs](https://clerk.dev/docs)
 * [Questions? We're here for you.](https://www.clerk.dev/support)
+* [Upgrading to v3](upgrading-to-v3/README.md)
+  * [Client-side changes (all frameworks)](upgrading-to-v3/client-side-changes-all-frameworks.md)
+  * [Next.js server-side changes](upgrading-to-v3/next.js-server-side-changes.md)
+  * [Express server-side changes](upgrading-to-v3/express-server-side-changes.md)
 
-## Get Started
-
-* [Get started with React](get-started/create-react-app.md)
-* [Get started with Next.js](get-started/nextjs.md)
-* [Get started with Next.js API](get-started/nextjs-api.md)
-* [Get started with Gatsby](get-started/get-started-with-gatsby.md)
-* [Get started with Web3](get-started/get-started-with-web3.md)
-* [Get started with Remix](get-started/remix.md)
-* [Get started with RedwoodJS](get-started/redwoodjs.md)
-
-## Popular guides
-
-* [Set up your application](popular-guides/setup-your-application.md)
-* [Email and password](popular-guides/email-and-password.md)
-* [Magic links](popular-guides/magic-links.md)
-* [One-time codes (OTP)](popular-guides/passwordless-authentication.md)
-* [Social Login (OAuth)](popular-guides/social-login-oauth.md)
-* [Multifactor auth (MFA)](popular-guides/multi-factor-authentication.md)
-* [Sign out](popular-guides/popular-guides-sign-out.md)
-* [Multi-session applications](popular-guides/popular-guides-multi-session-applications.md)
-* [Deploy to production](popular-guides/production-setup.md)
-* [Invitations](popular-guides/invitations.md)
-* [Build your own UI](popular-guides/build-your-own-ui.md)
-* [Making authenticated requests to the backend](popular-guides/making-authenticated-requests-to-the-backend.md)
-* [Sync data to your backend](popular-guides/sync-data-to-your-backend.md)
-* [Validating session tokens](popular-guides/validating-session-tokens.md)
-* [JWT Templates](popular-guides/jwt-templates.md)
-* [SSR Beta](popular-guides/ssr-beta.md)
-* [Organizations](popular-guides/organizations.md)
-
-## main concepts
-
-* [The User object](main-concepts/user-object.md)
-* [Sign in flow](main-concepts/sign-in-flow.md)
-* [Sign up flow](main-concepts/sign-up-flow.md)
-* [Session lifetime](main-concepts/session-lifetime.md)
-* [Auth v2](main-concepts/auth-v2.md)
-
-## Clerk Components <a href="#components" id="components"></a>
+## Component Reference <a href="#components" id="components"></a>
 
 * [Introduction](components/introduction.md)
 * [Sign-in](components/sign-in/README.md)
@@ -65,16 +32,7 @@
   * [\<ClerkLoading>](components/control-components/clerk-loading.md)
   * [\<AuthenticateWithRedirectCallback />](components/control-components/authenticate-with-redirect-callback.md)
 
-## integrations
-
-* [Firebase](integrations/firebase.md)
-* [Supabase](integrations/supabase.md)
-* [Hasura](integrations/hasura.md)
-* [Fauna](integrations/fauna.md)
-* [bubble.io (beta)](integrations/bubble.io-beta.md)
-* [Google Analytics](integrations/google-analytics.md)
-
-## reference
+## API Reference <a href="#reference" id="reference"></a>
 
 * [ClerkJS](reference/clerkjs/README.md)
   * [Installation](reference/clerkjs/installation.md)
@@ -94,12 +52,13 @@
 * [Clerk React](reference/clerk-react/README.md)
   * [Installation](reference/clerk-react/installation.md)
   * [\<ClerkProvider />](reference/clerk-react/clerkprovider.md)
-  * [useClerk](reference/clerk-react/useclerk-hook.md)
   * [useUser](reference/clerk-react/useuser-hook.md)
+  * [useAuth](reference/clerk-react/useauth.md)
   * [useSignIn](reference/clerk-react/usesignin-hook.md)
   * [useSignUp](reference/clerk-react/usesignup-hook.md)
-  * [useSession](reference/clerk-react/usesession-hook.md)
   * [useOrganizations](reference/clerk-react/useorganizations.md)
+  * [useClerk](reference/clerk-react/useclerk-hook.md)
+  * [useSession](reference/clerk-react/usesession-hook.md)
   * [useSessionList](reference/clerk-react/usesessionlist-hook.md)
 * [Clerk Expo](reference/clerk-expo.md)
 * [Backend API](reference/backend-api-reference/README.md)
@@ -170,7 +129,6 @@
 * [Import users](reference/import-users.md)
 * [Export users and data](reference/export-users-and-data.md)
 * [Webhooks](reference/webhooks.md)
-* [Email & SMS templates](reference/email-and-sms-templates.md)
 
 ## Learning Center
 

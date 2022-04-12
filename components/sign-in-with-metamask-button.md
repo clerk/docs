@@ -6,7 +6,7 @@ description: Sign in with Metamask Web3 wallet in the browser
 
 ## Overview
 
-The `<SignInWithMetamaskButton/>` component is used to complete a one-click, cryptographically-secure login flow using [MetaMask](https://metamask.io), with all data stored on the Clerk [user](../main-concepts/user-object.md).
+The `<SignInWithMetamaskButton/>` component is used to complete a one-click, cryptographically-secure login flow using [MetaMask](https://metamask.io), with all data stored on the Clerk [user](broken-reference).
 
 Internally, it calls the [Clerk.authenticateWithMetamask()](https://docs.clerk.dev/reference/clerkjs/clerk#authenticatewithmetamask-params) method.
 

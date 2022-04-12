@@ -32,12 +32,16 @@ function App() {
 }
 
 function Analytics() {
-  const session = useSession();
-  const { user } = session;
+  const { isLoaded, session } = useSession();
+  
+  if (!isLoaded) {
+    // handle loading state
+    return null;
+  }
   
   return (
-    <div>
-      User {user.firstName} has been active 
+    <div> 
+      This session has been active 
       since {session.lastActiveAt}.
     </div>
   );

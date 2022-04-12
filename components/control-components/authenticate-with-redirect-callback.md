@@ -18,7 +18,7 @@ Make sure you've followed the installation guide for [Clerk React](../../referen
 
 The most common scenario for using the `<AuthenticateWithRedirectCallback/>` component, is to complete a custom OAuth sign in or sign up flow in React and NextJS apps. Simply render the component under the route you passed as `callbackUrl` to the `authenticateWithRedirect` methods.
 
-For a more detailed walkthrough, you can check the [Social Login (OAuth) guide](../../popular-guides/social-login-oauth.md).
+For a more detailed walkthrough, you can check the [Social Login (OAuth) guide](broken-reference).
 
 {% tabs %}
 {% tab title="Clerk React" %}

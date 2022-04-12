@@ -14,13 +14,15 @@ The `SignUp` object will also contain the state of the sign up attempt that is c
 
 ## Usage
 
-{% hint style="warning" %}
-Make sure you've followed the installation guide for [Clerk React](installation.md) before running the snippets below.
-{% endhint %}
-
 Getting access to the [SignUp](../clerkjs/signup.md) object from inside one of your components is easy. Note that the `useSignUp` hook can only be used inside a [\<ClerkProvider/>](clerkprovider.md) context.
 
 The following example accesses the `SignUp` object to check the current sign up attempt's status.
+
+{% hint style="info" %}
+#### Typescript
+
+For better type support, we highly recommend updating to **at least** [**Typescript 4.6**](https://devblogs.microsoft.com/typescript/announcing-typescript-4-6/)**.** Applications using Typescript will benefit significantly from Typescript's new [Control Flow Analysis for Dependent Parameters](https://devblogs.microsoft.com/typescript/announcing-typescript-4-6/#control-flow-analysis-for-dependent-parameters) when using our hooks.
+{% endhint %}
 
 ```jsx
 import { useSignUp } from "@clerk/clerk-react";
@@ -28,7 +30,12 @@ import { useSignUp } from "@clerk/clerk-react";
 // Your component must be rendered as a 
 // descendant of <ClerkProvider />.
 function SignUpStep() {
-  const signUp = useSignUp();
+  const { isLoaded, signUp } = useSignUp();
+
+  if (!isLoaded) {
+    // handle loading state
+    return null;
+  }
   
   return (
     <div>
@@ -54,7 +61,12 @@ function SignUpForm() {
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
   
-  const signUp = useSignUp();
+  const { isLoaded, signUp } = useSignUp();
+  
+  if (!isLoaded) {
+    // handle loading state
+    return null;
+  }
   
   async function submit(e) {
     e.preventDefault();

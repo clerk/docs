@@ -6,7 +6,7 @@ description: Receive event notifications with Clerk webhooks
 
 If you need to keep your local store in sync with up to date user info,  or you want to send a welcome email, you'll need to setup a webhook, so Clerk can tell you about events that happen on your instance.
 
-For more information on how to setup webhooks in your instance and how to architecture your application in order to be updated with Clerk events the right way, check our [Sync data to your back-end](../popular-guides/sync-data-to-your-backend.md) guide.
+For more information on how to setup webhooks in your instance and how to architecture your application in order to be updated with Clerk events the right way, check our [Sync data to your back-end](broken-reference) guide.
 
 ## Supported events
 

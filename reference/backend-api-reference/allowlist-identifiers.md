@@ -18,8 +18,6 @@ In order to add a set of email addresses to your allowlist identifiers, simply p
 
 Here's an example. If you add `*@clerk.dev` as your allowlist identifier, it means that anybody with a `clerk.dev` email address can sign up for your application. Email addresses from different domains will not be able to sign up.
 
-At the moment you can only add allowlist identifiers via requests to the Backend API.
-
 {% hint style="info" %}
 In order to use the allowlist feature, it needs to be enabled for your instance. To enable it, use our Backend API to [update your instance settings](beta-features/instance-settings.md).\
 \

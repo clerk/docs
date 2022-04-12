@@ -20,6 +20,7 @@ This object represents a verified user in your instance. &#x20;
 {
     "id": "user_1oBNj55jOjSK9rOYrT5QHqj7eaK",
     "object": "user",
+    "external_id": "my_previous_auth_solution_id",
     "username": null,
     "first_name": "Boss",
     "last_name": "Clerk",
@@ -79,6 +80,8 @@ This object represents a verified user in your instance. &#x20;
     "updated_at": 1612756155
 }
 ```
+
+###
 
 {% swagger baseUrl="https://api.clerk.dev" path="/v1/users/:id" method="get" summary="Retrieve a user" %}
 {% swagger-description %}
@@ -242,7 +245,7 @@ Bearer [YOUR_API_KEY]
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="external_id" type="string" %}
-The ID of the user you use in in your external systems.  Must be unique across your instance.
+The ID of the user you use in your external systems or your previous authentication solution.  Must be unique across your instance.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="first_name" type="string" %}
@@ -462,7 +465,7 @@ Note: Since this data can be modified from the frontend, it is not guaranteed to
 {% swagger-description %}
 Update a user's metadata attributes by merging existing values with the provided parameters.&#x20;
 
-This endpoint behaves differently than the Update user endpoint. Metadata values will not be replaced entirely. Instead, a deep merge will be performed. Deep means that any nested JSON objects will be merged as well.
+This endpoint behaves differently than the **Update a user** endpoint. Metadata values will not be replaced entirely. Instead, a deep merge will be performed. Deep means that any nested JSON objects will be merged as well.
 
 You can remove metadata keys at any level by setting their value to `null`.
 {% endswagger-description %}

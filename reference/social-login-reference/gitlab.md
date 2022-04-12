@@ -6,19 +6,19 @@ description: How to setup social login with GitLab
 
 ## Overview
 
-Adding social login with GitLab to your app with Clerk is simple -  you only need to set the **Client ID**, **Client Secret** and **Authorized redirect URI** in your instance settings.
+Adding social login with GitLab to your app with Clerk is simple - you only need to set the **Client ID**, **Client Secret** and **Authorized redirect URI** in your instance settings.
 
-To make the development flow as smooth as possible, Clerk uses preconfigured shared OAuth credentials and redirect URIs for development instances - no other configuration is needed.&#x20;
+To make the development flow as smooth as possible, Clerk uses preconfigured shared OAuth credentials and redirect URIs for development instances - no other configuration is needed.
 
 For production instances, you will need to generate your own Client ID and Client secret using your Github account.
 
 {% hint style="info" %}
-The purpose of this guide is to help you create a GitLab account and a GitLab OAuth app - if you're looking for step-by-step instructions using Clerk to add social login (OAuth) to your application, follow the [Social login (OAuth)](../../popular-guides/social-login-oauth.md) guide.
+The purpose of this guide is to help you create a GitLab account and a GitLab OAuth app - if you're looking for step-by-step instructions using Clerk to add social login (OAuth) to your application, follow the [Social login (OAuth)](broken-reference) guide.
 {% endhint %}
 
 ## Before you start
 
-* You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev). For more information, check out our [Setup your application](../../popular-guides/setup-your-application.md) guide.
+* You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev). For more information, check out our [Setup your application](broken-reference) guide.
 * You need to have a GitLab account. To create one, [click here](https://gitlab.com/users/sign\_up).
 
 ## Configuring GitLab social login
@@ -33,8 +33,8 @@ Once creation is complete, you'll get redirected to application's panel. Copy th
 
 ![Obtaining the Application ID and Client secret](../../.gitbook/assets/gitlab-credentials.png)
 
-Don't forget to click **Apply** in the Clerk dashboard. Social login with GitLab is now configured 🔥&#x20;
+Don't forget to click **Apply** in the Clerk dashboard. Social login with GitLab is now configured 🔥
 
 ## Next Steps
 
-Learn how to add social login with GitLab to your Clerk application by following the [Social login (OAuth)](../../popular-guides/social-login-oauth.md) guide.
+Learn how to add social login with GitLab to your Clerk application by following the [Social login (OAuth)](broken-reference) guide.

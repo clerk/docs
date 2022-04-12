@@ -8,15 +8,13 @@ description: >-
 
 ## Overview
 
-Originally popularized by Google, users have come to expect that little photo of themselves in the top-right of the page – it’s the access point to manage their account, switch accounts, or sign out. The `<UserButton/>` component is used to render this familiar user button UI. It renders a clickable user avatar - when clicked, the full UI opens as a popup.&#x20;
-
-
+Originally popularized by Google, users have come to expect that little photo of themselves in the top-right of the page – it’s the access point to manage their account, switch accounts, or sign out. The `<UserButton/>` component is used to render this familiar user button UI. It renders a clickable user avatar - when clicked, the full UI opens as a popup.
 
 ![The default \<UserButton/> component](../.gitbook/assets/user-button.png)
 
-Clerk is the only provider with multi-session support, allowing users to sign into multiple accounts at once and switch between them. For multisession apps, the `<UserButton/>` automatically supports instant account switching, without the need of a full page reload. For more information, you can check out the [Multi-session applications](../popular-guides/popular-guides-multi-session-applications.md) guide.
+Clerk is the only provider with multi-session support, allowing users to sign into multiple accounts at once and switch between them. For multisession apps, the `<UserButton/>` automatically supports instant account switching, without the need of a full page reload. For more information, you can check out the [Multi-session applications](broken-reference) guide.
 
-Control the look and feel of the `<UserButton/>` component and match it to your using the [Theme Settings](../popular-guides/setup-your-application.md#theme), [theming props](user-profile/user-profile.md#customization) or [plain CSS](user-profile/user-profile.md#customization).
+Control the look and feel of the `<UserButton/>` component and match it to your using the [Theme Settings](broken-reference), [theming props](user-profile/user-profile.md#customization) or [plain CSS](user-profile/user-profile.md#customization).
 
 ## Usage
 
@@ -89,14 +87,14 @@ export default App;
 
 ## Props
 
-| Name                       | Description                                                                                                                                                                        |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **showName?**              | <p><em>string</em></p><p>Controls if the user name is displayed next to the user image button.</p>                                                                                 |
-| **signInUrl?**             | <p><em>string</em></p><p>The full URL or path to navigate to when the "Add another account" button is clicked.</p>                                                                 |
-| **userProfileUrl?**        | <p><em>string</em><br><em></em>The full URL or path leading to the user management interface.</p>                                                                                  |
-| **afterSignOutAllUrl?**    | <p><em>string</em></p><p>The full URL or path to navigate to after a signing out from all accounts (multi-session apps) or the currently active account (single-session apps).</p> |
-| **afterSignOutOneUrl?**    | <p><em>string</em></p><p>The full URL or path to navigate to after a signing out from currently active account (multisession apps) .</p>                                           |
-| **afterSwitchSessionUrl?** | <p><em>string</em></p><p>Full URL or path to navigate to after a successful account change (multi-session apps).</p>                                                               |
+| Name                                   | Description                                                                                                                                                    |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **showName?**                          | <p><em>string</em></p><p>Controls if the user name is displayed next to the user image button.</p>                                                             |
+| **signInUrl?**                         | <p><em>string</em></p><p>The full URL or path to navigate to when the "Add another account" button is clicked.</p>                                             |
+| **userProfileUrl?**                    | <p><em>string</em><br>The full URL or path leading to the user management interface.</p>                                                                       |
+| **afterSignOutUrl?**                   | <p><em>string</em></p><p>The full URL or path to navigate to after a signing out from all accounts (applies to both single-session and multi-session apps)</p> |
+| **afterMultiSessionSingleSignOutUrl?** | <p><em>string</em></p><p>The full URL or path to navigate to after a signing out from currently active account (multisession apps) .</p>                       |
+| **afterSwitchSessionUrl?**             | <p><em>string</em></p><p>Full URL or path to navigate to after a successful account change (multi-session apps).</p>                                           |
 
 ## Customization
 

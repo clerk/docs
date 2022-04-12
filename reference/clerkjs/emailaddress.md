@@ -25,17 +25,41 @@ Finally, email addresses can be linked to other identifications.
 
 ## Methods
 
+### prepareVerification()
+
+`prepareVerification(params: PrepareEmailAddressVerificationParams) => Promise<EmailAddressResource>`
+
+Kick off the verification process for this email address. An email message with a one-time code or a magic-link will be sent to the email address box.
+
+{% tabs %}
+{% tab title="Parameters" %}
+This method accepts no parameters.
+
+| Name   | Description                                                                                                      |
+| ------ | ---------------------------------------------------------------------------------------------------------------- |
+| params | An object of type [PrepareEmailAddressVerificationParams](emailaddress.md#prepareemailaddressverificationparams) |
+{% endtab %}
+
+{% tab title="Returns" %}
+_Promise<_[_EmailAddressResource_](emailaddress.md)_>_
+
+This method returns a `Promise` which resolves with an `EmailAddress` object.
+{% endtab %}
+{% endtabs %}
+
 ### attemptVerification(code)
 
-`attemptVerification(code: string) => Promise<EmailAddressResource>`
+`attemptVerification(params: AttemptEmailAddressVerificationParams) => Promise<EmailAddressResource>`
 
 Attempts to verify this email address, passing the one-time code that was sent as an email message. The code will be sent when calling the [EmailAddress.prepareVerification()](emailaddress.md#prepareverification) method.
 
 {% tabs %}
 {% tab title="Parameters" %}
-| Name     | Description                                                                                                          |
-| -------- | -------------------------------------------------------------------------------------------------------------------- |
-| **code** | <p><em>string</em></p><p>The one-time code to be checked. Code needs to match the value that was sent via email.</p> |
+
+
+| Name       | Description                                                                                                      |
+| ---------- | ---------------------------------------------------------------------------------------------------------------- |
+| **params** | An object of type [AttemptEmailAddressVerificationParams](emailaddress.md#attemptemailaddressverificationparams) |
 {% endtab %}
 
 {% tab title="Returns" %}
@@ -78,24 +102,6 @@ This method accepts no parameters.
 _Promise\<void>_
 
 This method returns a `Promise` which doesn't resolve to any value.
-{% endtab %}
-{% endtabs %}
-
-### prepareVerification()
-
-`prepareVerification() => Promise<EmailAddressResource>`
-
-Kick off the verification process for this email address. An email message with a one-time code will be sent to the email address box.
-
-{% tabs %}
-{% tab title="Parameters" %}
-This method accepts no parameters.
-{% endtab %}
-
-{% tab title="Returns" %}
-_Promise<_[_EmailAddressResource_](emailaddress.md)_>_
-
-This method returns a `Promise` which resolves with an `EmailAddress` object.
 {% endtab %}
 {% endtabs %}
 
@@ -144,6 +150,22 @@ This method returns the email address attribute.
 | **externalVerificationRedirectURL** | <p><em>URL | null</em></p><p>If this is a verification that is based on an external account (usually <strong>oauth_*</strong>), this is the URL that the user will be redirected to after the verification is completed.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ## Types
+
+### PrepareEmailAddressVerificationParams
+
+| Property        | Description                                                                                                                                                                                                                                                                                 |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **strategy**    | <p><em>string</em><br><em></em>The verification strategy. Possible strategy values are:</p><ul><li><strong>email_code</strong>: User will receive a one-time authentication code via email.</li><li><strong>email_link</strong>: User will receive an email magic link via email.</li></ul> |
+| **redirectUrl** | <p><em>string | undefined</em><br><em></em>The magic link target URL. Users will be redirected here once they click the magic link from their email. This param only applies if <code>strategy</code> is <code>email_link</code></p>                                                        |
+|                 |                                                                                                                                                                                                                                                                                             |
+
+### AttemptEmailAddressVerificationParams
+
+| Property | Description                                                                                                                                                                                                |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **code** | <p><em>string</em><br><em></em>The one-time code that was sent to the user's email address when <code>prepareVerification</code> was called with <code>strategy</code> set to <code>email_code</code> </p> |
+
+###
 
 ### CreateMagicLinkFlowReturn\<StartMagicLinkParams, EmailAddressResource>
 

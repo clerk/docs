@@ -10,6 +10,8 @@ The `<ClerkLoaded>` component guarantees that the [Clerk](../../reference/clerkj
 
 It essentially provides a wrapper, enabling child components to access the [Clerk](../../reference/clerkjs/clerk.md) object without the need to check if it exists.&#x20;
 
+This component only renders during client-side rendering (CSR only).
+
 ## Usage
 
 {% hint style="warning" %}

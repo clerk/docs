@@ -13,12 +13,12 @@ To make development flow as smooth as possible, Clerk uses pre-configured config
 For production instances, the process for Apple is a bit more complicated compared to other providers, but don't worry - we're going to guide you  through it step-by-step.
 
 {% hint style="info" %}
-The purpose of this guide is to help you create an Apple App that can be used with Clerk's OAuth implementation, for the purpose of integrating your application with [Sign in with Apple](https://developer.apple.com/sign-in-with-apple/). If you're looking for step-by-step instructions using Clerk to add social login (OAuth) to your application, follow the [Social login (OAuth)](../../popular-guides/social-login-oauth.md) guide.
+The purpose of this guide is to help you create an Apple App that can be used with Clerk's OAuth implementation, for the purpose of integrating your application with [Sign in with Apple](https://developer.apple.com/sign-in-with-apple/). If you're looking for step-by-step instructions using Clerk to add social login (OAuth) to your application, follow the [Social login (OAuth)](broken-reference) guide.
 {% endhint %}
 
 ## Before you start
 
-* You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev). For more information, check out our [Setup your application](../../popular-guides/setup-your-application.md) guide.
+* You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev). For more information, check out our [Setup your application](broken-reference) guide.
 * You need to have an Apple Developer account. To create one, visit the [Apple Developer portal](https://developer.apple.com).
 
 ## Configuring Apple social login
@@ -39,7 +39,7 @@ In the next sections of this guide, we'll see how we can get each of these. Let'
 
 First, sign in to the Apple Developer portal and from the sidebar click on **Certificates, Identifiers and Profiles.**
 
-![](../../.gitbook/assets/screely-1647269950072.png)
+![](<../../.gitbook/assets/screely-1647269950072 (1).png>)
 
 ### Retrieving the Apple Team ID
 
@@ -77,7 +77,7 @@ Navigate back to the **Certificates, Identifiers & Profiles** screen and from th
 
 On the next screen, select **Services ID** from the dropdown at the top-right corner and click on the blue plus icon to create a new Services ID.
 
-![](../../.gitbook/assets/screely-1647348882514.png)
+![](<../../.gitbook/assets/screely-1647348882514 (1).png>)
 
 You'll be taken to the same **Register new identifier** screen as in the previous section. This time, we'll choose **Services IDs** from the various options we're presented and then click **Continue**.
 
@@ -190,4 +190,4 @@ Click **Save** and you should be good to go - you can now navigate to your appli
 ### References
 
 * [Official Sign In with Apple documentation](https://developer.apple.com/documentation/sign\_in\_with\_apple)
-* [Social Login (OAuth) with Clerk](../../popular-guides/social-login-oauth.md)
+* [Social Login (OAuth) with Clerk](broken-reference)

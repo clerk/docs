@@ -6,19 +6,19 @@ description: How to setup social login with Twitter
 
 ## Overview
 
-Adding social login with Twitter to your app with Clerk is simple -  you only need to set the **Client ID**, **Client Secret** and **Authorized redirect URI** in your instance settings.
+Adding social login with Twitter to your app with Clerk is simple - you only need to set the **Client ID**, **Client Secret** and **Authorized redirect URI** in your instance settings.
 
-To make the development flow as smooth as possible, Clerk uses preconfigured shared OAuth credentials and redirect URIs for development instances - no other configuration is needed.&#x20;
+To make the development flow as smooth as possible, Clerk uses preconfigured shared OAuth credentials and redirect URIs for development instances - no other configuration is needed.
 
 For production instances, you will need to generate your own Client ID and Client Secret using your Twitter account.
 
 {% hint style="info" %}
-The purpose of this guide is to help you create a Twitter account and a Twitter OAuth app - if you're looking for step-by-step instructions using Clerk to add social login (OAuth) to your application, follow the [Social login (OAuth)](../../popular-guides/social-login-oauth.md) guide.
+The purpose of this guide is to help you create a Twitter account and a Twitter OAuth app - if you're looking for step-by-step instructions using Clerk to add social login (OAuth) to your application, follow the [Social login (OAuth)](broken-reference) guide.
 {% endhint %}
 
 ## Before you start
 
-* You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev). For more information, check out our [Setup your application](../../popular-guides/setup-your-application.md) guide.
+* You need to create a Clerk Application in your [Clerk Dashboard](https://dashboard.clerk.dev). For more information, check out our [Setup your application](broken-reference) guide.
 * You need to have a Twitter Application set up so it can be used for Social login. If you don't have a Twitter Application, click [here](https://developer.twitter.com/en/docs/apps/overview) for instructions on how to create one. If you already have one, please go to your [Twitter app settings](https://developer.twitter.com/content/developer-twitter/en/docs/basics/developer-portal/guides/apps) and ensure that the _"Allow this app to be used to Sign in with Twitter?_” option is enabled.
 
 ## Configuring Twitter social login
@@ -29,7 +29,7 @@ To do so, go to "[Projects & Apps](https://developer.twitter.com/en/portal/proje
 
 Go to the [Social Login page](https://dashboard.clerk.dev/last-active?path=authentication/social) and enable Twitter. In the modal that opened, ensure **Use custom credentials** is enabled and paste the **API Key** and **API Secret** values which we copied in the previous step, into the **API key** and **API secret key** respectively. Then, copy the **Authorized redirect URI,** we're going to need it shortly after.
 
-Navigate to your application settings screen and scroll down to the **User authentication settings** section **** and click **Set up**.
+Navigate to your application settings screen and scroll down to the **User authentication settings** section \*\*\*\* and click **Set up**.
 
 ![Setting up User Authentication settings of a Twitter app](../../.gitbook/assets/oauth-twitter-app-screen.png)
 
@@ -39,4 +39,4 @@ Also, enter the **Authorized Redirect URI** that we grabbed in the previous step
 
 ![](../../.gitbook/assets/oauth\_twitter-auth-screen.png)
 
-Don't forget to click **Apply** in the Clerk dashboard. Social login with Twitter is now configured 🔥&#x20;
+Don't forget to click **Apply** in the Clerk dashboard. Social login with Twitter is now configured 🔥

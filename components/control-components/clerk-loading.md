@@ -6,7 +6,9 @@ description: Renders while Clerk is loading.
 
 ## Overview
 
-The `<ClerkLoading>` renders its children while Clerk is loading, and is helpful for showing a custom loading state.
+The `<ClerkLoading>` renders its children while Clerk is loading, and is helpful for showing a custom loading state.\
+\
+This component only renders during client-side rendering (CSR only).
 
 ## Usage
 

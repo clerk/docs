@@ -8,13 +8,13 @@ description: >-
 
 ## Overview
 
-The `<SignUp/>` component is used to render a beautiful, high-conversion sign-up flow with your choice of required fields and social sign-up providers. It supports any authentication scheme, from basic [Email/password authentication](../../popular-guides/email-and-password.md), to [Passwordless](../../popular-guides/passwordless-authentication.md) and [Social Login (OAuth)](../../popular-guides/social-login-oauth.md) and it automatically handles everything  for you, from basic data collection to email address and phone number verification.
+The `<SignUp/>` component is used to render a beautiful, high-conversion sign-up flow with your choice of required fields and social sign-up providers. It supports any authentication scheme, from basic [Email/password authentication](broken-reference), to [Passwordless](broken-reference) and [Social Login (OAuth)](broken-reference) and it automatically handles everything for you, from basic data collection to email address and phone number verification.
 
 ![](../../.gitbook/assets/sign-up.png)
 
-The `<SignUp/>` component is extremely flexible. Simply configure the [User Management](../../popular-guides/setup-your-application.md#user-management) settings of your instance according to your business requirements and the `<SignUp/>` .
+The `<SignUp/>` component is extremely flexible. Simply configure the [User Management](broken-reference) settings of your instance according to your business requirements and the `<SignUp/>` .
 
-Control the look and feel of the `<SignUp/>` component and match it to your using the [Theme Settings](../../popular-guides/setup-your-application.md#theme), [theming props](sign-up.md#customization) or [plain CSS](sign-up.md#customization).
+Control the look and feel of the `<SignUp/>` component and match it to your using the [Theme Settings](broken-reference), [theming props](sign-up.md#customization) or [plain CSS](sign-up.md#customization).
 
 ## Usage
 
@@ -154,7 +154,6 @@ export default function SignUpPage() {
   // Don't forget to set the "routing" and "path" props
   return <SignUp routing='path' path='/sign-up' />;
 }
-
 ```
 {% endtab %}
 
@@ -179,7 +178,7 @@ export default function SignUpPage() {
 {% endtab %}
 {% endtabs %}
 
-For more information, see [Routing](broken-reference).
+For more information, see [Routing](https://github.com/clerkinc/docs/blob/2.0.0/components/sign-up/broken-reference/README.md).
 
 ### Presenting as a modal
 
