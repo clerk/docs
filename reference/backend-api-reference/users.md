@@ -121,6 +121,10 @@ Returns users with the specified email addresses. Accepts up to 100 email addres
 Returns users with the specified phone numbers. Accepts up to 100 phone numbers. Any phone numbers not found are ignored.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="query" name="external_d" type="string[]" %}
+Returns users with the specified external ids. Accepts up to 100 external ids. Any external ids not found are ignored.
+{% endswagger-parameter %}
+
 {% swagger-parameter in="query" name="username" type="string[]" %}
 Returns users with the specified usernames. Accepts up to 100 usernames. Any usernames not found are ignored.
 {% endswagger-parameter %}
