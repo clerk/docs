@@ -14,8 +14,10 @@ The `Session` object returned from the hook will hold all state for the currentl
 
 ## Usage
 
-{% hint style="warning" %}
-Make sure you've followed the installation guide for [Clerk React](installation.md) before running the snippets below.
+{% hint style="info" %}
+#### Typescript
+
+For better type support, we highly recommend updating to **at least** [**Typescript 4.6**](https://devblogs.microsoft.com/typescript/announcing-typescript-4-6/)**.** Applications using Typescript will benefit significantly from Typescript's new [Control Flow Analysis for Destructured Discriminated Unions](https://devblogs.microsoft.com/typescript/announcing-typescript-4-6/#control-flow-analysis-for-destructured-discriminated-unions) when using our hooks.
 {% endhint %}
 
 The following example accesses the [Session](../clerkjs/session.md) object in order to display how long a user has been active in this client session. Note that you can also get to the [User](../clerkjs/user.md) object through the `useSession` hook.&#x20;

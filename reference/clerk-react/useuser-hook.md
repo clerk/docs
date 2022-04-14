@@ -17,7 +17,7 @@ A basic example that showcases the `useUser` hook in action is a greeting compon
 {% hint style="info" %}
 #### Typescript
 
-For better type support, we highly recommend updating to **at least** [**Typescript 4.6**](https://devblogs.microsoft.com/typescript/announcing-typescript-4-6/)**.** Applications using Typescript will benefit significantly from Typescript's new [Control Flow Analysis for Dependent Parameters](https://devblogs.microsoft.com/typescript/announcing-typescript-4-6/#control-flow-analysis-for-dependent-parameters) when using our hooks.
+For better type support, we highly recommend updating to **at least** [**Typescript 4.6**](https://devblogs.microsoft.com/typescript/announcing-typescript-4-6/)**.** Applications using Typescript will benefit significantly from Typescript's new [Control Flow Analysis for Destructured Discriminated Unions](https://devblogs.microsoft.com/typescript/announcing-typescript-4-6/#control-flow-analysis-for-destructured-discriminated-unions) when using our hooks.
 {% endhint %}
 
 {% tabs %}
