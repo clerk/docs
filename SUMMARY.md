@@ -39,6 +39,7 @@
   * [Clerk](reference/clerkjs/clerk.md)
   * [Client](reference/clerkjs/client.md)
   * [EmailAddress](reference/clerkjs/emailaddress.md)
+  * [ExternalAccount](reference/clerkjs/emailaddress-1.md)
   * [Organization](reference/clerkjs/organization.md)
   * [PhoneNumber](reference/clerkjs/phonenumber.md)
   * [Web3Wallet](reference/clerkjs/web3wallet.md)
