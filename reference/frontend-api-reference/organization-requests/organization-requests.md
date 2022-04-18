@@ -20,6 +20,7 @@ Organizations is a premium feature. Please get in touch if you would like us to 
   "object": "organization",
   "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
   "name": "Acme Inc",
+  "public_metadata": {},
   "created_at": 1638000669544,
   "updated_at": 1638000669544
 }
@@ -44,6 +45,7 @@ The name of the new organization.
   "object": "organization",
   "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
   "name": "Acme Inc",
+  "public_metadata": {},
   "created_at": 1638000669544,
   "updated_at": 1638000669544
 }
@@ -113,8 +115,10 @@ The new name for the organization.
   "object": "organization",
   "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
   "name": "New Acme Inc",
+  "public_metadata": {},
   "created_at": 1638000669544,
-  "updated_at": 1638000669544}
+  "updated_at": 1638000669544
+}
 ```
 {% endswagger-response %}
 

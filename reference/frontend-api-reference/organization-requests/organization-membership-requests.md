@@ -21,9 +21,16 @@ Organizations is a premium feature. Please get in touch if you would like us to 
   "object": "organization_membership",
   "id": "orgmem_21Ufcy98STcA11s3QckIwtwHIES",
   "role": "basic_member",
-  "organization_id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
   "created_at": 1638000669544,
   "updated_at": 1638000669544,
+  "organization": {
+    "object": "organization",
+    "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
+    "name": "Acme Inc",
+    "public_metadata": {},
+    "created_at": 1638000669544,
+    "updated_at": 1638000669544
+  },
   "public_user_data": {
     "first_name": "Sarah",
     "last_name": "Connor",
@@ -72,7 +79,14 @@ Skip the first
     "object": "organization_membership",
     "id": "orgmem_21Ufcy98STcA11s3QckIwtwHIES",
     "role": "basic_member",
-    "organization_id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+    "organization": {
+      "object": "organization",
+      "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+      "name": "Acme Inc",
+      "public_metadata": {},
+      "created_at": 1638000669544,
+      "updated_at": 1638000669544
+    },
     "created_at": 1638000669544,
     "updated_at": 1638000669544,
     "public_user_data": {
@@ -87,9 +101,16 @@ Skip the first
     "object": "organization_membership",
     "id": "orgmem_21Ufcy98STcA11s3QckIwtwJJy6",
     "role": "admin",
-    "organization_id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
     "created_at": 1438000669544,
     "updated_at": 1438000669544,
+    "organization": {
+      "object": "organization",
+      "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+      "name": "Acme Inc",
+      "public_metadata": {},
+      "created_at": 1638000669544,
+      "updated_at": 1638000669544
+    },
     "public_user_data": {
       "first_name": "John",
       "last_name": "Connor",
@@ -166,9 +187,16 @@ The organization membership role. Can be one of "admin" or "basic_member".
   "object": "organization_membership",
   "id": "orgmem_21Ufcy98STcA11s3QckIwtwHIES",
   "role": "admin",
-  "organization_id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
   "created_at": 1638000669544,
   "updated_at": 1734200669544,
+  "organization": {
+    "object": "organization",
+    "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+    "name": "Acme Inc",
+    "public_metadata": {},
+    "created_at": 1638000669544,
+    "updated_at": 1638000669544
+  },
   "public_user_data": {
     "first_name": "Sarah",
     "last_name": "Connor",
@@ -271,9 +299,16 @@ When removing a member we check that at least one other member with administrato
   "object": "organization_membership",
   "id": "orgmem_21Ufcy98STcA11s3QckIwtwHIES",
   "role": "basic_member",
-  "organization_id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
   "created_at": 1638000669544,
   "updated_at": 1734200669544,
+  "organization": {
+    "object": "organization",
+    "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+    "name": "Acme Inc",
+    "public_metadata": {},
+    "created_at": 1638000669544,
+    "updated_at": 1638000669544
+  },
   "public_user_data": {
     "first_name": "Sarah",
     "last_name": "Connor",

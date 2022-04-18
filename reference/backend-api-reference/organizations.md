@@ -23,6 +23,8 @@ Organizations related requests allow you to create new organizations for your in
     "object": "organization",
     "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
     "name": "Acme Inc",
+    "privateMetadata": {},
+    "publicMetadata": {},
     "created_at": 1638000669544,
     "updated_at": 1638000669544
 }
@@ -33,6 +35,8 @@ Organizations related requests allow you to create new organizations for your in
 Creates a new organization with the given name for an instance.&#x20;
 
 In order to successfully create an organization you need to provide the ID of the [User](users.md) who will become the organization administrator.
+
+You can provide additional metadata for the organization and set any custom attribute you want. Organizations support private and public metadata. Private metadata can only be accessed from the Backend API. Public metadata can be accessed from the Backend API, and are read-only from the Frontend API.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="name" type="string" required="true" %}
@@ -47,14 +51,24 @@ Bearer [YOUR_API_KEY]
 The ID of the User who will become the new organization's administrator.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="private_metadata" type="object" %}
+Metadata saved on the organization, read-only from the Frontend API and fully accessible (read/write) from the Backend API.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="public_metadata" type="object" %}
+Metadata saved on the organization, accessible only from the Backend API.
+{% endswagger-parameter %}
+
 {% swagger-response status="200: OK" description="The new organization was created." %}
 ```javascript
 {
     "object": "organization",
     "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
     "name": "Acme Inc",
+    "private_metadata": {},
+    "public_metadata": {},
     "created_at": 1638000669544,
-    "updated_at": 1638000669544,
+    "updated_at": 1638000669544
 }
 ```
 {% endswagger-response %}

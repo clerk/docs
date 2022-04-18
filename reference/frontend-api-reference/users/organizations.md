@@ -19,6 +19,7 @@ Organizations is a premium feature. Please get in touch if you would like us to 
   "object": "organization",
   "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
   "name": "Acme Inc",
+  "public_metadata": {},
   "role": "basic_member",
   "created_at": 1438000669544,
   "updated_at": 1438000669544
@@ -63,6 +64,7 @@ Skip the first
     "object": "organization",
     "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
     "name": "Acme Inc",
+    "public_metadata": {},
     "role": "basic_member",
     "created_at": 1638000669544,
     "updated_at": 1638000669544
@@ -71,6 +73,7 @@ Skip the first
     "object": "organization",
     "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
     "name": "Foozbaz",
+    "public_metadata": {},
     "role": "admin",
     "created_at": 1612556316784,
     "updated_at": 1612556316784
