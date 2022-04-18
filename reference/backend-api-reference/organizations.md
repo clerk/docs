@@ -25,6 +25,7 @@ Organizations related requests allow you to create new organizations for your in
     "name": "Acme Inc",
     "privateMetadata": {},
     "publicMetadata": {},
+    "slug": "acme-inc",
     "created_at": 1638000669544,
     "updated_at": 1638000669544
 }
@@ -35,6 +36,8 @@ Organizations related requests allow you to create new organizations for your in
 Creates a new organization with the given name for an instance.&#x20;
 
 In order to successfully create an organization you need to provide the ID of the [User](users.md) who will become the organization administrator.
+
+You can specify an optional slug for the new organization. If provided, the organization slug can contain only lowercase alphanumeric characters (letters and digits) and the dash "-". Organization slugs must be unique for the instance.
 
 You can provide additional metadata for the organization and set any custom attribute you want. Organizations support private and public metadata. Private metadata can only be accessed from the Backend API. Public metadata can be accessed from the Backend API, and are read-only from the Frontend API.
 {% endswagger-description %}
@@ -59,6 +62,10 @@ Metadata saved on the organization, read-only from the Frontend API and fully ac
 Metadata saved on the organization, accessible only from the Backend API.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="slug" type="string" %}
+A slug for the new organization. Can contain only lowercase alphanumeric characters and the dash "-". Must be unique for the instance.
+{% endswagger-parameter %}
+
 {% swagger-response status="200: OK" description="The new organization was created." %}
 ```javascript
 {
@@ -67,6 +74,7 @@ Metadata saved on the organization, accessible only from the Backend API.
     "name": "Acme Inc",
     "private_metadata": {},
     "public_metadata": {},
+    "slug": "acme-inc",
     "created_at": 1638000669544,
     "updated_at": 1638000669544
 }

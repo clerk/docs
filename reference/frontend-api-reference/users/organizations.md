@@ -20,6 +20,7 @@ Organizations is a premium feature. Please get in touch if you would like us to 
   "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
   "name": "Acme Inc",
   "public_metadata": {},
+  "slug": "acme-inc",
   "role": "basic_member",
   "created_at": 1438000669544,
   "updated_at": 1438000669544
@@ -66,6 +67,7 @@ Skip the first
     "name": "Acme Inc",
     "public_metadata": {},
     "role": "basic_member",
+    "slug": "acme-inc",
     "created_at": 1638000669544,
     "updated_at": 1638000669544
   },
@@ -75,6 +77,7 @@ Skip the first
     "name": "Foozbaz",
     "public_metadata": {},
     "role": "admin",
+    "slug": "foozbaz",
     "created_at": 1612556316784,
     "updated_at": 1612556316784
   }

@@ -28,6 +28,7 @@ Organizations is a premium feature. Please get in touch if you would like us to 
     "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
     "name": "Acme Inc",
     "public_metadata": {},
+    "slug": "acme-inc",
     "created_at": 1638000669544,
     "updated_at": 1638000669544
   },
@@ -84,6 +85,7 @@ Skip the first
       "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
       "name": "Acme Inc",
       "public_metadata": {},
+      "slug": "acme-inc",
       "created_at": 1638000669544,
       "updated_at": 1638000669544
     },
@@ -108,6 +110,7 @@ Skip the first
       "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
       "name": "Acme Inc",
       "public_metadata": {},
+      "slug": "acme-inc",
       "created_at": 1638000669544,
       "updated_at": 1638000669544
     },
@@ -194,6 +197,7 @@ The organization membership role. Can be one of "admin" or "basic_member".
     "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
     "name": "Acme Inc",
     "public_metadata": {},
+    "slug": "acme-inc",
     "created_at": 1638000669544,
     "updated_at": 1638000669544
   },
@@ -306,6 +310,7 @@ When removing a member we check that at least one other member with administrato
     "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
     "name": "Acme Inc",
     "public_metadata": {},
+    "slug": "acme-inc",
     "created_at": 1638000669544,
     "updated_at": 1638000669544
   },

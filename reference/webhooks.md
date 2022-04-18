@@ -12,28 +12,32 @@ For more information on how to setup webhooks in your instance and how to archit
 
 Here is a list of all the events you can choose from:
 
-* `user.created`&#x20;
-* `user.updated`&#x20;
-* `user.deleted`
+* `organization.created`
+* `organization.updated`
+* `organizationInvitation.created`
+* `organizationInvitation.revoked`
+* `organizationMembership.deleted`
+* `organizationMembership.updated`
 * `session.created`
 * `session.ended`
 * `session.removed`
 * `session.revoked`
+* `user.created`&#x20;
+* `user.deleted`&#x20;
+* `user.updated`
 
 ### Payload structure
 
 The payload of the message includes the type of the event in the `type` property.&#x20;
 
-The `data` property contains the actual payload sent by Clerk. This can either be a user or a session object, depending on the event type.
+The `data` property contains the actual payload sent by Clerk. The payload can be a different object depending on the event type. For example, for `user.*` events, the payload will always be a [user object](frontend-api-reference/users/introduction.md). For `organization.*` event type, the payload will always be an [organization object](frontend-api-reference/users/introduction.md).
 
 ```javascript
 {
    "object": "event",
    "type": "user.created",
    "data": {
-      // user object      
-      // or
-      // session object
+      // user object
   }
 }
 
