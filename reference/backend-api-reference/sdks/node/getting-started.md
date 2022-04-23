@@ -4,10 +4,10 @@
 
 ### **Set CLERK\_API\_KEY**
 
-The Node SDK will pick automatically the `CLERK_API_KEY` vale from your environment \*\*\*\* variables. If your application is using .**env** files, create a file named **.env.local** in your application root if it doesn't exist already and add the above variable.
+The Node SDK will automatically pick the `CLERK_API_KEY` value from your environment variables. If your application is using .**env** files, create a file named **.env.local** in your application root if it doesn't exist already and add the above variable.
 
 {% hint style="warning" %}
-Make sure you update \*\*\*\* this variable with the API key found in your dashboard under **Settings** → **API Keys**.
+Make sure you update this variable with the API key found in your dashboard under **Settings** → **API Keys**.
 {% endhint %}
 
 {% code title=".env.local" %}
