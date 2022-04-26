@@ -175,7 +175,7 @@ Both URL property values can be either relative paths (like **/home**) or full U
 {% tabs %}
 {% tab title="Clerk React" %}
 ```jsx
-import { SignIn } from "@clerk/react";
+import { SignIn } from "@clerk/clerk-react";
 
 // Root path points to your homepage and sign up URL
 // is the full URL to your sign up page. These can be
