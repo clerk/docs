@@ -27,7 +27,7 @@ Once you set up the desired functionality and look and feel for the `<SignIn/>` 
 {% tabs %}
 {% tab title="Clerk React" %}
 ```jsx
-import { SignIn } from "@clerk/react";
+import { SignIn } from "@clerk/clerk-react";
 
 // Render the sign in component in your
 // custom sign in page.
