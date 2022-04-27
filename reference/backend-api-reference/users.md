@@ -260,11 +260,11 @@ The first name to give to the user.
 The last name to give to the user.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="email_address[]" type="string" %}
+{% swagger-parameter in="body" name="email_address" type="string[]" %}
 Email addresses to add to the user.  Must be unique across your instance.  The first email address will be set as the users primary email address.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="phone_number[]" type="string" %}
+{% swagger-parameter in="body" name="phone_number" type="string[]" %}
 Phone numbers that will be added to the user.  Must be unique across your instance.  The first phone number will be set as the users primary phone number.
 {% endswagger-parameter %}
 
