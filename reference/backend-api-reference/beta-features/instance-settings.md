@@ -19,6 +19,18 @@ Bearer [YOUR_API_KEY]
 Whether sign up is restricted to email addresses, phone numbers and usernames that are on the allowlist.  Defaults to `false`
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="from_email_address" %}
+The local part of the email address from which authentication-related emails (e.g. OTP code, magic links) will be sent.
+
+
+
+Only alphanumeric values are allowed.
+
+
+
+Note that this value should contain _only the local part_ of the address. For example, assuming your domain is `example.com` and you want emails to be sent from `foo@example.com`. In that case, you should provide `foo` in this value, not `foo@example.com`. &#x20;
+{% endswagger-parameter %}
+
 {% swagger-response status="200" description="" %}
 ```
 ```
