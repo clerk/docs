@@ -10,6 +10,7 @@ Organizations is a premium feature. Please get in touch if you would like us to 
 
 ## Available requests
 
+* `POST /v1/organizations/:organization_id/memberships`
 * `GET /v1/organizations/:organization_id/memberships`
 * `PATCH /v1/organizations/:organization_id/memberships/:user_id`
 * `DELETE /v1/organizations/:organization_id/memberships/:user_id`
@@ -41,6 +42,107 @@ Organizations is a premium feature. Please get in touch if you would like us to 
   }
 }
 ```
+
+{% swagger method="post" path="/v1/organizations/:organization_id/memberships" baseUrl="https://clerk.example.com" summary="Add member to organization" %}
+{% swagger-description %}
+Adds a user as a member to the given organization.&#x20;
+
+By using this endpoint, the user will automatically be added in the organization. If, instead, you want to invite a user so that they receive an email and decide whether they want to join the organization or not, you can use our [organization invitation endpoints](organization-invitations-requests.md).
+
+Please note that only organization administrators can add members.
+{% endswagger-description %}
+
+{% swagger-parameter in="body" name="user_id" type="string" required="true" %}
+The id of the user that will be added as a member in the given organization,.
+
+The user needs to exist in the same instance as the organization.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="role" type="string" required="true" %}
+The role that the new member will have in the organization. Valid values for this property are 
+
+`admin`
+
+ and 
+
+`basic_member`
+
+.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="User was added in the organization successfully." %}
+```javascript
+{
+  "object": "organization_membership",
+  "id": "orgmem_21Ufcy98STcA11s3QckIwtwHIES",
+  "role": "basic_member",
+  "organization": {
+    "object": "organization",
+    "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+    "name": "Acme Inc",
+    "public_metadata": {},
+    "slug": "acme-inc",
+    "created_at": 1638000669544,
+    "updated_at": 1638000669544
+  },
+  "created_at": 1638000669544,
+  "updated_at": 1638000669544,
+  "public_user_data": {
+    "first_name": "Sarah",
+    "last_name": "Connor",
+    "profile_image_url": "https://images.clerk.dev/uploaded/img_jlkkcq2786n0.jpeg",
+    "identifier": "sarah@connor.com",
+    "user_id": "user_1o4q123qMeCkKKIXcA9h8"
+  }
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Insufficient permissions to add members to the organization.." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "not_an_admin_in_organization",
+      "long_message": "Current user is not an administrator in the organization. Only administrators can perform this action.",
+      "message": "not an administrator"
+    }
+  ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="User was not found." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "not_an_admin_in_organization",
+      "long_message": "Current user is not an administrator in the organization. Only administrators can perform this action.",
+      "message": "not an administrator"
+    }
+  ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="422: Unprocessable Entity" description="Invalid value for role." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "form_param_value_invalid",
+      "long_message": "invalid_role does not match the allowed values for parameter role. You can use one of the following: admin or basic_member",
+      "message": "is invalid",
+      "meta": {
+        "param_name": "role"
+      }
+    }
+  ]
+}
+```
+{% endswagger-response %}
+{% endswagger %}
 
 {% swagger baseUrl="https://clerk.example.com" path="/v1/organizations/:organization_id/memberships" method="get" summary="Retrieve a list of organization memberships" %}
 {% swagger-description %}

@@ -12,6 +12,7 @@ Organizations is a premium feature. Please get in touch if you would like us to 
 
 * `POST /v1/organizations`
 * `PATCH /v1/organizations/:id`
+* `DELETE /v1/organizations/:id`
 
 ## The organization object
 
@@ -170,6 +171,38 @@ The new name for the organization.
       "meta": {
         "param_name": "name"
       }
+    }
+  ]
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger method="delete" path="/v1/organizations/:id" baseUrl="https://clerk.example.com" summary="Delete an organization" %}
+{% swagger-description %}
+Deletes the organization specified by `id`.
+
+Only administrators can delete an organization.
+{% endswagger-description %}
+
+{% swagger-response status="200: OK" description="Organization was deleted successfully." %}
+```javascript
+{
+  "object": "organization",
+  "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
+  "deleted": true
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Insufficient permissions to delete the organization." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "not_an_admin_in_organization",
+      "long_message": "Current user is not an administrator in the organization. Only administrators can perform this action.",
+      "message": "not an administrator"
     }
   ]
 }
