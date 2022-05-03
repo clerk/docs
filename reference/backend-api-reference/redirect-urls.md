@@ -59,11 +59,11 @@ Bearer [YOUR_API_KEY]
 {
   "errors": [
     {
-      "code": "form_param_missing",
-      "long_message": "user_id must be included.",
-      "message": "is missing",
+      "message": "is invalid",
+      "long_message": "url is invalid",
+      "code": "form_param_value_invalid",
       "meta": {
-        "param_name": "user_id"
+        "param_name": "url"
       }
     }
   ]
@@ -114,7 +114,13 @@ The id of the redirect URL
 {% swagger-response status="404: Not Found" description="" %}
 ```javascript
 {
-    // Response
+  "errors": [
+    {
+      "message": "Redirect url not found",
+      "long_message": "No RedirectURL exists with id: ru_28eW1GeqywLZSzoBoaHJ79pkPR61",
+      "code": "resource_not_found"
+    }
+  ]
 }
 ```
 {% endswagger-response %}
@@ -144,7 +150,13 @@ The id of the redirect URL
 {% swagger-response status="404: Not Found" description="" %}
 ```javascript
 {
-    // Response
+  "errors": [
+    {
+      "message": "Redirect url not found",
+      "long_message": "No RedirectURL exists with id: ru_28eW1GeqywLZSzoBoaHJ79pkPR61",
+      "code": "resource_not_found"
+    }
+  ]
 }
 ```
 {% endswagger-response %}
