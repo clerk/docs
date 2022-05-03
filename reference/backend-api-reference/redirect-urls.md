@@ -33,7 +33,7 @@ Add a new redirect URL to the whitelist of the instance.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="url" type="url" required="true" %}
-The full url value
+The full url value prefixed with https:// or custom scheme (e.g. "https://my-app.com/oauth-callback" or "my-app://oauth-callback".
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
