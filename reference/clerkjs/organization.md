@@ -21,47 +21,6 @@ The `Organization` object is the model around the organization entity.
 
 ## Methods
 
-### addMember(params)
-
-`addMember(params: AddMemberParams) => Promise<OrganizationMembershipResource>`
-
-Adds a user as a member to an organization. A user can only be added to an organization if they are not already members of it and if they already exist in the same instance as the organization.
-
-Please note that only administrators can add members to an organization.
-
-{% tabs %}
-{% tab title="Parameters" %}
-
-
-| Name       | Description                                                                                                                                        |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **userId** | <p><em>string</em><br>The id of the user that will be added as a member to the organization.</p>                                                   |
-| **role**   | <p><em>string</em><br>The role that the user will have in the organization. Valid values are <code>admin</code> and <code>basic_member</code>.</p> |
-{% endtab %}
-
-{% tab title="Returns" %}
-_Promise\<OrganizationMembershipResource>_
-
-This method returns a `Promise` which resolves to an `OrganizationMembershipResource` object.
-{% endtab %}
-{% endtabs %}
-
-### destroy()
-
-`destroy() => Promise<void>`
-
-Deletes the organization. Only administrators can delete an organization.
-
-Please note that deleting an organization will also delete all memberships and invitations. This is not reversible.
-
-{% tabs %}
-{% tab title="Returns" %}
-_Promise\<void>_
-
-This method returns a `Promise` which doesn't resolve to any value.
-{% endtab %}
-{% endtabs %}
-
 ### getMemberships(params)
 
 `getMemberships(params?:` GetMembershipsParams`)=>Promise<`OrganizationMembershipResource\[]`>`
