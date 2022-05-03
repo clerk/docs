@@ -82,6 +82,7 @@
   * [Invitations](reference/backend-api-reference/invitations.md)
   * [Emails](reference/backend-api-reference/emails.md)
   * [Organizations](reference/backend-api-reference/organizations.md)
+  * [Redirect URLs](reference/backend-api-reference/redirect-urls.md)
   * [Sessions](reference/backend-api-reference/sessions.md)
   * [Sign In Tokens](reference/backend-api-reference/sign-in-tokens.md)
   * [SMS Messages](reference/backend-api-reference/sms-messages.md)
