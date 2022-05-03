@@ -6,7 +6,7 @@ description: Manage the redirect URLs whitelist for each instance
 
 Redirect URLs endpoints are used to whitelist URLs for native application authentication flows such as OAuth sign-ins and sign-ups in [React Native](../clerk-react/) and [Expo](../clerk-expo.md).
 
-For native applications, Clerk ensures that security critical nonces will be passed only to whitelisted URLs when the OAuth flow is complete in native browser or webviews.
+For native applications, Clerk ensures that security critical nonces will be passed only to whitelisted URLs when the OAuth flow is complete in native browsers or webviews.
 
 ### Available requests
 
