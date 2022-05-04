@@ -13,9 +13,12 @@ For more information on how to setup webhooks in your instance and how to archit
 Here is a list of all the events you can choose from:
 
 * `organization.created`
+* `organization.deleted`
 * `organization.updated`
+* `organizationInvitation.accepted`
 * `organizationInvitation.created`
 * `organizationInvitation.revoked`
+* `organizationMembership.created`
 * `organizationMembership.deleted`
 * `organizationMembership.updated`
 * `session.created`
