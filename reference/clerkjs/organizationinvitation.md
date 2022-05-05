@@ -20,6 +20,6 @@ The `OrganizationInvitation` object is the model around an organization invitati
 
 ### revoke()
 
-`revoke()=>Promise<`OrganizationInvitationResource`>`
+`revoke()=>Promise<OrganizationInvitationResource>`
 
 Revokes the invitation for the email it corresponds to.

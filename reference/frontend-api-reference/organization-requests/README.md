@@ -23,7 +23,9 @@ We've built an organization invitation system that you can trigger from our Fron
 ### [Organization requests](organization-requests.md)
 
 * `POST /v1/organizations`
+* `PATCH /v1/organizations/:organization_id`
 * `DELETE /v1/organizations/:organization_id`
+* `PUT /v1/organizations/:organization_id/logo`
 
 ### [Organization invitation requests](organization-invitations-requests.md)
 

@@ -18,6 +18,7 @@ Organizations is a premium feature. Please get in touch if you would like us to 
 {
   "object": "organization",
   "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
+  "logo_url": "https://images.clerk.services/default-logo.png",
   "name": "Acme Inc",
   "public_metadata": {},
   "slug": "acme-inc",
@@ -64,6 +65,7 @@ Skip the first
   {
     "object": "organization",
     "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+    "logo_url": "https://images.clerk.services/default-logo.png",
     "name": "Acme Inc",
     "public_metadata": {},
     "role": "basic_member",
@@ -74,6 +76,7 @@ Skip the first
   {
     "object": "organization",
     "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+    "logo_url": null,
     "name": "Foozbaz",
     "public_metadata": {},
     "role": "admin",

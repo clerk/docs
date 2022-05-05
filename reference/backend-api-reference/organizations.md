@@ -16,6 +16,7 @@ Organizations related requests allow you to create new organizations for your in
 
 * `POST /v1/organizations`
 * `DELETE /v1/organizations/:id`
+* `PUT /v1/organizations/:id/logo`
 
 ### Example organization schema
 
@@ -23,6 +24,7 @@ Organizations related requests allow you to create new organizations for your in
 {
     "object": "organization",
     "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
+    "logo_url": "https://images.clerk.services/default-logo.png",
     "name": "Acme Inc",
     "privateMetadata": {},
     "publicMetadata": {},
@@ -72,6 +74,7 @@ A slug for the new organization. Can contain only lowercase alphanumeric charact
 {
     "object": "organization",
     "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
+    "logo_url": null,
     "name": "Acme Inc",
     "private_metadata": {},
     "public_metadata": {},
@@ -132,6 +135,108 @@ The id of the organization to be deleted.
   "object": "organization",
   "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
   "deleted": true
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger method="put" path="/v1/organizations/:id/logo" baseUrl="https://api.clerk.dev" summary="Update an organization's logo" %}
+{% swagger-description %}
+Set or replace an organization's logo, by uploading an image file.&#x20;
+
+This endpoint uses the `multipart/form-data` request content type and accepts a file of image type. The file size cannot exceed 10MB. Only the following file content types are supported: `image/jpeg, image/png, image/gif, image/webp, image/x-icon, image/vnd.microsoft.icon`.
+
+You must also provide the uploader user's ID. The uploader user must be an organization administrator.
+{% endswagger-description %}
+
+{% swagger-parameter in="body" name="file" type="file" required="true" %}
+The multipart image file that will be used as the organization's logo. Cannot exceed 10MB.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
+Bearer [YOUR_API_KEY]
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Content-Type" type="string" required="true" %}
+multipart/form-data
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="uploader_user_id" type="string" required="true" %}
+The ID of the User who will be the logo uploader. Must be an organization administrator.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="The organization logo was successfully uploaded." %}
+```javascript
+{
+    "object": "organization",
+    "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
+    "logo_url": "https://images.clerk.services/default-logo.png",
+    "name": "Acme Inc",
+    "private_metadata": {},
+    "public_metadata": {},
+    "slug": "acme-inc",
+    "created_at": 1638000669544,
+    "updated_at": 1738011669221
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="The request body is invalid, file cannot be uploaded." %}
+```json
+{
+  "errors": [
+    {
+      "code": "request_body_invalid",
+      "message": "Request body invalid"
+    },
+    {
+      "code": "form_param_missing",
+      "long_message": "There was no image file present in the request",
+      "message": "Image file missing"
+    }
+  ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Insufficient permissions to upload an organization logo." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "not_an_admin_in_organization",
+      "long_message":  "Current user is not an administrator in the organization. Only administrators can perform this action.",
+      "message": "not an administrator"
+    }
+  ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="The organization specified by ID cannot be found." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "resource_not_found",
+      "long_message": "Resource not found",
+      "message": "not found"
+    }
+  ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="413: Payload Too Large" description="The supplied file exceeds the size limit" %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "image_too_large",
+      "long_message":  "The image being uploaded is more than 10MB. Please choose a smaller one.",
+      "message": "Image too large"
+    }
+  ]
 }
 ```
 {% endswagger-response %}

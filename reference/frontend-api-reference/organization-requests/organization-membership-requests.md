@@ -27,6 +27,7 @@ Organizations is a premium feature. Please get in touch if you would like us to 
   "organization": {
     "object": "organization",
     "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
+    "logo_url": "https://images.clerk.services/default-logo.png",
     "name": "Acme Inc",
     "public_metadata": {},
     "slug": "acme-inc",
@@ -79,6 +80,7 @@ The role that the new member will have in the organization. Valid values for thi
   "organization": {
     "object": "organization",
     "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+    "logo_url": "https://images.clerk.services/default-logo.png",
     "name": "Acme Inc",
     "public_metadata": {},
     "slug": "acme-inc",
@@ -185,6 +187,7 @@ Skip the first
     "organization": {
       "object": "organization",
       "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+      "logo_url": "https://images.clerk.services/default-logo.png",
       "name": "Acme Inc",
       "public_metadata": {},
       "slug": "acme-inc",
@@ -210,6 +213,7 @@ Skip the first
     "organization": {
       "object": "organization",
       "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+      "logo_url": null,
       "name": "Acme Inc",
       "public_metadata": {},
       "slug": "acme-inc",
@@ -297,6 +301,7 @@ The organization membership role. Can be one of "admin" or "basic_member".
   "organization": {
     "object": "organization",
     "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+    "logo_url": "https://images.clerk.services/default-logo.png",
     "name": "Acme Inc",
     "public_metadata": {},
     "slug": "acme-inc",
@@ -410,6 +415,7 @@ When removing a member we check that at least one other member with administrato
   "organization": {
     "object": "organization",
     "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+    "logo_url": "https://images.clerk.services/default-logo.png",
     "name": "Acme Inc",
     "public_metadata": {},
     "slug": "acme-inc",
