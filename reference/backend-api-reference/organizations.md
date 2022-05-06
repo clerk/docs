@@ -15,8 +15,10 @@ Organizations related requests allow you to create new organizations for your in
 ### Available requests
 
 * `POST /v1/organizations`
+* `PATCH /v1/organizations/:id`
 * `DELETE /v1/organizations/:id`
 * `PUT /v1/organizations/:id/logo`
+* `POST /v1/organizations/:id/memberships`
 
 ### Example organization schema
 
@@ -109,6 +111,40 @@ A slug for the new organization. Can contain only lowercase alphanumeric charact
       "message": "access denied"
     }
   ]
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger method="patch" path="/v1/organizations/:id" baseUrl="https://api.clerk.dev" summary="Update an organization" %}
+{% swagger-description %}
+Updates an existing organization.
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="id" type="string" required="true" %}
+The id of the organization to be updated.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
+Bearer [YOUR_API_KEY]
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="name" type="string" %}
+The new name of the organization.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="The organization was updated successfully." %}
+```javascript
+{
+    "object": "organization",
+    "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
+    "logo_url": null,
+    "name": "Acme Inc",
+    "private_metadata": {},
+    "public_metadata": {},
+    "slug": "acme-inc",
+    "created_at": 1638000669544,
+    "updated_at": 1638000669544
 }
 ```
 {% endswagger-response %}
@@ -237,6 +273,103 @@ The ID of the User who will be the logo uploader. Must be an organization admini
       "message": "Image too large"
     }
   ]
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger method="post" path="/v1/organizations/:id/memberships" baseUrl="https://api.clerk.dev" summary="Create a new organization membership" %}
+{% swagger-description %}
+Adds a user as a member to the given organization.
+
+Only users in the same instance as the organization can be added as members.
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="id" type="string" required="true" %}
+The id of the organization that the new membership will be created.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
+Bearer [YOUR_API_KEY]
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="user_id" type="string" required="true" %}
+The id of the user that will be added as a member in the organization.
+
+The user needs to exist in the same instance as the organization and must not be a member of the given organization already.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="role" type="string" required="true" %}
+The role that the new member will have in the organization.
+
+Valid values for the role are `admin` and `basic_member`.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="The new membership was created successfully." %}
+```javascript
+{
+  "object": "organization_membership",
+  "id": "orgmem_21Ufcy98STcA11s3QckIwtwHIES",
+  "role": "basic_member",
+  "organization": {
+    "object": "organization",
+    "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+    "logo_url": "https://images.clerk.services/default-logo.png",
+    "name": "Acme Inc",
+    "private_metadata": {},
+    "public_metadata": {},
+    "slug": "acme-inc",
+    "created_at": 1638000669544,
+    "updated_at": 1638000669544
+  },
+  "created_at": 1638000669544,
+  "updated_at": 1638000669544,
+  "public_user_data": {
+    "first_name": "Sarah",
+    "last_name": "Connor",
+    "profile_image_url": "https://images.clerk.dev/uploaded/img_jlkkcq2786n0.jpeg",
+    "identifier": "sarah@connor.com",
+    "user_id": "user_1o4q123qMeCkKKIXcA9h8"
+  }
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="User is already a member of the organization." %}
+```javascript
+{
+    "errors": [{
+      "code": "already_a_member_in_organization",
+      "long_message": "User your_id is already a member of the organization.",
+      "message": "already a member"
+    }]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="No user was found with given user id." %}
+```javascript
+{
+    "errors": [{
+      "code": "resource_not_found",
+      "long_message": "No user was found with id your_id",
+      "message": "not found"
+    }]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="422: Unprocessable Entity" description="Invalid value for role." %}
+```javascript
+{
+    "errors": [{
+      "code": "form_param_value_invalid",
+      "long_message": "your_value does not match the allowed values for parameter role. You can use one of the following: admin or basic_member.",
+      "message": "is invalid",
+      "meta": {
+        "param_name": "role"
+      }
+    }]
 }
 ```
 {% endswagger-response %}
