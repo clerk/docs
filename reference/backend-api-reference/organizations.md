@@ -15,8 +15,8 @@ Organizations related requests allow you to create new organizations for your in
 ### Available requests
 
 * `POST /v1/organizations`
-* `PATCH /v1/organizations/:id`
 * `DELETE /v1/organizations/:id`
+* `PATCH /v1/organizations/:id`
 * `PATCH /v1/organizations/:id/metadata`
 * `PUT /v1/organizations/:id/logo`
 * `POST /v1/organizations/:id/memberships`
@@ -117,6 +117,32 @@ A slug for the new organization. Can contain only lowercase alphanumeric charact
 {% endswagger-response %}
 {% endswagger %}
 
+{% swagger method="delete" path="/v1/organizations/:id" baseUrl="https://api.clerk.dev" summary="Delete an organization" %}
+{% swagger-description %}
+Deletes the given organization.
+
+Please note that deleting an organization will also delete all memberships and invitations. This is not reversible.
+{% endswagger-description %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
+Bearer [YOUR_API_KEY]
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="id" type="string" required="true" %}
+The id of the organization to be deleted.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Organization was deleted successfully" %}
+```javascript
+{
+  "object": "organization",
+  "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
+  "deleted": true
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
 {% swagger method="patch" path="/v1/organizations/:id" baseUrl="https://api.clerk.dev" summary="Update an organization" %}
 {% swagger-description %}
 Updates an existing organization.
@@ -146,32 +172,6 @@ The new name of the organization.
     "slug": "acme-inc",
     "created_at": 1638000669544,
     "updated_at": 1638000669544
-}
-```
-{% endswagger-response %}
-{% endswagger %}
-
-{% swagger method="delete" path="/v1/organizations/:id" baseUrl="https://api.clerk.dev" summary="Delete an organization" %}
-{% swagger-description %}
-Deletes the given organization.
-
-Please note that deleting an organization will also delete all memberships and invitations. This is not reversible.
-{% endswagger-description %}
-
-{% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
-Bearer [YOUR_API_KEY]
-{% endswagger-parameter %}
-
-{% swagger-parameter in="path" name="id" type="string" required="true" %}
-The id of the organization to be deleted.
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Organization was deleted successfully" %}
-```javascript
-{
-  "object": "organization",
-  "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
-  "deleted": true
 }
 ```
 {% endswagger-response %}
