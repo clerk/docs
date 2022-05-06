@@ -17,6 +17,7 @@ Organizations related requests allow you to create new organizations for your in
 * `POST /v1/organizations`
 * `PATCH /v1/organizations/:id`
 * `DELETE /v1/organizations/:id`
+* `PATCH /v1/organizations/:id/metadata`
 * `PUT /v1/organizations/:id/logo`
 * `POST /v1/organizations/:id/memberships`
 
@@ -171,6 +172,68 @@ The id of the organization to be deleted.
   "object": "organization",
   "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
   "deleted": true
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger baseUrl="https://api.clerk.dev" path="/v1/organizations/:id/metadata" method="patch" summary="Merge and update an organization's metadata" %}
+{% swagger-description %}
+Update an organization's metadata attributes by merging existing values with the provided parameters.&#x20;
+
+Metadata values will be updated via a deep merge. Deep means that any nested JSON objects will be merged as well.
+
+You can remove metadata keys at any level by setting their value to `null`.
+{% endswagger-description %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" %}
+Bearer [YOUR_API_KEY]
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="public_metadata" type="object" %}
+Metadata saved on the organization, that is visible to both your frontend and backend.
+
+\
+
+
+The new object will be merged with the existing value.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="private_metadata" type="object" %}
+Metadata saved on the organization that is only visible to your backend.
+
+\
+
+
+The new object will be merged with the existing value.
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="Organization metadata successfully updated." %}
+```json
+{
+    "object": "organizantion",
+    "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
+    "logo_url": "https://images.clerk.services/default-logo.png",
+    "name": "Acme Inc",
+    "privateMetadata": { "private": "metadata" },
+    "publicMetadata": { "public": "metadata" },
+    "slug": "acme-inc",
+    "created_at": 1638000669544,
+    "updated_at": 1638000669544
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="Organization not found on the instance." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "resource_not_found",
+      "long_message": "Resource not found",
+      "message": "not found"
+    }
+  ]
 }
 ```
 {% endswagger-response %}
