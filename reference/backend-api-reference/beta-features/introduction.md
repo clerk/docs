@@ -2,7 +2,7 @@
 
 If you'd like early access to one of our upcoming features, you can use these API endpoints to enable and try them. But please note, that these may change and are not guaranteed to have a static API. We may also make minor breaking changes when we publish the beta feature live.
 
-## [Domain](introduction.md#allowlist-identifiers)
+## [Domain](domain.md)
 
 Update the domain of a production instance
 
