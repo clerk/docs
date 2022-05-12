@@ -27,7 +27,23 @@ The new home URL of the production instance e.g. https://www.example.com
 Bearer [YOUR_API_KEY]
 {% endswagger-parameter %}
 
-{% swagger-response status="202: Accepted" description="" %}
+{% swagger-response status="202: Accepted" description="Domain update was successful" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="Domain can be only updated for production instances" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="422: Unprocessable Entity" description="Domain home_url was invalid" %}
 ```javascript
 {
     // Response
