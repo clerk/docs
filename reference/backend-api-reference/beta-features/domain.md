@@ -7,7 +7,7 @@ Manage the domain of a production instance
 * **`PUT`**`/v1/beta_features/domain`
 
 {% hint style="info" %}
-Updating the domain requires setting [DNS records](https://clerk.dev/docs/how-to/deploy-to-production#dns-records) again and deploying new [SSL certificates](https://clerk.dev/docs/how-to/deploy-to-production#deploy).
+Updating the domain requires setting [DNS records](https://clerk.dev/docs/how-to/deploy-to-production#dns-records) again, deploying new [SSL certificates](https://clerk.dev/docs/how-to/deploy-to-production#deploy) and using the new [Frontend API key](https://clerk.dev/docs/how-to/deploy-to-production#api-keys-and-environment-variables) in your code.
 {% endhint %}
 
 {% hint style="danger" %}
