@@ -89,6 +89,7 @@
   * [Users](reference/backend-api-reference/users.md)
   * [Beta Features](reference/backend-api-reference/beta-features/README.md)
     * [Introduction](reference/backend-api-reference/beta-features/introduction.md)
+    * [Domain](reference/backend-api-reference/beta-features/domain.md)
     * [Instance Settings](reference/backend-api-reference/beta-features/instance-settings.md)
     * [Tokens](reference/backend-api-reference/beta-features/tokens.md)
 * [Frontend API](reference/frontend-api-reference/README.md)
