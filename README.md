@@ -10,9 +10,9 @@ Dig into our API reference documentation and SDKs. We have everything you need t
 Questions or feature requests? We're always available on [Discord](https://discord.gg/tF35UMNRuM) or [by email](mailto:support@clerk.dev).
 {% endhint %}
 
-## Component and API Reference
+## API Reference
 
-Explore our reference documentation and SDKs to integrate Clerk into your application.
+Explore our API reference documentation and SDKs to integrate Clerk into your application.
 
 ### Go SDK
 
