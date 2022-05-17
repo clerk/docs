@@ -82,7 +82,7 @@
   * [Invitations](reference/backend-api-reference/invitations.md)
   * [Emails](reference/backend-api-reference/emails.md)
   * [Organizations](reference/backend-api-reference/organizations.md)
-  * [Organization invitations](reference/backend-api-reference/organization-invitations.md)
+  * [Organization Invitations](reference/backend-api-reference/organization-invitations.md)
   * [Redirect URLs](reference/backend-api-reference/redirect-urls.md)
   * [Sessions](reference/backend-api-reference/sessions.md)
   * [Sign In Tokens](reference/backend-api-reference/sign-in-tokens.md)

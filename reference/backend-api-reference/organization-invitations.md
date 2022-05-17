@@ -4,7 +4,7 @@ description: >-
   invitations
 ---
 
-# Organization invitations
+# Organization Invitations
 
 {% hint style="info" %}
 Organizations is a premium feature. Please get in touch if you would like us to enable it for your account. You can contact us at [support@clerk.dev](mailto:support@clerk.dev).
@@ -189,6 +189,25 @@ Skip the first
       "message": "not found"
     }
   ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="422: Unprocessable Entity" description="Invalid pagination parameters" %}
+```javascript
+{
+  {
+    "errors": [
+      {
+        "code": "form_param_value_invalid",
+        "long_message": "limit is invalid",
+        "message": "is invalid",
+        "meta": {
+          "param_name": "limit"
+        }
+      }
+    ]
+  }
 }
 ```
 {% endswagger-response %}

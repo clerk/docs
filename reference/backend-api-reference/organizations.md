@@ -14,6 +14,7 @@ Organizations related requests allow you to create new organizations for your in
 
 ### Available requests
 
+* `GET /v1/organizations`
 * `POST /v1/organizations`
 * `DELETE /v1/organizations/:id`
 * `PATCH /v1/organizations/:id`
@@ -36,6 +37,91 @@ Organizations related requests allow you to create new organizations for your in
     "updated_at": 1638000669544
 }
 ```
+
+{% swagger method="get" path="/v1/organizations" baseUrl="https://api.clerk.dev" summary="Get a list of organizations for an instance" %}
+{% swagger-description %}
+This request returns the list of organizations for an instance. The instance is specified by the API key provided in the `Authorization` header.
+
+Results can be paginated using the optional `limit` and `offset` query parameters. The organizations are ordered by descending creation date. Most recent organizations will be returned first.
+{% endswagger-description %}
+
+{% swagger-parameter in="body" name="limit" type="number" required="false" %}
+Applies a limit to the number of organizations returned. Can be used for paginating the results together with 
+
+`offset`
+
+. Must be an integer greater than zero.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
+Bearer [YOUR_API_KEY]
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="offset" type="number" required="false" %}
+Skip the first 
+
+`offset`
+
+ results when paginating. Needs to be an integer greater than zero. Use it together with 
+
+`limit`
+
+ to skip the last retrieved organizations.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Organizations were retrieved successfully." %}
+```javascript
+{
+  "data": [
+    {
+      "object": "organization",
+      "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
+      "logo_url": "https://images.clerk.services/default-logo.png",
+      "name": "Acme Inc",
+      "privateMetadata": {},
+      "publicMetadata": {},
+      "slug": "acme-inc",
+      "created_at": 1638000669544,
+      "updated_at": 1638000669544
+    }
+  ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Organizations are not enabled for the instance." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "organizations_not_enabled_in_instance",
+      "long_message": "The organizations feature is not enabled for your instance. If you want to try it out, contact us at support@clerk.dev.",
+      "message": "access denied"
+    }
+  ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="422: Unprocessable Entity" description="Invalid pagination parameters." %}
+```javascript
+{
+  {
+    "errors": [
+      {
+        "code": "form_param_value_invalid",
+        "long_message": "offset is invalid",
+        "message": "is invalid",
+        "meta": {
+          "param_name": "offset"
+        }
+      }
+    ]
+  }
+}
+```
+{% endswagger-response %}
+{% endswagger %}
 
 {% swagger method="post" path="/v1/organizations" baseUrl="https://api.clerk.dev" summary="Create an organization" %}
 {% swagger-description %}
