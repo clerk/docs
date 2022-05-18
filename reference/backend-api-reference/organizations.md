@@ -16,6 +16,7 @@ Organizations related requests allow you to create new organizations for your in
 
 * `GET /v1/organizations`
 * `POST /v1/organizations`
+* `GET /v1/organizations/:id_or_slug`
 * `DELETE /v1/organizations/:id`
 * `PATCH /v1/organizations/:id`
 * `PATCH /v1/organizations/:id/metadata`
@@ -203,6 +204,66 @@ A slug for the new organization. Can contain only lowercase alphanumeric charact
 {% endswagger-response %}
 {% endswagger %}
 
+{% swagger method="get" path="/v1/organizations/:id_or_slug" baseUrl="https://api.clerk.dev" summary="Retrieve an organization by ID or slug" %}
+{% swagger-description %}
+Fetches the organization whose ID or slug matches the provided `id_or_slug` URL query parameter.
+
+The organization must belong to the instance whose API key is used for authentication in the `Authorization` request header.
+{% endswagger-description %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
+Bearer [YOUR_API_KEY]
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="id_or_slug" type="string" required="true" %}
+The id or slug of the organization.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Organization was retrieved successfully" %}
+```javascript
+{
+    "object": "organization",
+    "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
+    "logo_url": null,
+    "name": "Acme Inc",
+    "private_metadata": {},
+    "public_metadata": {},
+    "slug": "acme-inc",
+    "created_at": 1638000669544,
+    "updated_at": 1638000669544
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Organizations are not enabled for the instance" %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "organizations_not_enabled_in_instance",
+      "long_message": "The organizations feature is not enabled for your instance. If you want to try it out, contact us at support@clerk.dev.",
+      "message": "access denied"
+    }
+  ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="Resource not found" %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "resource_not_found",
+      "long_message": "Resource not found",
+      "message": "not found"
+    }
+  ]
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
 {% swagger method="delete" path="/v1/organizations/:id" baseUrl="https://api.clerk.dev" summary="Delete an organization" %}
 {% swagger-description %}
 Deletes the given organization.
@@ -224,6 +285,34 @@ The id of the organization to be deleted.
   "object": "organization",
   "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
   "deleted": true
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Organizations are not enabled for the instance" %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "organizations_not_enabled_in_instance",
+      "long_message": "The organizations feature is not enabled for your instance. If you want to try it out, contact us at support@clerk.dev.",
+      "message": "access denied"
+    }
+  ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="Resource not found" %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "resource_not_found",
+      "long_message": "Resource not found",
+      "message": "not found"
+    }
+  ]
 }
 ```
 {% endswagger-response %}
@@ -258,6 +347,34 @@ The new name of the organization.
     "slug": "acme-inc",
     "created_at": 1638000669544,
     "updated_at": 1638000669544
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Organizations are not enabled for the instance." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "organizations_not_enabled_in_instance",
+      "long_message": "The organizations feature is not enabled for your instance. If you want to try it out, contact us at support@clerk.dev.",
+      "message": "access denied"
+    }
+  ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="Resource not found" %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "resource_not_found",
+      "long_message": "Resource not found",
+      "message": "not found"
+    }
+  ]
 }
 ```
 {% endswagger-response %}
@@ -306,6 +423,20 @@ The new object will be merged with the existing value.
     "slug": "acme-inc",
     "created_at": 1638000669544,
     "updated_at": 1638000669544
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Organizations not enabled for the instance." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "organizations_not_enabled_in_instance",
+      "long_message": "The organizations feature is not enabled for your instance. If you want to try it out, contact us at support@clerk.dev.",
+      "message": "access denied"
+    }
+  ]
 }
 ```
 {% endswagger-response %}
