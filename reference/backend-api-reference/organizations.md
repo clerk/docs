@@ -21,7 +21,6 @@ Organizations related requests allow you to create new organizations for your in
 * `PATCH /v1/organizations/:id`
 * `PATCH /v1/organizations/:id/metadata`
 * `PUT /v1/organizations/:id/logo`
-* `POST /v1/organizations/:id/memberships`
 
 ### Example organization schema
 
