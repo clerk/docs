@@ -376,7 +376,13 @@ Note: Since this data can be modified from the frontend, it is not guaranteed to
 
 {% swagger baseUrl="https://api.clerk.dev" path="/v1/users/:id" method="patch" summary="Update a user" %}
 {% swagger-description %}
-Update a user.
+Update a user's attributes.
+
+You can set the user's primary contact identifiers (email address and phone numbers) by updating the `primary_email_address_id` and `primary_phone_number_id` attributes respectively. Both IDs should correspond to verified identifications that belong to the user.
+
+You can remove a user's username by setting the `username` attribute to `null` or the blank string `""`. This is a destructive action. The identification will be deleted forever.
+
+Usernames can be removed only if they are optional in your instance settings and there's at least one other identifier which can be used for authentication.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}

@@ -78,6 +78,12 @@ Retrieve the details of the current user.
 {% swagger baseUrl="https://clerk.example.com" path="/v1/me" method="patch" summary="Update current user" %}
 {% swagger-description %}
 Updates the current user.
+
+You can set the current user's primary contact identifiers (email address and phone numbers) by updating the `primary_email_address_id` and `primary_phone_number_id` attributes respectively. Both IDs should correspond to verified identifications that belong to the user.
+
+You can remove the current user's username by setting the `username` attribute to `null` or the blank string `""`. This is a destructive action. The identification will be deleted forever.
+
+Usernames can be removed only if they are optional in your instance settings and there's at least one other identifier on the current user which can be used for authentication.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="profile_image_id" type="string" %}
