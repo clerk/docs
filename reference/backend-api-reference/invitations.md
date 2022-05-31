@@ -69,6 +69,23 @@ This is only required if you have implemented a [custom flow](broken-reference) 
 }
 ```
 {% endswagger-response %}
+
+{% swagger-response status="422: Unprocessable Entity" description="Invalid resource" %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "form_param_exceeds_allowed_size",
+      "long_message": "The given public_metadata exceeds the maximum allowed size of 4096 bytes (4 KB).",
+      "message": "The given public_metadata exceeds the maximum allowed size of 4096 bytes (4 KB).",
+      "meta": {
+        "param_name": "public_metadata"
+      }
+    }
+  ]
+}
+```
+{% endswagger-response %}
 {% endswagger %}
 
 {% swagger method="get" path="/v1/invitations" baseUrl="https://api.clerk.dev" summary="List all invitations" %}

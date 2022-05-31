@@ -544,6 +544,23 @@ Note: Since this data can be modified from the frontend, it is not guaranteed to
 }
 ```
 {% endswagger-response %}
+
+{% swagger-response status="422: Unprocessable Entity" description="Invalid metadata parameters" %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "form_param_exceeds_allowed_size",
+      "long_message": "The given public_metadata exceeds the maximum allowed size of 4096 bytes (4 KB).",
+      "message": "The given public_metadata exceeds the maximum allowed size of 4096 bytes (4 KB).",
+      "meta": {
+        "param_name": "public_metadata"
+      }
+    }
+  ]
+}
+```
+{% endswagger-response %}
 {% endswagger %}
 
 {% swagger baseUrl="https://clerk.example.com" path="/v1/users/:id/profile_image" method="post" summary="Set a user's profile image" %}

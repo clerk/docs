@@ -201,6 +201,23 @@ A slug for the new organization. Can contain only lowercase alphanumeric charact
 }
 ```
 {% endswagger-response %}
+
+{% swagger-response status="422: Unprocessable Entity" description="Invalid organization parameters." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "form_param_exceeds_allowed_size",
+      "long_message": "The given public_metadata exceeds the maximum allowed size of 4096 bytes (4 KB).",
+      "message": "The given public_metadata exceeds the maximum allowed size of 4096 bytes (4 KB).",
+      "meta": {
+        "param_name": "public_metadata"
+      }
+    }
+  ]
+}
+```
+{% endswagger-response %}
 {% endswagger %}
 
 {% swagger method="get" path="/v1/organizations/:id_or_slug" baseUrl="https://api.clerk.dev" summary="Retrieve an organization by ID or slug" %}
@@ -448,6 +465,23 @@ The new object will be merged with the existing value.
       "code": "resource_not_found",
       "long_message": "Resource not found",
       "message": "not found"
+    }
+  ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="422: Unprocessable Entity" description="Invalid organization metadata." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "form_param_exceeds_allowed_size",
+      "long_message": "The given public_metadata exceeds the maximum allowed size of 4096 bytes (4 KB).",
+      "message": "The given public_metadata exceeds the maximum allowed size of 4096 bytes (4 KB).",
+      "meta": {
+        "param_name": "public_metadata"
+      }
     }
   ]
 }
