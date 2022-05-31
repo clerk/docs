@@ -19,6 +19,7 @@ This object represents an active session for a user.  Sessions are created when 
         "client_id": "client_1q8sn8pLHjqTU2g1UheJwJ7YWU6",
         "user_id": "user_1n5BS00ns3t21GWIXiPJ0KcSe02",
         "status": "active",
+        "last_active_organization_id": "org_21Ufcy98STcA11s3QckIwtwHIES",
         "last_active_at": 1616473411,
         "expire_at": 1617078211,
         "abandon_at": 1619065411
