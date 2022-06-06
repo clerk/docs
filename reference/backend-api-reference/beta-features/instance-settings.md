@@ -39,6 +39,14 @@ Toggles test mode for this instance. Defaults to
  for development instances.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="progressive_sign_up" type="boolean" %}
+Enable the Progressive Sign Up algorithm. Refer to the 
+
+[docs](https://clerk.dev/docs/main-concepts/sign-up-flow#progressive-sign-up-beta)
+
+ for more info.
+{% endswagger-parameter %}
+
 {% swagger-response status="200" description="" %}
 ```
 ```
