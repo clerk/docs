@@ -59,9 +59,9 @@ For more information see the in-depth [Client requests](user-api/) page.
 
 ## User requests
 
-[User requests](users/) are mainly responsible for modifying any active **User**'s. This happens through **Session**'s. Each **Session** contains one **User**.
+[User requests](users/) are mainly responsible for modifying any active **User**s. This happens through **Sessions**. Each **Session** contains one **User**.
 
-Once someone is signed in there will be an active **Session** on the **Client** object, \*\*\*\* which is automatically authorized to make requests on behalf of the containing **User**. Some examples of actions a **Session** can take for the **User** are:
+Once someone is signed in there will be an active **Session** on the **Client** object, which is automatically authorized to make requests on behalf of the containing **User**. Some examples of actions a **Session** can take for the **User** are:
 
 * Changing the first or last name
 * Changing the password
