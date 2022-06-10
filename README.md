@@ -16,20 +16,20 @@ Explore our API reference documentation and SDKs to integrate Clerk into your ap
 
 ### Go SDK
 
-{% content-ref url="reference/backend-api-reference/sdks/golang/getting-started.md" %}
-[getting-started.md](reference/backend-api-reference/sdks/golang/getting-started.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 ### Node SDK
 
-{% content-ref url="reference/backend-api-reference/sdks/node/getting-started.md" %}
-[getting-started.md](reference/backend-api-reference/sdks/node/getting-started.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 ### Ruby SDK
 
-{% content-ref url="reference/backend-api-reference/sdks/ruby/getting-started.md" %}
-[getting-started.md](reference/backend-api-reference/sdks/ruby/getting-started.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 ### Or clone one of our starter repos
