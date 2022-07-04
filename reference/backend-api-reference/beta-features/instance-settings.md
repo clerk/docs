@@ -48,7 +48,7 @@ Enable the Progressive Sign Up algorithm. Refer to the
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="session_token_template" type="string" %}
-The slug of the JWT Template to augment your session tokens. To disable this, pass an empty string.
+The name of the JWT Template to augment your session tokens. To disable this, pass an empty string.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
