@@ -31,7 +31,7 @@ This object represents an active session for a user.  Sessions are created when 
 Retrieve the details of a session.
 {% endswagger-description %}
 
-{% swagger-parameter in="header" name="Authorization" type="string" %}
+{% swagger-parameter in="header" name="Authorization" type="String" %}
 Bearer [YOUR_API_KEY]
 {% endswagger-parameter %}
 
@@ -54,6 +54,14 @@ List all sessions.
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
 Bearer [YOUR_API_KEY]
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="user_id" type="String" %}
+List sessions for the given user.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="client_id" type="String" %}
+List sessions for the given client.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
