@@ -97,6 +97,20 @@ Returns all non-revoked invitations for your application, sorted by creation dat
 Bearer [YOUR_API_KEY]
 {% endswagger-parameter %}
 
+{% swagger-parameter in="query" name="status" type="String" %}
+Filter invitations based on their status 
+
+`pending`
+
+, 
+
+`accepted`
+
+, or 
+
+`revoked`
+{% endswagger-parameter %}
+
 {% swagger-response status="200: OK" description="A list of all non-revoked invitations." %}
 ```javascript
 {
