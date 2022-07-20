@@ -147,11 +147,11 @@ The ID of the User who will become the new organization's administrator.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="private_metadata" type="object" %}
-Metadata saved on the organization, read-only from the Frontend API and fully accessible (read/write) from the Backend API.
+Metadata saved on the organization, accessible only from the Backend API.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="public_metadata" type="object" %}
-Metadata saved on the organization, accessible only from the Backend API.
+Metadata saved on the organization, read-only from the Frontend API and fully accessible (read/write) from the Backend API.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="slug" type="string" %}
