@@ -45,7 +45,11 @@ This request returns the list of organizations for an instance. The instance is 
 Results can be paginated using the optional `limit` and `offset` query parameters. The organizations are ordered by descending creation date. Most recent organizations will be returned first.
 {% endswagger-description %}
 
-{% swagger-parameter in="body" name="limit" type="number" required="false" %}
+{% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
+Bearer [YOUR_API_KEY]
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="limit" type="number" %}
 Applies a limit to the number of organizations returned. Can be used for paginating the results together with 
 
 `offset`
@@ -53,20 +57,20 @@ Applies a limit to the number of organizations returned. Can be used for paginat
 . Must be an integer greater than zero.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
-Bearer [YOUR_API_KEY]
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="offset" type="number" required="false" %}
+{% swagger-parameter in="query" name="offset" type="number" %}
 Skip the first 
 
 `offset`
 
  results when paginating. Needs to be an integer greater than zero. Use it together with 
 
-`limit`
+`limi`
+{% endswagger-parameter %}
 
- to skip the last retrieved organizations.
+{% swagger-parameter in="query" name="include_members_count" type="bool" %}
+Flag to denote whether the member counts of each organization should be included in the response or not.
+
+By default, it's `false`.
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Organizations were retrieved successfully." %}
