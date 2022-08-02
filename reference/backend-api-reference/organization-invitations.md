@@ -35,7 +35,7 @@ Organization invitations related requests which allow you to invite new users to
 }
 ```
 
-{% swagger method="post" path="/v1/organizations/:id/invitation" baseUrl="https://api.clerk.dev" summary="Create and send an organization invitation" %}
+{% swagger method="post" path="/v1/organizations/:id/invitations" baseUrl="https://api.clerk.dev" summary="Create and send an organization invitation" %}
 {% swagger-description %}
 Creates a new organization invitation and sends an email to the provided `email_address` with a link to accept the invitation and join the organization.
 
