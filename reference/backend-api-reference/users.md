@@ -394,7 +394,7 @@ The first name to give to the user.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="last_name" %}
-The first name to give to the user.
+The last name to give to the user.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="username" %}
