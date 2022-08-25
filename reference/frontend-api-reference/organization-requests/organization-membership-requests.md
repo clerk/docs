@@ -21,6 +21,7 @@ Organizations is a premium feature. Please get in touch if you would like us to 
 {
   "object": "organization_membership",
   "id": "orgmem_21Ufcy98STcA11s3QckIwtwHIES",
+  "public_metadata": {},
   "role": "basic_member",
   "created_at": 1638000669544,
   "updated_at": 1638000669544,
@@ -76,6 +77,7 @@ The role that the new member will have in the organization. Valid values for thi
 {
   "object": "organization_membership",
   "id": "orgmem_21Ufcy98STcA11s3QckIwtwHIES",
+  "public_metadata": {},
   "role": "basic_member",
   "organization": {
     "object": "organization",
@@ -183,6 +185,7 @@ Skip the first
   {
     "object": "organization_membership",
     "id": "orgmem_21Ufcy98STcA11s3QckIwtwHIES",
+    "public_metadata": {},
     "role": "basic_member",
     "organization": {
       "object": "organization",
@@ -207,6 +210,7 @@ Skip the first
   {
     "object": "organization_membership",
     "id": "orgmem_21Ufcy98STcA11s3QckIwtwJJy6",
+    "public_metadata": {},
     "role": "admin",
     "created_at": 1438000669544,
     "updated_at": 1438000669544,
@@ -295,6 +299,7 @@ The organization membership role. Can be one of "admin" or "basic_member".
 {
   "object": "organization_membership",
   "id": "orgmem_21Ufcy98STcA11s3QckIwtwHIES",
+  "public_metadata": {},
   "role": "admin",
   "created_at": 1638000669544,
   "updated_at": 1734200669544,
@@ -409,6 +414,7 @@ When removing a member we check that at least one other member with administrato
 {
   "object": "organization_membership",
   "id": "orgmem_21Ufcy98STcA11s3QckIwtwHIES",
+  "public_metadata": {},
   "role": "basic_member",
   "created_at": 1638000669544,
   "updated_at": 1734200669544,
