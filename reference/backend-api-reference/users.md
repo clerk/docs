@@ -30,6 +30,7 @@ This object represents a verified user in your instance. &#x20;
     "primary_web3_wallet_id": null,
     "password_enabled": true,
     "two_factor_enabled": false,
+    "totp_enabled": false,
     "email_addresses": [
         {
             "id": "idn_1oBNgISXFbSf5m0uP2Wl0qWtNGX",
@@ -344,6 +345,15 @@ When set to true, `password` is not required anymore when creating the user and 
 This is useful when you are trying to create a user that doesn't have a password, in an instance that's using passwords.
 
 Please note that you cannot use this flag if password is the only way for a user to sign into your instance.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="totp_secret" type="string" %}
+In case the user already have TOTP configured you can provide the secret to enable it in the newly created user without the need to reset it.&#x20;
+
+Please note that currently the supported options are:\
+\- Period: 30 seconds\
+\- Code length: 6 digits\
+\- Algorithm: SHA1
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="public_metadata" type="object" %}
