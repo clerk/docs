@@ -11,6 +11,7 @@ This object represents a verified user in your instance. &#x20;
 * **`PATCH`**`/v1/users/:id`
 * **`PATCH`**`/v1/users/:id/metadata`
 * **`POST`**` ``/v1/users/:id/profile_image`
+* **`POST`**` ``/v1/users/:id/verify_password`
 * **`DEL`**`  ``/v1/users/:id`
 * **`GET`**`  ``/v1/users/:id/oauth_access_tokens/:provider`
 
@@ -573,7 +574,7 @@ Note: Since this data can be modified from the frontend, it is not guaranteed to
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://clerk.example.com" path="/v1/users/:id/profile_image" method="post" summary="Set a user's profile image" %}
+{% swagger baseUrl="https://api.clerk.dev" path="/v1/users/:id/profile_image" method="post" summary="Set a user's profile image" %}
 {% swagger-description %}
 Upload a new profile image for a user. Must use multipart/form-data with one image file.  It must be a jpg, png, gif, or webp image smaller than 10 MB.
 {% endswagger-description %}
@@ -587,6 +588,34 @@ The image to upload.
 ```
 {% endswagger-response %}
 {% endswagger %}
+
+{% swagger method="post" path="/v1/users/:id/verify_password" baseUrl="https://api.clerk.dev" summary="Verify a user's password" %}
+{% swagger-description %}
+Check that the users password matches the supplied input.  Useful for custom auth flows and re-verification.
+{% endswagger-description %}
+
+{% swagger-parameter in="body" name="password" type="string" required="true" %}
+the password
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Returns if the password matches" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="422: Unprocessable Entity" description="Returns if there's an error, or if the password doesn't match" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+
 
 {% swagger baseUrl="https://api.clerk.dev" path="/v1/users/:id" method="delete" summary="Delete a user" %}
 {% swagger-description %}
