@@ -14,7 +14,6 @@ This object represents a verified user in your instance. &#x20;
 * **`POST`**` ``/v1/users/:id/verify_password`
 * **`DEL`**`  ``/v1/users/:id`
 * **`GET`**`  ``/v1/users/:id/oauth_access_tokens/:provider`
-* **`DEL`**`  ``/v1/users/:id/totp`
 
 ### Example user schema
 
@@ -701,33 +700,5 @@ The user ID
 
 {% swagger-response status="422: Unprocessable Entity" description="The access token has expired but the provider hasn't provided us with a refresh token and so we cannot fetch a new access token." %}
 
-{% endswagger-response %}
-{% endswagger %}
-
-{% swagger method="delete" path="v1/users/:id/totp" baseUrl="https://api.clerk.dev/" summary="Disable user's TOTP" %}
-{% swagger-description %}
-
-{% endswagger-description %}
-
-{% swagger-parameter in="header" name="Authorization" required="true" type="string" %}
-Bearer [YOUR_API_KEY]
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Success" %}
-```javascript
-{
-    "id": "totp_1oBNj55jOjSK9rOYrT5QHqj7eaK",
-    "object": "totp",
-    "deleted": true
-}
-```
-{% endswagger-response %}
-
-{% swagger-response status="404: Not Found" description="User not found or TOTP not enabled for the specific user" %}
-```javascript
-{
-    // Response
-}
-```
 {% endswagger-response %}
 {% endswagger %}
