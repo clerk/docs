@@ -12,8 +12,9 @@ This object represents a verified user in your instance. &#x20;
 * **`PATCH`**`/v1/users/:id/metadata`
 * **`POST`**` ``/v1/users/:id/profile_image`
 * **`POST`**` ``/v1/users/:id/verify_password`
-* **`DEL`**`  ``/v1/users/:id`
+* **`DELETE`**`  ``/v1/users/:id`
 * **`GET`**`  ``/v1/users/:id/oauth_access_tokens/:provider`
+* **`DELETE`**` ``/v1/users/:id/mfa`
 
 ### Example user schema
 
@@ -700,5 +701,31 @@ The user ID
 
 {% swagger-response status="422: Unprocessable Entity" description="The access token has expired but the provider hasn't provided us with a refresh token and so we cannot fetch a new access token." %}
 
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger method="delete" path="/v1/users/:id/mfa" baseUrl="https://api.clerk.dev" summary="Disable all MFA configurations of a user" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="id" required="true" %}
+The user's ID
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Success" %}
+```json
+{
+  "user_id": "user_ab23df1ab..."
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="User not found" %}
+```javascript
+{
+    // Response
+}
+```
 {% endswagger-response %}
 {% endswagger %}
