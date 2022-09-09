@@ -30,8 +30,8 @@ Organizations related requests allow you to create new organizations for your in
     "id": "org_21Ufcy98STcA11s3QckIwtwHIES",
     "logo_url": "https://images.clerk.services/default-logo.png",
     "name": "Acme Inc",
-    "privateMetadata": {},
-    "publicMetadata": {},
+    "private_metadata": {},
+    "public_metadata": {},
     "slug": "acme-inc",
     "created_at": 1638000669544,
     "updated_at": 1638000669544
