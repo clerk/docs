@@ -9,6 +9,7 @@
 * [Backend API](reference/backend-api-reference/README.md)
   * [Introduction](reference/backend-api-reference/introduction.md)
   * [Allowlist Identifiers](reference/backend-api-reference/allowlist-identifiers.md)
+  * [Blocklist Identifiers](reference/backend-api-reference/allowlist-identifiers-1.md)
   * [Clients](reference/backend-api-reference/clients.md)
   * [Invitations](reference/backend-api-reference/invitations.md)
   * [Email Addresses](reference/backend-api-reference/email-addresses.md)

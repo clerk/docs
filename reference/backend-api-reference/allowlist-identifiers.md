@@ -8,9 +8,9 @@ description: >-
 
 ### Overview
 
-The _allowlist_ feature allows you to control who can get access to your application. It basically restricts sign ups only to a certain set of email addresses or phone numbers that you define.&#x20;
+The _allowlist_ feature allows you to control who can get access to your application. It basically restricts sign ups and sign ins only to a certain set of email addresses, email domains, phone numbers or web3 wallets that you define.&#x20;
 
-You can either select individual email addresses and phone numbers, or whitelist whole email domains.
+Apart from individual email addresses, you can also whitelist whole email domains.
 
 Whenever you add a single email address or phone number to your allowlist identifiers, you can also choose whether you want to notify this person by an invitation to their email address or phone number respectively.&#x20;
 
@@ -37,6 +37,7 @@ Each instance of the app (_development, staging, production_) needs to be update
 	"object": "allowlist_identifier", 
 	"id": "alid_1sOWqxBnLKkD7Alxv5EymdOKjue",
 	"identifier": "+1655559004",
+	"identifier_type": "phone_number",
  	"created_at": 1620370000,
  	"updated_at": 1620370000
 }
@@ -57,12 +58,14 @@ Bearer [YOUR_API_KEY]
 	{
 		"object":"allowlist_identifier",
 		"id":"alid_1sOWqxBnLKkD7Alxv5Eym0OKjue",
-		"identifier":"user@example.com"
+		"identifier":"user@example.com",
+		"identifier_type": "email_address"
 	},
 	{
 		"object":"allowlist_identifier",
 		"id":"alid_1sOWqxBnLKkD7Alxv5EymdOKjue",
-		"identifier":"+12025559999"
+		"identifier":"+12025559999",
+		"identifier_type": "phone_number"
 	}
 ]
 ```
@@ -75,7 +78,7 @@ Add a new identifier to the allowlist.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="identifier" type="string" required="true" %}
-An email address or a phone number in international format (E.164).
+An email address, web3 wallet or phone number in international format (E.164).
 
 Instead of individual email addresses, you can also whitelist a whole email domain if you include it as `*@example.com`. In this case, everyone with an email address on `example.com` will have access to your application.
 {% endswagger-parameter %}
@@ -87,7 +90,7 @@ Bearer [YOUR_API_KEY]
 {% swagger-parameter in="body" name="notify" type="boolean" %}
 Send an invitation via SMS (for phone identifier) or email (for email address identifier).
 
-This parameter is mandatory when you add individual email addresses and phone numbers but it's not allowed when you whitelist email domains.
+This parameter is not allowed if the identifier is a web3 wallet or an email domain.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
@@ -95,7 +98,8 @@ This parameter is mandatory when you add individual email addresses and phone nu
 {
 	"object": "allowlist_identifier", 
 	"id": "alid_1sOWqxBnLKkD7Alxv5EymdOKjue",
-	"identifier": "+1655559004"
+	"identifier": "+1655559004",
+	"identifier_type": "phone_number"
 }
 ```
 {% endswagger-response %}
