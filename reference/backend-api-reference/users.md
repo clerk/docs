@@ -417,6 +417,10 @@ The username to give to the user.  It must be unique across your instance.
 The plaintext password to give the user.  Must be at least 8 characters long, and can not be found in any list of hacked passwords.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="external_id" type="string" %}
+An id field that is usually used during migrations from legacy systems.
+{% endswagger-parameter %}
+
 {% swagger-parameter in="body" name="primary_email_address_idd" type="string" %}
 The ID of the email address to set as primary. It must be verified, and present on the current user.
 {% endswagger-parameter %}
@@ -469,10 +473,6 @@ Metadata saved on the user, that can be updated from both the Frontend and Backe
 
 
 Note: Since this data can be modified from the frontend, it is not guaranteed to be safe.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="external_id" type="string" %}
-An id field that is usually used during migrations from legacy systems.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
