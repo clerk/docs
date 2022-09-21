@@ -20,9 +20,9 @@ These keys should never be shared with anyone, as they allow the holder to acces
 
 ```bash
 curl \
- -H "Authorization: Bearer test_abc...xyz" \
- -H "Content-type: application/json" \ 
- https://api.clerk.dev/v1/users
+-H "Authorization: Bearer test_abc...xyz" \
+-H "Content-type: application/json" \
+https://api.clerk.dev/v1/users
 ```
 
 {% hint style="info" %}
