@@ -8,7 +8,7 @@ A **Sign In** represents an active sign in.  A **Client** can only have one acti
 * **`GET`**` ``/v1/client/sign_ins`
 * **`POST`**`/v1/client/sign_ins/:id/prepare_first_factor`
 * **`POST`**`/v1/client/sign_ins/:id/attempt_first_factor`
-* **`POST`**`/v1/client/sign_ins/:id/attempt_second_factor`
+* **`POST`**`/v1/client/sign_ins/:id/prepare_second_factor`
 * **`POST`**`/v1/client/sign_ins/:id/attempt_second_factor`
 
 ## The Sign in object
