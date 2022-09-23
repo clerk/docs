@@ -14,6 +14,7 @@ This object represents a verified user in your instance. &#x20;
 * **`POST`**` ``/v1/users/:id/verify_password`
 * **`DELETE`**`  ``/v1/users/:id`
 * **`GET`**`  ``/v1/users/:id/oauth_access_tokens/:provider`
+* **`GET`**`/v1/users/:id/organization_memberships`
 * **`DELETE`**` ``/v1/users/:id/mfa`
 
 ### Example user schema
@@ -705,6 +706,64 @@ The user ID
 
 {% swagger-response status="422: Unprocessable Entity" description="The access token has expired but the provider hasn't provided us with a refresh token and so we cannot fetch a new access token." %}
 
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger method="get" path="/v1/users/:id/organization_memberships" baseUrl="https://api.clerk.dev" summary="Retrieve all memberships for a user" %}
+{% swagger-description %}
+Retrieves all organization memberships for the given user.
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="user_id" type="string" required="true" %}
+The id of the user whose organization memberships we want to retrieve.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="header" name="Authorization" type="string" required="true" %}
+Bearer [YOUR_API_KEY]
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="limit" type="int" %}
+The number of organization memberships to be returned.
+
+By default, if not supplied, the response will contain 10 results.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="offset" type="int" %}
+The number of entries to skip.
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Organization memberships returned successfully" %}
+```javascript
+{
+    data: [{
+        "object": "organization_membership",
+        "id": "orgmem_21Ufcy98STcA11s3QckIwtwHIES",
+        "public_metadata": {},
+        "private_metadata": {},
+        "role": "basic_member",
+        "organization": {
+            "object": "organization",
+            "id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+            "logo_url": "https://images.clerk.services/default-logo.png",
+            "name": "Acme Inc",
+            "private_metadata": {},
+            "public_metadata": {},
+            "slug": "acme-inc",
+            "created_at": 1638000669544,
+            "updated_at": 1638000669544
+        },
+        "created_at": 1638000669544,
+        "updated_at": 1638000669544,
+        "public_user_data": {
+            "first_name": "Sarah",
+            "last_name": "Connor",
+            "profile_image_url": "https://images.clerk.dev/uploaded/img_jlkkcq2786n0.jpeg",
+            "identifier": "sarah@connor.com",
+            "user_id": "user_1o4q123qMeCkKKIXcA9h8"
+        }
+    }]
+}
+```
 {% endswagger-response %}
 {% endswagger %}
 
