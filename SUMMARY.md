@@ -20,6 +20,7 @@
   * [Redirect URLs](reference/backend-api-reference/redirect-urls.md)
   * [Sessions](reference/backend-api-reference/sessions.md)
   * [Sign In Tokens](reference/backend-api-reference/sign-in-tokens.md)
+  * [Actor Tokens](reference/backend-api-reference/sign-in-tokens-1.md)
   * [SMS Messages](reference/backend-api-reference/sms-messages.md)
   * [Users](reference/backend-api-reference/users.md)
   * [Beta Features](reference/backend-api-reference/beta-features/README.md)
