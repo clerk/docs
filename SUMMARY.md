@@ -8,7 +8,7 @@
 
 * [Backend API](reference/backend-api-reference/README.md)
   * [Introduction](reference/backend-api-reference/introduction.md)
-  * [Actor Tokens](reference/backend-api-reference/sign-in-tokens.md)
+  * [Actor Tokens](reference/backend-api-reference/actor-tokens.md)
   * [Allowlist Identifiers](reference/backend-api-reference/allowlist-identifiers.md)
   * [Blocklist Identifiers](reference/backend-api-reference/allowlist-identifiers-1.md)
   * [Clients](reference/backend-api-reference/clients.md)
@@ -20,7 +20,7 @@
   * [Organization Memberships](reference/backend-api-reference/organization-memberships.md)
   * [Redirect URLs](reference/backend-api-reference/redirect-urls.md)
   * [Sessions](reference/backend-api-reference/sessions.md)
-  * [Sign In Tokens](reference/backend-api-reference/sign-in-tokens-1.md)
+  * [Sign In Tokens](reference/backend-api-reference/sign-in-tokens.md)
   * [SMS Messages](reference/backend-api-reference/sms-messages.md)
   * [Users](reference/backend-api-reference/users.md)
   * [Beta Features](reference/backend-api-reference/beta-features/README.md)
