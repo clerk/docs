@@ -179,7 +179,7 @@ By default, the duration of a session created via an actor token, lasts 30 minut
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="post" path="/v1/actor_tokens/:id/revoke" baseUrl="https://api.clerk.dev" summary="Revoke sign in token" %}
+{% swagger method="post" path="/v1/actor_tokens/:id/revoke" baseUrl="https://api.clerk.dev" summary="Revoke actor token" %}
 {% swagger-description %}
 Revokes a pending actor token.
 {% endswagger-description %}
