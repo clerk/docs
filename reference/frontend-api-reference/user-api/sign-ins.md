@@ -395,7 +395,17 @@ The strategy to attempt.  Allowed options are:
 \
 
 
-\`phone_code`
+
+
+`phone_code`
+
+, 
+
+`totp`
+
+, 
+
+`backup_code`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="code" type="string" %}

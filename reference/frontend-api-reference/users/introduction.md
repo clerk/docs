@@ -42,6 +42,17 @@ User requests are responsible for handling any actions on the current user, and 
 
 * **`POST`**`/v1/me/tokens`
 
-### [Organization requests](organizations.md)
+### [Organization requests](organizations-1.md)
 
 * **`GET`**`/v1/me/organizations`
+
+### [TOTP requests](organizations-2.md)
+
+* **`POST`**`/v1/me/totp`
+* **`POST`**`/v1/me/totp/attempt_verification`
+* **`DEL`**`/v1/me/totp`
+
+### [Backup codes requests](organizations.md)
+
+* **`POST`**`/v1/me/backup_codes`
+

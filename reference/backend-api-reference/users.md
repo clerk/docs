@@ -34,6 +34,7 @@ This object represents a verified user in your instance. &#x20;
     "password_enabled": true,
     "two_factor_enabled": false,
     "totp_enabled": false,
+    "backup_code_enabled": false,
     "email_addresses": [
         {
             "id": "idn_1oBNgISXFbSf5m0uP2Wl0qWtNGX",
@@ -357,6 +358,13 @@ Please note that currently the supported options are:\
 \- Period: 30 seconds\
 \- Code length: 6 digits\
 \- Algorithm: SHA1
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="backup_codes" type="string[]" %}
+In case the user already have Backup Codes configured you can provide them to enable it in the newly created user without the need to reset them.\
+
+
+You must provide the backup codes in plain format or the corresponding bcrypt digest.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="public_metadata" type="object" %}
