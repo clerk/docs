@@ -236,17 +236,11 @@ Bearer [YOUR_API_KEY]
 
 {% swagger baseUrl="https://api.clerk.dev" path="/v1/users" method="post" summary="Create a user" %}
 {% swagger-description %}
-Create a user.  Your user management settings determine how you should setup your user model.  Any email address and phone number created using this method will be created as verified.
-
+Create a user.  Your user management settings determine how you should setup your user model.  Any email address and phone number created using this method will be created as verified.\
 \
+Note: If you're performing a migration, checkout our guide on zero downtime migrations.
 
-
-
-
-\
-
-
-Note: If you're performing a migration, checkout our guide on zero downtime migrations
+_A rate limit rule of 30 requests per 10 seconds is applied to this endpoint._
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="Authorization" type="string" %}
