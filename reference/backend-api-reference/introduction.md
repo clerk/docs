@@ -29,3 +29,8 @@ https://api.clerk.dev/v1/users
 Be careful not to expose these keys in your Git repository, frontend code, or anywhere else that is public.&#x20;
 {% endhint %}
 
+### Rate limiting
+
+All API requests are subject to a default limit of 50 requests per 10 seconds. Certain endpoints might be subject to different limits, in which case their limits are documented in the endpoint's respective documentation page.
+
+Exceeding the rate limits will result in `429 Too Many Requests` HTTP responses. In that case, the `Retry-After` header includes the amount of seconds until the block expires.
