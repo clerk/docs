@@ -14,13 +14,13 @@ Questions or feature requests? We're always available on [Discord](https://disco
 
 Explore our API reference documentation and SDKs to integrate Clerk into your application.
 
-### Go SDK
-
-{% embed url="https://clerk.dev/docs/reference/golang/getting-started" %}
-
 ### Node SDK
 
 {% embed url="https://clerk.dev/docs/reference/node/getting-started" %}
+
+### Go SDK
+
+{% embed url="https://clerk.dev/docs/reference/golang/getting-started" %}
 
 ### Ruby SDK
 
