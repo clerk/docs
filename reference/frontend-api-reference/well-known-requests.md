@@ -13,7 +13,7 @@ description: Frontend API .well-known endpoints
 
 {% swagger method="get" path="/.well-known/jwks.json" baseUrl="https://clerk.example.com" summary="" %}
 {% swagger-description %}
-Clerk uses [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517) to share the asymmetric, public cryptographic key used to validate the signature of a signed Clerk session JWT. The JWK is unique for each Clerk instance.
+Clerk uses [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517) to share the public cryptographic key used to validate the signature of a signed Clerk session JWT. The JWK is unique for each Clerk instance.
 
 This endpoint is used by the official Clerk Backend SDKs to execute a network-less session JWT verification. The `jwks.json` should be cached in order to validate multiple JWTs without extra network calls.
 {% endswagger-description %}
@@ -38,9 +38,9 @@ This endpoint is used by the official Clerk Backend SDKs to execute a network-le
 
 {% swagger method="get" path="/.well-known/openid-configuration" baseUrl="https://clerk.example.com" summary="" %}
 {% swagger-description %}
-**A minimal Well-known URI Discovery Mechanism for** [OpenID Connect](https://openid.net/specs/openid-connect-discovery-1\_0.html) which provides configuration information about Clerk as an Identity Provider (IDP).&#x20;
+A minimal Well-known URI Discovery Mechanism for **** [OpenID Connect](https://openid.net/specs/openid-connect-discovery-1\_0.html) which provides configuration information about Clerk as an Identity Provider (IDP).&#x20;
 
-This endpoint can be used by API Gateways such as AWS and GCloud API Gateway.
+This endpoint can be used by API Gateways that authenticate requests via OIDC SSO such as AWS and GCloud API Gateway.
 {% endswagger-description %}
 
 {% swagger-response status="200: OK" description="" %}
