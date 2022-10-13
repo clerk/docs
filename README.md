@@ -12,7 +12,7 @@ Questions or feature requests? We're always available on [Discord](https://disco
 
 ## API Reference
 
-Explore our API reference documentation and SDKs to integrate Clerk into your application. 2
+Explore our API reference documentation and SDKs to integrate Clerk into your application.
 
 ### Node SDK
 

@@ -436,6 +436,32 @@ The ID of the phone number to set as primary. It must be verified, and present o
 The ID of the image to set as the users profile image.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="totp_secret" type="string" %}
+In case the user already have TOTP configured you can provide the secret to enable it in the specific without the need to reset it. Please note that currently the supported options are:
+
+\
+
+
+\- Period: 30 seconds
+
+\
+
+
+\- Code length: 6 digits
+
+\
+
+
+\- Algorithm: SHA1
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="backup_codes" type="string[]" %}
+In case the user already have Backup Codes configured you can provide them to enable it in the specific user without the need to reset them.\
+
+
+You must provide the backup codes in plain format or the corresponding bcrypt digest.
+{% endswagger-parameter %}
+
 {% swagger-parameter in="body" name="public_metadata" type="object" %}
 Metadata saved on the user, that is visible to both your frontend and backend.
 
