@@ -1,10 +1,12 @@
+---
+description: Frontend API .well-known endpoints
+---
+
 # Well known requests
 
+## Available requests
 
 
-## Requests summary
-
-### ​[Current .well-known requests](https://app.gitbook.com/o/-MR3KHqfIZeA28O45hN0/s/I9lfkxGTyVexN5kBVE7A/\~/changes/L5VCsWA4NCG00PYlmghS/reference/frontend-api-reference/users/user)​ <a href="#current-.well-known-requests" id="current-.well-known-requests"></a>
 
 * **`GET`**` ``/.well-known/jwks.json`
 * **`GET`**` ``/.well-known/openid-configuration`
