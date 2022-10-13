@@ -51,3 +51,4 @@
     * [Sessions](reference/frontend-api-reference/users/sessions.md)
     * [Tokens](reference/frontend-api-reference/users/tokens.md)
     * [TOTP](reference/frontend-api-reference/users/organizations-2.md)
+  * [Well known requests](reference/frontend-api-reference/well-known-requests.md)
