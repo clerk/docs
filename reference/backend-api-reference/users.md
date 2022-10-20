@@ -383,6 +383,18 @@ Metadata saved on the user, that can be updated from both the Frontend and Backe
 Note: Since this data can be modified from the frontend, it is not guaranteed to be safe.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="created_at" type="String" %}
+A custom date/time denoting 
+
+_when_
+
+ the user signed up to the application, specified in RFC3339 format (e.g. 
+
+`2012-10-20T07:15:20.902Z`
+
+).
+{% endswagger-parameter %}
+
 {% swagger-response status="200" description="" %}
 ```
 ```
