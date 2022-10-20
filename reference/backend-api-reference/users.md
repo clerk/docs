@@ -383,7 +383,7 @@ Metadata saved on the user, that can be updated from both the Frontend and Backe
 Note: Since this data can be modified from the frontend, it is not guaranteed to be safe.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="created_at" type="String" %}
+{% swagger-parameter in="body" name="created_at" type="tring" %}
 A custom date/time denoting 
 
 _when_
