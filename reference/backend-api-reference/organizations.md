@@ -4,10 +4,6 @@ description: Manage organizations via the Backend API
 
 # Organizations
 
-{% hint style="info" %}
-Organizations is a premium feature. Please get in touch if you would like us to enable it for your account. You can contact us at [support@clerk.dev](mailto:support@clerk.dev).
-{% endhint %}
-
 ## Overview
 
 Organizations related requests allow you to create new organizations for your instance.&#x20;

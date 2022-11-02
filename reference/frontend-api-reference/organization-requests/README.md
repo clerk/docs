@@ -4,10 +4,6 @@ description: Manage organizations and memberships with the Frontend API
 
 # Organization requests
 
-{% hint style="info" %}
-Organizations is a premium feature. Please get in touch if you would like us to enable it for your account. You can contact us at [support@clerk.dev](mailto:support@clerk.dev).
-{% endhint %}
-
 ## Overview
 
 Organizations are shared accounts for your application users, so that they can collaborate and share information.

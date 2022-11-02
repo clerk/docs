@@ -6,10 +6,6 @@ description: >-
 
 # Organization invitations requests
 
-{% hint style="info" %}
-Organizations is a premium feature. Please get in touch if you would like us to enable it for your account. You can contact us at [support@clerk.dev](mailto:support@clerk.dev).
-{% endhint %}
-
 ## Available requests
 
 * `POST /v1/organizations/:organization_id/invitations`

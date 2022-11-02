@@ -6,10 +6,6 @@ description: >-
 
 # Organization Invitations
 
-{% hint style="info" %}
-Organizations is a premium feature. Please get in touch if you would like us to enable it for your account. You can contact us at [support@clerk.dev](mailto:support@clerk.dev).
-{% endhint %}
-
 ## Overview
 
 Organization invitations related requests which allow you to invite new users to an organization and manage invitations.
