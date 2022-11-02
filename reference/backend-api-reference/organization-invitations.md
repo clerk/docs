@@ -27,8 +27,9 @@ Organization invitations related requests which allow you to invite new users to
   "object": "organization_invitation",
   "id": "orginv_21Ufcy98STcA11s3QckIwtwHIES",
   "email_address": "invited@example.com",
-  "role": "basic_member",
   "organization_id": "org_A1Ufcy88STc111s3QckIwtw956e",
+  "public_metadata": {},
+  "role": "basic_member",
   "status": "pending",
   "created_at": 1638000669544,
   "updated_at": 1638000669544
@@ -46,6 +47,8 @@ New organization invitations get a "pending" status until they are revoked by an
 The request body supports passing an optional `redirect_url` parameter. When the invited user clicks the link to accept the invitation, they will be redirected to the URL you provided. Use this parameter to implement a custom invitation acceptance flow.&#x20;
 
 You must specify the ID of the user that will send the invitation with the `inviter_user_id` parameter. That user must be a member with administrator privileges in the organization. Only "admin" members can create organization invitations.
+
+You can optionally provide public metadata for the organization invitation. These metadata are visible by both the Frontend and the Backend. When the organization invitation is accepted, the metadata will be transferred to the newly created organization membership.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="email_address" type="string" required="true" %}
@@ -56,15 +59,19 @@ The email address of the new member that's going to be invited to the organizati
 Bearer [YOUR_API_KEY]
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="role" type="string" required="true" %}
-The role of the new member in the organization.
-{% endswagger-parameter %}
-
 {% swagger-parameter in="body" name="inviter_user_id" type="string" required="true" %}
 The ID of the user that invites the new member to the organization. Must be an administrator in the organization.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="redirect_url" type="object" %}
+{% swagger-parameter in="body" name="public_metadata" type="object" %}
+Metadata saved on the organization invitation, read-only from the Frontend API and fully accessible (read/write) from the Backend API.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="role" type="string" required="true" %}
+The role of the new member in the organization.
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="redirect_url" type="string" %}
 Optional URL that the invitee will be redirected to once they accept the invitation by clicking the join link in the invitation email.
 {% endswagger-parameter %}
 
@@ -74,8 +81,9 @@ Optional URL that the invitee will be redirected to once they accept the invitat
   "object": "organization_invitation",
   "id": "orginv_21Ufcy98STcA11s3QckIwtwHIES",
   "email_address": "invitee@example.com",
-  "role": "basic_member",
   "organization_id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+  "public_metadata": {},
+  "role": "basic_member",
   "status": "pending",
   "created_at": 1638000669544,
   "updated_at": 1638000669544
@@ -168,8 +176,9 @@ Skip the first
       "object": "organization_invitation",
       "id": "orginv_21Ufcy98STcA11s3QckIwtwHIES",
       "email_address": "invitee@example.com",
-      "role": "basic_member",
       "organization_id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+      "public_metadata": {},
+      "role": "basic_member",
       "status": "pending",
       "created_at": 1638000669544,
       "updated_at": 1638000669544
@@ -238,8 +247,9 @@ The ID of the user that revokes the invitation. Must be an administrator in the 
   "object": "organization_invitation",
   "id": "orginv_21Ufcy98STcA11s3QckIwtwHIES",
   "email_address": "invitee@example.com",
-  "role": "basic_member",
   "organization_id": "org_1o4qfak5AdI2qlXSXENGL05iei6",
+  "role": "basic_member",
+  "public_metadata": {},
   "status": "revoked",
   "created_at": 1638000669544,
   "updated_at": 1638000669544
