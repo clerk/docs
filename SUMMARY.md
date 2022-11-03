@@ -18,7 +18,7 @@
   * [Organizations](reference/backend-api-reference/organizations.md)
   * [Organization Invitations](reference/backend-api-reference/organization-invitations.md)
   * [Organization Memberships](reference/backend-api-reference/organization-memberships.md)
-  * [Phone Numbers](reference/backend-api-reference/email-addresses-1.md)
+  * [Phone Numbers](reference/backend-api-reference/phone-numbers.md)
   * [Redirect URLs](reference/backend-api-reference/redirect-urls.md)
   * [Sessions](reference/backend-api-reference/sessions.md)
   * [Sign In Tokens](reference/backend-api-reference/sign-in-tokens.md)
