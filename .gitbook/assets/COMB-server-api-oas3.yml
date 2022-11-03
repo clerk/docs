@@ -1,0 +1,3849 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: hello@clerk.dev
+    name: Clerk
+    url: 'https://www.clerk.dev'
+  description: A REST API for accessing Clerk data from a Server.
+  title: Clerk Server API
+  version: '2020-06-16'
+  license:
+    name: tbd
+    url: 'https://www.example.com'
+tags:
+  - name: AllowList
+    description: Allow List Request
+  - name: BlockList
+    description: Block List Request
+  - name: Cleanup
+    description: Cleanup Request
+  - name: Client
+    description: Client Request
+  - name: Email
+    description: Email Request
+  - name: ActorToken
+    description: Actor Token Request
+  - name: InstanceSettings
+    description: Instance Settings Request
+  - name: Internal
+    description: Internal endpoints
+  - name: Invitation
+    description: Invitation Request
+  - name: JWKS
+    description: JWKs
+  - name: JWTTemplate
+    description: JWT Template Request
+  - name: Organization
+    description: Organization Request
+  - name: Redirect URL
+    description: Redirect URL Request
+  - name: Session
+    description: Session Request
+  - name: SignInToken
+    description: Sign In Token Request
+  - name: SMS Message
+    description: SMS Message Request
+  - name: Template
+    description: Template Request
+  - name: User
+    description: User Request
+  - name: Webhooks
+    description: Webhook Request
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+paths:
+  /v1/jwks:
+    get:
+      description: Retrieve the JSON Web Key Set of the instance
+      operationId: jwks
+      tags:
+        - JWKS
+      summary: Retrieve the JSON Web Key Set of the instance
+      responses:
+        '200':
+          description: The JSON Web Key Set
+  /v1/public/demo_instance:
+    post:
+      description: Creates a demo development instance and returns the Frontend/Backend API keys.
+      responses:
+        '200':
+          description: The instance was created successfully.
+  /v1/internal/interstitial:
+    get:
+      description: Interstitial
+      operationId: interstitial
+      responses:
+        '200':
+          description: The interstitial page markup
+  /v1/public/interstitial:
+    get:
+      description: Interstitial
+      operationId: interstitial
+      responses:
+        '200':
+          description: The interstitial page markup
+  /v1/internal/cleanup/dead_sessions:
+    post:
+      description: cleanup dead sessions
+      operationId: cleanupDeadSessions
+      tags:
+        - Cleanup
+      summary: Removes all dead sessions from the database
+      responses:
+        '204':
+          description: Dead sessions were removed successfully
+        '403':
+          description: Not authorized to perform this operation
+  /v1/internal/stripe/sync_plans:
+    post:
+      description: sync stripe plans
+      operationId: syncStripePlans
+      tags:
+        - Internal
+      summary: Syncs subscription plans from stripe
+      responses:
+        '204':
+          description: Plan sync concluded without issue
+        '403':
+          description: Not authorized to perform this operation
+  /v1/internal/dns/enqueue_checks:
+    post:
+      description: dns checks
+      operationId: checkDnsRecords
+      tags:
+        - Internal
+      summary: Syncs subscription plans from stripe
+      responses:
+        '204':
+          description: Plan sync concluded without issue
+        '403':
+          description: Not authorized to perform this operation
+  /v1/clients:
+    get:
+      operationId: getClientList
+      tags:
+        - Client
+      summary: List all clients
+      description: |
+        Returns a list of all clients. The clients are returned sorted by creation date, with the newest clients appearing first.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: false
+                  properties:
+                    object:
+                      type: string
+                      description: |
+                        String representing the object's type. Objects of the same type share the same value.
+                      enum:
+                        - client
+                    id:
+                      type: string
+                      description: |
+                        String representing the identifier of the session.
+                    session_ids:
+                      type: array
+                      items:
+                        type: string
+                    sessions:
+                      type: array
+                      items:
+                        $ref: '#/paths/~1v1~1sessions/get/responses/200/content/application~1json/schema/items'
+                        x-miro: '/tmp/schemas/server-api/Session.yml#/components/schemas/Session'
+                    sign_in_attempt_id:
+                      type: string
+                      nullable: true
+                      deprecated: true
+                    sign_up_attempt_id:
+                      type: string
+                      nullable: true
+                      deprecated: true
+                    sign_in_id:
+                      type: string
+                      nullable: true
+                    sign_up_id:
+                      type: string
+                      nullable: true
+                    last_active_session_id:
+                      nullable: true
+                      type: string
+                      description: |
+                        Last active session_id.
+                    updated_at:
+                      type: integer
+                      format: int64
+                      description: |
+                        Unix timestamp of last update.
+                    created_at:
+                      type: integer
+                      format: int64
+                      description: |
+                        Unix timestamp of creation.
+                  required:
+                    - object
+                    - id
+                    - session_ids
+                    - sessions
+                    - sign_in_attempt_id
+                    - sign_up_attempt_id
+                    - sign_in_id
+                    - sign_up_id
+                    - last_active_session_id
+                    - updated_at
+                    - created_at
+        '400':
+          description: Request was not successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        message:
+                          type: string
+                        long_message:
+                          type: string
+                        code:
+                          type: string
+                        meta:
+                          type: object
+                      required:
+                        - message
+                        - long_message
+                        - code
+                  meta:
+                    type: object
+                required:
+                  - errors
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/clients/verify:
+    post:
+      operationId: verifyClient
+      tags:
+        - Client
+      summary: Verify a client
+      description: |
+        Verifies the client in the provided token
+      requestBody:
+        description: Parameters.
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                token:
+                  type: string
+                  description: A JWT Token that represents the active client.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1v1~1clients/get/responses/200/content/application~1json/schema/items'
+                x-miro: '/tmp/schemas/server-api/Client.yml#/components/schemas/Client'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/clients/{client_id}':
+    get:
+      operationId: getClient
+      tags:
+        - Client
+      summary: Get a client
+      description: |
+        Returns the details of a client.
+      parameters:
+        - name: client_id
+          in: path
+          description: Client ID.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                token:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1clients~1verify/post/responses/200'
+          x-miro: './responses/server-api/Client.yml#/components/responses/Client'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/email_addresses:
+    post:
+      operationId: createEmailAddress
+      tags:
+        - EmailAddress
+      summary: Create an email address
+      description: |
+        Create a new email address
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  id:
+                    type: string
+                  object:
+                    type: string
+                    description: |
+                      String representing the object's type. Objects of the same type share the same value.
+                    enum:
+                      - email_address
+                  email_address:
+                    type: string
+                  reserved:
+                    type: boolean
+                  verification:
+                    nullable: true
+                    oneOf:
+                      - type: object
+                        additionalProperties: false
+                        properties:
+                          status:
+                            type: string
+                            enum:
+                              - unverified
+                              - verified
+                              - failed
+                              - expired
+                          strategy:
+                            type: string
+                            enum:
+                              - phone_code
+                              - email_code
+                          attempts:
+                            type: integer
+                          expire_at:
+                            type: integer
+                        required:
+                          - status
+                          - attempts
+                          - strategy
+                          - expire_at
+                      - type: object
+                        additionalProperties: false
+                        properties:
+                          status:
+                            type: string
+                            enum:
+                              - verified
+                          strategy:
+                            type: string
+                            enum:
+                              - admin
+                          attempts:
+                            type: integer
+                            nullable: true
+                          expire_at:
+                            type: integer
+                            nullable: true
+                        required:
+                          - status
+                          - strategy
+                  linked_to:
+                    type: array
+                    items:
+                      type: object
+                      additionalProperties: false
+                      properties:
+                        type:
+                          type: string
+                          enum:
+                            - oauth_google
+                            - oauth_mock
+                        id:
+                          type: string
+                      required:
+                        - type
+                        - id
+                required:
+                  - object
+                  - email_address
+                  - verification
+                  - linked_to
+                  - reserved
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/email_addresses/{email_address_id}':
+    get:
+      operationId: getEmailAddress
+      tags:
+        - EmailAddress
+      summary: Get an email address
+      description: |
+        Returns the details of an email address.
+      parameters:
+        - name: email_address_id
+          in: path
+          description: The Email Address ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1email_addresses/post/responses/200'
+          x-miro: './responses/server-api/EmailAddress.yml#/components/responses/EmailAddress'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    delete:
+      operationId: deleteEmailAddress
+      tags:
+        - EmailAddress
+      summary: Delete an email address
+      description: |
+        Delete the email address with the given ID.
+      parameters:
+        - name: email_address_id
+          in: path
+          description: The Email Address ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted Object
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  object:
+                    type: string
+                  id:
+                    type: string
+                  slug:
+                    type: string
+                  deleted:
+                    type: boolean
+                required:
+                  - object
+                  - deleted
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    patch:
+      operationId: updateEmailAddress
+      tags:
+        - EmailAddress
+      summary: Update an email address
+      description: |
+        Updates an email address.
+      parameters:
+        - name: email_address_id
+          in: path
+          description: The Email Address ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1email_addresses/post/responses/200'
+          x-miro: './responses/server-api/EmailAddress.yml#/components/responses/EmailAddress'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/phone_numbers:
+    post:
+      operationId: createPhoneNumber
+      tags:
+        - PhoneNumber
+      summary: Create a phone number
+      description: |
+        Create a new phone number
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  id:
+                    type: string
+                  object:
+                    type: string
+                    description: |
+                      String representing the object's type. Objects of the same type share the same value.
+                    enum:
+                      - phone_number
+                  phone_number:
+                    type: string
+                  reserved_for_second_factor:
+                    type: boolean
+                  default_second_factor:
+                    type: boolean
+                  reserved:
+                    type: boolean
+                  verification:
+                    nullable: true
+                    oneOf:
+                      - $ref: '#/paths/~1v1~1email_addresses/post/responses/200/content/application~1json/schema/properties/verification/oneOf/0'
+                        x-miro: '/tmp/schemas/shared/Verification.yml#/components/schemas/OTP'
+                      - $ref: '#/paths/~1v1~1email_addresses/post/responses/200/content/application~1json/schema/properties/verification/oneOf/1'
+                        x-miro: '/tmp/schemas/shared/Verification.yml#/components/schemas/Admin'
+                  linked_to:
+                    type: array
+                    items:
+                      $ref: '#/paths/~1v1~1email_addresses/post/responses/200/content/application~1json/schema/properties/linked_to/items'
+                      x-miro: '/tmp/schemas/shared/Identification.yml#/components/schemas/IdentificationLink'
+                  backup_codes:
+                    type: array
+                    items:
+                      type: string
+                    nullable: true
+                required:
+                  - object
+                  - phone_number
+                  - verification
+                  - linked_to
+                  - reserved
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/phone_numbers/{phone_number_id}':
+    get:
+      operationId: getPhoneNumber
+      tags:
+        - PhoneNumber
+      summary: Get a phone number
+      description: |
+        Returns the details of a phone number.
+      parameters:
+        - name: phone_number_id
+          in: path
+          description: Phone Number ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1phone_numbers/post/responses/200'
+          x-miro: './responses/server-api/PhoneNumber.yml#/components/responses/PhoneNumber'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    delete:
+      operationId: deletePhoneNumber
+      tags:
+        - PhoneNumber
+      summary: Delete a phone number
+      description: |
+        Delete the phone number with the given ID.
+      parameters:
+        - name: phone_number_id
+          in: path
+          description: The Phone Number ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1email_addresses~1%7Bemail_address_id%7D/delete/responses/200'
+          x-miro: './responses/shared/DeletedObject.yml#/components/responses/DeletedObject'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    patch:
+      operationId: updatePhoneNumber
+      tags:
+        - PhoneNumber
+      summary: Update a phone number
+      description: |
+        Updates a phone number.
+      parameters:
+        - name: phone_number_id
+          in: path
+          description: The Phone Number ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1phone_numbers/post/responses/200'
+          x-miro: './responses/server-api/PhoneNumber.yml#/components/responses/PhoneNumber'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/sessions:
+    get:
+      operationId: getSessionList
+      tags:
+        - Session
+      summary: List all sessions
+      description: |
+        Returns a list of all sessions. The sessions are returned sorted by creation date, with the newest sessions appearing first.
+      requestBody:
+        description: Optional parameters
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                client_id:
+                  type: string
+                  nullable: true
+                user_id:
+                  type: string
+                  nullable: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: false
+                  properties:
+                    object:
+                      type: string
+                      description: |
+                        String representing the object's type. Objects of the same type share the same value.
+                      enum:
+                        - session
+                    id:
+                      type: string
+                    user_id:
+                      type: string
+                    client_id:
+                      type: string
+                    actor:
+                      type: object
+                      nullable: true
+                    status:
+                      type: string
+                      enum:
+                        - active
+                        - revoked
+                        - ended
+                        - expired
+                        - removed
+                        - abandoned
+                    last_active_organization_id:
+                      type: string
+                      nullable: true
+                    last_active_at:
+                      type: integer
+                    expire_at:
+                      type: integer
+                    abandon_at:
+                      type: integer
+                    updated_at:
+                      type: integer
+                      format: int64
+                      description: |
+                        Unix timestamp of last update.
+                    created_at:
+                      type: integer
+                      format: int64
+                      description: |
+                        Unix timestamp of creation.
+                  required:
+                    - object
+                    - id
+                    - user_id
+                    - client_id
+                    - status
+                    - last_active_at
+                    - expire_at
+                    - abandon_at
+                    - updated_at
+                    - created_at
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/sessions/{session_id}':
+    get:
+      operationId: getSession
+      tags:
+        - Session
+      summary: Get a session
+      description: |
+        Returns the details of a session.
+      parameters:
+        - name: session_id
+          in: path
+          description: Session ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1v1~1sessions/get/responses/200/content/application~1json/schema/items'
+                x-miro: '/tmp/schemas/server-api/Session.yml#/components/schemas/Session'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/sessions/{session_id}/revoke':
+    post:
+      operationId: revokeSession
+      tags:
+        - Session
+      summary: Revoke a session
+      description: |
+        Revokes an active session. The user will be forced sign in again.
+      parameters:
+        - name: session_id
+          in: path
+          description: Session ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1sessions~1%7Bsession_id%7D/get/responses/200'
+          x-miro: './responses/server-api/Session.yml#/components/responses/Session'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/sessions/{session_id}/verify':
+    post:
+      operationId: verifySession
+      tags:
+        - Session
+      summary: Verify a session
+      description: |
+        Verifies the session that is part of the active client
+      parameters:
+        - name: session_id
+          in: path
+          description: Session ID.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Parameters.
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                token:
+                  type: string
+                  description: A JWT Token that represents the active client.
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1sessions~1%7Bsession_id%7D/get/responses/200'
+          x-miro: './responses/server-api/Session.yml#/components/responses/Session'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/sessions/{session_id}/tokens/{template_name}':
+    post:
+      operationId: createSessionTokenFromTemplate
+      tags:
+        - Session
+      summary: Creates a session token from a jwt template
+      description: Creates a session token from the provided jwt template name
+      parameters:
+        - name: session_id
+          in: path
+          description: Session ID.
+          required: true
+          schema:
+            type: string
+        - name: template_name
+          in: path
+          description: the template name
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jwt:
+                    type: string
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/templates/{template_type}':
+    get:
+      operationId: getTemplateList
+      description: |
+        Returns a list of all templates. The templates are returned sorted by position and also include system templates.
+      tags:
+        - Template
+      parameters:
+        - name: template_type
+          in: path
+          description: Template type.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: false
+                  properties:
+                    id:
+                      type: string
+                    object:
+                      type: string
+                      description: |
+                        String representing the object's type. Objects of the same type share the same value.
+                      enum:
+                        - template
+                    instance_id:
+                      nullable: true
+                      type: string
+                      description: the id of the instance the template belongs to
+                    resource_type:
+                      type: string
+                      description: whether this is a system (default) or user overridden) template
+                    template_type:
+                      type: string
+                      description: whether this is an email or SMS template
+                    name:
+                      type: string
+                      description: user-friendly name of the template
+                    slug:
+                      type: string
+                      description: machine-friendly name of the template
+                    position:
+                      type: integer
+                      description: position with the listing of templates
+                    can_revert:
+                      type: boolean
+                      description: whether this template can be reverted to the corresponding system default
+                    can_delete:
+                      type: boolean
+                      description: whether this template can be deleted
+                    subject:
+                      type: string
+                      description: email subject
+                      nullable: true
+                    markup:
+                      type: string
+                      description: the editor markup used to generate the body of the template
+                    body:
+                      type: string
+                      description: the template body before variable interpolation
+                    available_variables:
+                      type: array
+                      description: list of variables that are available for use in the template body
+                      items:
+                        type: string
+                    required_variables:
+                      type: array
+                      description: list of variables that must be contained in the template body
+                      items:
+                        type: string
+                    from_email_name:
+                      type: string
+                    delivered_by_clerk:
+                      type: boolean
+                    updated_at:
+                      type: integer
+                      format: int64
+                      description: |
+                        Unix timestamp of last update.
+                    created_at:
+                      type: integer
+                      format: int64
+                      description: |
+                        Unix timestamp of creation.
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/templates/{template_type}/{slug}':
+    get:
+      operationId: getTemplate
+      description: Returns the details of a template.
+      tags:
+        - Template
+      parameters:
+        - name: template_type
+          in: path
+          description: Template type.
+          required: true
+          schema:
+            type: string
+        - name: slug
+          in: path
+          description: Slug.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1v1~1templates~1%7Btemplate_type%7D/get/responses/200/content/application~1json/schema/items'
+                x-miro: '/tmp/schemas/shared/Template.yml#/components/schemas/Template'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    put:
+      operationId: upsertTemplate
+      description: Creates a new user template (that may override a system template with the same slug) or updates an existing user template
+      tags:
+        - Template
+      parameters:
+        - name: template_type
+          in: path
+          description: Template type.
+          required: true
+          schema:
+            type: string
+        - name: slug
+          in: path
+          description: Slug.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Required parameters
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                name:
+                  type: string
+                  description: |
+                    user-friendly name of the template
+                subject:
+                  type: string
+                  description: |
+                    email subject
+                  nullable: true
+                markup:
+                  type: string
+                  description: |
+                    the editor markup used to generate the body of the template
+                  nullable: true
+                body:
+                  type: string
+                  description: |
+                    the template body before variable interpolation
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1templates~1%7Btemplate_type%7D~1%7Bslug%7D/get/responses/200'
+          x-miro: './responses/server-api/Template.yml#/components/responses/Template'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    delete:
+      operationId: deleteTemplate
+      description: Deletes a custom user template
+      tags:
+        - Template
+      parameters:
+        - name: template_type
+          in: path
+          description: Template type.
+          required: true
+          schema:
+            type: string
+        - name: slug
+          in: path
+          description: Slug.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1email_addresses~1%7Bemail_address_id%7D/delete/responses/200'
+          x-miro: './responses/shared/DeletedObject.yml#/components/responses/DeletedObject'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/templates/{template_type}/{slug}/revert':
+    post:
+      operationId: revertTemplate
+      description: Reverts an overriden template to its system default
+      tags:
+        - Template
+      parameters:
+        - name: template_type
+          in: path
+          description: Template type.
+          required: true
+          schema:
+            type: string
+        - name: slug
+          in: path
+          description: Slug.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1templates~1%7Btemplate_type%7D~1%7Bslug%7D/get/responses/200'
+          x-miro: './responses/server-api/Template.yml#/components/responses/Template'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/templates/{template_type}/{slug}/preview':
+    post:
+      operationId: previewTemplate
+      description: 'Returns a preview of a template for a given template_type, slug & body'
+      tags:
+        - Template
+      parameters:
+        - name: template_type
+          in: path
+          description: Template type.
+          required: true
+          schema:
+            type: string
+        - name: slug
+          in: path
+          description: Slug.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Required parameters
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                subject:
+                  type: string
+                  description: |
+                    email subject
+                  nullable: true
+                body:
+                  type: string
+                  description: |
+                    the template body before variable interpolation
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/users:
+    get:
+      operationId: getUserList
+      description: |
+        Returns a list of all users. The users are returned sorted by creation date, with the newest users appearing first.
+      tags:
+        - User
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: false
+                  properties:
+                    id:
+                      type: string
+                    object:
+                      type: string
+                      description: |
+                        String representing the object's type. Objects of the same type share the same value.
+                      enum:
+                        - user
+                    external_id:
+                      nullable: true
+                      type: string
+                    primary_email_address_id:
+                      nullable: true
+                      type: string
+                    primary_phone_number_id:
+                      nullable: true
+                      type: string
+                    primary_web3_wallet_id:
+                      nullable: true
+                      type: string
+                    username:
+                      nullable: true
+                      type: string
+                    first_name:
+                      nullable: true
+                      type: string
+                    last_name:
+                      nullable: true
+                      type: string
+                    profile_image_url:
+                      type: string
+                    public_metadata:
+                      type: object
+                    private_metadata:
+                      nullable: true
+                      type: object
+                    unsafe_metadata:
+                      type: object
+                    gender:
+                      nullable: true
+                      type: string
+                    birthday:
+                      nullable: true
+                      type: string
+                    email_addresses:
+                      type: array
+                      items:
+                        $ref: '#/paths/~1v1~1email_addresses/post/responses/200/content/application~1json/schema'
+                        x-miro: '/tmp/schemas/shared/EmailAddress.yml#/components/schemas/EmailAddress'
+                    phone_numbers:
+                      type: array
+                      items:
+                        $ref: '#/paths/~1v1~1phone_numbers/post/responses/200/content/application~1json/schema'
+                        x-miro: '/tmp/schemas/shared/PhoneNumber.yml#/components/schemas/PhoneNumber'
+                    web3_wallets:
+                      type: array
+                      items:
+                        type: object
+                        additionalProperties: false
+                        properties:
+                          id:
+                            type: string
+                          object:
+                            type: string
+                            description: |
+                              String representing the object's type. Objects of the same type share the same value.
+                            enum:
+                              - web3_wallet
+                          web3_wallet:
+                            type: string
+                          verification:
+                            nullable: true
+                            oneOf:
+                              - type: object
+                                additionalProperties: false
+                                properties:
+                                  status:
+                                    type: string
+                                    enum:
+                                      - verified
+                                  strategy:
+                                    type: string
+                                    enum:
+                                      - web3_metamask_signature
+                                  nonce:
+                                    type: string
+                                    enum:
+                                      - nonce
+                                  attempts:
+                                    type: integer
+                                    nullable: true
+                                  expire_at:
+                                    type: integer
+                                    nullable: true
+                                required:
+                                  - status
+                                  - strategy
+                                  - nonce
+                              - $ref: '#/paths/~1v1~1email_addresses/post/responses/200/content/application~1json/schema/properties/verification/oneOf/1'
+                                x-miro: '/tmp/schemas/shared/Verification.yml#/components/schemas/Admin'
+                        required:
+                          - object
+                          - web3_wallet
+                          - verification
+                    password_enabled:
+                      type: boolean
+                    two_factor_enabled:
+                      type: boolean
+                    totp_enabled:
+                      type: boolean
+                    backup_code_enabled:
+                      type: boolean
+                    oauth_data:
+                      nullable: true
+                      type: object
+                    organization:
+                      nullable: true
+                      type: object
+                    external_accounts:
+                      type: array
+                      items:
+                        type: object
+                    last_sign_in_at:
+                      type: integer
+                      format: int64
+                      nullable: true
+                      description: |
+                        Unix timestamp of last sign-in.
+                    banned:
+                      type: boolean
+                      description: |
+                        Flag to denote whether user is banned or not.
+                    updated_at:
+                      type: integer
+                      format: int64
+                      description: |
+                        Unix timestamp of last update.
+                    created_at:
+                      type: integer
+                      format: int64
+                      description: |
+                        Unix timestamp of creation.
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    post:
+      operationId: createUser
+      description: |
+        Creates a new user.
+      tags:
+        - User
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1v1~1users/get/responses/200/content/application~1json/schema/items'
+                x-miro: '/tmp/schemas/shared/User.yml#/components/schemas/User'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/users/count:
+    get:
+      operationId: getUsersCount
+      description: |
+        Returns a total count of all users that match the given criteria.
+      tags:
+        - User
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  object:
+                    type: string
+                    description: |
+                      String representing the object's type. Objects of the same type share the same value.
+                    enum:
+                      - total_count
+                  total_count:
+                    type: integer
+                    format: int64
+                required:
+                  - object
+                  - total_count
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/users/{user_id}':
+    get:
+      operationId: getUser
+      description: Returns the details of a user.
+      tags:
+        - User
+      parameters:
+        - name: user_id
+          in: path
+          description: User ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1users/post/responses/200'
+          x-miro: './responses/server-api/User.yml#/components/responses/User'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    patch:
+      operationId: updateUser
+      description: Updates a user.
+      tags:
+        - User
+      parameters:
+        - name: user_id
+          in: path
+          description: User ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1users/post/responses/200'
+          x-miro: './responses/server-api/User.yml#/components/responses/User'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    delete:
+      operationId: deleteUser
+      description: Deletes a user.
+      tags:
+        - User
+      parameters:
+        - name: user_id
+          in: path
+          description: User ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1email_addresses~1%7Bemail_address_id%7D/delete/responses/200'
+          x-miro: './responses/shared/DeletedObject.yml#/components/responses/DeletedObject'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/users/{user_id}/ban':
+    post:
+      operationId: banUser
+      description: 'Marks the given user as banned, which means that all his sessions are revoked and he''s not allowed to sign in again.'
+      tags:
+        - User
+      parameters:
+        - name: user_id
+          in: path
+          description: User ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1users/post/responses/200'
+          x-miro: './responses/server-api/User.yml#/components/responses/User'
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/users/{user_id}/unban':
+    post:
+      operationId: unbanUser
+      description: Removes the ban mark from the given user.
+      tags:
+        - User
+      parameters:
+        - name: user_id
+          in: path
+          description: User ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1users/post/responses/200'
+          x-miro: './responses/server-api/User.yml#/components/responses/User'
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/users/{user_id}/metadata':
+    patch:
+      operationId: updateUserMetadata
+      description: Updates user metadata.
+      tags:
+        - User
+      parameters:
+        - name: user_id
+          in: path
+          description: User ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1users/post/responses/200'
+          x-miro: './responses/server-api/User.yml#/components/responses/User'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/users/{user_id}/oauth_access_tokens/{provider}':
+    get:
+      operationId: getOAuthAccessToken
+      description: Read the OAuth access token of a user.
+      tags:
+        - User
+      parameters:
+        - name: user_id
+          in: path
+          description: User ID.
+          required: true
+          schema:
+            type: string
+        - name: provider
+          in: path
+          description: The OAuth provider.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 'The OAuth access token of the user, if any.'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: false
+                  properties:
+                    object:
+                      type: string
+                    token:
+                      type: string
+                      description: The access token
+                    provider:
+                      type: string
+                      description: The ID of the provider
+                    public_metadata:
+                      type: object
+                    label:
+                      type: string
+                      nullable: true
+                    scopes:
+                      type: array
+                      items:
+                        type: string
+                      description: |
+                        The list of scopes that the token is valid for. Only present for OAuth 2.0 tokens.
+                    token_secret:
+                      type: string
+                      description: |
+                        The token secret. Only present for OAuth 1.0 tokens.
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/users/{user_id}/organization_memberships':
+    get:
+      operationId: usersGetOrganizationMemberships
+      description: Get a paginated list of the user's organization memberships
+      parameters:
+        - name: user_id
+          in: path
+          description: User ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of organization memberships
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  data:
+                    type: array
+                    items:
+                      description: Hello world
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        object:
+                          type: string
+                          description: |
+                            String representing the object's type. Objects of the same type share the same value.
+                          enum:
+                            - organization_membership
+                        role:
+                          type: string
+                          enum:
+                            - admin
+                            - basic_member
+                            - guest_member
+                        created_at:
+                          type: integer
+                          format: int64
+                          description: Unix timestamp of creation.
+                        updated_at:
+                          type: integer
+                          format: int64
+                          description: Unix timestamp of last update.
+                        organization:
+                          nullable: false
+                          allOf:
+                            - type: object
+                              properties:
+                                object:
+                                  type: string
+                                  enum:
+                                    - organization
+                                id:
+                                  type: string
+                                name:
+                                  type: string
+                                slug:
+                                  type: string
+                                  nullable: true
+                                members_count:
+                                  type: integer
+                                  nullable: true
+                                max_allowed_memberships:
+                                  type: integer
+                                public_metadata:
+                                  type: object
+                                private_metadata:
+                                  type: object
+                                created_at:
+                                  type: integer
+                                  format: int64
+                                  description: |
+                                    Unix timestamp of creation.
+                                updated_at:
+                                  type: integer
+                                  format: int64
+                                  description: |
+                                    Unix timestamp of last update.
+                              required:
+                                - object
+                                - id
+                                - name
+                                - slug
+                                - max_allowed_memberships
+                                - public_metadata
+                                - private_metadata
+                                - created_at
+                                - updated_at
+                        public_user_data:
+                          type: object
+                          additionalProperties: false
+                          properties:
+                            user_id:
+                              type: string
+                              nullable: false
+                            first_name:
+                              type: string
+                              nullable: true
+                            last_name:
+                              type: string
+                              nullable: true
+                            profile_image_url:
+                              type: string
+                              nullable: true
+                            identifier:
+                              type: string
+                              nullable: true
+                  total_count:
+                    type: integer
+                    format: int64
+                    description: |
+                      Total number of organization memberships
+                required:
+                  - data
+                  - total_count
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/users/{user_id}/verify_password':
+    post:
+      operationId: verifyPassword
+      description: Verify the password of a user.
+      tags:
+        - User
+      parameters:
+        - name: user_id
+          in: path
+          description: User ID.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                password:
+                  type: string
+                  description: The password of the user
+      responses:
+        '200':
+          description: The provided password was correct.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  verified:
+                    type: boolean
+                    nullable: false
+        '400':
+          description: The user does not have a password set.
+        '404':
+          description: The user does not exist.
+        '422':
+          description: The provided password was incorrect.
+        '500':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/users/{user_id}/mfa':
+    delete:
+      operationId: disableMFA
+      description: Disable user's MFA methods.
+      tags:
+        - User
+      parameters:
+        - name: user_id
+          in: path
+          description: User ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  user_id:
+                    type: string
+                    nullable: false
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '500':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/emails:
+    post:
+      operationId: createEmail
+      description: Sends an email.
+      tags:
+        - Email
+      requestBody:
+        description: Required parameters
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                from_email_name:
+                  type: string
+                  description: |
+                    The email name portion of the sending email address. <br/>e.g.: `from_email_name=info` will send from info@example.com
+                subject:
+                  type: string
+                  description: |
+                    The subject of the email.
+                  nullable: true
+                body:
+                  type: string
+                  description: |
+                    The body of the email.
+                  nullable: true
+                email_address_id:
+                  type: string
+                  nullable: true
+                  description: |
+                    The ID of the email address to send to.
+                template_slug:
+                  type: string
+                  nullable: true
+                  description: |
+                    The slug of the template to use for sending this email
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  object:
+                    type: string
+                    enum:
+                      - email
+                  id:
+                    type: string
+                  slug:
+                    type: string
+                    nullable: true
+                  from_email_name:
+                    type: string
+                  email_address_id:
+                    type: string
+                    nullable: true
+                  to_email_address:
+                    type: string
+                  user_id:
+                    type: string
+                    nullable: true
+                  subject:
+                    type: string
+                  body:
+                    type: string
+                  body_plain:
+                    type: string
+                    nullable: true
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    nullable: true
+                  delivered_by_clerk:
+                    type: boolean
+                required:
+                  - object
+                  - id
+                  - from_email_name
+                  - email_address_id
+                  - to_email_address
+                  - subject
+                  - body
+                  - status
+                  - delivered_by_clerk
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/sms_messages:
+    post:
+      operationId: createSMSMessage
+      description: Sends an sms message.
+      tags:
+        - SMS Message
+      summary: Create an sms message
+      requestBody:
+        description: Required parameters
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                message:
+                  type: string
+                  description: |
+                    The message to send.
+                  nullable: true
+                phone_number_id:
+                  type: string
+                  description: |
+                    The ID of the phone number to send to.
+                template_slug:
+                  type: string
+                  nullable: true
+                  description: |
+                    The slug of the template to use for sending this SMS message
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  object:
+                    type: string
+                    enum:
+                      - sms_message
+                  id:
+                    type: string
+                  slug:
+                    type: string
+                    nullable: true
+                  from_phone_number:
+                    type: string
+                  to_phone_number:
+                    type: string
+                  phone_number_id:
+                    type: string
+                    nullable: true
+                  user_id:
+                    type: string
+                    nullable: true
+                  message:
+                    type: string
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    nullable: true
+                  delivered_by_clerk:
+                    type: boolean
+                required:
+                  - object
+                  - id
+                  - from_phone_number
+                  - to_phone_number
+                  - phone_number_id
+                  - message
+                  - status
+                  - delivered_by_clerk
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/invitations:
+    post:
+      description: Create an invitation to sign up to an instance for the given email address
+      operationId: createInvitation
+      tags:
+        - Invitation
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  object:
+                    type: string
+                    enum:
+                      - invitation
+                  id:
+                    type: string
+                  email_address:
+                    type: string
+                    format: email
+                  public_metadata:
+                    type: object
+                  revoked:
+                    type: boolean
+                  status:
+                    type: string
+                    enum:
+                      - pending
+                      - accepted
+                      - revoked
+                  created_at:
+                    type: integer
+                    format: int64
+                    description: |
+                      Unix timestamp of creation.
+                  updated_at:
+                    type: integer
+                    format: int64
+                    description: |
+                      Unix timestamp of last update.
+                required:
+                  - object
+                  - id
+                  - email_address
+                  - status
+                  - created_at
+                  - updated_at
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    get:
+      description: Retrieves all non-revoked invitations sorted by creation date
+      operationId: listInvitations
+      parameters:
+        - in: query
+          required: false
+          name: status
+          schema:
+            type: string
+            enum:
+              - pending
+              - accepted
+              - revoked
+      tags:
+        - Invitation
+      responses:
+        '200':
+          description: List of invitations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/paths/~1v1~1invitations/post/responses/200/content/application~1json/schema'
+                  x-miro: '/tmp/schemas/server-api/Invitations.yml#/components/schemas/Invitation'
+  '/v1/invitations/{invitation_id}/revoke':
+    post:
+      description: Revokes the invitation with the given id
+      operationId: revokeInvitation
+      tags:
+        - Invitation
+      parameters:
+        - name: invitation_id
+          in: path
+          description: Invitation ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1invitations/post/responses/200'
+          x-miro: './responses/server-api/Invitations.yml#/components/responses/Invitation'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/allowlist_identifiers:
+    get:
+      operationId: listInstanceAllowlistIdentifiers
+      description: Get a list of all identifiers allowed to sign up to an instance
+      tags:
+        - InstanceSettings
+      summary: Get a list of all identifiers allowed to sign up to an instance
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: false
+                  properties:
+                    object:
+                      type: string
+                      description: |
+                        String representing the object's type. Objects of the same type share the same value.
+                      enum:
+                        - allowlist_identifier
+                    id:
+                      type: string
+                    invitation_id:
+                      type: string
+                    identifier:
+                      type: string
+                      description: |
+                        An email address or a phone number.
+                    identifier_type:
+                      type: string
+                      enum:
+                        - email_address
+                        - phone_number
+                        - web3_wallet
+                    instance_id:
+                      type: string
+                    created_at:
+                      type: integer
+                      format: int64
+                      description: |
+                        Unix timestamp of creation
+                    updated_at:
+                      type: integer
+                      format: int64
+                      description: |
+                        Unix timestamp of last update.
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    post:
+      description: Create an identifier allowed to sign up to an instance
+      operationId: createInstanceAllowlistIdentifier
+      tags:
+        - AllowList
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1v1~1allowlist_identifiers/get/responses/200/content/application~1json/schema/items'
+                x-miro: '/tmp/schemas/shared/AllowlistIdentifier.yml#/components/schemas/AllowlistIdentifier'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/allowlist_identifiers/{identifier_id}':
+    delete:
+      operationId: deleteInstanceAllowlistIdentifier
+      description: Delete an indentifier from the instance allowlist
+      tags:
+        - AllowList
+      parameters:
+        - name: identifier_id
+          in: path
+          description: Allowlist identifier ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1email_addresses~1%7Bemail_address_id%7D/delete/responses/200'
+          x-miro: './responses/shared/DeletedObject.yml#/components/responses/DeletedObject'
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/blocklist_identifiers:
+    get:
+      operationId: listInstanceBlocklistIdentifiers
+      description: Get a list of all identifiers which are not allowed to access an instance
+      tags:
+        - BlockList
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      additionalProperties: false
+                      properties:
+                        object:
+                          type: string
+                          description: |
+                            String representing the object's type. Objects of the same type share the same value.
+                          enum:
+                            - blocklist_identifier
+                        id:
+                          type: string
+                        identifier:
+                          type: string
+                          description: |
+                            An email address, email domain, phone number or web3 wallet.
+                        identifier_type:
+                          type: string
+                          enum:
+                            - email_address
+                            - phone_number
+                            - web3_wallet
+                        instance_id:
+                          type: string
+                        created_at:
+                          type: integer
+                          format: int64
+                          description: |
+                            Unix timestamp of creation
+                        updated_at:
+                          type: integer
+                          format: int64
+                          description: |
+                            Unix timestamp of last update.
+                  total_count:
+                    type: integer
+                    format: int64
+                    description: |
+                      Total number of blocklist identifiers
+                required:
+                  - data
+                  - total_count
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    post:
+      description: Create an identifier that is blocked from accessing an instance
+      operationId: createInstanceBlocklistIdentifier
+      tags:
+        - BlockList
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  object:
+                    type: string
+                    description: |
+                      String representing the object's type. Objects of the same type share the same value.
+                    enum:
+                      - blocklist_identifier
+                  id:
+                    type: string
+                  identifier:
+                    type: string
+                    description: |
+                      An email address, email domain, phone number or web3 wallet.
+                  identifier_type:
+                    type: string
+                    enum:
+                      - email_address
+                      - phone_number
+                      - web3_wallet
+                  instance_id:
+                    type: string
+                  created_at:
+                    type: integer
+                    format: int64
+                    description: |
+                      Unix timestamp of creation
+                  updated_at:
+                    type: integer
+                    format: int64
+                    description: |
+                      Unix timestamp of last update.
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/blocklist_identifiers/{identifier_id}':
+    delete:
+      operationId: deleteInstanceBlocklistIdentifier
+      description: Delete an identifier from the instance blocklist
+      tags:
+        - BlockList
+      parameters:
+        - name: identifier_id
+          in: path
+          description: Blocklist identifier ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1email_addresses~1%7Bemail_address_id%7D/delete/responses/200'
+          x-miro: './responses/shared/DeletedObject.yml#/components/responses/DeletedObject'
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/beta_features/instance_settings:
+    patch:
+      operationId: updateInstanceAuthConfig
+      description: Updates the settings of an instance
+      tags:
+        - InstanceSettings
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                restricted_to_allowlist:
+                  type: boolean
+                  nullable: true
+                from_email_address:
+                  type: string
+                  nullable: true
+                progressive_sign_up:
+                  type: boolean
+                  nullable: true
+                enhanced_email_deliverability:
+                  type: boolean
+                  nullable: true
+      responses:
+        '200':
+          description: InstanceSettings Server API
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  object:
+                    type: string
+                    description: String representing the object's type. Objects of the same type share the same value.
+                    enum:
+                      - instance_settings
+                  id:
+                    type: string
+                  restricted_to_allowlist:
+                    type: boolean
+                  from_email_address:
+                    type: string
+                  progressive_sign_up:
+                    type: boolean
+                  enhanced_email_deliverability:
+                    type: boolean
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/beta_features/domain:
+    put:
+      operationId: updateProductionInstanceDomain
+      description: Updates the domain of a production instance
+      tags:
+        - InstanceDomain
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                home_url:
+                  type: string
+                  description: The home_url of the production instance
+      responses:
+        '202':
+          description: Accepted
+  /v1/actor_tokens:
+    post:
+      description: Create an actor token that can be used to impersonate the given user.
+      operationId: createActorToken
+      tags:
+        - ActorToken
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  object:
+                    type: string
+                    enum:
+                      - actor_token
+                  id:
+                    type: string
+                  status:
+                    type: string
+                    enum:
+                      - pending
+                      - accepted
+                      - revoked
+                  user_id:
+                    type: string
+                  actor:
+                    type: object
+                  token:
+                    type: string
+                    nullable: true
+                  created_at:
+                    type: integer
+                    format: int64
+                    description: |
+                      Unix timestamp of creation.
+                  updated_at:
+                    type: integer
+                    format: int64
+                    description: |
+                      Unix timestamp of last update.
+                required:
+                  - object
+                  - id
+                  - user_id
+                  - actor
+                  - status
+                  - created_at
+                  - updated_at
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/actor_tokens/{actor_token_id}/revoke':
+    post:
+      description: Revoke the given actor token.
+      operationId: revokeActorToken
+      tags:
+        - ActorToken
+      parameters:
+        - name: actor_token_id
+          in: path
+          description: Actor token id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1actor_tokens/post/responses/200'
+          x-miro: './responses/server-api/ActorToken.yml#/components/responses/ActorToken'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/instance:
+    patch:
+      operationId: updateInstance
+      description: Updates the settings of an instance
+      tags:
+        - InstanceSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                test_mode:
+                  type: boolean
+                  nullable: true
+                hibp:
+                  type: boolean
+                  description: Whether the instance should be using the HIBP service to check passwords for breaches
+                  nullable: true
+                enhanced_email_deliverability:
+                  type: boolean
+                  nullable: true
+                support_email:
+                  type: string
+                  nullable: true
+                clerk_js_version:
+                  type: string
+                  nullable: true
+                experimental_allowed_origins:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '204':
+          description: Accepted
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/instance/restrictions:
+    patch:
+      operationId: updateInstanceRestrictions
+      description: Updates the restriction settings of an instance
+      tags:
+        - InstanceSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                allowlist:
+                  type: boolean
+                  nullable: true
+                blocklist:
+                  type: boolean
+                  nullable: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        object:
+                          type: string
+                          description: String representing the object's type. Objects of the same type share the same value.
+                          enum:
+                            - instance_restrictions
+                        allowlist:
+                          type: boolean
+                        blocklist:
+                          type: boolean
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/instance/organization_settings:
+    patch:
+      operationId: updateInstanceOrganizationSettings
+      description: Updates the organization settings of the instance
+      tags:
+        - InstanceSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                enabled:
+                  type: boolean
+                  nullable: true
+                max_allowed_memberships:
+                  type: integer
+                  nullable: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        object:
+                          type: string
+                          description: String representing the object's type. Objects of the same type share the same value.
+                          enum:
+                            - organization_settings
+                        enabled:
+                          type: boolean
+                        max_allowed_memberships:
+                          type: integer
+                      required:
+                        - object
+                        - enabled
+                        - max_allowed_memberships
+  /v1/webhooks/svix:
+    post:
+      operationId: createSvixApp
+      description: Create a Svix app and associate it with the current instance
+      tags:
+        - Webhooks
+      responses:
+        '200':
+          description: Response that contains a temporary Svix URL to access management dashboard
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  svix_url:
+                    type: string
+                required:
+                  - svix_url
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    delete:
+      operationId: deleteSvixApp
+      description: Delete a Svix app and associate it with the current instance
+      tags:
+        - Webhooks
+      responses:
+        '204':
+          description: Svix app was successfully deleted
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/webhooks/svix_url:
+    post:
+      operationId: generateSvixAuthURL
+      description: Generate a new url for accessing the Svix's management dashboard for that particular instance
+      tags:
+        - Webhooks
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1webhooks~1svix/post/responses/200'
+          x-miro: './responses/server-api/Webhooks.yml#/components/responses/SvixURL'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/jwt_templates:
+    post:
+      description: Create a JWT Template
+      operationId: createJWTTemplate
+      tags:
+        - JWTTemplate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: JWT template name
+                  nullable: false
+                claims:
+                  type: object
+                  description: JWT template claims in JSON format
+                  nullable: false
+                lifetime:
+                  type: number
+                  description: JWT token lifetime
+                  nullable: true
+                allowed_clock_skew:
+                  type: number
+                  description: JWT token allowed clock skew
+                  nullable: true
+                custom_signing_key:
+                  type: boolean
+                  description: Whether a custom signing key/algorithm is also provided for this template
+                  nullable: false
+                signing_algorithm:
+                  type: string
+                  description: The custom signing algorithm to use when minting JWTs
+                  nullable: true
+                signing_key:
+                  type: string
+                  description: The custom signing private key to use when minting JWTs
+                  nullable: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  object:
+                    type: string
+                    enum:
+                      - jwt_template
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  claims:
+                    type: object
+                  lifetime:
+                    type: integer
+                  allowed_clock_skew:
+                    type: integer
+                  custom_signing_key:
+                    type: boolean
+                  signing_algorithm:
+                    type: string
+                  created_at:
+                    type: integer
+                    format: int64
+                    description: |
+                      Unix timestamp of creation.
+                  updated_at:
+                    type: integer
+                    format: int64
+                    description: |
+                      Unix timestamp of last update.
+                required:
+                  - object
+                  - id
+                  - name
+                  - claims
+                  - lifetime
+                  - allowed_clock_skew
+                  - created_at
+                  - updated_at
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    get:
+      description: Retrieves all JWT Templates
+      operationId: listJWTTemplates
+      tags:
+        - JWTTemplate
+      responses:
+        '200':
+          description: List of JWT templates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/paths/~1v1~1jwt_templates/post/responses/200/content/application~1json/schema'
+                  x-miro: '/tmp/schemas/server-api/JWTTemplate.yml#/components/schemas/JWTTemplate'
+  '/v1/jwt_templates/{template_id}':
+    get:
+      description: Retrieves a JWT Template with the given id
+      operationId: getJWTTemplate
+      tags:
+        - JWTTemplate
+      parameters:
+        - name: template_id
+          in: path
+          description: JWT Template ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1jwt_templates/post/responses/200'
+          x-miro: './responses/server-api/JWTTemplate.yml#/components/responses/JWTTemplate'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    patch:
+      description: Updates a JWT Template with the given id
+      operationId: updateJWTTemplate
+      tags:
+        - JWTTemplate
+      parameters:
+        - name: template_id
+          in: path
+          description: JWT Template ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1jwt_templates/post/responses/200'
+          x-miro: './responses/server-api/JWTTemplate.yml#/components/responses/JWTTemplate'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '402':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    delete:
+      description: Delete a JWT Template with the given id
+      operationId: deleteJWTTemplate
+      tags:
+        - JWTTemplate
+      parameters:
+        - name: template_id
+          in: path
+          description: JWT Template ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1email_addresses~1%7Bemail_address_id%7D/delete/responses/200'
+          x-miro: './responses/shared/DeletedObject.yml#/components/responses/DeletedObject'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/organizations:
+    get:
+      description: Get a list of organizations for an instance
+      operationId: indexOrganizations
+      tags:
+        - Organization
+      responses:
+        '200':
+          description: A list of organizations
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        object:
+                          type: string
+                          enum:
+                            - organization
+                        id:
+                          type: string
+                        name:
+                          type: string
+                        slug:
+                          type: string
+                          nullable: true
+                        members_count:
+                          type: integer
+                          nullable: true
+                        max_allowed_memberships:
+                          type: integer
+                        public_metadata:
+                          type: object
+                        private_metadata:
+                          type: object
+                        created_at:
+                          type: integer
+                          format: int64
+                          description: |
+                            Unix timestamp of creation.
+                        updated_at:
+                          type: integer
+                          format: int64
+                          description: |
+                            Unix timestamp of last update.
+                      required:
+                        - object
+                        - id
+                        - name
+                        - slug
+                        - max_allowed_memberships
+                        - public_metadata
+                        - private_metadata
+                        - created_at
+                        - updated_at
+                  total_count:
+                    type: integer
+                    format: int64
+                    description: |
+                      Total number of organizations
+                required:
+                  - data
+                  - total_count
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    post:
+      description: Create an organization and add the given user as admin.
+      operationId: createOrganization
+      tags:
+        - Organization
+      responses:
+        '200':
+          description: An organization
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  object:
+                    type: string
+                    enum:
+                      - organization
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  slug:
+                    type: string
+                    nullable: true
+                  members_count:
+                    type: integer
+                    nullable: true
+                  max_allowed_memberships:
+                    type: integer
+                  public_metadata:
+                    type: object
+                  private_metadata:
+                    type: object
+                  created_at:
+                    type: integer
+                    format: int64
+                    description: |
+                      Unix timestamp of creation.
+                  updated_at:
+                    type: integer
+                    format: int64
+                    description: |
+                      Unix timestamp of last update.
+                required:
+                  - object
+                  - id
+                  - name
+                  - slug
+                  - max_allowed_memberships
+                  - public_metadata
+                  - private_metadata
+                  - created_at
+                  - updated_at
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/organizations/{organization_id}':
+    get:
+      description: Get an organization by ID or slug.
+      tags:
+        - Organization
+      parameters:
+        - in: path
+          name: organization_id
+          required: true
+          schema:
+            type: string
+          description: The ID or slug of the organization
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1organizations/post/responses/200'
+          x-miro: './responses/server-api/Organization.yml#/components/responses/Organization'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    patch:
+      description: Update an organization.
+      tags:
+        - Organization
+      parameters:
+        - in: path
+          name: organization_id
+          required: true
+          schema:
+            type: string
+          description: The id of the organization to update
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                name:
+                  type: string
+                  description: The organization name
+                  nullable: true
+                max_allowed_memberships:
+                  type: integer
+                  nullable: true
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1organizations/post/responses/200'
+          x-miro: './responses/server-api/Organization.yml#/components/responses/Organization'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    delete:
+      description: Delete the given organization.
+      operationId: deleteOrganization
+      tags:
+        - Organization
+      parameters:
+        - in: path
+          name: organization_id
+          required: true
+          schema:
+            type: string
+          description: The id of the organization to delete
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1email_addresses~1%7Bemail_address_id%7D/delete/responses/200'
+          x-miro: './responses/shared/DeletedObject.yml#/components/responses/DeletedObject'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/organizations/{organization_id}/logo':
+    put:
+      description: Upload a logo for the organization.
+      operationId: uploadOrganizationLogo
+      tags:
+        - Organization
+      parameters:
+        - name: organization_id
+          in: path
+          description: Organization ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: An organization with a logo URL.
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - type: object
+                    properties:
+                      object:
+                        type: string
+                        enum:
+                          - organization
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      slug:
+                        type: string
+                        nullable: true
+                      members_count:
+                        type: integer
+                        nullable: true
+                      max_allowed_memberships:
+                        type: integer
+                      public_metadata:
+                        type: object
+                      private_metadata:
+                        type: object
+                      created_at:
+                        type: integer
+                        format: int64
+                        description: |
+                          Unix timestamp of creation.
+                      updated_at:
+                        type: integer
+                        format: int64
+                        description: |
+                          Unix timestamp of last update.
+                    required:
+                      - object
+                      - id
+                      - name
+                      - slug
+                      - max_allowed_memberships
+                      - public_metadata
+                      - private_metadata
+                      - created_at
+                      - updated_at
+                  - type: object
+                    properties:
+                      logo_url:
+                        type: string
+                    required:
+                      - logo_url
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '413':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/organizations/{organization_id}/invitations':
+    post:
+      description: Create a new organization invitation
+      tags:
+        - Organization
+      operationId: createOrganizationInvitation
+      parameters:
+        - in: path
+          required: true
+          name: organization_id
+          schema:
+            type: string
+          description: The organization ID.
+      responses:
+        '200':
+          description: An organization invitation
+          content:
+            application/json:
+              schema:
+                description: An organization invitation
+                type: object
+                properties:
+                  id:
+                    type: string
+                  object:
+                    type: string
+                    description: |
+                      String representing the object's type. Objects of the same type share the same value.
+                    enum:
+                      - organization_invitation
+                  email_address:
+                    type: string
+                  role:
+                    type: string
+                    enum:
+                      - admin
+                      - basic_member
+                      - guest_member
+                  organization_id:
+                    type: string
+                  status:
+                    type: string
+                  created_at:
+                    type: integer
+                    format: int64
+                    description: Unix timestamp of creation.
+                  updated_at:
+                    type: integer
+                    format: int64
+                    description: Unix timestamp of last update.
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/organizations/{organization_id}/invitations/pending':
+    get:
+      description: Create a new organization invitation
+      tags:
+        - Organization
+      operationId: listPendingOrganizationInvitations
+      parameters:
+        - in: path
+          required: true
+          name: organization_id
+          schema:
+            type: string
+          description: The organization ID.
+      responses:
+        '200':
+          description: A list of organization invitations
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  data:
+                    type: array
+                    items:
+                      description: An organization invitation
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        object:
+                          type: string
+                          description: |
+                            String representing the object's type. Objects of the same type share the same value.
+                          enum:
+                            - organization_invitation
+                        email_address:
+                          type: string
+                        role:
+                          type: string
+                          enum:
+                            - admin
+                            - basic_member
+                            - guest_member
+                        organization_id:
+                          type: string
+                        status:
+                          type: string
+                        created_at:
+                          type: integer
+                          format: int64
+                          description: Unix timestamp of creation.
+                        updated_at:
+                          type: integer
+                          format: int64
+                          description: Unix timestamp of last update.
+                  total_count:
+                    type: integer
+                    format: int64
+                    description: |
+                      Total number of organization invitations
+                required:
+                  - data
+                  - total_count
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/organizations/{organization_id}/invitations/{invitation_id}/revoke':
+    post:
+      description: Revoke a pending organization invitation
+      tags:
+        - Organization
+      operationId: revokeOrganizationInvitation
+      parameters:
+        - in: path
+          required: true
+          name: organization_id
+          schema:
+            type: string
+          description: The organization ID.
+        - in: path
+          required: true
+          name: invitation_id
+          schema:
+            type: string
+          description: The organization invitation ID.
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1organizations~1%7Borganization_id%7D~1invitations/post/responses/200'
+          x-miro: './responses/server-api/Organization.yml#/components/responses/OrganizationInvitation'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/organizations/{organization_id}/memberships':
+    post:
+      description: Create a new organization membership
+      tags:
+        - Organization
+      operationId: createOrganizationMembership
+      parameters:
+        - in: path
+          required: true
+          name: organization_id
+          schema:
+            type: string
+          description: The organization ID.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                description: Hello world
+                type: object
+                properties:
+                  id:
+                    type: string
+                  object:
+                    type: string
+                    description: |
+                      String representing the object's type. Objects of the same type share the same value.
+                    enum:
+                      - organization_membership
+                  role:
+                    type: string
+                    enum:
+                      - admin
+                      - basic_member
+                      - guest_member
+                  created_at:
+                    type: integer
+                    format: int64
+                    description: Unix timestamp of creation.
+                  updated_at:
+                    type: integer
+                    format: int64
+                    description: Unix timestamp of last update.
+                  organization:
+                    nullable: false
+                    allOf:
+                      - type: object
+                        properties:
+                          object:
+                            type: string
+                            enum:
+                              - organization
+                          id:
+                            type: string
+                          name:
+                            type: string
+                          slug:
+                            type: string
+                            nullable: true
+                          members_count:
+                            type: integer
+                            nullable: true
+                          max_allowed_memberships:
+                            type: integer
+                          public_metadata:
+                            type: object
+                          private_metadata:
+                            type: object
+                          created_at:
+                            type: integer
+                            format: int64
+                            description: |
+                              Unix timestamp of creation.
+                          updated_at:
+                            type: integer
+                            format: int64
+                            description: |
+                              Unix timestamp of last update.
+                        required:
+                          - object
+                          - id
+                          - name
+                          - slug
+                          - max_allowed_memberships
+                          - public_metadata
+                          - private_metadata
+                          - created_at
+                          - updated_at
+                  public_user_data:
+                    type: object
+                    additionalProperties: false
+                    properties:
+                      user_id:
+                        type: string
+                        nullable: false
+                      first_name:
+                        type: string
+                        nullable: true
+                      last_name:
+                        type: string
+                        nullable: true
+                      profile_image_url:
+                        type: string
+                        nullable: true
+                      identifier:
+                        type: string
+                        nullable: true
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    get:
+      description: Get a list of all members of an organization
+      tags:
+        - Organization
+      operationId: listOrganizationMemberships
+      parameters:
+        - in: path
+          required: true
+          name: organization_id
+          schema:
+            type: string
+          description: The organization ID.
+        - in: query
+          required: false
+          name: limit
+          schema:
+            type: number
+        - in: query
+          required: false
+          name: offset
+          schema:
+            type: number
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1users~1%7Buser_id%7D~1organization_memberships/get/responses/200'
+          x-miro: './responses/server-api/Organization.yml#/components/responses/OrganizationMemberships'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/organizations/{organization_id}/memberships/{user_id}':
+    patch:
+      description: Update organization membership role
+      tags:
+        - Organization
+      operationId: updateOrganizationMembership
+      parameters:
+        - in: path
+          required: true
+          name: organization_id
+          schema:
+            type: string
+          description: The organization ID.
+        - in: path
+          required: true
+          name: user_id
+          schema:
+            type: string
+          description: The member ID.
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1organizations~1%7Borganization_id%7D~1memberships/post/responses/200'
+          x-miro: './responses/server-api/Organization.yml#/components/responses/OrganizationMembership'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    delete:
+      description: Remove a member from an organization.
+      tags:
+        - Organization
+      operationId: deleteOrganizationMembership
+      parameters:
+        - in: path
+          required: true
+          name: organization_id
+          schema:
+            type: string
+          description: The organization ID.
+        - in: path
+          required: true
+          name: user_id
+          schema:
+            type: string
+          description: The member ID.
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1organizations~1%7Borganization_id%7D~1memberships/post/responses/200'
+          x-miro: './responses/server-api/Organization.yml#/components/responses/OrganizationMembership'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/organizations/{organization_id}/memberships/{user_id}/metadata':
+    patch:
+      description: Update organization membership metadata
+      tags:
+        - Organization
+      operationId: updateOrganizationMembershipMetadata
+      parameters:
+        - in: path
+          required: true
+          name: organization_id
+          schema:
+            type: string
+          description: The organization ID.
+        - in: path
+          required: true
+          name: user_id
+          schema:
+            type: string
+          description: The member ID.
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1organizations~1%7Borganization_id%7D~1memberships/post/responses/200'
+          x-miro: './responses/server-api/Organization.yml#/components/responses/OrganizationMembership'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/organizations/{organization_id}/metadata':
+    patch:
+      operationId: mergeOrganizationMetadata
+      description: Merges organization metadata.
+      tags:
+        - Organization
+      parameters:
+        - name: organization_id
+          in: path
+          description: Organization ID.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1organizations/post/responses/200'
+          x-miro: './responses/server-api/Organization.yml#/components/responses/Organization'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '401':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/redirect_urls:
+    post:
+      description: Create a Redirect URL
+      operationId: createRedirectURL
+      tags:
+        - RedirectURL
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  description: Redirect URL value
+                  nullable: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  object:
+                    type: string
+                    enum:
+                      - redirect_url
+                  id:
+                    type: string
+                  url:
+                    type: string
+                  created_at:
+                    type: integer
+                    format: int64
+                    description: |
+                      Unix timestamp of creation.
+                  updated_at:
+                    type: integer
+                    format: int64
+                    description: |
+                      Unix timestamp of last update.
+                required:
+                  - object
+                  - id
+                  - url
+                  - created_at
+                  - updated_at
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    get:
+      description: Retrieves all Redirect URLs
+      operationId: listRedirectURLs
+      tags:
+        - RedirectURL
+      responses:
+        '200':
+          description: List of Redirect URLs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/paths/~1v1~1redirect_urls/post/responses/200/content/application~1json/schema'
+                  x-miro: '/tmp/schemas/server-api/RedirectURL.yml#/components/schemas/RedirectURL'
+  '/v1/redirect_urls/{id}':
+    get:
+      description: Retrieves a Redirect URL with the given id
+      operationId: getRedirectURL
+      tags:
+        - RedirectURL
+      parameters:
+        - name: id
+          in: path
+          description: Redirect URL ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1redirect_urls/post/responses/200'
+          x-miro: './responses/server-api/RedirectURL.yml#/components/responses/RedirectURL'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+    delete:
+      description: Delete a RedirectURL with the given id
+      operationId: deleteRedirectURL
+      tags:
+        - RedirectURL
+      parameters:
+        - name: id
+          in: path
+          description: Redirect URL ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1email_addresses~1%7Bemail_address_id%7D/delete/responses/200'
+          x-miro: './responses/shared/DeletedObject.yml#/components/responses/DeletedObject'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  /v1/sign_in_tokens:
+    post:
+      description: Create a sign in token for the given user.
+      operationId: createSignInToken
+      tags:
+        - SignInToken
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: false
+                properties:
+                  object:
+                    type: string
+                    enum:
+                      - sign_in_token
+                  id:
+                    type: string
+                  status:
+                    type: string
+                    enum:
+                      - pending
+                      - accepted
+                      - revoked
+                  user_id:
+                    type: string
+                  token:
+                    type: string
+                  created_at:
+                    type: integer
+                    format: int64
+                    description: |
+                      Unix timestamp of creation.
+                  updated_at:
+                    type: integer
+                    format: int64
+                    description: |
+                      Unix timestamp of last update.
+                required:
+                  - object
+                  - id
+                  - user_id
+                  - status
+                  - created_at
+                  - updated_at
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '422':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/sign_in_tokens/{sign_in_token_id}/revoke':
+    post:
+      description: Revoke the given sign in token.
+      operationId: revokeSignInToken
+      tags:
+        - SignInToken
+      parameters:
+        - name: sign_in_token_id
+          in: path
+          description: Sign in token id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1v1~1sign_in_tokens/post/responses/200'
+          x-miro: './responses/server-api/SignInToken.yml#/components/responses/SignInToken'
+        '400':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+        '404':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+  '/v1/sign_ups/{id}':
+    patch:
+      description: Update a sign up
+      operationId: updateSignUp
+      parameters:
+        - name: id
+          in: path
+          description: The sign up ID
+          required: true
+          schema:
+            type: string
+      responses:
+        '403':
+          $ref: '#/paths/~1v1~1clients/get/responses/400'
+          x-miro: './responses/shared/Error.yml#/components/responses/ClerkErrors'
+
