@@ -295,6 +295,10 @@ _**bcrypt**_: The digest should be of the following form:&#x20;
 `$<algorithm version>$<cost>$<salt & hash>`\
 
 
+**md5:** The digest should follow the regular form e.g. `5f4dcc3b5aa765d61d8327deb882cf99`
+
+
+
 _**pbkdf2\_sha256\_django**:_ This is the Django-specific variant of PBKDF2 and the digest should have the following format (as exported from Django):
 
 `pbkdf2_sha256$<iterations>$<salt>$<hash>`\
