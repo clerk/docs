@@ -31,7 +31,7 @@ The image to upload.
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="delete" path="/v1/organizations/:id/logo" baseUrl="https://api.clerk.dev" summary="Delete profile image" %}
+{% swagger method="delete" path="/v1/me/profile_image" baseUrl="https://api.clerk.dev" summary="Delete profile image" %}
 {% swagger-description %}
 Remove a user's profile image.
 {% endswagger-description %}
