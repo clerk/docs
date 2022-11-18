@@ -3,6 +3,7 @@
 ## Available requests
 
 * **`POST`**`/v1/me/profile_image`
+* **`DELETE`**` ``/v1/me/profile_image`
 
 ## The image object
 
@@ -30,3 +31,33 @@ The image to upload.
 {% endswagger-response %}
 {% endswagger %}
 
+{% swagger method="delete" path="/v1/organizations/:id/logo" baseUrl="https://api.clerk.dev" summary="Delete profile image" %}
+{% swagger-description %}
+Remove a user's profile image.
+{% endswagger-description %}
+
+{% swagger-response status="200: OK" description="The user profile image was successfully deleted." %}
+```javascript
+{
+    "object": "image",
+    "id": "img_21Ufcy98STcA11s3QckIwtwHIES",
+    "slug": "",
+    "deleted": true
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="The user does not have a profile image." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "resource_not_found",
+      "long_message": "Resource not found",
+      "message": "not found"
+    }
+  ]
+}
+```
+{% endswagger-response %}
+{% endswagger %}
