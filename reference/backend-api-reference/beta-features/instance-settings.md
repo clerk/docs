@@ -51,8 +51,8 @@ Enable the Progressive Sign Up algorithm. Refer to the
 The name of the JWT Template to augment your session tokens. To disable this, pass an empty string.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="enhanced_email_deliverability" type="string" %}
-"enhanced_email_deliverability" will send emails from "@clerk.dev" instead of your domain.  This can be helpful if you do not have a high domain reputation.
+{% swagger-parameter in="body" name="enhanced_email_deliverability" type="boolean" %}
+Enabling this mode will result in your instance's auth-related emails being sent from "@clerk.dev" instead of your domain.  This can be helpful if you do not have a high domain reputation.
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
