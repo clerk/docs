@@ -9,6 +9,7 @@ description: Frontend API endpoints to create organizations
 * `POST /v1/organizations`
 * `PATCH /v1/organizations/:id`
 * `DELETE /v1/organizations/:id`
+* `DELETE /v1/organizations/:id/logo`
 * `PUT /v1/organizations/:id/logo`
 
 ## The organization object
@@ -201,6 +202,51 @@ Only administrators can delete an organization.
       "code": "not_an_admin_in_organization",
       "long_message": "Current user is not an administrator in the organization. Only administrators can perform this action.",
       "message": "not an administrator"
+    }
+  ]
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger method="delete" path="/v1/organizations/:id/logo" baseUrl="https://api.clerk.dev" summary="Delete an organization's logo" %}
+{% swagger-description %}
+Remove an organization's logo. The current user must be an organization administrator.
+{% endswagger-description %}
+
+{% swagger-response status="200: OK" description="The organization logo was successfully deleted." %}
+```javascript
+{
+    "object": "image",
+    "id": "img_21Ufcy98STcA11s3QckIwtwHIES",
+    "slug": "",
+    "deleted": true
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Insufficient permissions to delete an organization logo." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "not_an_admin_in_organization",
+      "long_message":  "Current user is not an administrator in the organization. Only administrators can perform this action.",
+      "message": "not an administrator"
+    }
+  ]
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="404: Not Found" description="The organization specified by ID cannot be found or does not have a logo." %}
+```javascript
+{
+  "errors": [
+    {
+      "code": "resource_not_found",
+      "long_message": "Resource not found",
+      "message": "not found"
     }
   ]
 }

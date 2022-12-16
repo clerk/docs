@@ -4,7 +4,7 @@ Client requests are responsible for handling the **Sign in**, **Sign up**, and *
 
 ## Requests summary
 
-### [Client requests](../../backend-api-reference/clients.md)
+### [Client requests](broken-reference)
 
 * **`GET`**`/v1/client`
 * **`PUT`**`/v1/client`
