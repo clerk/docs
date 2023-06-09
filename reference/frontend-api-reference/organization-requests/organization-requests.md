@@ -260,17 +260,17 @@ Set or replace an organization's logo, by uploading an image file.&#x20;
 
 This endpoint uses the `multipart/form-data` request content type and accepts a file of image type. The file size cannot exceed 10MB. Only the following file content types are supported: `image/jpeg, image/png, image/gif, image/webp, image/x-icon, image/vnd.microsoft.icon`.
 
-You can also send the image as a base64 encoded string. In this case, you must set the request content type to `application/x-www-form-urlencoded`.
+You can also send the image as a base64 encoded string. In this case, you must set the request content type to `application/octet-stream`.
 
 The current user will be the logo uploader and must be an organization administrator.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="file" type="file" required="true" %}
-The multipart image file that will be used as the organization's logo. Can also be a base64 encoded string. Cannot exceed 10MB.
+The multipart image file that will be used as the organization's logo.  Cannot exceed 10MB.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Content-Type" type="string" required="true" %}
-multipart/form-data or application/x-www-form-urlencoded
+multipart/form-data or application/octet-stream
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="The organization logo was successfully uploaded." %}
