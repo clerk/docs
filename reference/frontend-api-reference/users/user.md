@@ -98,10 +98,6 @@ The ID of the email address to set as primary.  It must be verified, and present
 The ID of the phone number to set as primary.  It must be verified, and present on the current user.
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="password" type="string" %}
-User's password, must be at least 8 characters, and can't have been in a recent leaked password database.
-{% endswagger-parameter %}
-
 {% swagger-parameter in="body" name="username" type="string" %}
 User's username, must be unique across the instance.
 {% endswagger-parameter %}
