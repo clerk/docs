@@ -9,7 +9,7 @@ description: The User object models a user's account information.
 The `User` object contains all account information that describes a user of your app in Clerk. Users can authenticate and manage their accounts, updating their personal and contact info, or setting up security features for their account.
 
 {% hint style="info" %}
-For more information on users, see the[ User object reference](https://docs.clerk.dev/reference/clerkjs/user#attributes).
+For more information on users, see the[ User object reference](https://docs.clerk.dev/references/javascript/user/user#attributes).
 {% endhint %}
 
 ## Create users
@@ -56,7 +56,7 @@ The metadata are split into public and private. Both types are set from the [Bac
 
 There's also a third kind of metadata which are called "unsafe", since they can be set and accessed by both the [Frontend API](../reference/frontend-api-reference/) and the [Backend API](../reference/backend-api-reference/). They provide a quick method to add custom attributes to a user. These attributes will be stored on the `User` object and will be available for access at all times.&#x20;
 
-The "unsafe" custom attributes can be set upon sign up, when [creating](../reference/clerkjs/signup.md#create-params) or [updating](../reference/clerkjs/signup.md#update-params) a [`SignUp`](../reference/clerkjs/signup.md) object. After a successful sign up, these attributes will be copied to the `User` object. From that point on they can be accessed as a direct [attribute](../reference/clerkjs/user.md#attributes) of the [`User`](../reference/clerkjs/user.md) object.
+The "unsafe" custom attributes can be set upon sign up, when [creating](../reference/clerkjs/signup.md#create-params) or [updating](../reference/clerkjs/signup.md#update-params) a [`SignUp`](../reference/clerkjs/signup.md) object. After a successful sign up, these attributes will be copied to the `User` object. From that point on they can be accessed as a direct [attribute](../references/javascript/user/user.md#attributes) of the [`User`](../references/javascript/user/user.md) object.
 
 Here's a comparison of the different metadata attributes on the User object and how each can be used.
 
@@ -82,7 +82,7 @@ Looking for inspiration on how to set custom user attributes? Our [Clerk Widget 
 
 `User` objects hold profile data like their name, a profile photo, email addresses, phone numbers, connected OAuth accounts and a set of metadata that can be used internally to store arbitrary information.&#x20;
 
-Users are free to [update their profile info](../reference/clerkjs/user.md#update-params) and [change their profile picture](../reference/clerkjs/user.md#setprofileimage-file). They can add as many [email addresses](../reference/clerkjs/user.md#createemailaddress-email) or [phone numbers](../reference/clerkjs/user.md#createphonenumber-phonenumber) as they want. They can also manage their connected OAuth accounts.
+Users are free to [update their profile info](../references/javascript/user/user.md#update-params) and [change their profile picture](../references/javascript/user/user.md#setprofileimage-file). They can add as many [email addresses](../references/javascript/user/user.md#createemailaddress-email) or [phone numbers](../references/javascript/user/user.md#createphonenumber-phonenumber) as they want. They can also manage their connected OAuth accounts.
 
 Clerk provides ready-made [components](../components/user-profile/user-profile.md) and [hosted pages](broken-reference) that enable updating a user's profile out of the box.&#x20;
 
@@ -90,11 +90,11 @@ Clerk provides ready-made [components](../components/user-profile/user-profile.m
 
 Regarding account security, Clerk provides features that strengthen a user's account with little effort.
 
-Users can enable [multi-factor authentication](../popular-guides/multi-factor-authentication.md) for their accounts. In this case, every time they successfully authenticate, they must complete an additional challenge to verify their identity. Currently, only SMS based multi-factor authentication is supported, and it can be enabled by [creating a phone number](../reference/clerkjs/user.md#createphonenumber-phonenumber) for the `User` object and then configuring it for multi-factor authentication.&#x20;
+Users can enable [multi-factor authentication](../popular-guides/multi-factor-authentication.md) for their accounts. In this case, every time they successfully authenticate, they must complete an additional challenge to verify their identity. Currently, only SMS based multi-factor authentication is supported, and it can be enabled by [creating a phone number](../references/javascript/user/user.md#createphonenumber-phonenumber) for the `User` object and then configuring it for multi-factor authentication.&#x20;
 
-Users can also change their password. Frequently updating a password leads to safer authentication. Even if a password is compromised, the new one can still be used to sign in. You can change a user's password by simply [updating](../reference/clerkjs/user.md#update-params) the `User` object.
+Users can also change their password. Frequently updating a password leads to safer authentication. Even if a password is compromised, the new one can still be used to sign in. You can change a user's password by simply [updating](../references/javascript/user/user.md#update-params) the `User` object.
 
-Finally, users can get a [list of their active sessions](../reference/clerkjs/user.md#getsessions) and information about the device they signed in from.
+Finally, users can get a [list of their active sessions](../references/javascript/user/user.md#getsessions) and information about the device they signed in from.
 
 Clerk provides ready-made [components](../components/user-profile/user-profile.md) and [hosted pages](broken-reference) that enable updating a user's profile out of the box.&#x20;
 
