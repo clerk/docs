@@ -18,7 +18,7 @@ Users can be created through the [Sign up flow](sign-up-flow.md). They have to p
 
 If the sign up attempt succeeds, a new session and user is created for your application instance.&#x20;
 
-After creation, the user's authentication identifier can be used at any time to complete the [Sign in flow](sign-in-flow.md) and get an active [Session](../reference/clerkjs/session.md).
+After creation, the user's authentication identifier can be used at any time to complete the [Sign in flow](sign-in-flow.md) and get an active [Session](../reference/javascript/session).
 
 Whenever you have an active session, that means you can access the currently signed in `User` object, through the `Clerk` object.
 
