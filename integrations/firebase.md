@@ -47,7 +47,7 @@ After successfully completing the integration setup on your dashboard, you shoul
 
 ### **3.1 Retrieve a Firebase user authentication token from Clerk**
 
-The Firebase Web SDK requires an authentication token to sign-in your users using Clerk. This token can be retrieved calling the `getToken` method of the [User object](../reference/clerkjs/user.md#gettoken) for the Firebase provider.
+The Firebase Web SDK requires an authentication token to sign-in your users using Clerk. This token can be retrieved calling the `getToken` method of the [User object](../references/javascript/user/user#gettoken) for the Firebase provider.
 
 ```javascript
 await user.getToken("firebase");
